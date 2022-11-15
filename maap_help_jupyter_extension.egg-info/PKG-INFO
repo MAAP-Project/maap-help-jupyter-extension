@@ -28,7 +28,7 @@ License-File: LICENSE
 
 # MAAP Security Jupyter Extension
 
-JupyterLab extension that allows users to login to MAAP CAS and access user profile information.  
+JupyterLab extension that allows users to view a MAAP tutorial and MAAP specific options to the help tab
 &nbsp;
 ## Requirements
 
@@ -40,7 +40,7 @@ JupyterLab extension that allows users to login to MAAP CAS and access user prof
 To install the extension, execute:
 
 ```bash
-jupyter labextension install @maap-jupyterlab/maapsec-jupyter-extension
+jupyter labextension install @maap-jupyterlab/maap-help-jupyter-extension
 ```  
 &nbsp;
 ## Uninstall
@@ -48,7 +48,7 @@ jupyter labextension install @maap-jupyterlab/maapsec-jupyter-extension
 To remove the extension, execute:
 
 ```bash
-jupyter labextension uninstall @maap-jupyterlab/maapsec-jupyter-extension
+jupyter labextension uninstall @maap-jupyterlab/maap-help-jupyter-extension
 ```  
 &nbsp;
 ## Development install
@@ -90,12 +90,12 @@ jupyter lab build --minimize=False
 ## Development uninstall
 
 ```bash
-pip uninstall maapsec_jupyter_extension
+pip uninstall maap-help_jupyter_extension
 ```
 
 In development mode, you will also need to remove the symlink created by `jupyter labextension develop`
 command. To find its location, you can run `jupyter labextension list` to figure out where the `labextensions`
-folder is located. Then you can remove the symlink named `maapsec-jupyter-extension` within that folder.
+folder is located. Then you can remove the symlink named `maap-help-jupyter-extension` within that folder.
 
 ## Questions?
-Refer to the [Q&A discussion board](https://github.com/MAAP-Project/maapsec-jupyter-extension/discussions/categories/q-a).
+Refer to the [Q&A discussion board](https://github.com/MAAP-Project/maap-help-jupyter-extension/discussions/categories/q-a).
