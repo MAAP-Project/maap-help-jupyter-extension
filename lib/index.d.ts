@@ -1,4 +1,4 @@
-/** jupyterlab imp: {}orts **/
+/** jupyterlab imports **/
 import { JupyterFrontEndPlugin } from '@jupyterlab/application';
 import { WidgetTracker } from '@jupyterlab/apputils';
 /** internal imports **/

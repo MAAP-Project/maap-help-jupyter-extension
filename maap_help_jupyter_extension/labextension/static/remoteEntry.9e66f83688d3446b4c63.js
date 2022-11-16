@@ -124,7 +124,7 @@ __webpack_require__.d(exports, {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + "." + {"vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1":"89006d8044aadaae47ae","lib_index_js":"aef22b019f6d5e667b94","style_index_js":"3a3a465661fc72074529","vendors-node_modules_jupyterlab_toastify_lib_index_js":"f2b51b848d51de08a16e","webpack_sharing_consume_default_react":"760b3c111b27c15f2e92","vendors-node_modules_react-toastify_dist_react-toastify_esm_js":"d9e4c7e9651f9e7eb7b0","webpack_sharing_consume_default_react-dom":"963fe17032eade14ab58"}[chunkId] + ".js";
+/******/ 			return "" + chunkId + "." + {"vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1":"89006d8044aadaae47ae","lib_index_js":"8754079a758b9e0b87df","style_index_js":"3a3a465661fc72074529"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -241,7 +241,6 @@ __webpack_require__.d(exports, {
 /******/ 			switch(name) {
 /******/ 				case "default": {
 /******/ 					register("@maap-jupyterlab/maap-help-jupyter-extension", "0.3.3", () => (Promise.all([__webpack_require__.e("vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1"), __webpack_require__.e("lib_index_js")]).then(() => (() => (__webpack_require__(/*! ./lib/index.js */ "./lib/index.js"))))));
-/******/ 					register("jupyterlab_toastify", "4.2.1", () => (Promise.all([__webpack_require__.e("vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1"), __webpack_require__.e("vendors-node_modules_jupyterlab_toastify_lib_index_js"), __webpack_require__.e("webpack_sharing_consume_default_react")]).then(() => (() => (__webpack_require__(/*! ./node_modules/jupyterlab_toastify/lib/index.js */ "./node_modules/jupyterlab_toastify/lib/index.js"))))));
 /******/ 				}
 /******/ 				break;
 /******/ 			}
@@ -411,10 +410,7 @@ __webpack_require__.d(exports, {
 /******/ 			"webpack/sharing/consume/default/@jupyterlab/docmanager": () => (loadSingletonVersionCheck("default", "@jupyterlab/docmanager", [1,3,4,7])),
 /******/ 			"webpack/sharing/consume/default/@jupyterlab/mainmenu": () => (loadSingletonVersionCheck("default", "@jupyterlab/mainmenu", [1,3,4,7])),
 /******/ 			"webpack/sharing/consume/default/@jupyterlab/notebook": () => (loadSingletonVersionCheck("default", "@jupyterlab/notebook", [1,3,4,7])),
-/******/ 			"webpack/sharing/consume/default/@lumino/widgets": () => (loadSingletonVersionCheck("default", "@lumino/widgets", [1,1,33,0])),
-/******/ 			"webpack/sharing/consume/default/jupyterlab_toastify/jupyterlab_toastify": () => (loadStrictVersionCheckFallback("default", "jupyterlab_toastify", [1,4,2,0], () => (Promise.all([__webpack_require__.e("vendors-node_modules_jupyterlab_toastify_lib_index_js"), __webpack_require__.e("webpack_sharing_consume_default_react")]).then(() => (() => (__webpack_require__(/*! jupyterlab_toastify */ "./node_modules/jupyterlab_toastify/lib/index.js"))))))),
-/******/ 			"webpack/sharing/consume/default/react": () => (loadSingletonVersionCheck("default", "react", [1,17,0,1])),
-/******/ 			"webpack/sharing/consume/default/react-dom": () => (loadSingletonVersionCheck("default", "react-dom", [1,17,0,1]))
+/******/ 			"webpack/sharing/consume/default/@lumino/widgets": () => (loadSingletonVersionCheck("default", "@lumino/widgets", [1,1,33,0]))
 /******/ 		};
 /******/ 		// no consumes in initial chunks
 /******/ 		var chunkMapping = {
@@ -425,14 +421,7 @@ __webpack_require__.d(exports, {
 /******/ 				"webpack/sharing/consume/default/@jupyterlab/docmanager",
 /******/ 				"webpack/sharing/consume/default/@jupyterlab/mainmenu",
 /******/ 				"webpack/sharing/consume/default/@jupyterlab/notebook",
-/******/ 				"webpack/sharing/consume/default/@lumino/widgets",
-/******/ 				"webpack/sharing/consume/default/jupyterlab_toastify/jupyterlab_toastify"
-/******/ 			],
-/******/ 			"webpack_sharing_consume_default_react": [
-/******/ 				"webpack/sharing/consume/default/react"
-/******/ 			],
-/******/ 			"webpack_sharing_consume_default_react-dom": [
-/******/ 				"webpack/sharing/consume/default/react-dom"
+/******/ 				"webpack/sharing/consume/default/@lumino/widgets"
 /******/ 			]
 /******/ 		};
 /******/ 		__webpack_require__.f.consumes = (chunkId, promises) => {
@@ -484,7 +473,7 @@ __webpack_require__.d(exports, {
 /******/ 					if(installedChunkData) {
 /******/ 						promises.push(installedChunkData[2]);
 /******/ 					} else {
-/******/ 						if(!/^webpack_sharing_consume_default_react(|\-dom)$/.test(chunkId)) {
+/******/ 						if(true) { // all chunks have JS
 /******/ 							// setup Promise in chunk cache
 /******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
 /******/ 							promises.push(installedChunkData[2] = promise);
@@ -569,4 +558,4 @@ __webpack_require__.d(exports, {
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=remoteEntry.3bd63ed0212468f3e8c9.js.map
+//# sourceMappingURL=remoteEntry.9e66f83688d3446b4c63.js.map

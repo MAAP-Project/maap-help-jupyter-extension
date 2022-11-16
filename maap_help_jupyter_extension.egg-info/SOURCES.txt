@@ -19,7 +19,15 @@ maap_help_jupyter_extension/labextension/build_log.json
 maap_help_jupyter_extension/labextension/package.json
 maap_help_jupyter_extension/labextension/schemas/@maap-jupyterlab/maap-help-jupyter-extension/package.json.orig
 maap_help_jupyter_extension/labextension/schemas/@maap-jupyterlab/maap-help-jupyter-extension/plugin.json
+maap_help_jupyter_extension/labextension/static/lib_index_js.8754079a758b9e0b87df.js
+maap_help_jupyter_extension/labextension/static/lib_index_js.8754079a758b9e0b87df.js.map
+maap_help_jupyter_extension/labextension/static/remoteEntry.9e66f83688d3446b4c63.js
+maap_help_jupyter_extension/labextension/static/remoteEntry.9e66f83688d3446b4c63.js.map
 maap_help_jupyter_extension/labextension/static/style.js
+maap_help_jupyter_extension/labextension/static/style_index_js.3a3a465661fc72074529.js
+maap_help_jupyter_extension/labextension/static/style_index_js.3a3a465661fc72074529.js.map
+maap_help_jupyter_extension/labextension/static/vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1.89006d8044aadaae47ae.js
+maap_help_jupyter_extension/labextension/static/vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1.89006d8044aadaae47ae.js.map
 schema/plugin.json
 src/constants.ts
 src/globals.d.ts

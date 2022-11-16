@@ -2651,14 +2651,14 @@
         "signature": "2b68baddd488bc68a0eb44a07c89564d4a4878198f17b6d7538358f79015fbe3",
         "affectsGlobalScope": false
       },
+      "./src/index.ts": {
+        "version": "cd542e7ba9d201a4400a04d9c6d2d0b914bbfd69c6bd46a45719def6e5ab379e",
+        "signature": "2ff7f27a8aba2af06f24074b71d591efa76963293298fc34248832d475e04db2",
+        "affectsGlobalScope": false
+      },
       "./src/popups.ts": {
         "version": "852274fa318ed2923f1910eb02f25c1675a40132b687cefd8f067de755370873",
         "signature": "ef9aaa435fe05a3f9fe907e4fee90bbfe96de538fbe3bfd414e61ddf4f6998e8",
-        "affectsGlobalScope": false
-      },
-      "./src/index.ts": {
-        "version": "0dd857e2473f9dcdfa91bd0de11704f9688be6f9361951462d952c9fd7402af7",
-        "signature": "c05cd91b74c8a0b5ebd967d36ef5774dc1c41ee0c2ff7808fe30e93edbedb30a",
         "affectsGlobalScope": false
       },
       "./node_modules/jest-diff/build/cleanupsemantic.d.ts": {
@@ -5377,11 +5377,8 @@
         "./node_modules/@jupyterlab/docmanager/lib/index.d.ts",
         "./node_modules/@jupyterlab/mainmenu/lib/index.d.ts",
         "./node_modules/@jupyterlab/notebook/lib/index.d.ts",
-        "./node_modules/@lumino/coreutils/types/index.d.ts",
         "./node_modules/@lumino/widgets/types/index.d.ts",
-        "./node_modules/jupyterlab_toastify/lib/index.d.ts",
         "./src/globals.d.ts",
-        "./src/popups.ts",
         "./src/widgets.ts"
       ],
       "./src/popups.ts": [
@@ -8042,6 +8039,7 @@
       "./src/index.ts": [
         "./node_modules/@jupyterlab/application/lib/index.d.ts",
         "./node_modules/@jupyterlab/apputils/lib/index.d.ts",
+        "./src/globals.d.ts",
         "./src/widgets.ts"
       ],
       "./src/widgets.ts": [
