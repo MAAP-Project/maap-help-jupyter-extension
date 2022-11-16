@@ -1,4 +1,4 @@
-# ades-metrics-visualization-jupyter-extension
+# maap-help-jupyter-extension
 
 Jupyter extension that shows an interactive tutorial and adds MAAP specific information to the help tab
 
