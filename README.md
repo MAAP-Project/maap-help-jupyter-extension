@@ -58,7 +58,7 @@ extension code.
 Now, we can run the extension. Note by adding `--watch`, we just have to refresh the browser when the project is rebuilt.
 
 ```bash
-jupyter lab --watch
+jupyter lab --watch 
 ```
 
 ### Development uninstall
