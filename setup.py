@@ -30,14 +30,14 @@ data_files_spec = [
     ("share/jupyter/labextensions/%s" % labext_name, str("."), "install.json"),
 ]
 
-long_description = (HERE / "README.md").read_text()
+long_description = (HERE / "README.md").read_text(encoding="utf8")
 
 version = (
     pkg_json["version"]
     .replace("-alpha.", "a")
     .replace("-beta.", "b")
     .replace("-rc.", "rc")
-) 
+)
 
 setup_args = dict(
     name=name,
@@ -51,7 +51,6 @@ setup_args = dict(
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
-    install_requires=[],
     zip_safe=False,
     include_package_data=True,
     python_requires=">=3.7",
@@ -88,8 +87,8 @@ except ImportError as e:
     import logging
     logging.basicConfig(format="%(levelname)s: %(message)s")
     logging.warning("Build tool `jupyter-packaging` is missing. Install it with pip or conda.")
-    #if not ("--name" in sys.argv or "--version" in sys.argv):
-    #    raise e
+    if not ("--name" in sys.argv or "--version" in sys.argv):
+        raise e
 
 if __name__ == "__main__":
     setuptools.setup(**setup_args)

@@ -1,73 +1,93 @@
-# MAAP Security Jupyter Extension
+# ades-metrics-visualization-jupyter-extension
 
-JupyterLab extension that allows users to view a MAAP tutorial and MAAP specific options to the help tab
-&nbsp;
+Jupyter extension that shows an interactive tutorial and adds MAAP specific information to the help tab
+
 ## Requirements
 
-* JupyterLab >= 3.4
-* [jupyter-server-extension](https://github.com/MAAP-Project/jupyter-server-extension)  
-&nbsp;
+* JupyterLab >= 3.0
+
 ## Install
 
 To install the extension, execute:
 
 ```bash
-jupyter labextension install @maap-jupyterlab/maap-help-jupyter-extension
-```  
-&nbsp;
+pip install maap_help_jupyter_extension
+```
+
 ## Uninstall
 
 To remove the extension, execute:
 
 ```bash
-jupyter labextension uninstall @maap-jupyterlab/maap-help-jupyter-extension
-```  
-&nbsp;
-## Development install
+pip uninstall maap_help_jupyter_extension
+```
+## Contributing
+
+### Development install
 
 Note: You will need NodeJS to build the extension package.
 
-The `jlpm` command is JupyterLab's pinned version of
-[yarn](https://yarnpkg.com/) that is installed with JupyterLab. You may use
-`yarn` or `npm` in lieu of `jlpm` below.
 
 ```bash
-# Clone the repo to your local environment
-# Change directory to the maapsec_jupyter_extension directory
 # Install package in development mode
 pip install -e .
 # Link your development version of the extension with JupyterLab
 jupyter labextension develop . --overwrite
 # Rebuild extension Typescript source after making changes
-jlpm build
+jlpm run build
 ```
 
-You can watch the source directory and run JupyterLab at the same time in different terminals to watch for changes in the extension's source and automatically rebuild the extension.
+> The `jlpm` command is JupyterLab's pinned version of
+> [yarn](https://yarnpkg.com/) that is installed with JupyterLab. You may use
+> `yarn` or `npm` in lieu of `jlpm` below.
+
+The first command installs the dependencies that are specified in the
+`setup.py` file and in `package.json`. Among the dependencies are also all the `JupyterLab` components that you want to use in your project.
+
+It then runs the build script. In that step, the TypeScript code gets
+converted to javascript using the compiler `tsc` and stored in a `lib`
+directory. And a condensed form of the Javascript is copied in the Python
+package (in the folder `maap_help_jupyter_extension/labextension`). This is the code that
+would be installed by the user in JupyterLab.
+
+The second command creates a symbolic link to the folder `maap_help_jupyter_extension/labextension` so that extension is installed in development mode in JupyterLab.
+
+The third command allows you to update the Javascript code each time you modify your
+extension code.
+
+Now, we can run the extension. Note by adding `--watch`, we just have to refresh the browser when the project is rebuilt.
 
 ```bash
-# Watch the source directory in one terminal, automatically rebuilding when needed
-jlpm watch
-# Run JupyterLab in another terminal
-jupyter lab
+jupyter lab --watch
 ```
 
-With the watch command running, every saved change will immediately be built locally and available in your running JupyterLab. Refresh JupyterLab to load the change in your browser (you may need to wait several seconds for the extension to be rebuilt).
-
-By default, the `jlpm build` command generates the source maps for this extension to make it easier to debug using the browser dev tools. To also generate source maps for the JupyterLab core extensions, you can run the following command:
+### Development uninstall
 
 ```bash
-jupyter lab build --minimize=False
-```  
-&nbsp;
-## Development uninstall
-
-```bash
-pip uninstall maap-help_jupyter_extension
+pip uninstall maap_help_jupyter_extension
 ```
 
 In development mode, you will also need to remove the symlink created by `jupyter labextension develop`
 command. To find its location, you can run `jupyter labextension list` to figure out where the `labextensions`
 folder is located. Then you can remove the symlink named `maap-help-jupyter-extension` within that folder.
 
-## Questions?
-Refer to the [Q&A discussion board](https://github.com/MAAP-Project/maap-help-jupyter-extension/discussions/categories/q-a).
+## File Structure Info
+
+- Information about the extension:
+  - `README.md` contains some instructions
+  - `LICENSE` contains your extension code license; BSD-3 Clause by default (but you can change it).
+- Extension code (those files are mandatory):
+  - `package.json` contains information about the extension such as dependencies
+  - `tsconfig.json` contains information for the typescript compilation
+  - `src/index.ts` _this contains the actual code of your extension_
+  - `style/` folder contains style elements that you can use
+- Validation:
+  - `.prettierrc` and `.prettierignore` specify the code formatter [`prettier`](https://prettier.io) configuration
+  - `.eslintrc.js` and `.eslintignore` specify the code linter [`eslint`](https://eslint.org) configuration
+  - `.github/workflows/build.yml` sets the continuous integration tests of the code using [GitHub Actions](https://help.github.com/en/actions)
+- Packaging as a Python package:
+  - `setup.py` contains information about the Python package such as what to package
+  - `pyproject.toml` contains the dependencies to create the Python package
+  - `MANIFEST.in` contains list of non-Python files to include in the Python package
+  - `install.json` contains information retrieved by JupyterLab to help users know how to manage the package
+  - `maap_help_jupyter_extension` folder contains the final code to be distributed

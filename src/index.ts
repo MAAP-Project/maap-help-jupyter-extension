@@ -1,44 +1,66 @@
-import { ICommandPalette } from '@jupyterlab/apputils';
-import { JupyterFrontEndPlugin, JupyterFrontEnd } from '@jupyterlab/application';
-import { ILauncher } from '@jupyterlab/launcher';
-import { IMainMenu } from '@jupyterlab/mainmenu';
-import { IStateDB } from '@jupyterlab/statedb';
-import { activateMenuOptions, activateLogin, IMaapProfile }  from './activate'
+import {
+  JupyterFrontEnd,
+  JupyterFrontEndPlugin
+} from '@jupyterlab/application';
 
-const extensionList: JupyterFrontEndPlugin<IMaapProfile> = {
-  id: 'maapsec-login',
+import { ISettingRegistry } from '@jupyterlab/settingregistry';
+
+import { ICommandPalette, MainAreaWidget } from '@jupyterlab/apputils';
+
+import { Widget } from '@lumino/widgets';
+
+
+import { LOCAL_KIBANA_URL } from './constants';
+
+/**
+ * Initialization data for the maap-help extension.
+ */
+const plugin: JupyterFrontEndPlugin<void> = {
+  id: 'maap-help:plugin',
   autoStart: true,
-  requires: [ICommandPalette, IStateDB],
-  optional: [ILauncher],
-  activate: activateLogin
-};
+  requires: [ICommandPalette],
+  optional: [ISettingRegistry],
+  activate: (app: JupyterFrontEnd, palette: ICommandPalette, settingRegistry: ISettingRegistry | null) => {
+    const { commands } = app;
+    const command: string = 'ades:open';
+    commands.addCommand(command, {
+      label: 'Maap help',
+      execute: () => {
+        const content = new Widget();
+        const widget = new MainAreaWidget({ content });
 
-const extensionMaapProfileMenu: JupyterFrontEndPlugin<void> = {
-  id: 'maapsec-menu',
-  autoStart: true,
-  requires: [IMainMenu],
-  activate: activateMenuOptions
-};
+        let div = document.createElement('div');
+        div.classList.add('iframe-widget');
+        let iframe = document.createElement('iframe');
+        iframe.id = 'iframeid';
+        iframe.src = LOCAL_KIBANA_URL;
+        div.appendChild(iframe);
+        content.node.appendChild(div);
 
-const extensionMaapLoginReceiver: JupyterFrontEndPlugin<void> = {
-  id: 'maapsec-login-receiver',
-  autoStart: true,
-  activate: (app: JupyterFrontEnd): void => {
+        widget.id = 'jupyter-ades';
+        widget.title.label = 'ADES Metrics';
+        widget.title.closable = true;
 
-    
-    
-    if(window.location.href.includes('ticket=')) {
-         let name = 'ticket';
-         let url = window.location.href;
-         var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-             results = regex.exec(url);
-      if (results != null) {
-        let ticketValue = decodeURIComponent(results[2].replace(/\+/g, ' '));
-        window.opener.postMessage(ticketValue, url);
-      }
+        app.shell.add(widget, 'main');
+        app.shell.activateById(widget.id);
+      },
+    });
+
+    if (settingRegistry) {
+      settingRegistry
+        .load(plugin.id)
+        .then(settings => {
+          console.log('maap help settings loaded:', settings.composite);
+        })
+        .catch(reason => {
+          console.error('Failed to load settings for maap help.', reason);
+        });
     }
-    console.log('MAAPSec extension activated!');
+
+    palette.addItem({ command, category: 'Tutorial' });
+
+    console.log('JupyterLab extension maap help is activated!');
   }
 };
 
-export default [extensionMaapProfileMenu, extensionList, extensionMaapLoginReceiver];
+export default plugin;

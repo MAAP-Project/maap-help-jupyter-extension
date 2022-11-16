@@ -1,4 +1,6 @@
-import { JupyterFrontEndPlugin, JupyterFrontEnd } from '@jupyterlab/application';
-import { IMaapProfile } from './activate';
-declare const _default: (JupyterFrontEndPlugin<void, JupyterFrontEnd.IShell, "desktop" | "mobile"> | JupyterFrontEndPlugin<IMaapProfile, JupyterFrontEnd.IShell, "desktop" | "mobile">)[];
-export default _default;
+import { JupyterFrontEndPlugin } from '@jupyterlab/application';
+/**
+ * Initialization data for the maap-help extension.
+ */
+declare const plugin: JupyterFrontEndPlugin<void>;
+export default plugin;

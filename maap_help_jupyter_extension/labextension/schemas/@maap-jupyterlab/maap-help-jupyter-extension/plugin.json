@@ -1,0 +1,8 @@
+{
+  "jupyter.lab.shortcuts": [],
+  "title": "maap-help-jupyter-extension",
+  "description": "maap-help-jupyter-extension settings.",
+  "type": "object",
+  "properties": {},
+  "additionalProperties": false
+}

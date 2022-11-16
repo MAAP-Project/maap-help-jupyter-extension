@@ -9,7 +9,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "noEmitOnError": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "noUnusedLocals": true,
     "preserveWatchOutput": true,
     "resolveJsonModule": true,
@@ -17,9 +17,8 @@
     "rootDir": "src",
     "strict": true,
     "strictNullChecks": true,
-    "strictPropertyInitialization": false,
     "target": "es2017",
-    "types": []
+    "types": ["jest"]
   },
   "include": ["src/*"]
 }
