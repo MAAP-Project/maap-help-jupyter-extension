@@ -126,56 +126,6 @@
         "signature": "8374df0cab8d7f95a45e0003363ca91630a80b0d727e8f98fc925886bfc75405",
         "affectsGlobalScope": false
       },
-      "./node_modules/@lumino/coreutils/types/json.d.ts": {
-        "version": "44a4b5ef53f2ff94bfcfa223e3fc3ad35f32bef57337e050513dd7c729a0cb63",
-        "signature": "44a4b5ef53f2ff94bfcfa223e3fc3ad35f32bef57337e050513dd7c729a0cb63",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@lumino/coreutils/types/mime.d.ts": {
-        "version": "47dbb9212d0f309e56914de06038a91ad4f0ce9e28a200ebe7c8268bada8fede",
-        "signature": "47dbb9212d0f309e56914de06038a91ad4f0ce9e28a200ebe7c8268bada8fede",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@lumino/coreutils/types/promise.d.ts": {
-        "version": "a57ee34edf8791c8c4395ada1fb459df7aad714838555ab306729b66db795840",
-        "signature": "a57ee34edf8791c8c4395ada1fb459df7aad714838555ab306729b66db795840",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@lumino/coreutils/types/token.d.ts": {
-        "version": "facc62a0c8748f37d6c85d3e5a6eb4cd1d40a899d4ee2c360c9ec4756513931c",
-        "signature": "facc62a0c8748f37d6c85d3e5a6eb4cd1d40a899d4ee2c360c9ec4756513931c",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@lumino/coreutils/types/index.common.d.ts": {
-        "version": "d59884537fee2053545586c2ea66e27ae54fa0e59e9fec4ef58b9bb3eb3a676c",
-        "signature": "d59884537fee2053545586c2ea66e27ae54fa0e59e9fec4ef58b9bb3eb3a676c",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@lumino/coreutils/types/random.d.ts": {
-        "version": "f58caa451ccf0cdc2834698380fa13f964033178d0cb73cce5d2fd2ba0cfbade",
-        "signature": "f58caa451ccf0cdc2834698380fa13f964033178d0cb73cce5d2fd2ba0cfbade",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@lumino/coreutils/types/random.browser.d.ts": {
-        "version": "42b37508de20026ecfb53ad4293a3fb1d5ceac85d03f4d831c999db3f2d942cc",
-        "signature": "42b37508de20026ecfb53ad4293a3fb1d5ceac85d03f4d831c999db3f2d942cc",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@lumino/coreutils/types/uuid.browser.d.ts": {
-        "version": "6bb2babdac69f5089b8e5d645977aa18301e6c9ddd8e80fdd5996149235ffe35",
-        "signature": "6bb2babdac69f5089b8e5d645977aa18301e6c9ddd8e80fdd5996149235ffe35",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@lumino/coreutils/types/index.d.ts": {
-        "version": "741e32002f767357ff950d74855ea336e51409738f861e6d5a163cd4b0450bd2",
-        "signature": "741e32002f767357ff950d74855ea336e51409738f861e6d5a163cd4b0450bd2",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@jupyterlab/services/lib/config/index.d.ts": {
-        "version": "41bd5decb99be607b760e0fcec9bccb318b0db4e32fa4771d07fdeffca120552",
-        "signature": "41bd5decb99be607b760e0fcec9bccb318b0db4e32fa4771d07fdeffca120552",
-        "affectsGlobalScope": false
-      },
       "./node_modules/@lumino/algorithm/types/array.d.ts": {
         "version": "df52f40fae2bd287b9fb52f0d4cd6978891f5b9e12c8bc4b51f5aeb20673db24",
         "signature": "df52f40fae2bd287b9fb52f0d4cd6978891f5b9e12c8bc4b51f5aeb20673db24",
@@ -274,6 +224,111 @@
       "./node_modules/@lumino/disposable/types/index.d.ts": {
         "version": "80a29bdb045c8403249b0df81e2c660139556735e363b9228b9e6ed731576cfe",
         "signature": "80a29bdb045c8403249b0df81e2c660139556735e363b9228b9e6ed731576cfe",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@jupyterlab/coreutils/lib/activitymonitor.d.ts": {
+        "version": "b5575443873e492a09e84e53f65c37a24f5d291a306036f74fd34646ee9c14dd",
+        "signature": "b5575443873e492a09e84e53f65c37a24f5d291a306036f74fd34646ee9c14dd",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@jupyterlab/coreutils/lib/interfaces.d.ts": {
+        "version": "e4591a005f34ccbbbec0bd140702e243387d57a21b1d4bb6bd3e76de152fc89f",
+        "signature": "e4591a005f34ccbbbec0bd140702e243387d57a21b1d4bb6bd3e76de152fc89f",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@jupyterlab/coreutils/lib/markdowncodeblocks.d.ts": {
+        "version": "377fa33e5213ba934d4350d674296c1387aa2ebd225e2a296a465bb691915884",
+        "signature": "377fa33e5213ba934d4350d674296c1387aa2ebd225e2a296a465bb691915884",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@jupyterlab/coreutils/lib/pageconfig.d.ts": {
+        "version": "8285079f41ab72940a3889e2fabd26c4fe9662783d3ce008213ee68c1f5bca06",
+        "signature": "8285079f41ab72940a3889e2fabd26c4fe9662783d3ce008213ee68c1f5bca06",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@jupyterlab/coreutils/lib/path.d.ts": {
+        "version": "6baff3e4e3aca45d2879a6b26369316430f8756d85319898c64c69019036ab61",
+        "signature": "6baff3e4e3aca45d2879a6b26369316430f8756d85319898c64c69019036ab61",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@jupyterlab/coreutils/lib/text.d.ts": {
+        "version": "7efd9303320cf186211b14e1723172a2bc15378c0d95e49990f31be5d2f271d4",
+        "signature": "7efd9303320cf186211b14e1723172a2bc15378c0d95e49990f31be5d2f271d4",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@jupyterlab/coreutils/lib/time.d.ts": {
+        "version": "315dfd130e525ffa1934e769dc2266bafb35d021951a7845eb145089501ed86d",
+        "signature": "315dfd130e525ffa1934e769dc2266bafb35d021951a7845eb145089501ed86d",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@lumino/coreutils/types/json.d.ts": {
+        "version": "44a4b5ef53f2ff94bfcfa223e3fc3ad35f32bef57337e050513dd7c729a0cb63",
+        "signature": "44a4b5ef53f2ff94bfcfa223e3fc3ad35f32bef57337e050513dd7c729a0cb63",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@lumino/coreutils/types/mime.d.ts": {
+        "version": "47dbb9212d0f309e56914de06038a91ad4f0ce9e28a200ebe7c8268bada8fede",
+        "signature": "47dbb9212d0f309e56914de06038a91ad4f0ce9e28a200ebe7c8268bada8fede",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@lumino/coreutils/types/promise.d.ts": {
+        "version": "a57ee34edf8791c8c4395ada1fb459df7aad714838555ab306729b66db795840",
+        "signature": "a57ee34edf8791c8c4395ada1fb459df7aad714838555ab306729b66db795840",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@lumino/coreutils/types/token.d.ts": {
+        "version": "facc62a0c8748f37d6c85d3e5a6eb4cd1d40a899d4ee2c360c9ec4756513931c",
+        "signature": "facc62a0c8748f37d6c85d3e5a6eb4cd1d40a899d4ee2c360c9ec4756513931c",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@lumino/coreutils/types/index.common.d.ts": {
+        "version": "d59884537fee2053545586c2ea66e27ae54fa0e59e9fec4ef58b9bb3eb3a676c",
+        "signature": "d59884537fee2053545586c2ea66e27ae54fa0e59e9fec4ef58b9bb3eb3a676c",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@lumino/coreutils/types/random.d.ts": {
+        "version": "f58caa451ccf0cdc2834698380fa13f964033178d0cb73cce5d2fd2ba0cfbade",
+        "signature": "f58caa451ccf0cdc2834698380fa13f964033178d0cb73cce5d2fd2ba0cfbade",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@lumino/coreutils/types/random.browser.d.ts": {
+        "version": "42b37508de20026ecfb53ad4293a3fb1d5ceac85d03f4d831c999db3f2d942cc",
+        "signature": "42b37508de20026ecfb53ad4293a3fb1d5ceac85d03f4d831c999db3f2d942cc",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@lumino/coreutils/types/uuid.browser.d.ts": {
+        "version": "6bb2babdac69f5089b8e5d645977aa18301e6c9ddd8e80fdd5996149235ffe35",
+        "signature": "6bb2babdac69f5089b8e5d645977aa18301e6c9ddd8e80fdd5996149235ffe35",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@lumino/coreutils/types/index.d.ts": {
+        "version": "741e32002f767357ff950d74855ea336e51409738f861e6d5a163cd4b0450bd2",
+        "signature": "741e32002f767357ff950d74855ea336e51409738f861e6d5a163cd4b0450bd2",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@jupyterlab/coreutils/lib/url.d.ts": {
+        "version": "99dda0cb4742feb2ea1339c6227119d47df6bc4ba8c886341c1fc879dfccb1d2",
+        "signature": "99dda0cb4742feb2ea1339c6227119d47df6bc4ba8c886341c1fc879dfccb1d2",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@jupyterlab/coreutils/lib/index.d.ts": {
+        "version": "7a7fa32e403e381e681ef4984c9dc22adf0d32c1e4b7ad9fd5c6552412c855f0",
+        "signature": "7a7fa32e403e381e681ef4984c9dc22adf0d32c1e4b7ad9fd5c6552412c855f0",
+        "affectsGlobalScope": false
+      },
+      "./src/request.ts": {
+        "version": "c44260fc4623c00a9f6c6eee7e33b74b5b58d4a05a6222a0095a157a9b646fec",
+        "signature": "de6d84fe6a85226a883c0e6c083cb8da35a483d73864690a005a8dee5402fd56",
+        "affectsGlobalScope": false
+      },
+      "./src/funcs.ts": {
+        "version": "4cdc46e4946d115eeb9c07c2c626519f8c2054a0cefb2283caf61eb5bd8c2248",
+        "signature": "7d0638de42e79c15c3c32f50521bd3e2c38a5cddf6ff49bb57d865b9a041ab49",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@jupyterlab/services/lib/config/index.d.ts": {
+        "version": "41bd5decb99be607b760e0fcec9bccb318b0db4e32fa4771d07fdeffca120552",
+        "signature": "41bd5decb99be607b760e0fcec9bccb318b0db4e32fa4771d07fdeffca120552",
         "affectsGlobalScope": false
       },
       "./node_modules/@lumino/messaging/types/index.d.ts": {
@@ -409,51 +464,6 @@
       "./node_modules/@jupyterlab/services/lib/nbconvert/index.d.ts": {
         "version": "e3d73207d0e9c210e4a9d133a929c474f870e9d23ff0075c7d2512a107e50a5e",
         "signature": "e3d73207d0e9c210e4a9d133a929c474f870e9d23ff0075c7d2512a107e50a5e",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@jupyterlab/coreutils/lib/activitymonitor.d.ts": {
-        "version": "b5575443873e492a09e84e53f65c37a24f5d291a306036f74fd34646ee9c14dd",
-        "signature": "b5575443873e492a09e84e53f65c37a24f5d291a306036f74fd34646ee9c14dd",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@jupyterlab/coreutils/lib/interfaces.d.ts": {
-        "version": "e4591a005f34ccbbbec0bd140702e243387d57a21b1d4bb6bd3e76de152fc89f",
-        "signature": "e4591a005f34ccbbbec0bd140702e243387d57a21b1d4bb6bd3e76de152fc89f",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@jupyterlab/coreutils/lib/markdowncodeblocks.d.ts": {
-        "version": "377fa33e5213ba934d4350d674296c1387aa2ebd225e2a296a465bb691915884",
-        "signature": "377fa33e5213ba934d4350d674296c1387aa2ebd225e2a296a465bb691915884",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@jupyterlab/coreutils/lib/pageconfig.d.ts": {
-        "version": "8285079f41ab72940a3889e2fabd26c4fe9662783d3ce008213ee68c1f5bca06",
-        "signature": "8285079f41ab72940a3889e2fabd26c4fe9662783d3ce008213ee68c1f5bca06",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@jupyterlab/coreutils/lib/path.d.ts": {
-        "version": "6baff3e4e3aca45d2879a6b26369316430f8756d85319898c64c69019036ab61",
-        "signature": "6baff3e4e3aca45d2879a6b26369316430f8756d85319898c64c69019036ab61",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@jupyterlab/coreutils/lib/text.d.ts": {
-        "version": "7efd9303320cf186211b14e1723172a2bc15378c0d95e49990f31be5d2f271d4",
-        "signature": "7efd9303320cf186211b14e1723172a2bc15378c0d95e49990f31be5d2f271d4",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@jupyterlab/coreutils/lib/time.d.ts": {
-        "version": "315dfd130e525ffa1934e769dc2266bafb35d021951a7845eb145089501ed86d",
-        "signature": "315dfd130e525ffa1934e769dc2266bafb35d021951a7845eb145089501ed86d",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@jupyterlab/coreutils/lib/url.d.ts": {
-        "version": "99dda0cb4742feb2ea1339c6227119d47df6bc4ba8c886341c1fc879dfccb1d2",
-        "signature": "99dda0cb4742feb2ea1339c6227119d47df6bc4ba8c886341c1fc879dfccb1d2",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@jupyterlab/coreutils/lib/index.d.ts": {
-        "version": "7a7fa32e403e381e681ef4984c9dc22adf0d32c1e4b7ad9fd5c6552412c855f0",
-        "signature": "7a7fa32e403e381e681ef4984c9dc22adf0d32c1e4b7ad9fd5c6552412c855f0",
         "affectsGlobalScope": false
       },
       "./node_modules/@jupyterlab/services/lib/session/session.d.ts": {
@@ -4568,6 +4578,10 @@
         "./node_modules/yjs/dist/src/types/abstracttype.d.ts",
         "./node_modules/yjs/dist/src/utils/transaction.d.ts"
       ],
+      "./src/funcs.ts": [
+        "./node_modules/@jupyterlab/coreutils/lib/index.d.ts",
+        "./src/request.ts"
+      ],
       "./src/index.ts": [
         "./node_modules/@jupyterlab/application/lib/index.d.ts",
         "./node_modules/@jupyterlab/apputils/lib/index.d.ts",
@@ -6773,6 +6787,9 @@
         "./node_modules/yjs/dist/src/types/abstracttype.d.ts",
         "./node_modules/yjs/dist/src/utils/transaction.d.ts"
       ],
+      "./src/funcs.ts": [
+        "./src/request.ts"
+      ],
       "./src/index.ts": [
         "./node_modules/@jupyterlab/application/lib/index.d.ts"
       ]
@@ -7246,7 +7263,9 @@
       "./node_modules/yjs/dist/src/utils/updates.d.ts",
       "./node_modules/yjs/dist/src/utils/yevent.d.ts",
       "./src/constants.ts",
-      "./src/index.ts"
+      "./src/funcs.ts",
+      "./src/index.ts",
+      "./src/request.ts"
     ]
   },
   "version": "4.1.6"
