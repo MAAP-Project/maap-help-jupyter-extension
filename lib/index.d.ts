@@ -1,6 +1,9 @@
+/** jupyterlab imp: {}orts **/
 import { JupyterFrontEndPlugin } from '@jupyterlab/application';
-/**
- * Initialization data for the maap-help extension.
- */
-declare const plugin: JupyterFrontEndPlugin<void>;
-export default plugin;
+import { WidgetTracker } from '@jupyterlab/apputils';
+/** internal imports **/
+import '../style/index.css';
+import { IFrameWidget } from './widgets';
+import "./globals";
+declare const extension: JupyterFrontEndPlugin<WidgetTracker<IFrameWidget>>;
+export default extension;

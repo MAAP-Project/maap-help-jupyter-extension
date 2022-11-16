@@ -622,6 +622,7 @@
               "import": false,
               "singleton": true
             },
+            "jupyterlab_toastify": {},
             "@maap-jupyterlab/maap-help-jupyter-extension": {
               "version": "0.3.3",
               "singleton": true,
