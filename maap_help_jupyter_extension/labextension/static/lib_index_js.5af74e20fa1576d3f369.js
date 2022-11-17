@@ -87,9 +87,9 @@ function activate(app, palette, restorer, mainMenu) {
             }*/
         }
     });
-    palette.addItem({ command: test1, category: 'Search' });
+    palette.addItem({ command: test1, category: 'Help' });
     //graceal- try to change search category
-    const test2 = 'search:displayParams';
+    const test2 = 'help:test2';
     app.commands.addCommand(test2, {
         label: 'Test2',
         isEnabled: () => true,
@@ -97,8 +97,8 @@ function activate(app, palette, restorer, mainMenu) {
             console.log("in execute of test2");
         }
     });
-    palette.addItem({ command: test2, category: 'Search' });
-    const test3 = 'search:pasteCollectionQuery';
+    palette.addItem({ command: test2, category: 'Help' });
+    const test3 = 'help:test3';
     app.commands.addCommand(test3, {
         label: 'Test 3',
         isEnabled: () => true,
@@ -106,18 +106,18 @@ function activate(app, palette, restorer, mainMenu) {
             console.log("in execute of test3");
         }
     });
-    palette.addItem({ command: test3, category: 'Search' });
+    palette.addItem({ command: test3, category: 'Help' });
     const { commands } = app;
-    let searchMenu = new _lumino_widgets__WEBPACK_IMPORTED_MODULE_4__.Menu({ commands });
-    searchMenu.title.label = 'Help';
+    let helpMenu = new _lumino_widgets__WEBPACK_IMPORTED_MODULE_4__.Menu({ commands });
+    helpMenu.title.label = 'Help';
     [
         test1,
         test2,
         test3
     ].forEach(command => {
-        searchMenu.addItem({ command });
+        helpMenu.addItem({ command });
     });
-    mainMenu.addMenu(searchMenu, { rank: 100 });
+    mainMenu.addMenu(helpMenu, { rank: 100 });
     // Track and restore the widget state
     restorer.restore(instanceTracker, {
         command: test1,
@@ -218,4 +218,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /***/ })
 
 }]);
-//# sourceMappingURL=lib_index_js.dfe4cb354b44d37079c6.js.map
+//# sourceMappingURL=lib_index_js.5af74e20fa1576d3f369.js.map
