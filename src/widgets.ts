@@ -58,6 +58,7 @@ class IFrameWidget extends Widget {
 //
 // Widget to display selected search parameter
 //
+
 export
 class ParamsPopupWidget extends Widget {
   constructor() {
@@ -69,7 +70,6 @@ class ParamsPopupWidget extends Widget {
     super({ node: body });
   }
 }
-
 //
 // Popup widget to display any string message
 //
@@ -104,8 +104,17 @@ export class LimitPopupWidget extends Widget {
 
   /* sets limit */
   getValue() {
-    console.log("graceal- in the get value function");
     INotification.success("made it to get value function");
   }
 
+}
+export class Test1Widget extends Widget {
+  constructor() {
+    let body = document.createElement('div');
+    body.style.display = 'flex';
+    body.style.flexDirection = 'column';
+    body.innerHTML = "<pre>Test1: </pre><br>";
+
+    super({ node: body });
+  }
 }

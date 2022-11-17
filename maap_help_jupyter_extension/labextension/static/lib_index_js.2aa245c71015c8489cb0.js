@@ -22,6 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lumino_widgets__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @lumino/widgets */ "webpack/sharing/consume/default/@lumino/widgets");
 /* harmony import */ var _lumino_widgets__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_lumino_widgets__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _style_index_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../style/index.css */ "./style/index.css");
+/* harmony import */ var _popups__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./popups */ "./lib/popups.js");
 /** jupyterlab imports **/
 
 
@@ -31,7 +32,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /** internal imports **/
 
-//import { setResultsLimit, displaySearchParams } from './popups'
+
 
 console.log(_jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_2__.PageConfig.getBaseUrl());
 ///////////////////////////////////////////////////////////////
@@ -46,7 +47,6 @@ const extension = {
     activate: activate
 };
 function activate(app, palette, restorer, mainMenu) {
-    //let widget: IFrameWidget;
     const namespace = 'tracker-iframe';
     let instanceTracker = new _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_1__.WidgetTracker({ namespace });
     //
@@ -55,11 +55,7 @@ function activate(app, palette, restorer, mainMenu) {
     window.addEventListener("message", (event) => {
         // if the message sent is the edsc url
         if (typeof event.data === "string") {
-            //globals.edscUrl = event.data;
             console.log("graceal- event data" + event.data);
-            //const queryString = '?' + event.data.split('?')[1];
-            // console.log("Granule", globals.granuleQuery);
-            // console.log("Collection", globals.collectionQuery);
         }
     });
     /******** Set commands for command palette and main menu *********/
@@ -70,25 +66,10 @@ function activate(app, palette, restorer, mainMenu) {
         isEnabled: () => true,
         execute: args => {
             console.log("in execute of test1");
-            // Only allow user to have one EDSC window
-            /*if (widget == undefined) {
-                widget = new IFrameWidget(edsc_server);
-                app.shell.add(widget, 'main');
-                app.shell.activateById(widget.id);
-            } else {
-                // if user already has EDSC, just switch to tab
-                app.shell.add(widget, 'main');
-                app.shell.activateById(widget.id);
-            }
-      
-            if (!instanceTracker.has(widget)) {
-              // Track the state of the widget for later restoration
-              instanceTracker.add(widget);
-            }*/
+            (0,_popups__WEBPACK_IMPORTED_MODULE_6__.test1function)();
         }
     });
     palette.addItem({ command: test1, category: 'Help' });
-    //graceal- try to change search category
     const test2 = 'help:test2';
     app.commands.addCommand(test2, {
         label: 'Test2',
@@ -129,6 +110,174 @@ function activate(app, palette, restorer, mainMenu) {
 }
 ;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (extension);
+
+
+/***/ }),
+
+/***/ "./lib/popups.js":
+/*!***********************!*\
+  !*** ./lib/popups.js ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "displaySearchParams": () => (/* binding */ displaySearchParams),
+/* harmony export */   "setResultsLimit": () => (/* binding */ setResultsLimit),
+/* harmony export */   "test1function": () => (/* binding */ test1function)
+/* harmony export */ });
+/* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @jupyterlab/apputils */ "webpack/sharing/consume/default/@jupyterlab/apputils");
+/* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _widgets__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./widgets */ "./lib/widgets.js");
+
+
+
+function setResultsLimit() {
+    (0,_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.showDialog)({
+        title: 'Set Results Limit:',
+        body: new _widgets__WEBPACK_IMPORTED_MODULE_1__.LimitPopupWidget(),
+        focusNodeSelector: 'input',
+        buttons: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.Dialog.okButton({ label: 'Ok' })]
+    });
+}
+function displaySearchParams() {
+    (0,_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.showDialog)({
+        title: 'Current Search Parameters:',
+        body: new _widgets__WEBPACK_IMPORTED_MODULE_1__.ParamsPopupWidget(),
+        focusNodeSelector: 'input',
+        buttons: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.Dialog.okButton({ label: 'Ok' })]
+    });
+}
+function test1function() {
+    (0,_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.showDialog)({
+        title: 'Test1 test',
+        body: new _widgets__WEBPACK_IMPORTED_MODULE_1__.Test1Widget(),
+        focusNodeSelector: 'input',
+        buttons: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.Dialog.okButton({ label: 'Ok' })]
+    });
+}
+
+
+/***/ }),
+
+/***/ "./lib/widgets.js":
+/*!************************!*\
+  !*** ./lib/widgets.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "FlexiblePopupWidget": () => (/* binding */ FlexiblePopupWidget),
+/* harmony export */   "IFrameWidget": () => (/* binding */ IFrameWidget),
+/* harmony export */   "LimitPopupWidget": () => (/* binding */ LimitPopupWidget),
+/* harmony export */   "ParamsPopupWidget": () => (/* binding */ ParamsPopupWidget),
+/* harmony export */   "Test1Widget": () => (/* binding */ Test1Widget)
+/* harmony export */ });
+/* harmony import */ var _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lumino/widgets */ "webpack/sharing/consume/default/@lumino/widgets");
+/* harmony import */ var _lumino_widgets__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_lumino_widgets__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var jupyterlab_toastify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jupyterlab_toastify */ "webpack/sharing/consume/default/jupyterlab_toastify/jupyterlab_toastify");
+/* harmony import */ var jupyterlab_toastify__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jupyterlab_toastify__WEBPACK_IMPORTED_MODULE_1__);
+
+//import { PageConfig } from '@jupyterlab/coreutils'
+
+/*import {
+  request, RequestResult
+} from './request';*/
+
+let unique = 0;
+//
+// Widget to display Earth Data Search Client inside an iframe
+//
+class IFrameWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
+    constructor(path) {
+        super();
+        this.id = path + '-' + unique;
+        unique += 1;
+        this.title.label = "Earthdata Search";
+        this.title.closable = true;
+        let div = document.createElement('div');
+        div.classList.add('iframe-widget');
+        let iframe = document.createElement('iframe');
+        iframe.id = "iframeid";
+        // set proxy to EDSC
+        /*request('get', path).then((res: RequestResult) => {
+          if (res.ok){
+            console.log('site accesible: proceeding');
+            iframe.src = path;
+          } else {
+            iframe.setAttribute('baseURI', PageConfig.getBaseUrl());
+    
+            console.log('site failed with code ' + res.status.toString());
+            if(res.status == 404){
+    
+            } else if(res.status == 401){
+    
+            } else {
+              console.log('setting proxy');
+              path = "edsc/proxy/" + path;
+              iframe.src = path;
+            }
+          }
+        });*/
+        div.appendChild(iframe);
+        this.node.appendChild(div);
+    }
+}
+;
+//
+// Widget to display selected search parameter
+//
+class ParamsPopupWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
+    constructor() {
+        let body = document.createElement('div');
+        body.style.display = 'flex';
+        body.style.flexDirection = 'column';
+        body.innerHTML = "<pre>Test: </pre><br>";
+        super({ node: body });
+    }
+}
+//
+// Popup widget to display any string message
+//
+class FlexiblePopupWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
+    constructor(text) {
+        let body = document.createElement('div');
+        body.style.display = 'flex';
+        body.style.flexDirection = 'column';
+        body.innerHTML = text;
+        super({ node: body });
+    }
+}
+//
+// Widget with popup to set search results limit
+//
+class LimitPopupWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
+    constructor() {
+        let body = document.createElement('div');
+        body.style.display = 'flex';
+        body.style.flexDirection = 'column';
+        super({ node: body });
+        this.getValue = this.getValue.bind(this);
+        let inputLimit = document.createElement('input');
+        inputLimit.id = 'inputLimit';
+        this.node.appendChild(inputLimit);
+    }
+    /* sets limit */
+    getValue() {
+        console.log("graceal- in the get value function");
+        jupyterlab_toastify__WEBPACK_IMPORTED_MODULE_1__.INotification.success("made it to get value function");
+    }
+}
+class Test1Widget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
+    constructor() {
+        let body = document.createElement('div');
+        body.style.display = 'flex';
+        body.style.flexDirection = 'column';
+        body.innerHTML = "<pre>Test1`: </pre><br>";
+        super({ node: body });
+    }
+}
 
 
 /***/ }),
@@ -218,4 +367,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /***/ })
 
 }]);
-//# sourceMappingURL=lib_index_js.5af74e20fa1576d3f369.js.map
+//# sourceMappingURL=lib_index_js.2aa245c71015c8489cb0.js.map

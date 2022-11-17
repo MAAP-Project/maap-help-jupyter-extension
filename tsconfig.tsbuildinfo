@@ -2472,18 +2472,18 @@
         "affectsGlobalScope": false
       },
       "./src/widgets.ts": {
-        "version": "cc25e98ed909941b92ec841b2276e1db051aa7417c6319bb0e2e6a6bb1ba5e41",
-        "signature": "2b68baddd488bc68a0eb44a07c89564d4a4878198f17b6d7538358f79015fbe3",
-        "affectsGlobalScope": false
-      },
-      "./src/index.ts": {
-        "version": "1b90beeecf6864626c9a51eea7fc96e822f0b1406ef8ff7ad1e91a459544fec9",
-        "signature": "2ff7f27a8aba2af06f24074b71d591efa76963293298fc34248832d475e04db2",
+        "version": "be2b11082ac61fb4f9521d58f3b7dc1a87ccd71df9c8b01a780d47dec12f8966",
+        "signature": "77e1d208c35551df03ba50b95f73a161b9ec315fbdb632b8c1b74f09542d2c24",
         "affectsGlobalScope": false
       },
       "./src/popups.ts": {
-        "version": "852274fa318ed2923f1910eb02f25c1675a40132b687cefd8f067de755370873",
-        "signature": "ef9aaa435fe05a3f9fe907e4fee90bbfe96de538fbe3bfd414e61ddf4f6998e8",
+        "version": "cfaddd64a5fdb099d42bee64d5614ef0868601839bd9a77151c82498d59a3a60",
+        "signature": "2099c0184a2da8989e7675ba6f6354885a66adca57f7060551669489cd7ec3b8",
+        "affectsGlobalScope": false
+      },
+      "./src/index.ts": {
+        "version": "df06e86ca416da8a5d4fb56efbab42bf6cf416ec76663bc94234224ed6e224d0",
+        "signature": "2ff7f27a8aba2af06f24074b71d591efa76963293298fc34248832d475e04db2",
         "affectsGlobalScope": false
       },
       "./node_modules/jest-diff/build/cleanupsemantic.d.ts": {
@@ -4921,6 +4921,7 @@
         "./node_modules/@jupyterlab/mainmenu/lib/index.d.ts",
         "./node_modules/@lumino/widgets/types/index.d.ts",
         "./src/globals.d.ts",
+        "./src/popups.ts",
         "./src/widgets.ts"
       ],
       "./src/popups.ts": [

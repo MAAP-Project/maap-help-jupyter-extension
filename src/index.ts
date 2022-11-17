@@ -4,14 +4,13 @@ import { ICommandPalette, WidgetTracker } from '@jupyterlab/apputils';
 import { PageConfig } from '@jupyterlab/coreutils'
 import { IMainMenu } from '@jupyterlab/mainmenu';
 
-
 /** phosphor imports **/
 import { Menu } from '@lumino/widgets';
 
 /** internal imports **/
 import '../style/index.css';
 import { IFrameWidget } from './widgets';
-//import { setResultsLimit, displaySearchParams } from './popups'
+import { test1function } from './popups'
 import "./globals"
 
 
@@ -59,6 +58,7 @@ function activate(app: JupyterFrontEnd,
     isEnabled: () => true,
     execute: args => {
       console.log("in execute of test1");
+      test1function();
     }
   });
   palette.addItem({command: test1, category: 'Help'});

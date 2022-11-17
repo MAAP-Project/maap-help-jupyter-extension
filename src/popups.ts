@@ -1,5 +1,5 @@
 import {Dialog, showDialog} from "@jupyterlab/apputils";
-import {LimitPopupWidget, ParamsPopupWidget} from "./widgets";
+import {LimitPopupWidget, ParamsPopupWidget, Test1Widget} from "./widgets";
 import "./globals"
 
 export function setResultsLimit() {
@@ -19,3 +19,12 @@ export function displaySearchParams() {
         buttons: [Dialog.okButton({ label: 'Ok' })]
     });
 }
+
+export function test1function() {
+    showDialog({
+          title: 'Test1 test',
+          body: new Test1Widget(),
+          focusNodeSelector: 'input',
+          buttons: [Dialog.okButton({ label: 'Ok' })]
+      });
+  }
