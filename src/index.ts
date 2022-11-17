@@ -2,9 +2,7 @@
 import { JupyterFrontEnd, JupyterFrontEndPlugin, ILayoutRestorer } from '@jupyterlab/application';
 import { ICommandPalette, WidgetTracker } from '@jupyterlab/apputils';
 import { PageConfig } from '@jupyterlab/coreutils'
-import { IDocumentManager } from '@jupyterlab/docmanager';
 import { IMainMenu } from '@jupyterlab/mainmenu';
-import { NotebookPanel, INotebookTracker } from '@jupyterlab/notebook';
 
 
 /** phosphor imports **/
@@ -26,20 +24,17 @@ console.log(PageConfig.getBaseUrl());
 ///////////////////////////////////////////////////////////////
 
 const extension: JupyterFrontEndPlugin<WidgetTracker<IFrameWidget>> = {
-  id: 'edsc_extension',
+  id: 'maap_help',
   autoStart: true,
-  requires: [IDocumentManager, ICommandPalette, ILayoutRestorer, IMainMenu, INotebookTracker],
+  requires: [ICommandPalette, ILayoutRestorer, IMainMenu],
   activate: activate
 };
 
 
 function activate(app: JupyterFrontEnd,
-                  docManager: IDocumentManager,
                   palette: ICommandPalette,
                   restorer: ILayoutRestorer,
-                  mainMenu: IMainMenu,
-                  tracker: INotebookTracker,
-                  panel: NotebookPanel): WidgetTracker<IFrameWidget> {
+                  mainMenu: IMainMenu): WidgetTracker<IFrameWidget> {
 
   //let widget: IFrameWidget;
 
