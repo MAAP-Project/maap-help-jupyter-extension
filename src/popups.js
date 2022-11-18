@@ -1,7 +1,6 @@
-import {Dialog, showDialog} from "@jupyterlab/apputils";
-import {LimitPopupWidget, ParamsPopupWidget, AboutWidget} from "./widgets";
-import "./globals"
-
+import { Dialog, showDialog } from "@jupyterlab/apputils";
+import { LimitPopupWidget, ParamsPopupWidget, AboutWidget } from "./widgets";
+import "./globals";
 export function setResultsLimit() {
     showDialog({
         title: 'Set Results Limit:',
@@ -10,21 +9,19 @@ export function setResultsLimit() {
         buttons: [Dialog.okButton({ label: 'Ok' })]
     });
 }
-
 export function displaySearchParams() {
-  showDialog({
+    showDialog({
         title: 'Current Search Parameters:',
         body: new ParamsPopupWidget(),
         focusNodeSelector: 'input',
         buttons: [Dialog.okButton({ label: 'Ok' })]
     });
 }
-
 export function aboutPopup() {
     showDialog({
-          title: 'About',
-          body: new AboutWidget(),
-          focusNodeSelector: 'input',
-          buttons: [Dialog.okButton({ label: 'Ok' })]
-      });
-  }
+        title: 'About',
+        body: new AboutWidget(),
+        focusNodeSelector: 'input',
+        buttons: [Dialog.okButton({ label: 'Ok' })]
+    });
+}
