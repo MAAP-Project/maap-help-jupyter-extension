@@ -65,20 +65,20 @@ function activate(app, palette, restorer, mainMenu) {
         label: 'About',
         isEnabled: () => true,
         execute: args => {
-            console.log("in execute of about javascript in lib");
             (0,_popups__WEBPACK_IMPORTED_MODULE_6__.aboutPopup)();
         }
     });
     palette.addItem({ command: about_command, category: 'Help' });
-    const test2 = 'help:test2';
-    app.commands.addCommand(test2, {
-        label: 'Test2',
+    const faq_command = 'help:faq';
+    app.commands.addCommand(faq_command, {
+        label: 'FAQ',
         isEnabled: () => true,
         execute: args => {
-            console.log("in execute of test2");
+            console.log("in execute of faq");
+            (0,_popups__WEBPACK_IMPORTED_MODULE_6__.faqPopup)();
         }
     });
-    palette.addItem({ command: test2, category: 'Help' });
+    palette.addItem({ command: faq_command, category: 'Help' });
     const test3 = 'help:test3';
     app.commands.addCommand(test3, {
         label: 'Test 3',
@@ -93,7 +93,7 @@ function activate(app, palette, restorer, mainMenu) {
     helpMenu.title.label = 'Help';
     [
         about_command,
-        test2,
+        faq_command,
         test3
     ].forEach(command => {
         helpMenu.addItem({ command });
@@ -124,6 +124,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "aboutPopup": () => (/* binding */ aboutPopup),
 /* harmony export */   "displaySearchParams": () => (/* binding */ displaySearchParams),
+/* harmony export */   "faqPopup": () => (/* binding */ faqPopup),
 /* harmony export */   "setResultsLimit": () => (/* binding */ setResultsLimit)
 /* harmony export */ });
 /* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @jupyterlab/apputils */ "webpack/sharing/consume/default/@jupyterlab/apputils");
@@ -149,9 +150,17 @@ function displaySearchParams() {
     });
 }
 function aboutPopup() {
-    console.log("in the about pop up");
     (0,_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.showDialog)({
         body: new _widgets__WEBPACK_IMPORTED_MODULE_1__.AboutWidget(),
+        focusNodeSelector: 'input',
+        buttons: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.Dialog.okButton({ label: 'Ok' })]
+    });
+}
+
+function faqPopup() {
+    console.log("in the faq pop up");
+    (0,_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.showDialog)({
+        body: new _widgets__WEBPACK_IMPORTED_MODULE_1__.FAQWidget(),
         focusNodeSelector: 'input',
         buttons: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.Dialog.okButton({ label: 'Ok' })]
     });
@@ -169,6 +178,7 @@ function aboutPopup() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AboutWidget": () => (/* binding */ AboutWidget),
+/* harmony export */   "FAQWidget": () => (/* binding */ FAQWidget),
 /* harmony export */   "FlexiblePopupWidget": () => (/* binding */ FlexiblePopupWidget),
 /* harmony export */   "IFrameWidget": () => (/* binding */ IFrameWidget),
 /* harmony export */   "LimitPopupWidget": () => (/* binding */ LimitPopupWidget),
@@ -247,7 +257,6 @@ class LimitPopupWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widg
 }
 class AboutWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
     constructor() {
-        console.log("in the about widget contructor");
         let body = document.createElement('div');
         body.style.display = 'flex';
         body.style.flexDirection = 'column';
@@ -273,6 +282,24 @@ class AboutWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
         generating metadata to be discoverable in a cloud-based centralized location. The platform and data stewardship approaches are designed to 
         ease barriers and promote collaboration between researchers, providers, curators, and experts across NASA
         and ESA.</p>
+
+        </body>`;
+
+        body.innerHTML = innerText;
+        //body.innerHTML = "<title>Page Title</title>";
+        super({ node: body });
+    }
+}
+
+class FAQWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
+    constructor() {
+        console.log("in the faq widget contructor");
+        let body = document.createElement('div');
+        body.style.display = 'flex';
+        body.style.flexDirection = 'column';
+        const innerText = `
+        <body>
+        <h1>Frequently Asked Questions</h1>
 
         </body>`;
 
@@ -370,4 +397,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /***/ })
 
 }]);
-//# sourceMappingURL=lib_index_js.384ee94ba3619d250b1a.js.map
+//# sourceMappingURL=lib_index_js.01b440501e82b7c872ff.js.map
