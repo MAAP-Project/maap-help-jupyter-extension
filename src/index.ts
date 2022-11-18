@@ -10,7 +10,7 @@ import { Menu } from '@lumino/widgets';
 /** internal imports **/
 import '../style/index.css';
 import { IFrameWidget } from './widgets';
-import { test1function } from './popups'
+import { aboutPopup } from './popups'
 import "./globals"
 
 
@@ -52,16 +52,16 @@ function activate(app: JupyterFrontEnd,
   /******** Set commands for command palette and main menu *********/
 
   // Add an application command to open ESDC
-  const test1 = 'iframe:open';
-  app.commands.addCommand(test1, {
-    label: 'Test1',
+  const about_command = 'iframe:about';
+  app.commands.addCommand(about_command, {
+    label: 'About',
     isEnabled: () => true,
     execute: args => {
-      console.log("in execute of test1");
-      test1function();
+      console.log("in execute of about");
+      aboutPopup();
     }
   });
-  palette.addItem({command: test1, category: 'Help'});
+  palette.addItem({command: about_command, category: 'Help'});
 
   const test2 = 'help:test2';
   app.commands.addCommand(test2, {
@@ -89,7 +89,7 @@ function activate(app: JupyterFrontEnd,
   let helpMenu = new Menu({ commands });
   helpMenu.title.label = 'Help';
   [
-    test1,
+    about_command,
     test2,
     test3
   ].forEach(command => {
@@ -100,7 +100,7 @@ function activate(app: JupyterFrontEnd,
 
   // Track and restore the widget state
   restorer.restore(instanceTracker, {
-    command: test1,
+    command: about_command,
     name: () => namespace
   });
   //graceal- to do- do I need this?

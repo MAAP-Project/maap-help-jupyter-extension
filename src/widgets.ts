@@ -108,12 +108,12 @@ export class LimitPopupWidget extends Widget {
   }
 
 }
-export class Test1Widget extends Widget {
+export class AboutWidget extends Widget {
   constructor() {
-    let body = document.createElement('div');
+    let body = document.createElement('html');
     body.style.display = 'flex';
     body.style.flexDirection = 'column';
-    body.innerHTML = "<pre>Test1: </pre><br>";
+    body.innerHTML = "<title>Page Title</title>";
 
     super({ node: body });
   }

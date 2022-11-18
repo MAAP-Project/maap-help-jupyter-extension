@@ -13,6 +13,6 @@ export declare class LimitPopupWidget extends Widget {
     constructor();
     getValue(): void;
 }
-export declare class Test1Widget extends Widget {
+export declare class AboutWidget extends Widget {
     constructor();
 }

@@ -60,16 +60,16 @@ function activate(app, palette, restorer, mainMenu) {
     });
     /******** Set commands for command palette and main menu *********/
     // Add an application command to open ESDC
-    const test1 = 'iframe:open';
-    app.commands.addCommand(test1, {
-        label: 'Test1',
+    const about_command = 'iframe:about';
+    app.commands.addCommand(about_command, {
+        label: 'About',
         isEnabled: () => true,
         execute: args => {
-            console.log("in execute of test1");
-            (0,_popups__WEBPACK_IMPORTED_MODULE_6__.test1function)();
+            console.log("in execute of about");
+            (0,_popups__WEBPACK_IMPORTED_MODULE_6__.aboutPopup)();
         }
     });
-    palette.addItem({ command: test1, category: 'Help' });
+    palette.addItem({ command: about_command, category: 'Help' });
     const test2 = 'help:test2';
     app.commands.addCommand(test2, {
         label: 'Test2',
@@ -92,7 +92,7 @@ function activate(app, palette, restorer, mainMenu) {
     let helpMenu = new _lumino_widgets__WEBPACK_IMPORTED_MODULE_4__.Menu({ commands });
     helpMenu.title.label = 'Help';
     [
-        test1,
+        about_command,
         test2,
         test3
     ].forEach(command => {
@@ -101,7 +101,7 @@ function activate(app, palette, restorer, mainMenu) {
     mainMenu.addMenu(helpMenu, { rank: 100 });
     // Track and restore the widget state
     restorer.restore(instanceTracker, {
-        command: test1,
+        command: about_command,
         name: () => namespace
     });
     //graceal- to do- do I need this?
@@ -122,9 +122,9 @@ function activate(app, palette, restorer, mainMenu) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "aboutPopup": () => (/* binding */ aboutPopup),
 /* harmony export */   "displaySearchParams": () => (/* binding */ displaySearchParams),
-/* harmony export */   "setResultsLimit": () => (/* binding */ setResultsLimit),
-/* harmony export */   "test1function": () => (/* binding */ test1function)
+/* harmony export */   "setResultsLimit": () => (/* binding */ setResultsLimit)
 /* harmony export */ });
 /* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @jupyterlab/apputils */ "webpack/sharing/consume/default/@jupyterlab/apputils");
 /* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__);
@@ -148,10 +148,10 @@ function displaySearchParams() {
         buttons: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.Dialog.okButton({ label: 'Ok' })]
     });
 }
-function test1function() {
+function aboutPopup() {
     (0,_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.showDialog)({
-        title: 'Test1 test',
-        body: new _widgets__WEBPACK_IMPORTED_MODULE_1__.Test1Widget(),
+        title: 'About',
+        body: new _widgets__WEBPACK_IMPORTED_MODULE_1__.AboutWidget(),
         focusNodeSelector: 'input',
         buttons: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.Dialog.okButton({ label: 'Ok' })]
     });
@@ -168,11 +168,11 @@ function test1function() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "AboutWidget": () => (/* binding */ AboutWidget),
 /* harmony export */   "FlexiblePopupWidget": () => (/* binding */ FlexiblePopupWidget),
 /* harmony export */   "IFrameWidget": () => (/* binding */ IFrameWidget),
 /* harmony export */   "LimitPopupWidget": () => (/* binding */ LimitPopupWidget),
-/* harmony export */   "ParamsPopupWidget": () => (/* binding */ ParamsPopupWidget),
-/* harmony export */   "Test1Widget": () => (/* binding */ Test1Widget)
+/* harmony export */   "ParamsPopupWidget": () => (/* binding */ ParamsPopupWidget)
 /* harmony export */ });
 /* harmony import */ var _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lumino/widgets */ "webpack/sharing/consume/default/@lumino/widgets");
 /* harmony import */ var _lumino_widgets__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_lumino_widgets__WEBPACK_IMPORTED_MODULE_0__);
@@ -265,16 +265,15 @@ class LimitPopupWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widg
     }
     /* sets limit */
     getValue() {
-        console.log("graceal- in the get value function");
         jupyterlab_toastify__WEBPACK_IMPORTED_MODULE_1__.INotification.success("made it to get value function");
     }
 }
-class Test1Widget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
+class AboutWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
     constructor() {
-        let body = document.createElement('div');
+        let body = document.createElement('html');
         body.style.display = 'flex';
         body.style.flexDirection = 'column';
-        body.innerHTML = "<pre>Test1`: </pre><br>";
+        body.innerHTML = "<title>Page Title</title>";
         super({ node: body });
     }
 }
@@ -367,4 +366,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /***/ })
 
 }]);
-//# sourceMappingURL=lib_index_js.2aa245c71015c8489cb0.js.map
+//# sourceMappingURL=lib_index_js.fbecb7f290a79f8d691d.js.map
