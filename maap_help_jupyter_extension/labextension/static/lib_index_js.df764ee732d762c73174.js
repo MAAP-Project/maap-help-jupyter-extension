@@ -74,7 +74,6 @@ function activate(app, palette, restorer, mainMenu) {
         label: 'FAQ',
         isEnabled: () => true,
         execute: args => {
-            console.log("in execute of faq");
             (0,_popups__WEBPACK_IMPORTED_MODULE_6__.faqPopup)();
         }
     });
@@ -158,7 +157,6 @@ function aboutPopup() {
 }
 
 function faqPopup() {
-    console.log("in the faq pop up");
     (0,_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.showDialog)({
         body: new _widgets__WEBPACK_IMPORTED_MODULE_1__.FAQWidget(),
         focusNodeSelector: 'input',
@@ -293,14 +291,13 @@ class AboutWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
 
 class FAQWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
     constructor() {
-        console.log("in the faq widget contructor");
         let body = document.createElement('div');
         body.style.display = 'flex';
         body.style.flexDirection = 'column';
         const innerText = `
         <body>
         <h1>Frequently Asked Questions</h1>
-
+        <embed type="text/html" src="https://docs.maap-project.org/en/develop/faqs.html" width="1000" height="600">
         </body>`;
 
         body.innerHTML = innerText;
@@ -397,4 +394,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /***/ })
 
 }]);
-//# sourceMappingURL=lib_index_js.01b440501e82b7c872ff.js.map
+//# sourceMappingURL=lib_index_js.df764ee732d762c73174.js.map

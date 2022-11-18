@@ -96,7 +96,7 @@
     "outputDir": "maap_help_jupyter_extension/labextension",
     "schemaDir": "schema",
     "_build": {
-      "load": "static/remoteEntry.2b3a3b4f0ad93c9cd877.js",
+      "load": "static/remoteEntry.e14d7d22598d26606074.js",
       "extension": "./extension",
       "style": "./style"
     }
