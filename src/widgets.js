@@ -87,10 +87,17 @@ export class LimitPopupWidget extends Widget {
 }
 export class AboutWidget extends Widget {
     constructor() {
+        console.log("in the about widget contructor");
         let body = document.createElement('html');
         body.style.display = 'flex';
         body.style.flexDirection = 'column';
         body.innerHTML = "<title>Page Title</title>";
         super({ node: body });
+    }
+    render() {
+        console.log("in the about widget render");
+        return (
+            <div>body</div>
+        );
     }
 }

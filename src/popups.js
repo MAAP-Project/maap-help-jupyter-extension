@@ -18,10 +18,12 @@ export function displaySearchParams() {
     });
 }
 export function aboutPopup() {
-    showDialog({
-        title: 'About',
+    console.log("in the about pop up");
+    showDialog(
+        <AboutWidget/>
+        /*title: 'About',
         body: new AboutWidget(),
         focusNodeSelector: 'input',
-        buttons: [Dialog.okButton({ label: 'Ok' })]
-    });
+        buttons: [Dialog.okButton({ label: 'Ok' })]*/
+    );
 }

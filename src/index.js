@@ -40,7 +40,7 @@ function activate(app, palette, restorer, mainMenu) {
         label: 'About',
         isEnabled: () => true,
         execute: args => {
-            console.log("in execute of about");
+            console.log("in execute of about javascript");
             aboutPopup();
         }
     });
