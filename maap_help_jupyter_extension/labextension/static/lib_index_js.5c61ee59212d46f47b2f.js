@@ -65,7 +65,7 @@ function activate(app, palette, restorer, mainMenu) {
         label: 'About',
         isEnabled: () => true,
         execute: args => {
-            console.log("in execute of about");
+            console.log("in execute of about javascript in lib");
             (0,_popups__WEBPACK_IMPORTED_MODULE_6__.aboutPopup)();
         }
     });
@@ -149,6 +149,7 @@ function displaySearchParams() {
     });
 }
 function aboutPopup() {
+    console.log("in the about pop up");
     (0,_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.showDialog)({
         title: 'About',
         body: new _widgets__WEBPACK_IMPORTED_MODULE_1__.AboutWidget(),
@@ -181,9 +182,6 @@ __webpack_require__.r(__webpack_exports__);
 
 //import { PageConfig } from '@jupyterlab/coreutils'
 
-/*import {
-  request, RequestResult
-} from './request';*/
 
 let unique = 0;
 //
@@ -270,10 +268,17 @@ class LimitPopupWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widg
 }
 class AboutWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
     constructor() {
+        console.log("in the about widget contructor");
         let body = document.createElement('html');
         body.style.display = 'flex';
         body.style.flexDirection = 'column';
-        body.innerHTML = "<title>Page Title</title>";
+        const box = `
+        <div>
+            <p> Hello </p> 
+        </div>`;
+
+        body.innerHTML = box;
+        //body.innerHTML = "<title>Page Title</title>";
         super({ node: body });
     }
 }
@@ -366,4 +371,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /***/ })
 
 }]);
-//# sourceMappingURL=lib_index_js.fbecb7f290a79f8d691d.js.map
+//# sourceMappingURL=lib_index_js.5c61ee59212d46f47b2f.js.map

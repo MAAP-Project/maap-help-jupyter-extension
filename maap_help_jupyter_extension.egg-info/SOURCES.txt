@@ -19,10 +19,10 @@ maap_help_jupyter_extension/labextension/build_log.json
 maap_help_jupyter_extension/labextension/package.json
 maap_help_jupyter_extension/labextension/schemas/@maap-jupyterlab/maap-help-jupyter-extension/package.json.orig
 maap_help_jupyter_extension/labextension/schemas/@maap-jupyterlab/maap-help-jupyter-extension/plugin.json
-maap_help_jupyter_extension/labextension/static/lib_index_js.dfe4cb354b44d37079c6.js
-maap_help_jupyter_extension/labextension/static/lib_index_js.dfe4cb354b44d37079c6.js.map
-maap_help_jupyter_extension/labextension/static/remoteEntry.ee9db25cc698249c5a05.js
-maap_help_jupyter_extension/labextension/static/remoteEntry.ee9db25cc698249c5a05.js.map
+maap_help_jupyter_extension/labextension/static/lib_index_js.3caca0421d4295c28cf7.js
+maap_help_jupyter_extension/labextension/static/lib_index_js.3caca0421d4295c28cf7.js.map
+maap_help_jupyter_extension/labextension/static/remoteEntry.5bfff9be3c681aec1818.js
+maap_help_jupyter_extension/labextension/static/remoteEntry.5bfff9be3c681aec1818.js.map
 maap_help_jupyter_extension/labextension/static/style.js
 maap_help_jupyter_extension/labextension/static/style_index_js.3a3a465661fc72074529.js
 maap_help_jupyter_extension/labextension/static/style_index_js.3a3a465661fc72074529.js.map
@@ -32,9 +32,9 @@ schema/plugin.json
 src/constants.ts
 src/globals.d.ts
 src/globals.js
-src/index.ts
-src/popups.ts
-src/widgets.ts
+src/index.js
+src/popups.js
+src/widgets.js
 src/__tests__/maap_help_jupyter_extension.spec.ts
 style/base.css
 style/index.css
