@@ -151,7 +151,6 @@ function displaySearchParams() {
 function aboutPopup() {
     console.log("in the about pop up");
     (0,_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.showDialog)({
-        title: 'About',
         body: new _widgets__WEBPACK_IMPORTED_MODULE_1__.AboutWidget(),
         focusNodeSelector: 'input',
         buttons: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.Dialog.okButton({ label: 'Ok' })]
@@ -198,26 +197,6 @@ class IFrameWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
         div.classList.add('iframe-widget');
         let iframe = document.createElement('iframe');
         iframe.id = "iframeid";
-        // set proxy to EDSC
-        /*request('get', path).then((res: RequestResult) => {
-          if (res.ok){
-            console.log('site accesible: proceeding');
-            iframe.src = path;
-          } else {
-            iframe.setAttribute('baseURI', PageConfig.getBaseUrl());
-    
-            console.log('site failed with code ' + res.status.toString());
-            if(res.status == 404){
-    
-            } else if(res.status == 401){
-    
-            } else {
-              console.log('setting proxy');
-              path = "edsc/proxy/" + path;
-              iframe.src = path;
-            }
-          }
-        });*/
         div.appendChild(iframe);
         this.node.appendChild(div);
     }
@@ -269,15 +248,21 @@ class LimitPopupWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widg
 class AboutWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
     constructor() {
         console.log("in the about widget contructor");
-        let body = document.createElement('html');
+        let body = document.createElement('div');
         body.style.display = 'flex';
         body.style.flexDirection = 'column';
-        const box = `
-        <div>
-            <p> Hello </p> 
-        </div>`;
+        const innerText = `
+        <head>
+        <title>Page Title</title>
+        </head>
+        <body>
 
-        body.innerHTML = box;
+        <h1>This is a Heading</h1>
+        <p>This is a paragraph.</p>
+
+        </body>`;
+
+        body.innerHTML = innerText;
         //body.innerHTML = "<title>Page Title</title>";
         super({ node: body });
     }
@@ -371,4 +356,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /***/ })
 
 }]);
-//# sourceMappingURL=lib_index_js.5c61ee59212d46f47b2f.js.map
+//# sourceMappingURL=lib_index_js.b45ca7d0e4354c86f0b5.js.map
