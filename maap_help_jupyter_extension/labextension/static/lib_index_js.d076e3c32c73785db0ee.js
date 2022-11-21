@@ -169,7 +169,7 @@ function techDocPopup() {
 
 function tutorialsPopup() {
     (0,_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.showDialog)({
-        body: new _widgets__WEBPACK_IMPORTED_MODULE_1__.TutorialsWidget(),
+        body: new _widgets__WEBPACK_IMPORTED_MODULE_1__.LimitPopupWidget(),
         focusNodeSelector: 'input',
         buttons: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.Dialog.okButton({ label: 'Ok' })]
     });
@@ -188,10 +188,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AboutWidget": () => (/* binding */ AboutWidget),
 /* harmony export */   "FAQWidget": () => (/* binding */ FAQWidget),
-/* harmony export */   "FlexiblePopupWidget": () => (/* binding */ FlexiblePopupWidget),
 /* harmony export */   "IFrameWidget": () => (/* binding */ IFrameWidget),
 /* harmony export */   "LimitPopupWidget": () => (/* binding */ LimitPopupWidget),
-/* harmony export */   "ParamsPopupWidget": () => (/* binding */ ParamsPopupWidget),
 /* harmony export */   "TechDocWidget": () => (/* binding */ TechDocWidget),
 /* harmony export */   "TutorialsWidget": () => (/* binding */ TutorialsWidget)
 /* harmony export */ });
@@ -222,31 +220,7 @@ class IFrameWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
         this.node.appendChild(div);
     }
 }
-;
-//
-// Widget to display selected search parameter
-//
-class ParamsPopupWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
-    constructor() {
-        let body = document.createElement('div');
-        body.style.display = 'flex';
-        body.style.flexDirection = 'column';
-        body.innerHTML = "<pre>Test: </pre><br>";
-        super({ node: body });
-    }
-}
-//
-// Popup widget to display any string message
-//
-class FlexiblePopupWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
-    constructor(text) {
-        let body = document.createElement('div');
-        body.style.display = 'flex';
-        body.style.flexDirection = 'column';
-        body.innerHTML = text;
-        super({ node: body });
-    }
-}
+
 //
 // Widget with popup to set search results limit
 //
@@ -256,14 +230,10 @@ class LimitPopupWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widg
         body.style.display = 'flex';
         body.style.flexDirection = 'column';
         super({ node: body });
-        this.getValue = this.getValue.bind(this);
-        let inputLimit = document.createElement('input');
-        inputLimit.id = 'inputLimit';
-        this.node.appendChild(inputLimit);
-    }
-    /* sets limit */
-    getValue() {
-        jupyterlab_toastify__WEBPACK_IMPORTED_MODULE_1__.INotification.success("made it to get value function");
+        let img = document.createElement('img');
+        img.src = 'images/photo1.png';
+        img.alt = 'MAAP logo'
+        this.node.appendChild(img);
     }
 }
 class AboutWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
@@ -278,6 +248,7 @@ class AboutWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
         <body>
 
         <h1>The MAAP Project (Multi-Mission Algorithm and Analysis Platform)</h1>
+        <img src="images/photo1.png" alt="MAAP logo">
         <p><b>The MAAP platform is designed to combine data, algorithms, and computational abilities 
         for the processing and sharing of data related to NASA's GEDI, ESA's BIOMASS, and NASA/ISRO's 
         NISAR missions.</b> These missions generate vastly greater amounts of data than previous Earth 
@@ -438,4 +409,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /***/ })
 
 }]);
-//# sourceMappingURL=lib_index_js.35c77bb49a06a6c4529a.js.map
+//# sourceMappingURL=lib_index_js.d076e3c32c73785db0ee.js.map
