@@ -169,7 +169,7 @@ function techDocPopup() {
 
 function tutorialsPopup() {
     (0,_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.showDialog)({
-        body: new _widgets__WEBPACK_IMPORTED_MODULE_1__.LimitPopupWidget(),
+        body: new _widgets__WEBPACK_IMPORTED_MODULE_1__.TutorialsWidget(),
         focusNodeSelector: 'input',
         buttons: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.Dialog.okButton({ label: 'Ok' })]
     });
@@ -195,11 +195,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lumino/widgets */ "webpack/sharing/consume/default/@lumino/widgets");
 /* harmony import */ var _lumino_widgets__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_lumino_widgets__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var jupyterlab_toastify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jupyterlab_toastify */ "webpack/sharing/consume/default/jupyterlab_toastify/jupyterlab_toastify");
-/* harmony import */ var jupyterlab_toastify__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jupyterlab_toastify__WEBPACK_IMPORTED_MODULE_1__);
 
 //import { PageConfig } from '@jupyterlab/coreutils'
-
 
 let unique = 0;
 //
@@ -248,7 +245,7 @@ class AboutWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
         <body>
 
         <h1>The MAAP Project (Multi-Mission Algorithm and Analysis Platform)</h1>
-        <img src="images/photo1.png" alt="MAAP logo">
+        <img src="https://www.earthdata.nasa.gov/esds/maap" alt="MAAP logo">
         <p><b>The MAAP platform is designed to combine data, algorithms, and computational abilities 
         for the processing and sharing of data related to NASA's GEDI, ESA's BIOMASS, and NASA/ISRO's 
         NISAR missions.</b> These missions generate vastly greater amounts of data than previous Earth 
@@ -268,7 +265,6 @@ class AboutWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
         </body>`;
 
         body.innerHTML = innerText;
-        //body.innerHTML = "<title>Page Title</title>";
         super({ node: body });
     }
 }
@@ -409,4 +405,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /***/ })
 
 }]);
-//# sourceMappingURL=lib_index_js.d076e3c32c73785db0ee.js.map
+//# sourceMappingURL=lib_index_js.7bc7c3a2f98aed143666.js.map
