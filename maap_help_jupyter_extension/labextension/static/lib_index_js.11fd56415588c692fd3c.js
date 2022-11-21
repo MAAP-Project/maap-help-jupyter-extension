@@ -78,22 +78,22 @@ function activate(app, palette, restorer, mainMenu) {
         }
     });
     palette.addItem({ command: faq_command, category: 'Help' });
-    const test3 = 'help:test3';
-    app.commands.addCommand(test3, {
-        label: 'Test 3',
+    const tech_doc_command = 'help:techDoc';
+    app.commands.addCommand(tech_doc_command, {
+        label: 'Technical Documentation',
         isEnabled: () => true,
         execute: args => {
-            console.log("in execute of test3");
+            (0,_popups__WEBPACK_IMPORTED_MODULE_6__.techDocPopup)();
         }
     });
-    palette.addItem({ command: test3, category: 'Help' });
+    palette.addItem({ command: tech_doc_command, category: 'Help' });
     const { commands } = app;
     let helpMenu = new _lumino_widgets__WEBPACK_IMPORTED_MODULE_4__.Menu({ commands });
     helpMenu.title.label = 'Help';
     [
         about_command,
         faq_command,
-        test3
+        tech_doc_command
     ].forEach(command => {
         helpMenu.addItem({ command });
     });
@@ -122,9 +122,8 @@ function activate(app, palette, restorer, mainMenu) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "aboutPopup": () => (/* binding */ aboutPopup),
-/* harmony export */   "displaySearchParams": () => (/* binding */ displaySearchParams),
 /* harmony export */   "faqPopup": () => (/* binding */ faqPopup),
-/* harmony export */   "setResultsLimit": () => (/* binding */ setResultsLimit)
+/* harmony export */   "techDocPopup": () => (/* binding */ techDocPopup)
 /* harmony export */ });
 /* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @jupyterlab/apputils */ "webpack/sharing/consume/default/@jupyterlab/apputils");
 /* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__);
@@ -132,22 +131,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function setResultsLimit() {
-    (0,_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.showDialog)({
-        title: 'Set Results Limit:',
-        body: new _widgets__WEBPACK_IMPORTED_MODULE_1__.LimitPopupWidget(),
-        focusNodeSelector: 'input',
-        buttons: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.Dialog.okButton({ label: 'Ok' })]
-    });
-}
-function displaySearchParams() {
-    (0,_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.showDialog)({
-        title: 'Current Search Parameters:',
-        body: new _widgets__WEBPACK_IMPORTED_MODULE_1__.ParamsPopupWidget(),
-        focusNodeSelector: 'input',
-        buttons: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.Dialog.okButton({ label: 'Ok' })]
-    });
-}
+
 function aboutPopup() {
     (0,_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.showDialog)({
         body: new _widgets__WEBPACK_IMPORTED_MODULE_1__.AboutWidget(),
@@ -159,6 +143,14 @@ function aboutPopup() {
 function faqPopup() {
     (0,_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.showDialog)({
         body: new _widgets__WEBPACK_IMPORTED_MODULE_1__.FAQWidget(),
+        focusNodeSelector: 'input',
+        buttons: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.Dialog.okButton({ label: 'Ok' })]
+    });
+}
+
+function techDocPopup() {
+    (0,_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.showDialog)({
+        body: new _widgets__WEBPACK_IMPORTED_MODULE_1__.TechDocWidget(),
         focusNodeSelector: 'input',
         buttons: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.Dialog.okButton({ label: 'Ok' })]
     });
@@ -180,7 +172,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "FlexiblePopupWidget": () => (/* binding */ FlexiblePopupWidget),
 /* harmony export */   "IFrameWidget": () => (/* binding */ IFrameWidget),
 /* harmony export */   "LimitPopupWidget": () => (/* binding */ LimitPopupWidget),
-/* harmony export */   "ParamsPopupWidget": () => (/* binding */ ParamsPopupWidget)
+/* harmony export */   "ParamsPopupWidget": () => (/* binding */ ParamsPopupWidget),
+/* harmony export */   "TechDocWidget": () => (/* binding */ TechDocWidget)
 /* harmony export */ });
 /* harmony import */ var _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lumino/widgets */ "webpack/sharing/consume/default/@lumino/widgets");
 /* harmony import */ var _lumino_widgets__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_lumino_widgets__WEBPACK_IMPORTED_MODULE_0__);
@@ -301,7 +294,22 @@ class FAQWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
         </body>`;
 
         body.innerHTML = innerText;
-        //body.innerHTML = "<title>Page Title</title>";
+        super({ node: body });
+    }
+}
+
+class TechDocWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
+    constructor() {
+        let body = document.createElement('div');
+        body.style.display = 'flex';
+        body.style.flexDirection = 'column';
+        const innerText = `
+        <body>
+        <h1>Platform Technical Documentation</h1>
+        <embed type="text/html" src="https://docs.maap-project.org/en/develop/platform_tech_docs.html" width="1000" height="600">
+        </body>`;
+
+        body.innerHTML = innerText;
         super({ node: body });
     }
 }
@@ -394,4 +402,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /***/ })
 
 }]);
-//# sourceMappingURL=lib_index_js.df764ee732d762c73174.js.map
+//# sourceMappingURL=lib_index_js.11fd56415588c692fd3c.js.map
