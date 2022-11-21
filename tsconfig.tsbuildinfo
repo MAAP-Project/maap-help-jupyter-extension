@@ -121,8 +121,8 @@
         "signature": "d2f31f19e1ba6ed59be9259d660a239d9a3fcbbc8e038c6b2009bde34b175fed",
         "affectsGlobalScope": false
       },
-      "./src/constants.ts": {
-        "version": "f814348c14fe89c44b8e7f969950273351bee22f544a486aa38b0f3df505a6f9",
+      "./src/constants.d.ts": {
+        "version": "8374df0cab8d7f95a45e0003363ca91630a80b0d727e8f98fc925886bfc75405",
         "signature": "8374df0cab8d7f95a45e0003363ca91630a80b0d727e8f98fc925886bfc75405",
         "affectsGlobalScope": false
       },
@@ -275,7 +275,7 @@
       "./node_modules/typescript/lib/lib.es5.d.ts",
       "./node_modules/typescript/lib/lib.scripthost.d.ts",
       "./node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
-      "./src/constants.ts",
+      "./src/constants.d.ts",
       "./src/globals.d.ts"
     ]
   },

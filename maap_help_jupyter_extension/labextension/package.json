@@ -21,8 +21,8 @@
     "style/**/*.{css,js,eot,gif,html,jpg,json,png,svg,woff2,ttf}",
     "schema/*.json"
   ],
-  "main": "lib/index.tsx",
-  "types": "lib/index.d.ts",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
   "style": "style/index.css",
   "repository": {
     "type": "git",
@@ -101,7 +101,7 @@
     "outputDir": "maap_help_jupyter_extension/labextension",
     "schemaDir": "schema",
     "_build": {
-      "load": "static/remoteEntry.ef5fb50bd46ceda4b485.js",
+      "load": "static/remoteEntry.9700ac6ecb497f9c83b1.js",
       "extension": "./extension",
       "style": "./style"
     }

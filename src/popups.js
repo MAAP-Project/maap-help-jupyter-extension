@@ -1,29 +1,43 @@
 import { Dialog, showDialog } from "@jupyterlab/apputils";
-import { LimitPopupWidget, ParamsPopupWidget, AboutWidget } from "./widgets";
+import { AboutWidget, FAQWidget, TechDocWidget, TutorialsWidget, LaunchTutorialWidget } from "./widgets";
 import "./globals";
-export function setResultsLimit() {
-    showDialog({
-        title: 'Set Results Limit:',
-        body: new LimitPopupWidget(),
-        focusNodeSelector: 'input',
-        buttons: [Dialog.okButton({ label: 'Ok' })]
-    });
-}
-export function displaySearchParams() {
-    showDialog({
-        title: 'Current Search Parameters:',
-        body: new ParamsPopupWidget(),
-        focusNodeSelector: 'input',
-        buttons: [Dialog.okButton({ label: 'Ok' })]
-    });
-}
+
 export function aboutPopup() {
-    console.log("in the about pop up");
-    showDialog(
-        <AboutWidget/>
-        /*title: 'About',
+    showDialog({
         body: new AboutWidget(),
         focusNodeSelector: 'input',
-        buttons: [Dialog.okButton({ label: 'Ok' })]*/
-    );
+        buttons: [Dialog.okButton({ label: 'Ok' })]
+    });
+}
+
+export function faqPopup() {
+    showDialog({
+        body: new FAQWidget(),
+        focusNodeSelector: 'input',
+        buttons: [Dialog.okButton({ label: 'Ok' })]
+    });
+}
+
+export function techDocPopup() {
+    showDialog({
+        body: new TechDocWidget(),
+        focusNodeSelector: 'input',
+        buttons: [Dialog.okButton({ label: 'Ok' })]
+    });
+}
+
+export function tutorialsPopup() {
+    showDialog({
+        body: new TutorialsWidget(),
+        focusNodeSelector: 'input',
+        buttons: [Dialog.okButton({ label: 'Ok' })]
+    });
+}
+
+export function launchTutorialPopup() {
+    showDialog({
+        body: new LaunchTutorialWidget(),
+        focusNodeSelector: 'input',
+        buttons: [Dialog.okButton({ label: 'Ok' })]
+    });
 }
