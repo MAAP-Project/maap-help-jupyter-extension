@@ -87,13 +87,23 @@ function activate(app, palette, restorer, mainMenu) {
         }
     });
     palette.addItem({ command: tech_doc_command, category: 'Help' });
+    const tutorials_command = 'help:tutorials';
+    app.commands.addCommand(tutorials_command, {
+        label: 'Tutorials',
+        isEnabled: () => true,
+        execute: args => {
+            (0,_popups__WEBPACK_IMPORTED_MODULE_6__.tutorialsPopup)();
+        }
+    });
+    palette.addItem({ command: tutorials_command, category: 'Help' });
     const { commands } = app;
     let helpMenu = new _lumino_widgets__WEBPACK_IMPORTED_MODULE_4__.Menu({ commands });
     helpMenu.title.label = 'Help';
     [
         about_command,
         faq_command,
-        tech_doc_command
+        tech_doc_command,
+        tutorials_command
     ].forEach(command => {
         helpMenu.addItem({ command });
     });
@@ -123,7 +133,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "aboutPopup": () => (/* binding */ aboutPopup),
 /* harmony export */   "faqPopup": () => (/* binding */ faqPopup),
-/* harmony export */   "techDocPopup": () => (/* binding */ techDocPopup)
+/* harmony export */   "techDocPopup": () => (/* binding */ techDocPopup),
+/* harmony export */   "tutorialsPopup": () => (/* binding */ tutorialsPopup)
 /* harmony export */ });
 /* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @jupyterlab/apputils */ "webpack/sharing/consume/default/@jupyterlab/apputils");
 /* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__);
@@ -156,6 +167,14 @@ function techDocPopup() {
     });
 }
 
+function tutorialsPopup() {
+    (0,_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.showDialog)({
+        body: new _widgets__WEBPACK_IMPORTED_MODULE_1__.TutorialsWidget(),
+        focusNodeSelector: 'input',
+        buttons: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.Dialog.okButton({ label: 'Ok' })]
+    });
+}
+
 
 /***/ }),
 
@@ -173,7 +192,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "IFrameWidget": () => (/* binding */ IFrameWidget),
 /* harmony export */   "LimitPopupWidget": () => (/* binding */ LimitPopupWidget),
 /* harmony export */   "ParamsPopupWidget": () => (/* binding */ ParamsPopupWidget),
-/* harmony export */   "TechDocWidget": () => (/* binding */ TechDocWidget)
+/* harmony export */   "TechDocWidget": () => (/* binding */ TechDocWidget),
+/* harmony export */   "TutorialsWidget": () => (/* binding */ TutorialsWidget)
 /* harmony export */ });
 /* harmony import */ var _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lumino/widgets */ "webpack/sharing/consume/default/@lumino/widgets");
 /* harmony import */ var _lumino_widgets__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_lumino_widgets__WEBPACK_IMPORTED_MODULE_0__);
@@ -314,6 +334,22 @@ class TechDocWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget 
     }
 }
 
+class TutorialsWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
+    constructor() {
+        let body = document.createElement('div');
+        body.style.display = 'flex';
+        body.style.flexDirection = 'column';
+        const innerText = `
+        <body>
+        <h1>Tutorials</h1>
+        <embed type="text/html" src="https://docs.maap-project.org/en/develop/tutorials.html" width="1000" height="600">
+        </body>`;
+
+        body.innerHTML = innerText;
+        super({ node: body });
+    }
+}
+
 
 /***/ }),
 
@@ -402,4 +438,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /***/ })
 
 }]);
-//# sourceMappingURL=lib_index_js.11fd56415588c692fd3c.js.map
+//# sourceMappingURL=lib_index_js.35c77bb49a06a6c4529a.js.map
