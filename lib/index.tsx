@@ -7,14 +7,18 @@ import { IMainMenu } from '@jupyterlab/mainmenu';
 import { Menu } from '@lumino/widgets';
 /** internal imports **/
 import '../style/index.css';
-import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup } from './popups';
-import "./globals";
+//import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup, launchTutorialPopup } from './popups';
+import { App } from "./App";
+import ReactDOM from "react-dom";
+import React from "react";
 console.log(PageConfig.getBaseUrl());
 ///////////////////////////////////////////////////////////////
 //
 // Earthdata Search Client extension
 //
 ///////////////////////////////////////////////////////////////
+ReactDOM.render(<App />, document.getElementById('root'));
+
 const extension = {
     id: 'maap_help',
     autoStart: true,
@@ -40,7 +44,7 @@ function activate(app, palette, restorer, mainMenu) {
         label: 'About',
         isEnabled: () => true,
         execute: args => {
-            aboutPopup();
+            //aboutPopup();
         }
     });
     palette.addItem({ command: about_command, category: 'Help' });
@@ -49,7 +53,7 @@ function activate(app, palette, restorer, mainMenu) {
         label: 'FAQ',
         isEnabled: () => true,
         execute: args => {
-            faqPopup();
+            //faqPopup();
         }
     });
     palette.addItem({ command: faq_command, category: 'Help' });
@@ -58,7 +62,7 @@ function activate(app, palette, restorer, mainMenu) {
         label: 'Technical Documentation',
         isEnabled: () => true,
         execute: args => {
-            techDocPopup();
+            //techDocPopup();
         }
     });
     palette.addItem({ command: tech_doc_command, category: 'Help' });
@@ -67,10 +71,19 @@ function activate(app, palette, restorer, mainMenu) {
         label: 'Tutorials',
         isEnabled: () => true,
         execute: args => {
-            tutorialsPopup();
+            //tutorialsPopup();
         }
     });
     palette.addItem({ command: tutorials_command, category: 'Help' });
+    const launch_tutorial_command = 'help:launchtutorial';
+    app.commands.addCommand(launch_tutorial_command, {
+        label: 'Launch Tutorial',
+        isEnabled: () => true,
+        execute: args => {
+            //launchTutorialPopup();
+        }
+    });
+    palette.addItem({ command: launch_tutorial_command, category: 'Help' });
     const { commands } = app;
     let helpMenu = new Menu({ commands });
     helpMenu.title.label = 'Help';
@@ -78,7 +91,8 @@ function activate(app, palette, restorer, mainMenu) {
         about_command,
         faq_command,
         tech_doc_command,
-        tutorials_command
+        tutorials_command,
+        launch_tutorial_command
     ].forEach(command => {
         helpMenu.addItem({ command });
     });
