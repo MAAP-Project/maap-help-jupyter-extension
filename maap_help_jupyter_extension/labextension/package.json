@@ -21,7 +21,7 @@
     "style/**/*.{css,js,eot,gif,html,jpg,json,png,svg,woff2,ttf}",
     "schema/*.json"
   ],
-  "main": "src/index.js",
+  "main": "src/index.html",
   "types": "src/index.d.ts",
   "style": "style/index.css",
   "repository": {
@@ -58,7 +58,9 @@
     "@jupyterlab/application": "^3.1.0",
     "@jupyterlab/mainmenu": "^3.1.1",
     "@lumino/widgets": "^1.34.0",
-    "jupyterlab_toastify": "^4.2.0"
+    "jquery": "^2.2.0",
+    "jupyterlab_toastify": "^4.2.0",
+    "what-input": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -68,25 +70,41 @@
     "@types/jest": "^26.0.0",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
     "@typescript-eslint/parser": "^4.8.1",
-    "awesome-typescript-loader": "5.2.1",
+    "browser-sync": "^2.11.2",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "foundation-joyride": "3.0.0",
+    "gem": "^2.4.3",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-compressor": "^0.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-mocha": "^2.2.0",
+    "gulp-mustache": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^2.0.5",
+    "gulp-uglify": "^1.4.2",
+    "gulp-util": "^3.0.7",
     "jest": "^26.0.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.1.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-joyride": "2.5.3",
+    "require-dir": "^0.3.0",
     "rimraf": "^3.0.2",
+    "run-sequence": "^1.1.5",
+    "sass": "^1.56.1",
     "stylelint": "^14.3.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended": "^6.0.0",
     "stylelint-config-standard": "~24.0.0",
     "stylelint-prettier": "^2.0.0",
     "ts-jest": "^26.0.0",
-    "typescript": "~3.9.10",
-    "webpack": "5.75.0"
+    "typescript": "~3.9.10"
   },
   "sideEffects": [
     "style/*.css",
@@ -101,7 +119,7 @@
     "outputDir": "maap_help_jupyter_extension/labextension",
     "schemaDir": "schema",
     "_build": {
-      "load": "static/remoteEntry.9700ac6ecb497f9c83b1.js",
+      "load": "static/remoteEntry.ffb97bb63615e6e0134b.js",
       "extension": "./extension",
       "style": "./style"
     }
@@ -116,5 +134,8 @@
         "jlpm clean:all"
       ]
     }
+  },
+  "overrides": {
+    "graceful-fs": "^4.2.10"
   }
 }
