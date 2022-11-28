@@ -11,7 +11,7 @@
 /*eslint-disable no-console */
 
 import webpack from "webpack";
-import config from "../webpack/webpack.config";
+import config from "../webpack/webpack.config.prod.js";
 import colors from "colors";
 
 console.log("graceal in the build js file");

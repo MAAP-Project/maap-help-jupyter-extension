@@ -1,0 +1,3 @@
+graceal in the webpack config file
+graceal in the build js file
+Generating minified bundle for production via Webpack. This will take a moment...

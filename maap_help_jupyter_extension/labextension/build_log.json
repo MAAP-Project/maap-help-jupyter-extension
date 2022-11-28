@@ -623,7 +623,6 @@
               "singleton": true
             },
             "jquery": {},
-            "jupyterlab_toastify": {},
             "what-input": {},
             "@maap-jupyterlab/maap-help-jupyter-extension": {
               "version": "0.3.3",

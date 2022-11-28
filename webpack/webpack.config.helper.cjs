@@ -11,9 +11,13 @@
  const webpack = require("webpack");
  const path = require("path");
  const HtmlWebpackPlugin = require("html-webpack-plugin");
- const StyleExtHtmlWebpackPlugin = require("style-ext-html-webpack-plugin");
  
  const BASE_DIR = path.resolve("./");
+
+ const options = {
+    node_env: "production",
+    isProduction: true
+};
  
  module.exports = options => {
      const GLOBALS = Object.assign(
@@ -60,4 +64,3 @@
  
      return webpackConfig;
  };
- 

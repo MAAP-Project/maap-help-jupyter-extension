@@ -11,13 +11,13 @@ var _JUPYTERLAB;
 
 var moduleMap = {
 	"./index": () => {
-		return __webpack_require__.e("src_index_js").then(() => (() => ((__webpack_require__(/*! ./src/index.js */ "./src/index.js")))));
+		return Promise.all([__webpack_require__.e("vendors-node_modules_css-loader_lib_css-base_js-node_modules_style-loader_lib_addStyles_js"), __webpack_require__.e("src_index_js")]).then(() => (() => ((__webpack_require__(/*! ./src/index.js */ "./src/index.js")))));
 	},
 	"./extension": () => {
-		return __webpack_require__.e("src_index_js").then(() => (() => ((__webpack_require__(/*! ./src/index.js */ "./src/index.js")))));
+		return Promise.all([__webpack_require__.e("vendors-node_modules_css-loader_lib_css-base_js-node_modules_style-loader_lib_addStyles_js"), __webpack_require__.e("src_index_js")]).then(() => (() => ((__webpack_require__(/*! ./src/index.js */ "./src/index.js")))));
 	},
 	"./style": () => {
-		return __webpack_require__.e("style_index_js").then(() => (() => ((__webpack_require__(/*! ./style/index.js */ "./style/index.js")))));
+		return Promise.all([__webpack_require__.e("vendors-node_modules_css-loader_lib_css-base_js-node_modules_style-loader_lib_addStyles_js"), __webpack_require__.e("style_index_js")]).then(() => (() => ((__webpack_require__(/*! ./style/index.js */ "./style/index.js")))));
 	}
 };
 var get = (module, getScope) => {
@@ -124,7 +124,7 @@ __webpack_require__.d(exports, {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + "." + {"src_index_js":"0ecf4f4e7d55d28b1fb7","style_index_js":"28e9fc2be92eda057008","vendors-node_modules_jquery_dist_jquery_js":"17991c002bdc0fc2b4ed"}[chunkId] + ".js";
+/******/ 			return "" + chunkId + "." + {"vendors-node_modules_css-loader_lib_css-base_js-node_modules_style-loader_lib_addStyles_js":"606e13431c40004a7069","src_index_js":"6df989fc267b693154e4","style_index_js":"f16cbe47f8b5009312c1","vendors-node_modules_jquery_dist_jquery_js":"17991c002bdc0fc2b4ed"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -240,7 +240,7 @@ __webpack_require__.d(exports, {
 /******/ 			var promises = [];
 /******/ 			switch(name) {
 /******/ 				case "default": {
-/******/ 					register("@maap-jupyterlab/maap-help-jupyter-extension", "0.3.3", () => (__webpack_require__.e("src_index_js").then(() => (() => (__webpack_require__(/*! ./src/index.js */ "./src/index.js"))))));
+/******/ 					register("@maap-jupyterlab/maap-help-jupyter-extension", "0.3.3", () => (Promise.all([__webpack_require__.e("vendors-node_modules_css-loader_lib_css-base_js-node_modules_style-loader_lib_addStyles_js"), __webpack_require__.e("src_index_js")]).then(() => (() => (__webpack_require__(/*! ./src/index.js */ "./src/index.js"))))));
 /******/ 					register("jquery", "2.2.4", () => (__webpack_require__.e("vendors-node_modules_jquery_dist_jquery_js").then(() => (() => (__webpack_require__(/*! ./node_modules/jquery/dist/jquery.js */ "./node_modules/jquery/dist/jquery.js"))))));
 /******/ 				}
 /******/ 				break;
@@ -540,11 +540,6 @@ __webpack_require__.d(exports, {
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/nonce */
-/******/ 	(() => {
-/******/ 		__webpack_require__.nc = undefined;
-/******/ 	})();
-/******/ 	
 /************************************************************************/
 /******/ 	
 /******/ 	// module cache are used so entry inlining is disabled
@@ -555,4 +550,4 @@ __webpack_require__.d(exports, {
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=remoteEntry.14d381548eb1f823d36a.js.map
+//# sourceMappingURL=remoteEntry.6343a98e4d0c162bb451.js.map
