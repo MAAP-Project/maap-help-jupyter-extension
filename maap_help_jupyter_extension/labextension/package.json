@@ -21,7 +21,7 @@
     "style/**/*.{css,js,eot,gif,html,jpg,json,png,svg,woff2,ttf}",
     "schema/*.json"
   ],
-  "main": "src/index.html",
+  "main": "src/index.js",
   "types": "src/index.d.ts",
   "style": "style/index.css",
   "repository": {
@@ -29,7 +29,7 @@
     "url": "https://github.com/MAAP-Project/maap-help-jupyter-extension/.git"
   },
   "scripts": {
-    "build": "jlpm build:lib && jlpm build:labextension:dev",
+    "build": "jlpm build:lib && jlpm build:labextension:dev && babel-node src/build.js > dist/build-report.txt",
     "build:prod": "jlpm clean && jlpm build:lib && jlpm build:labextension",
     "build:labextension": "jupyter labextension build .",
     "build:labextension:dev": "jupyter labextension build --development True .",
@@ -63,14 +63,30 @@
     "what-input": "^2.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
     "@jupyterlab/builder": "^3.1.0",
     "@jupyterlab/testutils": "^3.0.0",
     "@types/jest": "^26.0.0",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
     "@typescript-eslint/parser": "^4.8.1",
+    "babel-cli": "6.26.0",
+    "babel-core": "6.26.0",
+    "babel-eslint": "8.1.2",
+    "babel-loader": "9.1.0",
+    "babel-plugin-istanbul": "5.0.1",
+    "babel-plugin-react-display-name": "2.0.0",
+    "babel-plugin-transform-es3-member-expression-literals": "6.22.0",
+    "babel-plugin-transform-es3-property-literals": "6.22.0",
+    "babel-plugin-transform-react-constant-elements": "6.23.0",
+    "babel-plugin-transform-react-remove-prop-types": "0.4.12",
+    "babel-plugin-transform-runtime": "6.23.0",
+    "babel-polyfill": "6.26.0",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-react-hmre": "1.1.1",
+    "babel-preset-stage-1": "6.24.1",
+    "babel-runtime": "6.26.0",
     "browser-sync": "^2.11.2",
+    "css-loader": "0.28.0",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
@@ -98,13 +114,15 @@
     "rimraf": "^3.0.2",
     "run-sequence": "^1.1.5",
     "sass": "^1.56.1",
+    "style-loader": "3.3.1",
     "stylelint": "^14.3.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended": "^6.0.0",
     "stylelint-config-standard": "~24.0.0",
     "stylelint-prettier": "^2.0.0",
     "ts-jest": "^26.0.0",
-    "typescript": "~3.9.10"
+    "typescript": "~3.9.10",
+    "webpack": "5.75.0"
   },
   "sideEffects": [
     "style/*.css",
@@ -119,7 +137,7 @@
     "outputDir": "maap_help_jupyter_extension/labextension",
     "schemaDir": "schema",
     "_build": {
-      "load": "static/remoteEntry.ffb97bb63615e6e0134b.js",
+      "load": "static/remoteEntry.14d381548eb1f823d36a.js",
       "extension": "./extension",
       "style": "./style"
     }

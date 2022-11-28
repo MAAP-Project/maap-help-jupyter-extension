@@ -135,8 +135,8 @@
           },
           "filename": "remoteEntry.[contenthash].js",
           "exposes": {
-            "./index": "/Users/graceal/Documents/maap/maap-help-jupyter-extension/src/index.html",
-            "./extension": "/Users/graceal/Documents/maap/maap-help-jupyter-extension/src/index.html",
+            "./index": "/Users/graceal/Documents/maap/maap-help-jupyter-extension/src/index.js",
+            "./extension": "/Users/graceal/Documents/maap/maap-help-jupyter-extension/src/index.js",
             "./style": "/Users/graceal/Documents/maap/maap-help-jupyter-extension/style/index.js"
           },
           "shared": {
@@ -628,7 +628,7 @@
             "@maap-jupyterlab/maap-help-jupyter-extension": {
               "version": "0.3.3",
               "singleton": true,
-              "import": "/Users/graceal/Documents/maap/maap-help-jupyter-extension/src/index.html"
+              "import": "/Users/graceal/Documents/maap/maap-help-jupyter-extension/src/index.js"
             }
           }
         }
