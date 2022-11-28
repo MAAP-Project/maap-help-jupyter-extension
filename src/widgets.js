@@ -1,8 +1,6 @@
 import { Widget } from '@lumino/widgets';
 //import { PageConfig } from '@jupyterlab/coreutils'
 import "./globals";
-import $ from "jquery";
-
 let unique = 0;
 //
 // Widget to display Earth Data Search Client inside an iframe
@@ -123,16 +121,13 @@ export class TutorialsWidget extends Widget {
 
 export class LaunchTutorialWidget extends Widget {
     constructor() {
-        /*var script = document.createElement('script');
-        script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
-        document.getElementsByTagName('head')[0].appendChild(script);*/
-        //$(document).foundation();
-        let body = document.createElement('callout');
-        //body.style.display = 'flex';
-        //body.style.flexDirection = 'column';
+        let body = document.createElement('div');
+        body.style.display = 'flex';
+        body.style.flexDirection = 'column';
         const innerText = `
-        <embed type="text/html" src="src/index.html">
-        `;
+        <head>
+        Test
+        </head>`;
 
         body.innerHTML = innerText;
         super({ node: body });

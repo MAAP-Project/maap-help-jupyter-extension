@@ -1,19 +1,20 @@
 /** jupyterlab imports **/
 import { ILayoutRestorer } from '@jupyterlab/application';
 import { ICommandPalette, WidgetTracker } from '@jupyterlab/apputils';
-//import { PageConfig } from '@jupyterlab/coreutils';
+import { PageConfig } from '@jupyterlab/coreutils';
 import { IMainMenu } from '@jupyterlab/mainmenu';
 /** phosphor imports **/
 import { Menu } from '@lumino/widgets';
 /** internal imports **/
 import '../style/index.css';
 import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup, launchTutorialPopup } from './popups';
-//console.log(PageConfig.getBaseUrl());
+console.log(PageConfig.getBaseUrl());
 ///////////////////////////////////////////////////////////////
 //
 // Earthdata Search Client extension
 //
 ///////////////////////////////////////////////////////////////
+
 const extension = {
     id: 'maap_help',
     autoStart: true,
@@ -75,7 +76,7 @@ function activate(app, palette, restorer, mainMenu) {
         label: 'Launch Tutorial',
         isEnabled: () => true,
         execute: args => {
-            new launchTutorialPopup();
+            launchTutorialPopup();
         }
     });
     palette.addItem({ command: launch_tutorial_command, category: 'Help' });

@@ -11,13 +11,13 @@ var _JUPYTERLAB;
 
 var moduleMap = {
 	"./index": () => {
-		return Promise.all([__webpack_require__.e("vendors-node_modules_css-loader_lib_css-base_js-node_modules_style-loader_lib_addStyles_js"), __webpack_require__.e("src_index_js")]).then(() => (() => ((__webpack_require__(/*! ./src/index.js */ "./src/index.js")))));
+		return Promise.all([__webpack_require__.e("vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1"), __webpack_require__.e("src_index_js")]).then(() => (() => ((__webpack_require__(/*! ./src/index.js */ "./src/index.js")))));
 	},
 	"./extension": () => {
-		return Promise.all([__webpack_require__.e("vendors-node_modules_css-loader_lib_css-base_js-node_modules_style-loader_lib_addStyles_js"), __webpack_require__.e("src_index_js")]).then(() => (() => ((__webpack_require__(/*! ./src/index.js */ "./src/index.js")))));
+		return Promise.all([__webpack_require__.e("vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1"), __webpack_require__.e("src_index_js")]).then(() => (() => ((__webpack_require__(/*! ./src/index.js */ "./src/index.js")))));
 	},
 	"./style": () => {
-		return Promise.all([__webpack_require__.e("vendors-node_modules_css-loader_lib_css-base_js-node_modules_style-loader_lib_addStyles_js"), __webpack_require__.e("style_index_js")]).then(() => (() => ((__webpack_require__(/*! ./style/index.js */ "./style/index.js")))));
+		return Promise.all([__webpack_require__.e("vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1"), __webpack_require__.e("style_index_js")]).then(() => (() => ((__webpack_require__(/*! ./style/index.js */ "./style/index.js")))));
 	}
 };
 var get = (module, getScope) => {
@@ -69,7 +69,7 @@ __webpack_require__.d(exports, {
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -124,7 +124,7 @@ __webpack_require__.d(exports, {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + "." + {"vendors-node_modules_css-loader_lib_css-base_js-node_modules_style-loader_lib_addStyles_js":"606e13431c40004a7069","src_index_js":"6df989fc267b693154e4","style_index_js":"f16cbe47f8b5009312c1","vendors-node_modules_jquery_dist_jquery_js":"17991c002bdc0fc2b4ed"}[chunkId] + ".js";
+/******/ 			return "" + chunkId + "." + {"vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1":"89006d8044aadaae47ae","src_index_js":"1c576999b7fe21c1f9f2","style_index_js":"3a3a465661fc72074529"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -240,8 +240,7 @@ __webpack_require__.d(exports, {
 /******/ 			var promises = [];
 /******/ 			switch(name) {
 /******/ 				case "default": {
-/******/ 					register("@maap-jupyterlab/maap-help-jupyter-extension", "0.3.3", () => (Promise.all([__webpack_require__.e("vendors-node_modules_css-loader_lib_css-base_js-node_modules_style-loader_lib_addStyles_js"), __webpack_require__.e("src_index_js")]).then(() => (() => (__webpack_require__(/*! ./src/index.js */ "./src/index.js"))))));
-/******/ 					register("jquery", "2.2.4", () => (__webpack_require__.e("vendors-node_modules_jquery_dist_jquery_js").then(() => (() => (__webpack_require__(/*! ./node_modules/jquery/dist/jquery.js */ "./node_modules/jquery/dist/jquery.js"))))));
+/******/ 					register("@maap-jupyterlab/maap-help-jupyter-extension", "0.3.3", () => (Promise.all([__webpack_require__.e("vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1"), __webpack_require__.e("src_index_js")]).then(() => (() => (__webpack_require__(/*! ./src/index.js */ "./src/index.js"))))));
 /******/ 				}
 /******/ 				break;
 /******/ 			}
@@ -407,18 +406,18 @@ __webpack_require__.d(exports, {
 /******/ 		var moduleToHandlerMapping = {
 /******/ 			"webpack/sharing/consume/default/@jupyterlab/application": () => (loadSingletonVersionCheck("default", "@jupyterlab/application", [1,3,4,7])),
 /******/ 			"webpack/sharing/consume/default/@jupyterlab/apputils": () => (loadSingletonVersionCheck("default", "@jupyterlab/apputils", [1,3,4,7])),
+/******/ 			"webpack/sharing/consume/default/@jupyterlab/coreutils": () => (loadSingletonVersionCheck("default", "@jupyterlab/coreutils", [1,5,4,7])),
 /******/ 			"webpack/sharing/consume/default/@jupyterlab/mainmenu": () => (loadSingletonVersionCheck("default", "@jupyterlab/mainmenu", [1,3,4,7])),
-/******/ 			"webpack/sharing/consume/default/@lumino/widgets": () => (loadSingletonVersionCheck("default", "@lumino/widgets", [1,1,33,0])),
-/******/ 			"webpack/sharing/consume/default/jquery/jquery": () => (loadStrictVersionCheckFallback("default", "jquery", [1,2,2,0], () => (__webpack_require__.e("vendors-node_modules_jquery_dist_jquery_js").then(() => (() => (__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))))))
+/******/ 			"webpack/sharing/consume/default/@lumino/widgets": () => (loadSingletonVersionCheck("default", "@lumino/widgets", [1,1,33,0]))
 /******/ 		};
 /******/ 		// no consumes in initial chunks
 /******/ 		var chunkMapping = {
 /******/ 			"src_index_js": [
 /******/ 				"webpack/sharing/consume/default/@jupyterlab/application",
 /******/ 				"webpack/sharing/consume/default/@jupyterlab/apputils",
+/******/ 				"webpack/sharing/consume/default/@jupyterlab/coreutils",
 /******/ 				"webpack/sharing/consume/default/@jupyterlab/mainmenu",
-/******/ 				"webpack/sharing/consume/default/@lumino/widgets",
-/******/ 				"webpack/sharing/consume/default/jquery/jquery"
+/******/ 				"webpack/sharing/consume/default/@lumino/widgets"
 /******/ 			]
 /******/ 		};
 /******/ 		__webpack_require__.f.consumes = (chunkId, promises) => {
@@ -540,6 +539,11 @@ __webpack_require__.d(exports, {
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/nonce */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nc = undefined;
+/******/ 	})();
+/******/ 	
 /************************************************************************/
 /******/ 	
 /******/ 	// module cache are used so entry inlining is disabled
@@ -550,4 +554,4 @@ __webpack_require__.d(exports, {
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=remoteEntry.6343a98e4d0c162bb451.js.map
+//# sourceMappingURL=remoteEntry.9700ac6ecb497f9c83b1.js.map
