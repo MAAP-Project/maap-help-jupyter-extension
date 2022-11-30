@@ -1,5 +1,4 @@
 /** jupyterlab imports **/
-import { ILabShell } from '@jupyterlab/application';
 import { ICommandPalette, WidgetTracker } from '@jupyterlab/apputils';
 import { PageConfig } from '@jupyterlab/coreutils';
 import { IMainMenu } from '@jupyterlab/mainmenu';
@@ -10,34 +9,9 @@ console.log(PageConfig.getBaseUrl());
 
 ///////////////////////////////////////////////////////////////
 //
-// Earthdata Search Client extension
+// Maap Help extension
 //
 ///////////////////////////////////////////////////////////////
-/* //use this as an example because this works 
-const extension = {
-    id: 'maap_help',
-    autoStart: true,
-    requires: [ICommandPalette, ILayoutRestorer, IMainMenu],
-    activate: activate
-};
-function activate(app, palette, restorer, mainMenu) {
-    console.log("graceal in the activate function");
-    console.log(mainMenu.fileMenu);
-    const test_command = 'iframe:test';
-    app.commands.addCommand(test_command, {
-        label: 'Test',
-        isEnabled: () => true,
-        execute: args => {
-            console.log("graceal executing the test command");
-        }
-    });
-    mainMenu.fileMenu.addGroup([
-        {
-          command: "test",
-        }
-      ], 40 );
-}
-export default extension;*/
 
 function dummyFunction() {
     console.log("in the dummy function");
@@ -46,26 +20,10 @@ function dummyFunction() {
 const extension = {
     id: 'maap_help',
     autoStart: true,
-    requires: [ICommandPalette, IMainMenu, ILabShell],
+    requires: [ICommandPalette, IMainMenu],
     activate: activate
 };
-function activate(app, palette, mainMenu, labShell) {
-    /*console.log("graceal this is what I passed in: ");
-    console.log(labShell);
-    console.log(labShell.node.childNodes);
-    const childNode = 1; // right now you can see something for 1 with body and h1
-    console.log(labShell.node.childNodes[childNode].children); // this looks like it is of type HTMLCollection
-    let body = document.createElement('div');
-    const innerText = `
-    <div class="callout">
-    <div class="callout-header">Callout Header</div>
-    <div class="callout-container">
-        <p>Some text...</p>
-    </div>
-    </div>`;
-    body.innerHTML = innerText;
-    console.log(labShell.node.childNodes[childNode].appendChild(body));
-    console.log(labShell.node.childNodes[childNode].children); */
+function activate(app, palette, mainMenu) {
     const namespace = 'tracker-iframe';
     let instanceTracker = new WidgetTracker({ namespace });
     //
