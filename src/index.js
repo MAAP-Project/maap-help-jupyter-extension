@@ -7,7 +7,7 @@ import { IMainMenu } from '@jupyterlab/mainmenu';
 import { Menu } from '@lumino/widgets';
 /** internal imports **/
 import '../style/index.css';
-import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup, launchTutorialPopup } from './popups';
+import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup, launchTutorialPopup, maapPyPopup } from './popups';
 console.log(PageConfig.getBaseUrl());
 ///////////////////////////////////////////////////////////////
 //
@@ -105,12 +105,22 @@ function activate(app, palette, restorer, mainMenu) {
         }
     });
     palette.addItem({ command: launch_tutorial_command, category: 'Help' });
+    const maap_py_command = 'help:maapPy';
+    app.commands.addCommand(maap_py_command, {
+        label: 'Maap-Py API',
+        isEnabled: () => true,
+        execute: args => {
+            maapPyPopup();
+        }
+    });
+    palette.addItem({ command: maap_py_command, category: 'Help' });
     [
         about_command,
         faq_command,
         tech_doc_command,
         tutorials_command,
-        launch_tutorial_command
+        launch_tutorial_command,
+        maap_py_command
     ].forEach(command => {
         mainMenu.helpMenu.addItem({ command });
     });

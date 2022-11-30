@@ -134,3 +134,18 @@ export class LaunchTutorialWidget extends Widget {
     }
 }
 
+export class MaapPyWidget extends Widget {
+    constructor() {
+        let body = document.createElement('div');
+        body.style.display = 'flex';
+        body.style.flexDirection = 'column';
+        const innerText = `
+        <head>
+        Test
+        </head>`;
+
+        body.innerHTML = innerText;
+        super({ node: body });
+    }
+}
+

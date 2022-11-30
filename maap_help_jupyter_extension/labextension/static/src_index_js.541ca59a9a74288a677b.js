@@ -191,33 +191,25 @@ function activate(app, palette, restorer, mainMenu) {
         }
     });
     palette.addItem({ command: launch_tutorial_command, category: 'Help' });
+    const maap_py_command = 'help:maapPy';
+    app.commands.addCommand(maap_py_command, {
+        label: 'Maap-Py API',
+        isEnabled: () => true,
+        execute: args => {
+            (0,_popups__WEBPACK_IMPORTED_MODULE_6__.maapPyPopup)();
+        }
+    });
+    palette.addItem({ command: maap_py_command, category: 'Help' });
     [
         about_command,
         faq_command,
         tech_doc_command,
         tutorials_command,
-        launch_tutorial_command
+        launch_tutorial_command,
+        maap_py_command
     ].forEach(command => {
         mainMenu.helpMenu.addItem({ command });
     });
-
-    /*mainMenu.helpMenu.addGroup([
-        {
-          command: about_command,
-        },
-        {
-          command: faq_command,
-        },
-        {
-          command: tech_doc_command,
-        },
-        {
-          command: tutorials_command,
-        },
-        {
-          command: launch_tutorial_command,
-        }
-      ], 100 );*/
     console.log('JupyterLab extension maap_help is activated!');
     return instanceTracker;
 }
@@ -239,6 +231,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "aboutPopup": () => (/* binding */ aboutPopup),
 /* harmony export */   "faqPopup": () => (/* binding */ faqPopup),
 /* harmony export */   "launchTutorialPopup": () => (/* binding */ launchTutorialPopup),
+/* harmony export */   "maapPyPopup": () => (/* binding */ maapPyPopup),
 /* harmony export */   "techDocPopup": () => (/* binding */ techDocPopup),
 /* harmony export */   "tutorialsPopup": () => (/* binding */ tutorialsPopup)
 /* harmony export */ });
@@ -292,6 +285,14 @@ function launchTutorialPopup() {
     });
 }
 
+function maapPyPopup() {
+    (0,_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.showDialog)({
+        body: new _widgets__WEBPACK_IMPORTED_MODULE_2__.MaapPyWidget(),
+        focusNodeSelector: 'input',
+        buttons: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.Dialog.okButton({ label: 'Ok' })]
+    });
+}
+
 
 /***/ }),
 
@@ -309,6 +310,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "IFrameWidget": () => (/* binding */ IFrameWidget),
 /* harmony export */   "LaunchTutorialWidget": () => (/* binding */ LaunchTutorialWidget),
 /* harmony export */   "LimitPopupWidget": () => (/* binding */ LimitPopupWidget),
+/* harmony export */   "MaapPyWidget": () => (/* binding */ MaapPyWidget),
 /* harmony export */   "TechDocWidget": () => (/* binding */ TechDocWidget),
 /* harmony export */   "TutorialsWidget": () => (/* binding */ TutorialsWidget)
 /* harmony export */ });
@@ -450,9 +452,24 @@ class LaunchTutorialWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.
     }
 }
 
+class MaapPyWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
+    constructor() {
+        let body = document.createElement('div');
+        body.style.display = 'flex';
+        body.style.flexDirection = 'column';
+        const innerText = `
+        <head>
+        Test
+        </head>`;
+
+        body.innerHTML = innerText;
+        super({ node: body });
+    }
+}
+
 
 
 /***/ })
 
 }]);
-//# sourceMappingURL=src_index_js.ab1f2a500dc4ec0837b3.js.map
+//# sourceMappingURL=src_index_js.541ca59a9a74288a677b.js.map

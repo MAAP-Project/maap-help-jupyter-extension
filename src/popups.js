@@ -1,5 +1,5 @@
 import { Dialog, showDialog } from "@jupyterlab/apputils";
-import { AboutWidget, FAQWidget, TechDocWidget, TutorialsWidget, LaunchTutorialWidget } from "./widgets";
+import { AboutWidget, FAQWidget, TechDocWidget, TutorialsWidget, LaunchTutorialWidget, MaapPyWidget } from "./widgets";
 import "./globals";
 import React, { Component } from "react";
 
@@ -38,6 +38,14 @@ export function tutorialsPopup() {
 export function launchTutorialPopup() {
     showDialog({
         body: new LaunchTutorialWidget(),
+        focusNodeSelector: 'input',
+        buttons: [Dialog.okButton({ label: 'Ok' })]
+    });
+}
+
+export function maapPyPopup() {
+    showDialog({
+        body: new MaapPyWidget(),
         focusNodeSelector: 'input',
         buttons: [Dialog.okButton({ label: 'Ok' })]
     });
