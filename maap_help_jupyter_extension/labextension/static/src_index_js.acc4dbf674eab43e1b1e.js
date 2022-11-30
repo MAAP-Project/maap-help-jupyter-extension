@@ -107,7 +107,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _popups__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./popups */ "./src/popups.js");
 /** jupyterlab imports **/
 
-  
 
 
 
@@ -115,6 +114,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 console.log(_jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_2__.PageConfig.getBaseUrl());
+
 ///////////////////////////////////////////////////////////////
 //
 // Earthdata Search Client extension
@@ -146,17 +146,33 @@ function activate(app, palette, restorer, mainMenu) {
 }
 export default extension;*/
 
+function dummyFunction() {
+    console.log("in the dummy function");
+}
+
 const extension = {
     id: 'maap_help',
     autoStart: true,
     requires: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_1__.ICommandPalette, _jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_3__.IMainMenu, _jupyterlab_application__WEBPACK_IMPORTED_MODULE_0__.ILabShell],
     activate: activate
 };
-function activate(app, palette, mainMenu, frontend) {
-    console.log("graceal this is what I passed in: ");
-    console.log(frontend);
-    console.log(frontend.node);
-    console.log(frontend.node.get("main"));
+function activate(app, palette, mainMenu, labShell) {
+    /*console.log("graceal this is what I passed in: ");
+    console.log(labShell);
+    console.log(labShell.node.childNodes);
+    const childNode = 1; // right now you can see something for 1 with body and h1
+    console.log(labShell.node.childNodes[childNode].children); // this looks like it is of type HTMLCollection
+    let body = document.createElement('div');
+    const innerText = `
+    <div class="callout">
+    <div class="callout-header">Callout Header</div>
+    <div class="callout-container">
+        <p>Some text...</p>
+    </div>
+    </div>`;
+    body.innerHTML = innerText;
+    console.log(labShell.node.childNodes[childNode].appendChild(body));
+    console.log(labShell.node.childNodes[childNode].children); */
     const namespace = 'tracker-iframe';
     let instanceTracker = new _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_1__.WidgetTracker({ namespace });
     //
@@ -496,4 +512,4 @@ class MaapApiWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget 
 /***/ })
 
 }]);
-//# sourceMappingURL=src_index_js.50e65967a8286c35934f.js.map
+//# sourceMappingURL=src_index_js.acc4dbf674eab43e1b1e.js.map
