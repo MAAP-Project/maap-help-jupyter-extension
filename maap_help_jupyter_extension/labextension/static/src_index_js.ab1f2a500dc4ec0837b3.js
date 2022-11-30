@@ -191,7 +191,17 @@ function activate(app, palette, restorer, mainMenu) {
         }
     });
     palette.addItem({ command: launch_tutorial_command, category: 'Help' });
-    mainMenu.helpMenu.addGroup([
+    [
+        about_command,
+        faq_command,
+        tech_doc_command,
+        tutorials_command,
+        launch_tutorial_command
+    ].forEach(command => {
+        mainMenu.helpMenu.addItem({ command });
+    });
+
+    /*mainMenu.helpMenu.addGroup([
         {
           command: about_command,
         },
@@ -207,15 +217,7 @@ function activate(app, palette, restorer, mainMenu) {
         {
           command: launch_tutorial_command,
         }
-      ], 100 );
-
-    //mainMenu.addMenu(helpMenu, { rank: 100 });
-    // Track and restore the widget state
-    restorer.restore(instanceTracker, {
-        command: about_command,
-        name: () => namespace
-    });
-    //graceal- to do- do I need this?
+      ], 100 );*/
     console.log('JupyterLab extension maap_help is activated!');
     return instanceTracker;
 }
@@ -453,4 +455,4 @@ class LaunchTutorialWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.
 /***/ })
 
 }]);
-//# sourceMappingURL=src_index_js.496d13881c9cad88b778.js.map
+//# sourceMappingURL=src_index_js.ab1f2a500dc4ec0837b3.js.map

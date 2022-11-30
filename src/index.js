@@ -105,31 +105,15 @@ function activate(app, palette, restorer, mainMenu) {
         }
     });
     palette.addItem({ command: launch_tutorial_command, category: 'Help' });
-    mainMenu.helpMenu.addGroup([
-        {
-          command: about_command,
-        },
-        {
-          command: faq_command,
-        },
-        {
-          command: tech_doc_command,
-        },
-        {
-          command: tutorials_command,
-        },
-        {
-          command: launch_tutorial_command,
-        }
-      ], 100 );
-
-    //mainMenu.addMenu(helpMenu, { rank: 100 });
-    // Track and restore the widget state
-    restorer.restore(instanceTracker, {
-        command: about_command,
-        name: () => namespace
+    [
+        about_command,
+        faq_command,
+        tech_doc_command,
+        tutorials_command,
+        launch_tutorial_command
+    ].forEach(command => {
+        mainMenu.helpMenu.addItem({ command });
     });
-    //graceal- to do- do I need this?
     console.log('JupyterLab extension maap_help is activated!');
     return instanceTracker;
 }
