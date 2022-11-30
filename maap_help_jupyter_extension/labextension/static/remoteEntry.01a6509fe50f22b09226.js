@@ -124,7 +124,7 @@ __webpack_require__.d(exports, {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + "." + {"vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1":"89006d8044aadaae47ae","src_index_js":"ba386cc2a512612e9143","style_index_js":"3a3a465661fc72074529"}[chunkId] + ".js";
+/******/ 			return "" + chunkId + "." + {"vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1":"89006d8044aadaae47ae","src_index_js":"50e65967a8286c35934f","style_index_js":"3a3a465661fc72074529"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -404,6 +404,7 @@ __webpack_require__.d(exports, {
 /******/ 		});
 /******/ 		var installedModules = {};
 /******/ 		var moduleToHandlerMapping = {
+/******/ 			"webpack/sharing/consume/default/@jupyterlab/application": () => (loadSingletonVersionCheck("default", "@jupyterlab/application", [1,3,4,7])),
 /******/ 			"webpack/sharing/consume/default/@jupyterlab/apputils": () => (loadSingletonVersionCheck("default", "@jupyterlab/apputils", [1,3,4,7])),
 /******/ 			"webpack/sharing/consume/default/@jupyterlab/coreutils": () => (loadSingletonVersionCheck("default", "@jupyterlab/coreutils", [1,5,4,7])),
 /******/ 			"webpack/sharing/consume/default/@jupyterlab/mainmenu": () => (loadSingletonVersionCheck("default", "@jupyterlab/mainmenu", [1,3,4,7])),
@@ -413,6 +414,7 @@ __webpack_require__.d(exports, {
 /******/ 		// no consumes in initial chunks
 /******/ 		var chunkMapping = {
 /******/ 			"src_index_js": [
+/******/ 				"webpack/sharing/consume/default/@jupyterlab/application",
 /******/ 				"webpack/sharing/consume/default/@jupyterlab/apputils",
 /******/ 				"webpack/sharing/consume/default/@jupyterlab/coreutils",
 /******/ 				"webpack/sharing/consume/default/@jupyterlab/mainmenu",
@@ -554,4 +556,4 @@ __webpack_require__.d(exports, {
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=remoteEntry.7ae8e8a37067a4138041.js.map
+//# sourceMappingURL=remoteEntry.01a6509fe50f22b09226.js.map

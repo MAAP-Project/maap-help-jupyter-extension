@@ -1,4 +1,6 @@
 /** jupyterlab imports **/
+import { ILabShell } from '@jupyterlab/application';
+  
 import { ICommandPalette, WidgetTracker } from '@jupyterlab/apputils';
 import { PageConfig } from '@jupyterlab/coreutils';
 import { IMainMenu } from '@jupyterlab/mainmenu';
@@ -40,10 +42,13 @@ export default extension;*/
 const extension = {
     id: 'maap_help',
     autoStart: true,
-    requires: [ICommandPalette, IMainMenu],
+    requires: [ICommandPalette, IMainMenu, ILabShell],
     activate: activate
 };
-function activate(app, palette, mainMenu) {
+function activate(app, palette, mainMenu, frontend) {
+    console.log("graceal this is what I passed in: ");
+    console.log(frontend);
+    console.log(frontend.node);
     const namespace = 'tracker-iframe';
     let instanceTracker = new WidgetTracker({ namespace });
     //

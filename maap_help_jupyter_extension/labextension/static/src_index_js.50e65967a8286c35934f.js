@@ -95,22 +95,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @jupyterlab/apputils */ "webpack/sharing/consume/default/@jupyterlab/apputils");
-/* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @jupyterlab/coreutils */ "webpack/sharing/consume/default/@jupyterlab/coreutils");
-/* harmony import */ var _jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @jupyterlab/mainmenu */ "webpack/sharing/consume/default/@jupyterlab/mainmenu");
-/* harmony import */ var _jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _style_index_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../style/index.css */ "./style/index.css");
-/* harmony import */ var _popups__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./popups */ "./src/popups.js");
+/* harmony import */ var _jupyterlab_application__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @jupyterlab/application */ "webpack/sharing/consume/default/@jupyterlab/application");
+/* harmony import */ var _jupyterlab_application__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_application__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @jupyterlab/apputils */ "webpack/sharing/consume/default/@jupyterlab/apputils");
+/* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @jupyterlab/coreutils */ "webpack/sharing/consume/default/@jupyterlab/coreutils");
+/* harmony import */ var _jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @jupyterlab/mainmenu */ "webpack/sharing/consume/default/@jupyterlab/mainmenu");
+/* harmony import */ var _jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _style_index_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../style/index.css */ "./style/index.css");
+/* harmony import */ var _popups__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./popups */ "./src/popups.js");
 /** jupyterlab imports **/
+
+  
 
 
 
 /** internal imports **/
 
 
-console.log(_jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_1__.PageConfig.getBaseUrl());
+console.log(_jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_2__.PageConfig.getBaseUrl());
 ///////////////////////////////////////////////////////////////
 //
 // Earthdata Search Client extension
@@ -145,12 +149,16 @@ export default extension;*/
 const extension = {
     id: 'maap_help',
     autoStart: true,
-    requires: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.ICommandPalette, _jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_2__.IMainMenu],
+    requires: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_1__.ICommandPalette, _jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_3__.IMainMenu, _jupyterlab_application__WEBPACK_IMPORTED_MODULE_0__.ILabShell],
     activate: activate
 };
-function activate(app, palette, mainMenu) {
+function activate(app, palette, mainMenu, frontend) {
+    console.log("graceal this is what I passed in: ");
+    console.log(frontend);
+    console.log(frontend.node);
+    console.log(frontend.node.get("main"));
     const namespace = 'tracker-iframe';
-    let instanceTracker = new _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.WidgetTracker({ namespace });
+    let instanceTracker = new _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_1__.WidgetTracker({ namespace });
     //
     // Listen for messages being sent by the iframe - parse the url and set as parameters for search
     //
@@ -167,7 +175,7 @@ function activate(app, palette, mainMenu) {
         label: 'About MAAP',
         isEnabled: () => true,
         execute: args => {
-            (0,_popups__WEBPACK_IMPORTED_MODULE_4__.aboutPopup)();
+            (0,_popups__WEBPACK_IMPORTED_MODULE_5__.aboutPopup)();
         }
     });
     palette.addItem({ command: about_command, category: 'Help' });
@@ -176,7 +184,7 @@ function activate(app, palette, mainMenu) {
         label: 'MAAP FAQ',
         isEnabled: () => true,
         execute: args => {
-            (0,_popups__WEBPACK_IMPORTED_MODULE_4__.faqPopup)();
+            (0,_popups__WEBPACK_IMPORTED_MODULE_5__.faqPopup)();
         }
     });
     palette.addItem({ command: faq_command, category: 'Help' });
@@ -185,7 +193,7 @@ function activate(app, palette, mainMenu) {
         label: 'MAAP Technical Documentation',
         isEnabled: () => true,
         execute: args => {
-            (0,_popups__WEBPACK_IMPORTED_MODULE_4__.techDocPopup)();
+            (0,_popups__WEBPACK_IMPORTED_MODULE_5__.techDocPopup)();
         }
     });
     palette.addItem({ command: tech_doc_command, category: 'Help' });
@@ -194,7 +202,7 @@ function activate(app, palette, mainMenu) {
         label: 'MAAP Tutorials',
         isEnabled: () => true,
         execute: args => {
-            (0,_popups__WEBPACK_IMPORTED_MODULE_4__.tutorialsPopup)();
+            (0,_popups__WEBPACK_IMPORTED_MODULE_5__.tutorialsPopup)();
         }
     });
     palette.addItem({ command: tutorials_command, category: 'Help' });
@@ -203,7 +211,7 @@ function activate(app, palette, mainMenu) {
         label: 'MAAP Launch Tutorial',
         isEnabled: () => true,
         execute: args => {
-            (0,_popups__WEBPACK_IMPORTED_MODULE_4__.launchTutorialPopup)();
+            (0,_popups__WEBPACK_IMPORTED_MODULE_5__.launchTutorialPopup)();
         }
     });
     palette.addItem({ command: launch_tutorial_command, category: 'Help' });
@@ -212,7 +220,7 @@ function activate(app, palette, mainMenu) {
         label: 'MAAP API',
         isEnabled: () => true,
         execute: args => {
-            (0,_popups__WEBPACK_IMPORTED_MODULE_4__.maapApiPopup)();
+            (0,_popups__WEBPACK_IMPORTED_MODULE_5__.maapApiPopup)();
         }
     });
     palette.addItem({ command: maap_py_command, category: 'Help' });
@@ -488,4 +496,4 @@ class MaapApiWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget 
 /***/ })
 
 }]);
-//# sourceMappingURL=src_index_js.ba386cc2a512612e9143.js.map
+//# sourceMappingURL=src_index_js.50e65967a8286c35934f.js.map
