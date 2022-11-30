@@ -14,6 +14,31 @@ console.log(PageConfig.getBaseUrl());
 // Earthdata Search Client extension
 //
 ///////////////////////////////////////////////////////////////
+/* //use this as an example because this works 
+const extension = {
+    id: 'maap_help',
+    autoStart: true,
+    requires: [ICommandPalette, ILayoutRestorer, IMainMenu],
+    activate: activate
+};
+function activate(app, palette, restorer, mainMenu) {
+    console.log("graceal in the activate function");
+    console.log(mainMenu.fileMenu);
+    const test_command = 'iframe:test';
+    app.commands.addCommand(test_command, {
+        label: 'Test',
+        isEnabled: () => true,
+        execute: args => {
+            console.log("graceal executing the test command");
+        }
+    });
+    mainMenu.fileMenu.addGroup([
+        {
+          command: "test",
+        }
+      ], 40 );
+}
+export default extension;*/
 
 const extension = {
     id: 'maap_help',
@@ -34,10 +59,10 @@ function activate(app, palette, restorer, mainMenu) {
         }
     });
     /******** Set commands for command palette and main menu *********/
-    // Add an application command to open ESDC
+    // Add an application command to open ESDC*/
     const about_command = 'iframe:about';
     app.commands.addCommand(about_command, {
-        label: 'About',
+        label: 'About MAAP',
         isEnabled: () => true,
         execute: args => {
             aboutPopup();
@@ -46,7 +71,7 @@ function activate(app, palette, restorer, mainMenu) {
     palette.addItem({ command: about_command, category: 'Help' });
     const faq_command = 'help:faq';
     app.commands.addCommand(faq_command, {
-        label: 'FAQ',
+        label: 'MAAP FAQ',
         isEnabled: () => true,
         execute: args => {
             faqPopup();
@@ -55,7 +80,7 @@ function activate(app, palette, restorer, mainMenu) {
     palette.addItem({ command: faq_command, category: 'Help' });
     const tech_doc_command = 'help:techDoc';
     app.commands.addCommand(tech_doc_command, {
-        label: 'Technical Documentation',
+        label: 'MAAP Technical Documentation',
         isEnabled: () => true,
         execute: args => {
             techDocPopup();
@@ -64,7 +89,7 @@ function activate(app, palette, restorer, mainMenu) {
     palette.addItem({ command: tech_doc_command, category: 'Help' });
     const tutorials_command = 'help:tutorials';
     app.commands.addCommand(tutorials_command, {
-        label: 'Tutorials',
+        label: 'MAAP Tutorials',
         isEnabled: () => true,
         execute: args => {
             tutorialsPopup();
@@ -73,26 +98,32 @@ function activate(app, palette, restorer, mainMenu) {
     palette.addItem({ command: tutorials_command, category: 'Help' });
     const launch_tutorial_command = 'help:launchtutorial';
     app.commands.addCommand(launch_tutorial_command, {
-        label: 'Launch Tutorial',
+        label: 'MAAP Launch Tutorial',
         isEnabled: () => true,
         execute: args => {
             launchTutorialPopup();
         }
     });
     palette.addItem({ command: launch_tutorial_command, category: 'Help' });
-    const { commands } = app;
-    let helpMenu = new Menu({ commands });
-    helpMenu.title.label = 'Help';
-    [
-        about_command,
-        faq_command,
-        tech_doc_command,
-        tutorials_command,
-        launch_tutorial_command
-    ].forEach(command => {
-        helpMenu.addItem({ command });
-    });
-    mainMenu.addMenu(helpMenu, { rank: 100 });
+    mainMenu.helpMenu.addGroup([
+        {
+          command: about_command,
+        },
+        {
+          command: faq_command,
+        },
+        {
+          command: tech_doc_command,
+        },
+        {
+          command: tutorials_command,
+        },
+        {
+          command: launch_tutorial_command,
+        }
+      ], 100 );
+
+    //mainMenu.addMenu(helpMenu, { rank: 100 });
     // Track and restore the widget state
     restorer.restore(instanceTracker, {
         command: about_command,

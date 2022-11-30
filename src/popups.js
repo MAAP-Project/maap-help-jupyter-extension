@@ -35,14 +35,10 @@ export function tutorialsPopup() {
     });
 }
 
-export class launchTutorialPopup extends Component {
-    render() {
-        console.log("graceal in the render class for launch tutorial");
-
-        return (
-            <div class="popup">
-                <span class="popuptext" id="myPopup">Popup text...</span>
-            </div>      
-        );
-    }
+export function launchTutorialPopup() {
+    showDialog({
+        body: new LaunchTutorialWidget(),
+        focusNodeSelector: 'input',
+        buttons: [Dialog.okButton({ label: 'Ok' })]
+    });
 }
