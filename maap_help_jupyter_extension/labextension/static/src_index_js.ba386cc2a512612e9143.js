@@ -1,37 +1,57 @@
+"use strict";
 (self["webpackChunk_maap_jupyterlab_maap_help_jupyter_extension"] = self["webpackChunk_maap_jupyterlab_maap_help_jupyter_extension"] || []).push([["src_index_js"],{
 
-/***/ "./node_modules/css-loader/index.js!./style/base.css":
-/*!***********************************************************!*\
-  !*** ./node_modules/css-loader/index.js!./style/base.css ***!
-  \***********************************************************/
-/***/ ((module, exports, __webpack_require__) => {
+/***/ "./node_modules/css-loader/dist/cjs.js!./style/base.css":
+/*!**************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./style/base.css ***!
+  \**************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(undefined);
-// imports
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */ "./node_modules/css-loader/dist/runtime/cssWithMappingToString.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
 
 
-// module
-exports.push([module.id, ".iframe-widget {\n    position: relative;\n    overflow: hidden;\n    padding-top: 56.25%;\n    height: 0;\n  }\n  \n  iframe {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    border: 0;\n  }\n  ", ""]);
-
-// exports
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".iframe-widget {\n    position: relative;\n    overflow: hidden;\n    padding-top: 56.25%;\n    height: 0;\n  }\n  \n  iframe {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    border: 0;\n  }\n  ", "",{"version":3,"sources":["webpack://./style/base.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,gBAAgB;IAChB,mBAAmB;IACnB,SAAS;EACX;;EAEA;IACE,kBAAkB;IAClB,MAAM;IACN,OAAO;IACP,WAAW;IACX,YAAY;IACZ,SAAS;EACX","sourcesContent":[".iframe-widget {\n    position: relative;\n    overflow: hidden;\n    padding-top: 56.25%;\n    height: 0;\n  }\n  \n  iframe {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    border: 0;\n  }\n  "],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js!./style/index.css":
-/*!************************************************************!*\
-  !*** ./node_modules/css-loader/index.js!./style/index.css ***!
-  \************************************************************/
-/***/ ((module, exports, __webpack_require__) => {
+/***/ "./node_modules/css-loader/dist/cjs.js!./style/index.css":
+/*!***************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./style/index.css ***!
+  \***************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(undefined);
-// imports
-exports.i(__webpack_require__(/*! -!../node_modules/css-loader/index.js!./base.css */ "./node_modules/css-loader/index.js!./style/base.css"), "");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */ "./node_modules/css-loader/dist/runtime/cssWithMappingToString.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_base_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! -!../node_modules/css-loader/dist/cjs.js!./base.css */ "./node_modules/css-loader/dist/cjs.js!./style/base.css");
+// Imports
 
-// module
-exports.push([module.id, "\n", ""]);
 
-// exports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
+___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_base_css__WEBPACK_IMPORTED_MODULE_2__["default"]);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
@@ -40,23 +60,28 @@ exports.push([module.id, "\n", ""]);
 /*!*************************!*\
   !*** ./style/index.css ***!
   \*************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_index_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../node_modules/css-loader/dist/cjs.js!./index.css */ "./node_modules/css-loader/dist/cjs.js!./style/index.css");
 
-// load the styles
-var content = __webpack_require__(/*! !!../node_modules/css-loader/index.js!./index.css */ "./node_modules/css-loader/index.js!./style/index.css");
-if(typeof content === 'string') content = [[module.id, content, '']];
-// Prepare cssTransformation
-var transform;
+            
 
-var options = {"hmr":true}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(/*! !../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {}
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_index_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_index_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -66,35 +91,26 @@ if(false) {}
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _jupyterlab_application__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @jupyterlab/application */ "webpack/sharing/consume/default/@jupyterlab/application");
-/* harmony import */ var _jupyterlab_application__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_application__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @jupyterlab/apputils */ "webpack/sharing/consume/default/@jupyterlab/apputils");
-/* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @jupyterlab/coreutils */ "webpack/sharing/consume/default/@jupyterlab/coreutils");
-/* harmony import */ var _jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @jupyterlab/mainmenu */ "webpack/sharing/consume/default/@jupyterlab/mainmenu");
-/* harmony import */ var _jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _lumino_widgets__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @lumino/widgets */ "webpack/sharing/consume/default/@lumino/widgets");
-/* harmony import */ var _lumino_widgets__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_lumino_widgets__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _style_index_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../style/index.css */ "./style/index.css");
-/* harmony import */ var _style_index_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_style_index_css__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _popups__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./popups */ "./src/popups.js");
+/* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @jupyterlab/apputils */ "webpack/sharing/consume/default/@jupyterlab/apputils");
+/* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @jupyterlab/coreutils */ "webpack/sharing/consume/default/@jupyterlab/coreutils");
+/* harmony import */ var _jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @jupyterlab/mainmenu */ "webpack/sharing/consume/default/@jupyterlab/mainmenu");
+/* harmony import */ var _jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _style_index_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../style/index.css */ "./style/index.css");
+/* harmony import */ var _popups__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./popups */ "./src/popups.js");
 /** jupyterlab imports **/
 
 
 
-
-/** phosphor imports **/
-
 /** internal imports **/
 
 
-console.log(_jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_2__.PageConfig.getBaseUrl());
+console.log(_jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_1__.PageConfig.getBaseUrl());
 ///////////////////////////////////////////////////////////////
 //
 // Earthdata Search Client extension
@@ -129,12 +145,12 @@ export default extension;*/
 const extension = {
     id: 'maap_help',
     autoStart: true,
-    requires: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_1__.ICommandPalette, _jupyterlab_application__WEBPACK_IMPORTED_MODULE_0__.ILayoutRestorer, _jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_3__.IMainMenu],
+    requires: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.ICommandPalette, _jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_2__.IMainMenu],
     activate: activate
 };
-function activate(app, palette, restorer, mainMenu) {
+function activate(app, palette, mainMenu) {
     const namespace = 'tracker-iframe';
-    let instanceTracker = new _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_1__.WidgetTracker({ namespace });
+    let instanceTracker = new _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.WidgetTracker({ namespace });
     //
     // Listen for messages being sent by the iframe - parse the url and set as parameters for search
     //
@@ -151,7 +167,7 @@ function activate(app, palette, restorer, mainMenu) {
         label: 'About MAAP',
         isEnabled: () => true,
         execute: args => {
-            (0,_popups__WEBPACK_IMPORTED_MODULE_6__.aboutPopup)();
+            (0,_popups__WEBPACK_IMPORTED_MODULE_4__.aboutPopup)();
         }
     });
     palette.addItem({ command: about_command, category: 'Help' });
@@ -160,7 +176,7 @@ function activate(app, palette, restorer, mainMenu) {
         label: 'MAAP FAQ',
         isEnabled: () => true,
         execute: args => {
-            (0,_popups__WEBPACK_IMPORTED_MODULE_6__.faqPopup)();
+            (0,_popups__WEBPACK_IMPORTED_MODULE_4__.faqPopup)();
         }
     });
     palette.addItem({ command: faq_command, category: 'Help' });
@@ -169,7 +185,7 @@ function activate(app, palette, restorer, mainMenu) {
         label: 'MAAP Technical Documentation',
         isEnabled: () => true,
         execute: args => {
-            (0,_popups__WEBPACK_IMPORTED_MODULE_6__.techDocPopup)();
+            (0,_popups__WEBPACK_IMPORTED_MODULE_4__.techDocPopup)();
         }
     });
     palette.addItem({ command: tech_doc_command, category: 'Help' });
@@ -178,7 +194,7 @@ function activate(app, palette, restorer, mainMenu) {
         label: 'MAAP Tutorials',
         isEnabled: () => true,
         execute: args => {
-            (0,_popups__WEBPACK_IMPORTED_MODULE_6__.tutorialsPopup)();
+            (0,_popups__WEBPACK_IMPORTED_MODULE_4__.tutorialsPopup)();
         }
     });
     palette.addItem({ command: tutorials_command, category: 'Help' });
@@ -187,16 +203,16 @@ function activate(app, palette, restorer, mainMenu) {
         label: 'MAAP Launch Tutorial',
         isEnabled: () => true,
         execute: args => {
-            (0,_popups__WEBPACK_IMPORTED_MODULE_6__.launchTutorialPopup)();
+            (0,_popups__WEBPACK_IMPORTED_MODULE_4__.launchTutorialPopup)();
         }
     });
     palette.addItem({ command: launch_tutorial_command, category: 'Help' });
-    const maap_py_command = 'help:maapPy';
+    const maap_py_command = 'help:maapApi';
     app.commands.addCommand(maap_py_command, {
-        label: 'Maap-Py API',
+        label: 'MAAP API',
         isEnabled: () => true,
         execute: args => {
-            (0,_popups__WEBPACK_IMPORTED_MODULE_6__.maapPyPopup)();
+            (0,_popups__WEBPACK_IMPORTED_MODULE_4__.maapApiPopup)();
         }
     });
     palette.addItem({ command: maap_py_command, category: 'Help' });
@@ -225,13 +241,12 @@ function activate(app, palette, restorer, mainMenu) {
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "aboutPopup": () => (/* binding */ aboutPopup),
 /* harmony export */   "faqPopup": () => (/* binding */ faqPopup),
 /* harmony export */   "launchTutorialPopup": () => (/* binding */ launchTutorialPopup),
-/* harmony export */   "maapPyPopup": () => (/* binding */ maapPyPopup),
+/* harmony export */   "maapApiPopup": () => (/* binding */ maapApiPopup),
 /* harmony export */   "techDocPopup": () => (/* binding */ techDocPopup),
 /* harmony export */   "tutorialsPopup": () => (/* binding */ tutorialsPopup)
 /* harmony export */ });
@@ -285,9 +300,9 @@ function launchTutorialPopup() {
     });
 }
 
-function maapPyPopup() {
+function maapApiPopup() {
     (0,_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.showDialog)({
-        body: new _widgets__WEBPACK_IMPORTED_MODULE_2__.MaapPyWidget(),
+        body: new _widgets__WEBPACK_IMPORTED_MODULE_2__.MaapApiWidget(),
         focusNodeSelector: 'input',
         buttons: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.Dialog.okButton({ label: 'Ok' })]
     });
@@ -302,7 +317,6 @@ function maapPyPopup() {
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AboutWidget": () => (/* binding */ AboutWidget),
@@ -310,7 +324,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "IFrameWidget": () => (/* binding */ IFrameWidget),
 /* harmony export */   "LaunchTutorialWidget": () => (/* binding */ LaunchTutorialWidget),
 /* harmony export */   "LimitPopupWidget": () => (/* binding */ LimitPopupWidget),
-/* harmony export */   "MaapPyWidget": () => (/* binding */ MaapPyWidget),
+/* harmony export */   "MaapApiWidget": () => (/* binding */ MaapApiWidget),
 /* harmony export */   "TechDocWidget": () => (/* binding */ TechDocWidget),
 /* harmony export */   "TutorialsWidget": () => (/* binding */ TutorialsWidget)
 /* harmony export */ });
@@ -452,15 +466,17 @@ class LaunchTutorialWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.
     }
 }
 
-class MaapPyWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
+class MaapApiWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
     constructor() {
         let body = document.createElement('div');
         body.style.display = 'flex';
         body.style.flexDirection = 'column';
         const innerText = `
-        <head>
-        Test
-        </head>`;
+        <body>
+        <h1>MAAP API</h1>
+        <embed type="text/html" src="https://api.ops.maap-project.org/api/" width="1000" height="600">
+        </body>`;
+
 
         body.innerHTML = innerText;
         super({ node: body });
@@ -472,4 +488,4 @@ class MaapPyWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget {
 /***/ })
 
 }]);
-//# sourceMappingURL=src_index_js.541ca59a9a74288a677b.js.map
+//# sourceMappingURL=src_index_js.ba386cc2a512612e9143.js.map

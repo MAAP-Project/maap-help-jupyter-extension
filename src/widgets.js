@@ -134,15 +134,17 @@ export class LaunchTutorialWidget extends Widget {
     }
 }
 
-export class MaapPyWidget extends Widget {
+export class MaapApiWidget extends Widget {
     constructor() {
         let body = document.createElement('div');
         body.style.display = 'flex';
         body.style.flexDirection = 'column';
         const innerText = `
-        <head>
-        Test
-        </head>`;
+        <body>
+        <h1>MAAP API</h1>
+        <embed type="text/html" src="https://api.ops.maap-project.org/api/" width="1000" height="600">
+        </body>`;
+
 
         body.innerHTML = innerText;
         super({ node: body });

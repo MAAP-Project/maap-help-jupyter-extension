@@ -1,13 +1,10 @@
 /** jupyterlab imports **/
-import { ILayoutRestorer } from '@jupyterlab/application';
 import { ICommandPalette, WidgetTracker } from '@jupyterlab/apputils';
 import { PageConfig } from '@jupyterlab/coreutils';
 import { IMainMenu } from '@jupyterlab/mainmenu';
-/** phosphor imports **/
-import { Menu } from '@lumino/widgets';
 /** internal imports **/
 import '../style/index.css';
-import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup, launchTutorialPopup, maapPyPopup } from './popups';
+import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup, launchTutorialPopup, maapApiPopup } from './popups';
 console.log(PageConfig.getBaseUrl());
 ///////////////////////////////////////////////////////////////
 //
@@ -43,10 +40,10 @@ export default extension;*/
 const extension = {
     id: 'maap_help',
     autoStart: true,
-    requires: [ICommandPalette, ILayoutRestorer, IMainMenu],
+    requires: [ICommandPalette, IMainMenu],
     activate: activate
 };
-function activate(app, palette, restorer, mainMenu) {
+function activate(app, palette, mainMenu) {
     const namespace = 'tracker-iframe';
     let instanceTracker = new WidgetTracker({ namespace });
     //
@@ -105,12 +102,12 @@ function activate(app, palette, restorer, mainMenu) {
         }
     });
     palette.addItem({ command: launch_tutorial_command, category: 'Help' });
-    const maap_py_command = 'help:maapPy';
+    const maap_py_command = 'help:maapApi';
     app.commands.addCommand(maap_py_command, {
-        label: 'Maap-Py API',
+        label: 'MAAP API',
         isEnabled: () => true,
         execute: args => {
-            maapPyPopup();
+            maapApiPopup();
         }
     });
     palette.addItem({ command: maap_py_command, category: 'Help' });
