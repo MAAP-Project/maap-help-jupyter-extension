@@ -110,7 +110,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-//import { ITourHandler } from "./tokens";
 /** internal imports **/
 
 
@@ -131,6 +130,15 @@ const extension = {
     activate: activate
 };
 async function activate(app, palette, mainMenu) {
+    const add_tour_command = 'jupyterlab-tour:add';
+    app.commands.addCommand(add_tour_command, {
+        label: 'Add Tour',
+        isEnabled: () => true,
+        execute: args => {
+            console.log("graceal in the execute of the jupyter lab tour add");
+        }
+    });
+    palette.addItem({ command: add_tour_command, category: 'Tour' });
     const tour = (await app.commands.execute('jupyterlab-tour:add', {
         tour: { // Tour must be of type ITour - see src/tokens.ts
           id: 'test-jupyterlab-tour:welcome',
@@ -139,7 +147,7 @@ async function activate(app, palette, mainMenu) {
           steps: [  // Step must be of type IStep - see src/tokens.ts
             {
               content:
-                'The following tutorial will point out some of the main UI components within JupyterLab.',
+                'The following tutorial will point out some of the main UI components within JupyterLab.1',
               placement: 'center',
               target: '#jp-main-dock-panel',
               title: 'Welcome to Jupyter Lab!'
@@ -155,10 +163,12 @@ async function activate(app, palette, mainMenu) {
           // can also define `options`
         }
       }));
+      console.log("tour is ");
+      console.log(tour);
       if ( tour ) {
         app.commands.execute('jupyterlab-tour:launch', {
           id: 'test-jupyterlab-tour:welcome',
-          force: false  // Optional, if false the tour will start only if the user have not seen or skipped it
+          force: true  // Optional, if false the tour will start only if the user have not seen or skipped it
         })
       }
 
@@ -503,4 +513,4 @@ class MaapApiWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget 
 /***/ })
 
 }]);
-//# sourceMappingURL=src_index_js.666f38cd171a25aa5468.js.map
+//# sourceMappingURL=src_index_js.667700acbc6ce41ae21a.js.map
