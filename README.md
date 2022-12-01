@@ -29,6 +29,7 @@ Note: You will need NodeJS to build the extension package.
 
 
 ```bash
+pip install jupyterlab-tour
 # Install package in development mode
 pip install -e .
 # Link your development version of the extension with JupyterLab

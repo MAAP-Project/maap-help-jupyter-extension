@@ -95,14 +95,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _jupyterlab_application__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @jupyterlab/application */ "webpack/sharing/consume/default/@jupyterlab/application");
-/* harmony import */ var _jupyterlab_application__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_application__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @jupyterlab/apputils */ "webpack/sharing/consume/default/@jupyterlab/apputils");
-/* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @jupyterlab/coreutils */ "webpack/sharing/consume/default/@jupyterlab/coreutils");
-/* harmony import */ var _jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @jupyterlab/mainmenu */ "webpack/sharing/consume/default/@jupyterlab/mainmenu");
-/* harmony import */ var _jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @jupyterlab/apputils */ "webpack/sharing/consume/default/@jupyterlab/apputils");
+/* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @jupyterlab/coreutils */ "webpack/sharing/consume/default/@jupyterlab/coreutils");
+/* harmony import */ var _jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @jupyterlab/mainmenu */ "webpack/sharing/consume/default/@jupyterlab/mainmenu");
+/* harmony import */ var _jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var jupyterlab_tour__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jupyterlab-tour */ "webpack/sharing/consume/default/jupyterlab-tour/jupyterlab-tour");
+/* harmony import */ var jupyterlab_tour__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jupyterlab_tour__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _style_index_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../style/index.css */ "./style/index.css");
 /* harmony import */ var _popups__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./popups */ "./src/popups.js");
 /** jupyterlab imports **/
@@ -110,71 +110,62 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+//import { ITourHandler } from "./tokens";
 /** internal imports **/
 
 
-console.log(_jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_2__.PageConfig.getBaseUrl());
+console.log(_jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_1__.PageConfig.getBaseUrl());
+
+
 
 ///////////////////////////////////////////////////////////////
 //
-// Earthdata Search Client extension
+// Maap Help extension
 //
 ///////////////////////////////////////////////////////////////
-/* //use this as an example because this works 
-const extension = {
-    id: 'maap_help',
-    autoStart: true,
-    requires: [ICommandPalette, ILayoutRestorer, IMainMenu],
-    activate: activate
-};
-function activate(app, palette, restorer, mainMenu) {
-    console.log("graceal in the activate function");
-    console.log(mainMenu.fileMenu);
-    const test_command = 'iframe:test';
-    app.commands.addCommand(test_command, {
-        label: 'Test',
-        isEnabled: () => true,
-        execute: args => {
-            console.log("graceal executing the test command");
-        }
-    });
-    mainMenu.fileMenu.addGroup([
-        {
-          command: "test",
-        }
-      ], 40 );
-}
-export default extension;*/
-
-function dummyFunction() {
-    console.log("in the dummy function");
-}
 
 const extension = {
     id: 'maap_help',
     autoStart: true,
-    requires: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_1__.ICommandPalette, _jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_3__.IMainMenu, _jupyterlab_application__WEBPACK_IMPORTED_MODULE_0__.ILabShell],
+    requires: [_jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.ICommandPalette, _jupyterlab_mainmenu__WEBPACK_IMPORTED_MODULE_2__.IMainMenu],
     activate: activate
 };
-function activate(app, palette, mainMenu, labShell) {
-    /*console.log("graceal this is what I passed in: ");
-    console.log(labShell);
-    console.log(labShell.node.childNodes);
-    const childNode = 1; // right now you can see something for 1 with body and h1
-    console.log(labShell.node.childNodes[childNode].children); // this looks like it is of type HTMLCollection
-    let body = document.createElement('div');
-    const innerText = `
-    <div class="callout">
-    <div class="callout-header">Callout Header</div>
-    <div class="callout-container">
-        <p>Some text...</p>
-    </div>
-    </div>`;
-    body.innerHTML = innerText;
-    console.log(labShell.node.childNodes[childNode].appendChild(body));
-    console.log(labShell.node.childNodes[childNode].children); */
+async function activate(app, palette, mainMenu) {
+    const tour = (await app.commands.execute('jupyterlab-tour:add', {
+        tour: { // Tour must be of type ITour - see src/tokens.ts
+          id: 'test-jupyterlab-tour:welcome',
+          label: 'Welcome Tour',
+          hasHelpEntry: true,
+          steps: [  // Step must be of type IStep - see src/tokens.ts
+            {
+              content:
+                'The following tutorial will point out some of the main UI components within JupyterLab.',
+              placement: 'center',
+              target: '#jp-main-dock-panel',
+              title: 'Welcome to Jupyter Lab!'
+            },
+            {
+              content:
+                'This is the main content area where notebooks and other content can be viewed and edited.',
+              placement: 'left-end',
+              target: '#jp-main-dock-panel',
+              title: 'Main Content'
+            }
+          ],
+          // can also define `options`
+        }
+      }));
+      if ( tour ) {
+        app.commands.execute('jupyterlab-tour:launch', {
+          id: 'test-jupyterlab-tour:welcome',
+          force: false  // Optional, if false the tour will start only if the user have not seen or skipped it
+        })
+      }
+
+      
     const namespace = 'tracker-iframe';
-    let instanceTracker = new _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_1__.WidgetTracker({ namespace });
+    
+    let instanceTracker = new _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.WidgetTracker({ namespace });
     //
     // Listen for messages being sent by the iframe - parse the url and set as parameters for search
     //
@@ -512,4 +503,4 @@ class MaapApiWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget 
 /***/ })
 
 }]);
-//# sourceMappingURL=src_index_js.acc4dbf674eab43e1b1e.js.map
+//# sourceMappingURL=src_index_js.666f38cd171a25aa5468.js.map

@@ -2,10 +2,14 @@
 import { ICommandPalette, WidgetTracker } from '@jupyterlab/apputils';
 import { PageConfig } from '@jupyterlab/coreutils';
 import { IMainMenu } from '@jupyterlab/mainmenu';
+import "jupyterlab-tour";
+//import { ITourHandler } from "./tokens";
 /** internal imports **/
 import '../style/index.css';
 import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup, launchTutorialPopup, maapApiPopup } from './popups';
 console.log(PageConfig.getBaseUrl());
+
+
 
 ///////////////////////////////////////////////////////////////
 //
@@ -13,18 +17,47 @@ console.log(PageConfig.getBaseUrl());
 //
 ///////////////////////////////////////////////////////////////
 
-function dummyFunction() {
-    console.log("in the dummy function");
-}
-
 const extension = {
     id: 'maap_help',
     autoStart: true,
     requires: [ICommandPalette, IMainMenu],
     activate: activate
 };
-function activate(app, palette, mainMenu) {
+async function activate(app, palette, mainMenu) {
+    const tour = (await app.commands.execute('jupyterlab-tour:add', {
+        tour: { // Tour must be of type ITour - see src/tokens.ts
+          id: 'test-jupyterlab-tour:welcome',
+          label: 'Welcome Tour',
+          hasHelpEntry: true,
+          steps: [  // Step must be of type IStep - see src/tokens.ts
+            {
+              content:
+                'The following tutorial will point out some of the main UI components within JupyterLab.',
+              placement: 'center',
+              target: '#jp-main-dock-panel',
+              title: 'Welcome to Jupyter Lab!'
+            },
+            {
+              content:
+                'This is the main content area where notebooks and other content can be viewed and edited.',
+              placement: 'left-end',
+              target: '#jp-main-dock-panel',
+              title: 'Main Content'
+            }
+          ],
+          // can also define `options`
+        }
+      }));
+      if ( tour ) {
+        app.commands.execute('jupyterlab-tour:launch', {
+          id: 'test-jupyterlab-tour:welcome',
+          force: false  // Optional, if false the tour will start only if the user have not seen or skipped it
+        })
+      }
+
+      
     const namespace = 'tracker-iframe';
+    
     let instanceTracker = new WidgetTracker({ namespace });
     //
     // Listen for messages being sent by the iframe - parse the url and set as parameters for search
