@@ -2,7 +2,7 @@
 import { ICommandPalette, WidgetTracker } from '@jupyterlab/apputils';
 import { PageConfig } from '@jupyterlab/coreutils';
 import { IMainMenu } from '@jupyterlab/mainmenu';
-import "jupyterlab-tour";
+import { ITourHandler } from "jupyterlab-tour";
 /** internal imports **/
 import '../style/index.css';
 import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup, launchTutorialPopup, maapApiPopup } from './popups';
@@ -23,15 +23,6 @@ const extension = {
     activate: activate
 };
 async function activate(app, palette, mainMenu) {
-    const add_tour_command = 'jupyterlab-tour:add';
-    app.commands.addCommand(add_tour_command, {
-        label: 'Add Tour',
-        isEnabled: () => true,
-        execute: args => {
-            console.log("graceal in the execute of the jupyter lab tour add");
-        }
-    });
-    palette.addItem({ command: add_tour_command, category: 'Tour' });
     const tour = (await app.commands.execute('jupyterlab-tour:add', {
         tour: { // Tour must be of type ITour - see src/tokens.ts
           id: 'test-jupyterlab-tour:welcome',

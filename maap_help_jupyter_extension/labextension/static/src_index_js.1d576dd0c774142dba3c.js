@@ -130,15 +130,6 @@ const extension = {
     activate: activate
 };
 async function activate(app, palette, mainMenu) {
-    const add_tour_command = 'jupyterlab-tour:add';
-    app.commands.addCommand(add_tour_command, {
-        label: 'Add Tour',
-        isEnabled: () => true,
-        execute: args => {
-            console.log("graceal in the execute of the jupyter lab tour add");
-        }
-    });
-    palette.addItem({ command: add_tour_command, category: 'Tour' });
     const tour = (await app.commands.execute('jupyterlab-tour:add', {
         tour: { // Tour must be of type ITour - see src/tokens.ts
           id: 'test-jupyterlab-tour:welcome',
@@ -513,4 +504,4 @@ class MaapApiWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_0__.Widget 
 /***/ })
 
 }]);
-//# sourceMappingURL=src_index_js.667700acbc6ce41ae21a.js.map
+//# sourceMappingURL=src_index_js.1d576dd0c774142dba3c.js.map

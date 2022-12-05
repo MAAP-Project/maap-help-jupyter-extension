@@ -102,10 +102,14 @@
     "outputDir": "maap_help_jupyter_extension/labextension",
     "schemaDir": "schema",
     "_build": {
-      "load": "static/remoteEntry.690c0606a66f1aae7c64.js",
+      "load": "static/remoteEntry.e5d984c4ca50afa9eed4.js",
       "extension": "./extension",
       "style": "./style"
     }
+  },
+  "jupyterlab-tour": {
+    "bundled": false,
+    "singleton": true
   },
   "jupyter-releaser": {
     "hooks": {

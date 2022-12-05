@@ -102,6 +102,10 @@
     "outputDir": "maap_help_jupyter_extension/labextension",
     "schemaDir": "schema"
   },
+  "jupyterlab-tour": {
+    "bundled": false,
+    "singleton": true
+  },
   "jupyter-releaser": {
     "hooks": {
       "before-build-npm": [
