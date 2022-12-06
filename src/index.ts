@@ -2,10 +2,10 @@
 import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application'; 
 import { ICommandPalette } from '@jupyterlab/apputils';
 import { PageConfig } from '@jupyterlab/coreutils'
-import { IMainMenu } from '@jupyterlab/mainmenu';
+//import { IMainMenu } from '@jupyterlab/mainmenu';
 
 /** phosphor imports **/
-import { Menu } from '@lumino/widgets';
+//import { Menu } from '@lumino/widgets';
 
 /** internal imports **/
 import '../style/index.css';
@@ -22,6 +22,18 @@ console.log(PageConfig.getBaseUrl());
 ///////////////////////////////////////////////////////////////
 
 const extension: JupyterFrontEndPlugin<void> = {
+  id: 'jupyterlab-apod',
+  autoStart: true,
+  requires: [ICommandPalette],
+  activate: (app: JupyterFrontEnd, palette: ICommandPalette) => {
+    console.log('JupyterLab extension jupyterlab_apod is activated!');
+    console.log('ICommandPalette:', palette);
+  }
+};
+
+export default extension;
+
+/*const extension: JupyterFrontEndPlugin<void> = {
   id: 'maap-help',
   autoStart: true,
   optional: [ICommandPalette, IMainMenu],
@@ -78,4 +90,4 @@ const extension: JupyterFrontEndPlugin<void> = {
 };
 
 
-export default extension;
+export default extension;*/
