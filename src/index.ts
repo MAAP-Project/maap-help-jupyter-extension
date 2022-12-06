@@ -2,15 +2,16 @@
 import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application'; 
 import { ICommandPalette } from '@jupyterlab/apputils';
 import { PageConfig } from '@jupyterlab/coreutils'
-//import { IMainMenu } from '@jupyterlab/mainmenu';
+import { IMainMenu } from '@jupyterlab/mainmenu';
+
+import { ITourHandler } from "jupyterlab-tour";
 
 /** phosphor imports **/
-//import { Menu } from '@lumino/widgets';
+import { Menu } from '@lumino/widgets';
 
 /** internal imports **/
 import '../style/index.css';
 //import { IFrameWidget } from './widgets';
-import "./globals"
 
 
 console.log(PageConfig.getBaseUrl());
@@ -21,7 +22,7 @@ console.log(PageConfig.getBaseUrl());
 //
 ///////////////////////////////////////////////////////////////
 
-const extension: JupyterFrontEndPlugin<void> = {
+/*const extension: JupyterFrontEndPlugin<void> = {
   id: 'jupyterlab-apod',
   autoStart: true,
   requires: [ICommandPalette],
@@ -31,16 +32,48 @@ const extension: JupyterFrontEndPlugin<void> = {
   }
 };
 
-export default extension;
+export default extension;*/
 
-/*const extension: JupyterFrontEndPlugin<void> = {
+const extension: JupyterFrontEndPlugin<void> = {
   id: 'maap-help',
   autoStart: true,
   optional: [ICommandPalette, IMainMenu],
   // requires: [ICommandPalette, IStateDB],
-  activate: (app: JupyterFrontEnd,
+  activate: async (app: JupyterFrontEnd,
     palette: ICommandPalette,
     mainMenu: IMainMenu,) => {
+
+      const tour = (await app.commands.execute('jupyterlab-tour:add', {
+        tour: { // Tour must be of type ITour - see src/tokens.ts
+          id: 'test-jupyterlab-tour:welcome',
+          label: 'Welcome Tour',
+          hasHelpEntry: true,
+          steps: [  // Step must be of type IStep - see src/tokens.ts
+            {
+              content:
+                'The following tutorial will point out some of the main UI components within JupyterLab.',
+              placement: 'center',
+              target: '#jp-main-dock-panel',
+              title: 'Welcome to Jupyter Lab!'
+            },
+            {
+              content:
+                'This is the main content area where notebooks and other content can be viewed and edited.',
+              placement: 'left-end',
+              target: '#jp-main-dock-panel',
+              title: 'Main Content'
+            }
+          ],
+          // can also define `options`
+        }
+      })) as ITourHandler;
+      if ( tour ) {
+        app.commands.execute('jupyterlab-tour:launch', {
+          id: 'test-jupyterlab-tour:welcome',
+          force: false  // Optional, if false the tour will start only if the user have not seen or skipped it
+        })
+      }
+
       const about_command = 'iframe:about';
       app.commands.addCommand(about_command, {
         label: 'About',
@@ -51,34 +84,11 @@ export default extension;
         }
       });
       palette.addItem({command: about_command, category: 'Help'});
-      const test2 = 'help:test2';
-  app.commands.addCommand(test2, {
-    label: 'Test2',
-    isEnabled: () => true,
-    execute: args => {
-      console.log("in execute of test2");
-    }
-  });
-  palette.addItem({command: test2, category: 'Help'});
-  const test3 = 'help:test3';
-  app.commands.addCommand(test3, {
-    label: 'Test 3',
-    isEnabled: () => true,
-    execute: args => {
-      console.log("in execute of test3");
-    }
-  });
-  palette.addItem({command: test3, category: 'Help'});
-
-
-
   const { commands } = app;
   let helpMenu = new Menu({ commands });
   helpMenu.title.label = 'Help';
   [
-    about_command,
-    test2,
-    test3
+    about_command
   ].forEach(command => {
     helpMenu.addItem({ command });
   });
@@ -90,4 +100,4 @@ export default extension;
 };
 
 
-export default extension;*/
+export default extension;

@@ -6,7 +6,6 @@ import { INotification } from "jupyterlab_toastify";
   request, RequestResult
 } from './request';*/
 
-import "./globals"
 
 let unique = 0;
 

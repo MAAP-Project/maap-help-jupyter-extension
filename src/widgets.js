@@ -1,6 +1,5 @@
 import { Widget } from '@lumino/widgets';
 //import { PageConfig } from '@jupyterlab/coreutils'
-import "./globals";
 let unique = 0;
 //
 // Widget to display Earth Data Search Client inside an iframe

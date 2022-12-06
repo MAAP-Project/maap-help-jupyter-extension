@@ -2,7 +2,6 @@
 import { ICommandPalette, WidgetTracker } from '@jupyterlab/apputils';
 import { PageConfig } from '@jupyterlab/coreutils';
 import { IMainMenu } from '@jupyterlab/mainmenu';
-import { ITourHandler } from "jupyterlab-tour";
 /** internal imports **/
 import '../style/index.css';
 import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup, launchTutorialPopup, maapApiPopup } from './popups';
@@ -22,41 +21,7 @@ const extension = {
     requires: [ICommandPalette, IMainMenu],
     activate: activate
 };
-async function activate(app, palette, mainMenu) {
-    const tour = (await app.commands.execute('jupyterlab-tour:add', {
-        tour: { // Tour must be of type ITour - see src/tokens.ts
-          id: 'test-jupyterlab-tour:welcome',
-          label: 'Welcome Tour',
-          hasHelpEntry: true,
-          steps: [  // Step must be of type IStep - see src/tokens.ts
-            {
-              content:
-                'The following tutorial will point out some of the main UI components within JupyterLab.1',
-              placement: 'center',
-              target: '#jp-main-dock-panel',
-              title: 'Welcome to Jupyter Lab!'
-            },
-            {
-              content:
-                'This is the main content area where notebooks and other content can be viewed and edited.',
-              placement: 'left-end',
-              target: '#jp-main-dock-panel',
-              title: 'Main Content'
-            }
-          ],
-          // can also define `options`
-        }
-      }));
-      console.log("tour is ");
-      console.log(tour);
-      if ( tour ) {
-        app.commands.execute('jupyterlab-tour:launch', {
-          id: 'test-jupyterlab-tour:welcome',
-          force: true  // Optional, if false the tour will start only if the user have not seen or skipped it
-        })
-      }
-
-      
+function activate(app, palette, mainMenu) {
     const namespace = 'tracker-iframe';
     
     let instanceTracker = new WidgetTracker({ namespace });

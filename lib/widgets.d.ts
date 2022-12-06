@@ -1,5 +1,4 @@
 import { Widget } from '@lumino/widgets';
-import "./globals";
 export declare class IFrameWidget extends Widget {
     constructor(path: string);
 }
