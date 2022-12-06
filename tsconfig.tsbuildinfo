@@ -2,8 +2,8 @@
   "program": {
     "fileInfos": {
       "./node_modules/typescript/lib/lib.es5.d.ts": {
-        "version": "9622e8bd7cc72a7dab819a8011ecbf81d443638082e5cb99ecf2e75ff56ffc9d",
-        "signature": "9622e8bd7cc72a7dab819a8011ecbf81d443638082e5cb99ecf2e75ff56ffc9d",
+        "version": "70ae6416528e68c2ee7b62892200d2ca631759943d4429f8b779b947ff1e124d",
+        "signature": "70ae6416528e68c2ee7b62892200d2ca631759943d4429f8b779b947ff1e124d",
         "affectsGlobalScope": true
       },
       "./node_modules/typescript/lib/lib.es2015.d.ts": {
@@ -22,13 +22,13 @@
         "affectsGlobalScope": false
       },
       "./node_modules/typescript/lib/lib.dom.d.ts": {
-        "version": "abadddbf660adeec27e9a56584907d52fa1d6e1e1dc49f639a921baa951b7a84",
-        "signature": "abadddbf660adeec27e9a56584907d52fa1d6e1e1dc49f639a921baa951b7a84",
+        "version": "9affb0a2ddc57df5b8174c0af96c288d697a262e5bc9ca1f544c999dc64a91e6",
+        "signature": "9affb0a2ddc57df5b8174c0af96c288d697a262e5bc9ca1f544c999dc64a91e6",
         "affectsGlobalScope": true
       },
       "./node_modules/typescript/lib/lib.dom.iterable.d.ts": {
-        "version": "d42f4141bd9ce82b4e2902f26acb00c183e321be19a38bbc0e76a922c1724c94",
-        "signature": "d42f4141bd9ce82b4e2902f26acb00c183e321be19a38bbc0e76a922c1724c94",
+        "version": "fb0c09b697dc42afa84d1587e3c994a2f554d2a45635e4f0618768d16a86b69a",
+        "signature": "fb0c09b697dc42afa84d1587e3c994a2f554d2a45635e4f0618768d16a86b69a",
         "affectsGlobalScope": true
       },
       "./node_modules/typescript/lib/lib.webworker.importscripts.d.ts": {
@@ -42,8 +42,8 @@
         "affectsGlobalScope": true
       },
       "./node_modules/typescript/lib/lib.es2015.core.d.ts": {
-        "version": "46ee15e9fefa913333b61eaf6b18885900b139867d89832a515059b62cf16a17",
-        "signature": "46ee15e9fefa913333b61eaf6b18885900b139867d89832a515059b62cf16a17",
+        "version": "63e0cc12d0f77394094bd19e84464f9840af0071e5b9358ced30511efef1d8d2",
+        "signature": "63e0cc12d0f77394094bd19e84464f9840af0071e5b9358ced30511efef1d8d2",
         "affectsGlobalScope": true
       },
       "./node_modules/typescript/lib/lib.es2015.collection.d.ts": {
@@ -57,18 +57,18 @@
         "affectsGlobalScope": true
       },
       "./node_modules/typescript/lib/lib.es2015.iterable.d.ts": {
-        "version": "8b2a5df1ce95f78f6b74f1a555ccdb6baab0486b42d8345e0871dd82811f9b9a",
-        "signature": "8b2a5df1ce95f78f6b74f1a555ccdb6baab0486b42d8345e0871dd82811f9b9a",
+        "version": "42f5e41e5893da663dbf0394268f54f1da4b43dc0ddd2ea4bf471fe5361d6faf",
+        "signature": "42f5e41e5893da663dbf0394268f54f1da4b43dc0ddd2ea4bf471fe5361d6faf",
         "affectsGlobalScope": true
       },
       "./node_modules/typescript/lib/lib.es2015.promise.d.ts": {
-        "version": "2bb4b3927299434052b37851a47bf5c39764f2ba88a888a107b32262e9292b7c",
-        "signature": "2bb4b3927299434052b37851a47bf5c39764f2ba88a888a107b32262e9292b7c",
+        "version": "0b7a905675e6cb4211c128f0a3aa47d414b275180a299a9aad5d3ec298abbfc4",
+        "signature": "0b7a905675e6cb4211c128f0a3aa47d414b275180a299a9aad5d3ec298abbfc4",
         "affectsGlobalScope": true
       },
       "./node_modules/typescript/lib/lib.es2015.proxy.d.ts": {
-        "version": "7207e317a2cb07a177e7d963ab7b8c0e85dde7f9ddb50351f830239bf597569e",
-        "signature": "7207e317a2cb07a177e7d963ab7b8c0e85dde7f9ddb50351f830239bf597569e",
+        "version": "dfff68b3c34338f6b307a25d4566de15eed7973b0dc5d69f9fde2bcac1c25315",
+        "signature": "dfff68b3c34338f6b307a25d4566de15eed7973b0dc5d69f9fde2bcac1c25315",
         "affectsGlobalScope": true
       },
       "./node_modules/typescript/lib/lib.es2015.reflect.d.ts": {
@@ -82,8 +82,8 @@
         "affectsGlobalScope": true
       },
       "./node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": {
-        "version": "9d122b7e8c1a5c72506eea50c0973cba55b92b5532d5cafa8a6ce2c547d57551",
-        "signature": "9d122b7e8c1a5c72506eea50c0973cba55b92b5532d5cafa8a6ce2c547d57551",
+        "version": "4670208dd7da9d6c774ab1b75c1527a810388c7989c4905de6aaea8561cb9dce",
+        "signature": "4670208dd7da9d6c774ab1b75c1527a810388c7989c4905de6aaea8561cb9dce",
         "affectsGlobalScope": true
       },
       "./node_modules/typescript/lib/lib.es2016.array.include.d.ts": {
@@ -97,8 +97,8 @@
         "affectsGlobalScope": true
       },
       "./node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": {
-        "version": "7ce9f0bde3307ca1f944119f6365f2d776d281a393b576a18a2f2893a2d75c98",
-        "signature": "7ce9f0bde3307ca1f944119f6365f2d776d281a393b576a18a2f2893a2d75c98",
+        "version": "d0db416bccdb33975548baf09a42ee8c47eace1aac7907351a000f1e568e7232",
+        "signature": "d0db416bccdb33975548baf09a42ee8c47eace1aac7907351a000f1e568e7232",
         "affectsGlobalScope": true
       },
       "./node_modules/typescript/lib/lib.es2017.string.d.ts": {
@@ -722,8 +722,8 @@
         "affectsGlobalScope": false
       },
       "./node_modules/@lumino/widgets/types/menubar.d.ts": {
-        "version": "e182c289b1eb47525b6a79d030eb9dcf06badd75891acf6027d5d9f9bceeb89b",
-        "signature": "e182c289b1eb47525b6a79d030eb9dcf06badd75891acf6027d5d9f9bceeb89b",
+        "version": "5c5b9222589f8da73a81317a9c6ffa21c5adb74cfcf3db731031c83e35ce5444",
+        "signature": "5c5b9222589f8da73a81317a9c6ffa21c5adb74cfcf3db731031c83e35ce5444",
         "affectsGlobalScope": false
       },
       "./node_modules/@lumino/widgets/types/scrollbar.d.ts": {
@@ -1977,8 +1977,8 @@
         "affectsGlobalScope": false
       },
       "./node_modules/yjs/dist/src/types/yxmlelement.d.ts": {
-        "version": "1ad42042417b29772aa2940f26a697a21bbfa5e63ea9debdf9cc6025b16cc7bf",
-        "signature": "1ad42042417b29772aa2940f26a697a21bbfa5e63ea9debdf9cc6025b16cc7bf",
+        "version": "1e04b4cde5a1f811374444cba9d26c2b4fc3ffa8b763c16896a17c70d3c7cbc2",
+        "signature": "1e04b4cde5a1f811374444cba9d26c2b4fc3ffa8b763c16896a17c70d3c7cbc2",
         "affectsGlobalScope": false
       },
       "./node_modules/yjs/dist/src/types/yxmlhook.d.ts": {
@@ -2257,8 +2257,8 @@
         "affectsGlobalScope": false
       },
       "./node_modules/@lumino/application/types/index.d.ts": {
-        "version": "fda0063e7e675656a8d92e1b9ddc15aaaed2deace19cbb4d6d863d46825c8148",
-        "signature": "fda0063e7e675656a8d92e1b9ddc15aaaed2deace19cbb4d6d863d46825c8148",
+        "version": "f8d225501aa721dbace314f74559996bc748882cb05d7dce3dae2132e609e562",
+        "signature": "f8d225501aa721dbace314f74559996bc748882cb05d7dce3dae2132e609e562",
         "affectsGlobalScope": false
       },
       "./node_modules/@jupyterlab/application/lib/frontend.d.ts": {
@@ -4813,7 +4813,6 @@
       "./node_modules/yjs/dist/src/types/yxmlelement.d.ts": [
         "./node_modules/yjs/dist/src/types/yxmlfragment.d.ts",
         "./node_modules/yjs/dist/src/types/yxmltext.d.ts",
-        "./node_modules/yjs/dist/src/utils/snapshot.d.ts",
         "./node_modules/yjs/dist/src/utils/updatedecoder.d.ts"
       ],
       "./node_modules/yjs/dist/src/types/yxmlevent.d.ts": [
@@ -7214,7 +7213,6 @@
       "./node_modules/yjs/dist/src/types/yxmlelement.d.ts": [
         "./node_modules/yjs/dist/src/types/yxmlfragment.d.ts",
         "./node_modules/yjs/dist/src/types/yxmltext.d.ts",
-        "./node_modules/yjs/dist/src/utils/snapshot.d.ts",
         "./node_modules/yjs/dist/src/utils/updatedecoder.d.ts"
       ],
       "./node_modules/yjs/dist/src/types/yxmlevent.d.ts": [
@@ -7879,5 +7877,5 @@
       "./src/widgets.ts"
     ]
   },
-  "version": "4.1.6"
+  "version": "3.9.10"
 }
