@@ -1,6 +1,6 @@
 /** jupyterlab imports **/
-import { JupyterFrontEnd, ILayoutRestorer } from '@jupyterlab/application'; 
-import { ICommandPalette, WidgetTracker } from '@jupyterlab/apputils';
+import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application'; 
+import { ICommandPalette } from '@jupyterlab/apputils';
 import { PageConfig } from '@jupyterlab/coreutils'
 import { IMainMenu } from '@jupyterlab/mainmenu';
 
@@ -21,48 +21,25 @@ console.log(PageConfig.getBaseUrl());
 //
 ///////////////////////////////////////////////////////////////
 
-const extension = {
-  id: 'maap_help',
+const extension: JupyterFrontEndPlugin<void> = {
+  id: 'maap-help',
   autoStart: true,
-  requires: [ICommandPalette, ILayoutRestorer, IMainMenu],
-  activate: activate
-};
-
-
-function activate(app: JupyterFrontEnd,
-                  palette: ICommandPalette,
-                  restorer: ILayoutRestorer,
-                  mainMenu: IMainMenu) {
-
-  const namespace = 'tracker-iframe';
-  let instanceTracker = new WidgetTracker({ namespace });
-
-
-  //
-  // Listen for messages being sent by the iframe - parse the url and set as parameters for search
-  //
-  window.addEventListener("message", (event: MessageEvent) => {
-      // if the message sent is the edsc url
-      if (typeof event.data === "string"){
-          console.log("graceal- event data" +event.data);
-      }
-  });
-  
-  /******** Set commands for command palette and main menu *********/
-
-  // Add an application command to open ESDC
-  const about_command = 'iframe:about';
-  app.commands.addCommand(about_command, {
-    label: 'About',
-    isEnabled: () => true,
-    execute: args => {
-      console.log("in execute of about");
-      //aboutPopup();
-    }
-  });
-  palette.addItem({command: about_command, category: 'Help'});
-
-  const test2 = 'help:test2';
+  optional: [ICommandPalette, IMainMenu],
+  // requires: [ICommandPalette, IStateDB],
+  activate: (app: JupyterFrontEnd,
+    palette: ICommandPalette,
+    mainMenu: IMainMenu,) => {
+      const about_command = 'iframe:about';
+      app.commands.addCommand(about_command, {
+        label: 'About',
+        isEnabled: () => true,
+        execute: args => {
+          console.log("in execute of about");
+          //aboutPopup();
+        }
+      });
+      palette.addItem({command: about_command, category: 'Help'});
+      const test2 = 'help:test2';
   app.commands.addCommand(test2, {
     label: 'Test2',
     isEnabled: () => true,
@@ -71,7 +48,6 @@ function activate(app: JupyterFrontEnd,
     }
   });
   palette.addItem({command: test2, category: 'Help'});
-
   const test3 = 'help:test3';
   app.commands.addCommand(test3, {
     label: 'Test 3',
@@ -98,7 +74,7 @@ function activate(app: JupyterFrontEnd,
 
 
   console.log('JupyterLab extension maap_help is activated!');
-  return instanceTracker;
+  },
 };
 
 
