@@ -1,103 +1,212 @@
-/** jupyterlab imports **/
-import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application'; 
-import { ICommandPalette } from '@jupyterlab/apputils';
-import { PageConfig } from '@jupyterlab/coreutils'
-import { IMainMenu } from '@jupyterlab/mainmenu';
-
-import { ITourHandler } from "jupyterlab-tour";
-
-/** phosphor imports **/
-import { Menu } from '@lumino/widgets';
-
-/** internal imports **/
-import '../style/index.css';
-//import { IFrameWidget } from './widgets';
-
-
-console.log(PageConfig.getBaseUrl());
-
-///////////////////////////////////////////////////////////////
-//
-// Earthdata Search Client extension
-//
-///////////////////////////////////////////////////////////////
-
-/*const extension: JupyterFrontEndPlugin<void> = {
-  id: 'jupyterlab-apod',
-  autoStart: true,
-  requires: [ICommandPalette],
-  activate: (app: JupyterFrontEnd, palette: ICommandPalette) => {
-    console.log('JupyterLab extension jupyterlab_apod is activated!');
-    console.log('ICommandPalette:', palette);
-  }
-};
-
-export default extension;*/
-
-const extension: JupyterFrontEndPlugin<void> = {
-  id: 'maap-help',
-  autoStart: true,
-  optional: [ICommandPalette, IMainMenu],
-  // requires: [ICommandPalette, IStateDB],
-  activate: async (app: JupyterFrontEnd,
-    palette: ICommandPalette,
-    mainMenu: IMainMenu,) => {
-
-      const tour = (await app.commands.execute('jupyterlab-tour:add', {
-        tour: { // Tour must be of type ITour - see src/tokens.ts
-          id: 'test-jupyterlab-tour:welcome',
-          label: 'Welcome Tour',
-          hasHelpEntry: true,
-          steps: [  // Step must be of type IStep - see src/tokens.ts
-            {
-              content:
-                'The following tutorial will point out some of the main UI components within JupyterLab.',
-              placement: 'center',
-              target: '#jp-main-dock-panel',
-              title: 'Welcome to Jupyter Lab!'
-            },
-            {
-              content:
-                'This is the main content area where notebooks and other content can be viewed and edited.',
-              placement: 'left-end',
-              target: '#jp-main-dock-panel',
-              title: 'Main Content'
+import {
+    ILayoutRestorer,
+    JupyterFrontEnd,
+    JupyterFrontEndPlugin
+  } from '@jupyterlab/application';
+  import {
+    ICommandPalette,
+    MainAreaWidget,
+    WidgetTracker
+  } from '@jupyterlab/apputils';
+  import { IMainMenu } from '@jupyterlab/mainmenu';
+  import { ISettingRegistry } from '@jupyterlab/settingregistry';
+  import {
+    CondaEnvironments,
+    CondaEnvWidget,
+    condaIcon,
+    CONDA_WIDGET_CLASS,
+    IEnvironmentManager
+  } from '@mamba-org/gator-common';
+  import { INotification } from 'jupyterlab_toastify';
+  import { managerTour } from './tour';
+  import React from "react";
+  
+  const CONDAENVID = '@mamba-org/gator-lab:plugin';
+  const TOUR_DELAY = 1000;
+  const TOUR_TIMEOUT = 5 * TOUR_DELAY + 1;
+  
+  async function activateCondaEnv(
+    app: JupyterFrontEnd,
+    settingsRegistry: ISettingRegistry | null,
+    palette: ICommandPalette | null,
+    menu: IMainMenu | null,
+    restorer: ILayoutRestorer | null
+  ): Promise<IEnvironmentManager> {
+    let tour: any;
+    const { commands, shell } = app;
+    const pluginNamespace = 'conda-env';
+    const command = 'jupyter_conda:open-ui';
+  
+    const settings = await settingsRegistry?.load(CONDAENVID);
+    const model = new CondaEnvironments(settings);
+  
+    // Request listing available package as quickly as possible
+    if (settings?.get('backgroundCaching').composite ?? true) {
+      Private.loadPackages(model);
+    }
+  
+    // Track and restore the widget state
+    const tracker = new WidgetTracker<MainAreaWidget<CondaEnvWidget>>({
+      namespace: pluginNamespace
+    });
+    let condaWidget: MainAreaWidget<CondaEnvWidget>;
+  
+    commands.addCommand(command, {
+      label: 'Conda Packages Manager',
+      execute: () => {
+        app.restored.then(() => {
+          let timeout = 0;
+  
+          const delayTour = (): void => {
+            setTimeout(() => {
+              timeout += TOUR_DELAY;
+              if (condaWidget?.isVisible && tour) {
+                commands.execute('jupyterlab-tour:launch', {
+                  id: tour.id,
+                  force: false
+                });
+              } else if (timeout < TOUR_TIMEOUT) {
+                delayTour();
+              }
+            }, 1000);
+          };
+  
+          if (commands.hasCommand('jupyterlab-tour:add')) {
+            if (!tour) {
+              commands
+                .execute('jupyterlab-tour:add', {
+                  tour: managerTour as any
+                })
+                .then(result => {
+                  tour = result;
+                });
             }
-          ],
-          // can also define `options`
+  
+            delayTour();
+          }
+        });
+  
+        if (!condaWidget || condaWidget.isDisposed) {
+          condaWidget = new MainAreaWidget({
+            content: new CondaEnvWidget(model)
+          });
+          condaWidget.addClass(CONDA_WIDGET_CLASS);
+          condaWidget.id = pluginNamespace;
+          condaWidget.title.label = 'Packages';
+          condaWidget.title.caption = 'Conda Packages Manager';
+          condaWidget.title.icon = condaIcon;
         }
-      })) as ITourHandler;
-      if ( tour ) {
-        app.commands.execute('jupyterlab-tour:launch', {
-          id: 'test-jupyterlab-tour:welcome',
-          force: false  // Optional, if false the tour will start only if the user have not seen or skipped it
-        })
+  
+        if (!tracker.has(condaWidget)) {
+          // Track the state of the widget for later restoration
+          tracker.add(condaWidget);
+        }
+        if (!condaWidget.isAttached) {
+          // Attach the widget to the main work area if it's not there
+          shell.add(condaWidget, 'main');
+        }
+        shell.activateById(condaWidget.id);
       }
-
-      const about_command = 'iframe:about';
-      app.commands.addCommand(about_command, {
-        label: 'About',
-        isEnabled: () => true,
-        execute: args => {
-          console.log("in execute of about");
-          //aboutPopup();
-        }
+    });
+  
+    // Add command to command palette
+    if (palette) {
+      palette.addItem({ command, category: 'Settings' });
+    }
+  
+    // Handle state restoration.
+    if (restorer) {
+      restorer.restore(tracker, {
+        command,
+        name: () => pluginNamespace
       });
-      palette.addItem({command: about_command, category: 'Help'});
-  const { commands } = app;
-  let helpMenu = new Menu({ commands });
-  helpMenu.title.label = 'Help';
-  [
-    about_command
-  ].forEach(command => {
-    helpMenu.addItem({ command });
-  });
-  mainMenu.addMenu(helpMenu, { rank: 100 });
-
-
-  console.log('JupyterLab extension maap_help is activated!');
-  },
-};
-
-
-export default extension;
+    }
+  
+    // Add command to settings menu
+    if (menu) {
+      menu.settingsMenu.addGroup([{ command: command }], 999);
+    }
+  
+    return model;
+  }
+  
+  
+  
+  /**
+   * Initialization data for the @mamba-org/gator-lab extension.
+   */
+  const condaManager: JupyterFrontEndPlugin<IEnvironmentManager> = {
+    id: CONDAENVID,
+    autoStart: true,
+    activate: activateCondaEnv,
+    optional: [ISettingRegistry, ICommandPalette, IMainMenu, ILayoutRestorer],
+    provides: IEnvironmentManager
+  };
+  
+  /**
+   * Initialization data for the jupyterlab_kernel_companions extension.
+   */
+  
+  
+  const extensions = [condaManager];
+  
+  export default extensions;
+  
+  /* eslint-disable no-inner-declarations */
+  namespace Private {
+    export function loadPackages(model: CondaEnvironments): void {
+      let packageFound = false;
+      let toastId: React.ReactText;
+      const messages = [
+        'I know you want to give up, but wait a bit longer...',
+        'Why is conda so popular, still loading that gigantic packages list...',
+        'Take a break, available packages list are still loading...',
+        'Available packages list still loading...'
+      ];
+  
+      function displayMessage(message: React.ReactNode): void {
+        setTimeout(() => {
+          if (!packageFound) {
+            INotification.update({
+              message,
+              toastId
+            });
+            if (messages.length > 0) {
+              displayMessage(messages.pop());
+            }
+          }
+        }, 60000);
+      }
+  
+      model
+        .getPackageManager()
+        .refreshAvailablePackages(false)
+        .then(() => {
+          packageFound = true;
+          if (toastId) {
+            INotification.dismiss(toastId);
+          }
+        })
+        .catch((reason: Error) => {
+          console.debug('Fail to cache available packages list.', reason);
+          if (toastId) {
+            INotification.dismiss(toastId);
+          }
+        });
+  
+      // Tell the user after a minute than the extension if still trying to get
+      // the available packages list
+      setTimeout(() => {
+        if (!packageFound) {
+          INotification.inProgress(
+            'Loading the available packages list in background...'
+          ).then(id => {
+            toastId = id;
+          });
+          displayMessage(messages.pop());
+        }
+      }, 60000);
+    }
+  }
+  /* eslint-enable no-inner-declarations */
+  
