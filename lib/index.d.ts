@@ -1,7 +1,7 @@
 import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application';
-import { IEnvironmentManager } from '@mamba-org/gator-common';
+import { MainAreaWidget } from '@jupyterlab/apputils';
 /**
  * Initialization data for the jupyterlab_kernel_companions extension.
  */
-declare const extensions: JupyterFrontEndPlugin<IEnvironmentManager, JupyterFrontEnd.IShell, "desktop" | "mobile">[];
+declare const extensions: JupyterFrontEndPlugin<MainAreaWidget<import("@lumino/widgets").Widget>, JupyterFrontEnd.IShell, "desktop" | "mobile">[];
 export default extensions;
