@@ -30,6 +30,7 @@ Note: You will need NodeJS to build the extension package.
 
 ```bash
 conda install jupyterlab-tour
+jupyter labextension disable "jupyterlab-tour:default-tours"
 # Install package in development mode
 pip install -e .
 # Link your development version of the extension with JupyterLab
