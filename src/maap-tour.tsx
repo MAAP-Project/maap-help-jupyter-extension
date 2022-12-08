@@ -5,17 +5,66 @@ export const managerTour = {
   steps: [  // Step must be of type IStep - see src/tokens.ts
             {
               content:
-                'The following tutorial will point out some of the main UI components within JupyterLab.',
+                'The following tutorial will point out some of the MAAP jupyter extension features within JupyterLab.',
               placement: 'center',
               target: '#jp-main-dock-panel',
-              title: 'Welcome to Jupyter Lab!'
+              title: 'Welcome to MAAP!'
             },
             {
               content:
-                'This is the main content area where notebooks and other content can be viewed and edited.',
-              placement: 'left-end',
+                'Pause the tour by clicking anywhere outside of the tooltip and resume the tour by clicking on the blue dot. Tours can be restarted in the help menu',
+              placement: 'center',
               target: '#jp-main-dock-panel',
-              title: 'Main Content'
+              title: 'Some information on the tour, first'
+            },
+            {
+              content:
+                'This is where many MAAP extensions are present. TODO: individually click each one',
+              placement: 'bottom',
+              target: '#jp-mainmenu',
+              title: 'Top menu options'
+            },
+            {
+              content:
+                'This is where many MAAP extensions are present. TODO: individually click each one',
+              placement: 'right',
+              target: '#jp-sideBar',
+              title: 'Left Side Bar'
+            },
+            {
+              content:
+                'The file browser is divided into your private and public buckets',
+              placement: 'right',
+              target: '#filebrowser',
+              title: 'File Browser'
+            },
+            {
+              content:
+                'This is where many MAAP extensions are present. TODO: individually click each one',
+              placement: 'bottom',
+              target: '#jp-menu-file',
+              title: 'Test'
+            },
+            {
+              content:
+                'This is where many MAAP extensions are present. TODO: individually click each one',
+              placement: 'bottom',
+              target: '#jp-mainmenu-file',
+              title: 'Test'
+            },
+            {
+              content:
+                'This is where many MAAP extensions are present. TODO: individually click each one',
+              placement: 'bottom',
+              target: '#jp-Launcher-body',
+              title: 'Test'
+            },
+            {
+              content:
+                'This is where many MAAP extensions are present. TODO: individually click each one',
+              placement: 'bottom',
+              target: '#jp-Launcher-section',
+              title: 'Test'
             }
           ],
 };
