@@ -51,8 +51,6 @@ const extension: JupyterFrontEndPlugin<void> = {
       .then(result => {
         tour = result;
       });
-      console.log(tour);
-      // graceal- maybe remove tour variable later
 
       const about_command = 'iframe:about';
       app.commands.addCommand(about_command, {
@@ -76,7 +74,9 @@ const extension: JupyterFrontEndPlugin<void> = {
 
   app.restored.then(() => {
       // Wait 3s before launching the first tour - to be sure element are loaded
-      setTimeout(() => app.commands.execute('jupyterlab-tour:launch', {id: 'jupyterlab-tour:maap-tour', force: false }), 3000);
+      if (tour) {
+        setTimeout(() => app.commands.execute('jupyterlab-tour:launch', {id: 'jupyterlab-tour:maap-tour', force: false }), 3000);
+      }
     });
 
 
