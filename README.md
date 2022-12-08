@@ -30,13 +30,17 @@ Note: You will need NodeJS to build the extension package.
 
 ```bash
 conda install jupyterlab-tour
-jupyter labextension disable "jupyterlab-tour:default-tours"
 # Install package in development mode
 pip install -e .
 # Link your development version of the extension with JupyterLab
 jupyter labextension develop . --overwrite
 # Rebuild extension Typescript source after making changes
 jlpm run build
+```
+
+If you would like to disable the default jupyter lab tutorial, (MAAP specific one will still be enabled), run 
+```
+jupyter labextension disable "jupyterlab-tour:default-tours"
 ```
 
 > The `jlpm` command is JupyterLab's pinned version of
