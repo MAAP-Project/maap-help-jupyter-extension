@@ -21,14 +21,14 @@ export const managerTour = {
               content:
                 'This is where many MAAP extensions are present. TODO: individually click each one',
               placement: 'bottom',
-              target: '#jp-mainmenu',
+              target: '#jp-MainMenu',
               title: 'Top menu options'
             },
             {
               content:
                 'This is where many MAAP extensions are present. TODO: individually click each one',
               placement: 'right',
-              target: '#jp-sideBar',
+              target: '.jp-SideBar',
               title: 'Left Side Bar'
             },
             {
@@ -42,28 +42,21 @@ export const managerTour = {
               content:
                 'This is where many MAAP extensions are present. TODO: individually click each one',
               placement: 'bottom',
-              target: '#jp-menu-file',
+              target: '.jp-mainmenu-file',
               title: 'Test'
             },
             {
               content:
                 'This is where many MAAP extensions are present. TODO: individually click each one',
               placement: 'bottom',
-              target: '#jp-mainmenu-file',
+              target: '.jp-menu-file',
               title: 'Test'
             },
             {
               content:
                 'This is where many MAAP extensions are present. TODO: individually click each one',
               placement: 'bottom',
-              target: '#jp-Launcher-body',
-              title: 'Test'
-            },
-            {
-              content:
-                'This is where many MAAP extensions are present. TODO: individually click each one',
-              placement: 'bottom',
-              target: '#jp-Launcher-section',
+              target: '#jp-Notebook',
               title: 'Test'
             }
           ],
