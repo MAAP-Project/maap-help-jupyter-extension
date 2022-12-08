@@ -69,7 +69,7 @@ const extension: JupyterFrontEndPlugin<void> = {
   helpMenu.contentNode.id = '.help_menu1';
   console.log(helpMenu.id);
 
-  helpMenu.title.label = 'Help2';
+  helpMenu.title.label = 'Test';
   [
     about_command
   ].forEach(command => {

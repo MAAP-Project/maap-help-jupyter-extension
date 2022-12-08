@@ -1,11 +1,28 @@
+import React from "react";
+
 export const managerTour = {
   id: 'jupyterlab-tour:maap-tour',
   label: 'MAAP tour',
   hasHelpEntry: true,
   steps: [  // Step must be of type IStep - see src/tokens.ts
             {
-              content:
-                'The following tutorial will point out some of the MAAP jupyter extension features within JupyterLab.',
+              content: (
+                <>
+                    <p>
+                      {(
+                        `All user actions in JupyterLab are processed through a centralized 
+                        command system, called command palette. It provides a keyboard-driven 
+                        way to search for and run JupyterLab commands.`
+                      )}
+                    </p>
+                    <p>
+                      <small>
+                        {('Tip: To open it, the default shortcut is "Ctrl + Shift + C"')}
+                      </small>
+                    </p>
+                  </>
+              ),
+                //'The following tutorial will point out some of the MAAP jupyter extension features within JupyterLab.',
               placement: 'center',
               target: '#jp-main-dock-panel',
               title: 'Welcome to MAAP!'
@@ -19,7 +36,7 @@ export const managerTour = {
             },
             {
               content:
-                'This is where many MAAP extensions are present. TODO: individually click each one',
+                'This is the top menu bar where you can activate numerous MAAP extensions. \n TODO: individually click each one',
               placement: 'bottom',
               target: '#jp-MainMenu',
               title: 'Top menu options'
@@ -70,7 +87,7 @@ export const managerTour = {
             ,
             {
               content:
-                'This is where many MAAP extensions are present. TODO: individually click each one',
+                'This is what the tutorial could look like',
               placement: 'bottom',
               target: '#help_menu1',
               title: 'Test'

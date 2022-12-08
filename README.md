@@ -29,7 +29,7 @@ Note: You will need NodeJS to build the extension package.
 
 
 ```bash
-conda install jupyterlab-tour
+conda install -c conda-forge jupyterlab-tour
 jupyter labextension enable "jupyterlab-tour:default-tours"
 # Install package in development mode
 pip install -e .
