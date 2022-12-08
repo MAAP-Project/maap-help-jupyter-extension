@@ -52,16 +52,6 @@ const extension: JupyterFrontEndPlugin<void> = {
         tour = result;
       });
 
-      console.log("tour is ");
-      console.log(tour);
-      if ( tour ) {
-        console.log("in if statement for tour");
-        app.commands.execute('jupyterlab-tour:launch', {
-          id: 'jupyterlab-tour:maap-tour',
-          force: true  // Optional, if false the tour will start only if the user have not seen or skipped it
-        })
-      }
-
       const about_command = 'iframe:about';
       app.commands.addCommand(about_command, {
         label: 'About',
@@ -81,6 +71,11 @@ const extension: JupyterFrontEndPlugin<void> = {
     helpMenu.addItem({ command });
   });
   mainMenu.addMenu(helpMenu, { rank: 100 });
+
+  app.restored.then(() => {
+      // Wait 3s before launching the first tour - to be sure element are loaded
+      setTimeout(() => app.commands.execute('jupyterlab-tour:launch', {id: 'jupyterlab-tour:maap-tour', force: true }), 3000);
+    });
 
 
   console.log('JupyterLab extension maap_help is activated!');

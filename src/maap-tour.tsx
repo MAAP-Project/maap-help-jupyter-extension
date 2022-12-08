@@ -1,5 +1,5 @@
 export const managerTour = {
-  id: 'jupyterlab-conda:maap-tour',
+  id: 'jupyterlab-tour:maap-tour',
   label: 'MAAP tour',
   hasHelpEntry: true,
   steps: [  // Step must be of type IStep - see src/tokens.ts
