@@ -64,7 +64,12 @@ const extension: JupyterFrontEndPlugin<void> = {
       palette.addItem({command: about_command, category: 'Help'});
   const { commands } = app;
   let helpMenu = new Menu({ commands });
-  helpMenu.title.label = 'Help';
+  helpMenu.id = '#help_menu1';
+  //helpMenu.node.id = '#help_menu1';
+  helpMenu.contentNode.id = '.help_menu1';
+  console.log(helpMenu.id);
+
+  helpMenu.title.label = 'Help2';
   [
     about_command
   ].forEach(command => {

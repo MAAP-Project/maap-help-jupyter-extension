@@ -38,25 +38,41 @@ export const managerTour = {
               target: '#filebrowser',
               title: 'File Browser'
             },
+            ,
+            {
+              content:
+                'The status bar at the bottom tells you how much memory your workspace has (?)',
+              placement: 'top',
+              target: '#jp-main-statusbar',
+              title: 'Status Bar'
+            },
             {
               content:
                 'This is where many MAAP extensions are present. TODO: individually click each one',
               placement: 'bottom',
-              target: '.jp-mainmenu-file',
+              target: '.lm-TabBar-tab p-TabBar-tab lm-mod-current p-mod-current',
               title: 'Test'
             },
             {
               content:
                 'This is where many MAAP extensions are present. TODO: individually click each one',
               placement: 'bottom',
-              target: '.jp-menu-file',
+              target: '#lm-TabBar-tab p-TabBar-tab lm-mod-current p-mod-current',
               title: 'Test'
             },
             {
               content:
                 'This is where many MAAP extensions are present. TODO: individually click each one',
               placement: 'bottom',
-              target: '#jp-Notebook',
+              target: '.help_menu1',
+              title: 'Test'
+            }
+            ,
+            {
+              content:
+                'This is where many MAAP extensions are present. TODO: individually click each one',
+              placement: 'bottom',
+              target: '#help_menu1',
               title: 'Test'
             }
           ],
