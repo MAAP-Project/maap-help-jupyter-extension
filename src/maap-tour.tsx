@@ -35,16 +35,16 @@ export const managerTour = {
                       </li>
                       <li>
                         <strong>{('DPS/MAS Operations')}</strong>
-                        {(': actions related to editing documents and other activities')}
+                        {(': publish and manage algorithms and execute and manage DPS jobs (UPDATE with info from Sumant)')}
                       </li>
                       <li>
                         <strong>{('DPS UI Menu')}</strong>
-                        {(': actions that alter the appearance of JupyterLab')}
+                        {(': see DPS past and current jobs as well as run jobs (UPDATE)')}
                       </li>
                       <li>
                         <strong>{('MAAP Login')}</strong>
                         {(
-                          ': actions for running code in notebooks and code consoles for example'
+                          ': log into MAAP with ESA or EarthData Account (UPDATE)'
                         )}
                       </li>
                       <li>
