@@ -7,11 +7,12 @@ import { IMainMenu } from '@jupyterlab/mainmenu';
 //import { ITourHandler } from "jupyterlab-tour";
 
 /** phosphor imports **/
-import { Menu } from '@lumino/widgets';
+//import { Menu } from '@lumino/widgets';
 
 /** internal imports **/
 import '../style/index.css';
 import { managerTour } from './maap-tour';
+import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup, launchTutorialPopup, maapApiPopup } from './popups';
 //import { IFrameWidget } from './widgets';
 
 
@@ -23,28 +24,14 @@ console.log(PageConfig.getBaseUrl());
 //
 ///////////////////////////////////////////////////////////////
 
-/*const extension: JupyterFrontEndPlugin<void> = {
-  id: 'jupyterlab-apod',
-  autoStart: true,
-  requires: [ICommandPalette],
-  activate: (app: JupyterFrontEnd, palette: ICommandPalette) => {
-    console.log('JupyterLab extension jupyterlab_apod is activated!');
-    console.log('ICommandPalette:', palette);
-  }
-};
-
-export default extension;*/
-
 const extension: JupyterFrontEndPlugin<void> = {
   id: 'maap-help',
   autoStart: true,
   optional: [ICommandPalette, IMainMenu],
-  // requires: [ICommandPalette, IStateDB],
   activate: async (app: JupyterFrontEnd,
     palette: ICommandPalette,
     mainMenu: IMainMenu,) => {
       let tour: any;
-
       app.commands.execute('jupyterlab-tour:add', {
         tour: managerTour as any
       })
@@ -52,32 +39,72 @@ const extension: JupyterFrontEndPlugin<void> = {
         tour = result;
       });
 
-      const about_command = 'iframe:about';
-      app.commands.addCommand(about_command, {
-        label: 'About',
+    const about_command = 'iframe:about';
+    app.commands.addCommand(about_command, {
+        label: 'About MAAP',
         isEnabled: () => true,
         execute: args => {
-          console.log("in execute of about");
-          //aboutPopup();
+            aboutPopup();
         }
-      });
-      palette.addItem({command: about_command, category: 'Help'});
-  const { commands } = app;
-  let helpMenu = new Menu({ commands });
-  helpMenu.id = '#help_menu1';
-  //helpMenu.node.id = '#help_menu1';
-  helpMenu.contentNode.id = '.help_menu1';
-  console.log(helpMenu.id);
+    });
+    palette.addItem({ command: about_command, category: 'Help' });
+    const faq_command = 'help:faq';
+    app.commands.addCommand(faq_command, {
+        label: 'MAAP FAQ',
+        isEnabled: () => true,
+        execute: args => {
+            faqPopup();
+        }
+    });
+    palette.addItem({ command: faq_command, category: 'Help' });
+    const tech_doc_command = 'help:techDoc';
+    app.commands.addCommand(tech_doc_command, {
+        label: 'MAAP Technical Documentation',
+        isEnabled: () => true,
+        execute: args => {
+            techDocPopup();
+        }
+    });
+    palette.addItem({ command: tech_doc_command, category: 'Help' });
+    const tutorials_command = 'help:tutorials';
+    app.commands.addCommand(tutorials_command, {
+        label: 'MAAP Tutorials',
+        isEnabled: () => true,
+        execute: args => {
+            tutorialsPopup();
+        }
+    });
+    palette.addItem({ command: tutorials_command, category: 'Help' });
+    const launch_tutorial_command = 'help:launchtutorial';
+    app.commands.addCommand(launch_tutorial_command, {
+        label: 'MAAP Launch Tutorial',
+        isEnabled: () => true,
+        execute: args => {
+            launchTutorialPopup();
+        }
+    });
+    palette.addItem({ command: launch_tutorial_command, category: 'Help' });
+    const maap_py_command = 'help:maapApi';
+    app.commands.addCommand(maap_py_command, {
+        label: 'MAAP API',
+        isEnabled: () => true,
+        execute: args => {
+            maapApiPopup();
+        }
+    });
+    palette.addItem({ command: maap_py_command, category: 'Help' });
+    [
+        about_command,
+        faq_command,
+        tech_doc_command,
+        tutorials_command,
+        launch_tutorial_command,
+        maap_py_command
+    ].forEach(command => {
+        mainMenu.helpMenu.addItem({ command });
+    });
 
-  helpMenu.title.label = 'Test';
-  [
-    about_command
-  ].forEach(command => {
-    helpMenu.addItem({ command });
-  });
-  mainMenu.addMenu(helpMenu, { rank: 100 });
-
-  app.restored.then(() => {
+    app.restored.then(() => {
       // Wait 3s before launching the first tour - to be sure element are loaded
       if (tour) {
         setTimeout(() => app.commands.execute('jupyterlab-tour:launch', {id: 'jupyterlab-tour:maap-tour', force: false }), 3000);
