@@ -21,12 +21,10 @@ export class AboutWidget extends Widget {
         body.style.display = 'flex';
         body.style.flexDirection = 'column';
         const innerText = `
-        <head>
-        <b>About</b>
-        </head>
+        <h1>About</h1>
         <body>
 
-        <h1>The MAAP Project (Multi-Mission Algorithm and Analysis Platform)</h1>
+        <h2>The MAAP Project (Multi-Mission Algorithm and Analysis Platform)</h2>
         <p><b>The MAAP platform is designed to combine data, algorithms, and computational abilities 
         for the processing and sharing of data related to NASA's GEDI, ESA's BIOMASS, and NASA/ISRO's 
         NISAR missions.</b> These missions generate vastly greater amounts of data than previous Earth 
