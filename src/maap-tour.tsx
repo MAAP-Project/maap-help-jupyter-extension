@@ -81,7 +81,7 @@ export const managerTour = {
                       </li>
                       <li>
                         <strong>{('Property inspector')}</strong>
-                        {(': property inspector')}
+                        {(': property inspector to see the cell\'s metadata')}
                       </li>
                       <li>
                         <strong>{('Open tabs')}</strong>
