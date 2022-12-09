@@ -1,7 +1,5 @@
 import { Dialog, showDialog } from "@jupyterlab/apputils";
 import { AboutWidget, FAQWidget, TechDocWidget, TutorialsWidget, LaunchTutorialWidget, MaapApiWidget } from "./widgets";
-import "./globals";
-import React, { Component } from "react";
 
 export function aboutPopup() {
     showDialog({
