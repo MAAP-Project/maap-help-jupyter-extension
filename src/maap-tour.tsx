@@ -6,23 +6,7 @@ export const managerTour = {
   hasHelpEntry: true,
   steps: [  // Step must be of type IStep - see src/tokens.ts
             {
-              content: (
-                <>
-                    <p>
-                      {(
-                        `All user actions in JupyterLab are processed through a centralized 
-                        command system, called command palette. It provides a keyboard-driven 
-                        way to search for and run JupyterLab commands.`
-                      )}
-                    </p>
-                    <p>
-                      <small>
-                        {('Tip: To open it, the default shortcut is "Ctrl + Shift + C"')}
-                      </small>
-                    </p>
-                  </>
-              ),
-                //'The following tutorial will point out some of the MAAP jupyter extension features within JupyterLab.',
+              content:'The following tutorial will point out some of the MAAP jupyter extension features within JupyterLab.',
               placement: 'center',
               target: '#jp-main-dock-panel',
               title: 'Welcome to MAAP!'
@@ -35,15 +19,79 @@ export const managerTour = {
               title: 'Some information on the tour, first'
             },
             {
-              content:
-                'This is the top menu bar where you can activate numerous MAAP extensions. \n TODO: individually click each one',
+              content: (
+                <details>
+                    <summary>
+                      {('This is the top menu bar where you can select from numerous MAAP extensions.')}
+                    </summary>
+                    <ul>
+                      <li>
+                        <strong>{('Git')}</strong>
+                        {(': interface with Git including cloning a repository')}
+                      </li>
+                      <li>
+                        <strong>{('Data Search')}</strong>
+                        {(': launch Earthdata Search Client (EDSC) and paste search queries')}
+                      </li>
+                      <li>
+                        <strong>{('DPS/MAS Operations')}</strong>
+                        {(': actions related to editing documents and other activities')}
+                      </li>
+                      <li>
+                        <strong>{('DPS UI Menu')}</strong>
+                        {(': actions that alter the appearance of JupyterLab')}
+                      </li>
+                      <li>
+                        <strong>{('MAAP Login')}</strong>
+                        {(
+                          ': actions for running code in notebooks and code consoles for example'
+                        )}
+                      </li>
+                      <li>
+                        <strong>{('Help')}</strong>
+                        {(
+                          ': General help menu with additional MAAP-specific information and the option to rerun this tutorial'
+                        )}
+                      </li>
+                    </ul>
+                  </details>
+              ),
               placement: 'bottom',
               target: '#jp-MainMenu',
               title: 'Top menu options'
             },
             {
-              content:
-                'This is where many MAAP extensions are present. TODO: individually click each one',
+              content: (
+                <details>
+                    <summary>
+                      {('This is the side menu bar where you can select from numerous MAAP extensions.')}
+                    </summary>
+                    <ul>
+                      <li>
+                        <strong>{('Git')}</strong>
+                        {(': interface with Git including cloning a repository')}
+                      </li>
+                      <li>
+                        <strong>{('Commands')}</strong>
+                        {(': command palette where you can select from commands to run')}
+                      </li>
+                      <li>
+                        <strong>{('Jobs')}</strong>
+                        {(': see all jobs sent to DPS')}
+                      </li>
+                      <li>
+                        <strong>{('Property inspector')}</strong>
+                        {(': actions that alter the appearance of JupyterLab')}
+                      </li>
+                      <li>
+                        <strong>{('Open tabs')}</strong>
+                        {(
+                          ': see all open tabs'
+                        )}
+                      </li>
+                    </ul>
+                  </details>
+              ),
               placement: 'right',
               target: '.jp-SideBar',
               title: 'Left Side Bar'
