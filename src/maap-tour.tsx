@@ -35,16 +35,16 @@ export const managerTour = {
                       </li>
                       <li>
                         <strong>{('DPS/MAS Operations')}</strong>
-                        {(': publish and manage algorithms and execute and manage DPS jobs (UPDATE with info from Sumant)')}
+                        {(': register algorithms into DPS to be able to run as jobs')}
                       </li>
                       <li>
                         <strong>{('DPS UI Menu')}</strong>
-                        {(': see DPS past and current jobs as well as run jobs (UPDATE)')}
+                        {(': manage your jobs in DPS')}
                       </li>
                       <li>
                         <strong>{('MAAP Login')}</strong>
                         {(
-                          ': log into MAAP with ESA or EarthData Account (UPDATE)'
+                          ': log into the MAAP platform with an ESA/ Earthdata account'
                         )}
                       </li>
                       <li>
@@ -73,15 +73,15 @@ export const managerTour = {
                       </li>
                       <li>
                         <strong>{('Commands')}</strong>
-                        {(': command palette where you can select from commands to run')}
+                        {(': palette of commands to run')}
                       </li>
                       <li>
                         <strong>{('Jobs')}</strong>
-                        {(': see all jobs sent to DPS')}
+                        {(': your jobs in DPS')}
                       </li>
                       <li>
                         <strong>{('Property inspector')}</strong>
-                        {(': actions that alter the appearance of JupyterLab')}
+                        {(': property inspector')}
                       </li>
                       <li>
                         <strong>{('Open tabs')}</strong>
