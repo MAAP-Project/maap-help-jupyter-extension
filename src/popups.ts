@@ -1,5 +1,5 @@
 import { Dialog, showDialog } from "@jupyterlab/apputils";
-import { AboutWidget, FAQWidget, TechDocWidget, TutorialsWidget, LaunchTutorialWidget, MaapApiWidget } from "./widgets";
+import { AboutWidget, FAQWidget, TechDocWidget, TutorialsWidget, MaapApiWidget } from "./widgets";
 
 export function aboutPopup() {
     showDialog({
@@ -28,14 +28,6 @@ export function techDocPopup() {
 export function tutorialsPopup() {
     showDialog({
         body: new TutorialsWidget(),
-        focusNodeSelector: 'input',
-        buttons: [Dialog.okButton({ label: 'Ok' })]
-    });
-}
-
-export function launchTutorialPopup() {
-    showDialog({
-        body: new LaunchTutorialWidget(),
         focusNodeSelector: 'input',
         buttons: [Dialog.okButton({ label: 'Ok' })]
     });

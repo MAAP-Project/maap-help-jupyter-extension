@@ -14,9 +14,6 @@ export declare class TechDocWidget extends Widget {
 export declare class TutorialsWidget extends Widget {
     constructor();
 }
-export declare class LaunchTutorialWidget extends Widget {
-    constructor();
-}
 export declare class MaapApiWidget extends Widget {
     constructor();
 }

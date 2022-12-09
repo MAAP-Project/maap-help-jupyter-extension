@@ -12,7 +12,7 @@ import { IMainMenu } from '@jupyterlab/mainmenu';
 /** internal imports **/
 import '../style/index.css';
 import { managerTour } from './maap-tour';
-import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup, launchTutorialPopup, maapApiPopup } from './popups';
+import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup, maapApiPopup } from './popups';
 //import { IFrameWidget } from './widgets';
 
 
@@ -75,15 +75,6 @@ const extension: JupyterFrontEndPlugin<void> = {
         }
     });
     palette.addItem({ command: tutorials_command, category: 'Help' });
-    const launch_tutorial_command = 'help:launchtutorial';
-    app.commands.addCommand(launch_tutorial_command, {
-        label: 'MAAP Launch Tutorial',
-        isEnabled: () => true,
-        execute: args => {
-            launchTutorialPopup();
-        }
-    });
-    palette.addItem({ command: launch_tutorial_command, category: 'Help' });
     const maap_py_command = 'help:maapApi';
     app.commands.addCommand(maap_py_command, {
         label: 'MAAP API',
@@ -98,7 +89,6 @@ const extension: JupyterFrontEndPlugin<void> = {
         faq_command,
         tech_doc_command,
         tutorials_command,
-        launch_tutorial_command,
         maap_py_command
     ].forEach(command => {
         mainMenu.helpMenu.addItem({ command });
