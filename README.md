@@ -23,14 +23,15 @@ pip uninstall maap_help_jupyter_extension
 ```
 ## Contributing
 
-### Development install
+## Development install
 
 Note: You will need NodeJS to build the extension package.
 
 
 ```bash
+# Install the tour package and enable the MAAP tour
 conda install -c conda-forge jupyterlab-tour
-jupyter labextension enable "jupyterlab-tour:default-tours"
+jupyter labextension enable "jupyterlab-tour:user-tours"
 # Install package in development mode
 pip install -e .
 # Link your development version of the extension with JupyterLab
@@ -68,7 +69,7 @@ Now, we can run the extension. Note by adding `--watch`, we just have to refresh
 jupyter lab --watch
 ```
 
-### Development uninstall
+## Development uninstall
 
 ```bash
 pip uninstall maap_help_jupyter_extension
