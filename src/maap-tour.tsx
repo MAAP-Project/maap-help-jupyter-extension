@@ -1,5 +1,8 @@
 import React from "react";
 
+const topMenuOptions = ["Git", "Data Search", "DPS/MAS Operations", "DPS UI Menu", "MAAP Login", "Help"];
+console.log(topMenuOptions);
+
 export const managerTour = {
   id: 'jupyterlab-tour:maap-tour',
   label: 'MAAP tour',
@@ -10,6 +13,27 @@ export const managerTour = {
               placement: 'center',
               target: '#jp-main-dock-panel',
               title: 'Welcome to MAAP!'
+            },
+            {
+              content:
+                'This is what the tutorial could look like',
+              placement: 'bottom',
+              target: '#Help',
+              title: 'Test'
+            },
+            {
+              content:
+                'This is what the tutorial could look like',
+              placement: 'bottom',
+              target: '#DPSUIMenu',
+              title: 'Test'
+            },
+            {
+              content:
+                'This is what the tutorial could look like',
+              placement: 'bottom',
+              target: '#DPSMASOperations',
+              title: 'Test'
             },
             {
               content:
@@ -129,16 +153,8 @@ export const managerTour = {
               content:
                 'This is where many MAAP extensions are present. TODO: individually click each one',
               placement: 'bottom',
-              target: '.help_menu1',
+              target: '.help_menu',
               title: 'Test'
-            }
-            ,
-            {
-              content:
-                'This is what the tutorial could look like',
-              placement: 'bottom',
-              target: '#help_menu1',
-              title: 'Test'
-            }
+            }         
           ],
 };
