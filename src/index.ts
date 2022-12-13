@@ -1,8 +1,8 @@
 /** jupyterlab imports **/
 import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application'; 
 import { ICommandPalette } from '@jupyterlab/apputils';
-//import { PageConfig } from '@jupyterlab/coreutils'
 import { IMainMenu } from '@jupyterlab/mainmenu';
+import { ILauncher } from '@jupyterlab/launcher';
 
 /** internal imports **/
 import '../style/index.css';
@@ -82,7 +82,7 @@ const extension: JupyterFrontEndPlugin<void> = {
         }
     });
     palette.addItem({ command: maap_py_command, category: 'Help' });
-    [
+    /*[
         about_command,
         faq_command,
         tech_doc_command,
@@ -90,7 +90,17 @@ const extension: JupyterFrontEndPlugin<void> = {
         maap_py_command
     ].forEach(command => {
         mainMenu.helpMenu.addItem({ command });
-    });
+    });*/
+    var helpCommands = [
+      about_command,
+      faq_command,
+      tech_doc_command,
+      tutorials_command,
+      maap_py_command];
+    for (const helpCommand in helpCommands) {
+      console.log(helpCommand);
+      ILauncher.IItemOptions = { command:helpCommand };
+    }
     
 
     app.restored.then(() => {
