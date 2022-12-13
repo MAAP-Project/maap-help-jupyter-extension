@@ -1,7 +1,6 @@
-import React from "react";
+//import React from "react";
 
-const topMenuOptions = ["Git", "Data Search", "DPS/MAS Operations", "DPS UI Menu", "MAAP Login", "Help"];
-console.log(topMenuOptions);
+
 
 export const managerTour = {
   id: 'jupyterlab-tour:maap-tour',
@@ -9,31 +8,11 @@ export const managerTour = {
   hasHelpEntry: true,
   steps: [  // Step must be of type IStep - see src/tokens.ts
             {
-              content:'The following tutorial will point out some of the MAAP jupyter extension features within JupyterLab.',
+              content: 
+              'The following tutorial will point out some of the MAAP jupyter extension features within JupyterLab.',
               placement: 'center',
               target: '#jp-main-dock-panel',
               title: 'Welcome to MAAP!'
-            },
-            {
-              content:
-                'This is what the tutorial could look like',
-              placement: 'bottom',
-              target: '#Help',
-              title: 'Test'
-            },
-            {
-              content:
-                'This is what the tutorial could look like',
-              placement: 'bottom',
-              target: '#DPSUIMenu',
-              title: 'Test'
-            },
-            {
-              content:
-                'This is what the tutorial could look like',
-              placement: 'bottom',
-              target: '#DPSMASOperations',
-              title: 'Test'
             },
             {
               content:
@@ -43,6 +22,83 @@ export const managerTour = {
               title: 'Some information on the tour, first'
             },
             {
+              content: 'Interface with Git including cloning a repository',
+              placement: 'bottom',
+              target: '#Git',
+              title: 'Git'
+            },
+            {
+              content: 'Launch Earthdata Search Client (EDSC) and paste search queries',
+              placement: 'bottom',
+              target: '#DataSearch',
+              title: 'Data Search'
+            },
+            {
+              content: 'Register algorithms into DPS to be able to run as jobs',
+              placement: 'bottom',
+              target: '#DPSMASOperations',
+              title: 'Welcome to MAAP!'
+            },
+            {
+              content: 'Manage your jobs in DPS',
+              placement: 'bottom',
+              target: '#DPSUIMenu',
+              title: 'DPS UI Menu'
+            },
+            {
+              content: 'Log into the MAAP platform with an ESA/ Earthdata account',
+              placement: 'bottom',
+              target: '#MAAPLogin',
+              title: 'MAAP Login'
+            },
+            {
+              content: 
+              'General help menu with additional MAAP-specific information and the option to rerun this tutorial',
+              placement: 'bottom',
+              target: '#Help',
+              title: 'Help'
+            },
+            {
+              content:
+                'The file browser is divided into your private and public buckets',
+              placement: 'right',
+              target: '#filebrowser',
+              title: 'File Browser'
+            },
+            ,
+            {
+              content:
+                'The status bar at the bottom states your workspace\'s memory capacity which can be increased or decreased by manually configuring the workspace',
+              placement: 'top',
+              target: '#jp-main-statusbar',
+              title: 'Status Bar'
+            },
+            {
+              content:
+                'This is where many MAAP extensions are present. TODO: individually click each one',
+              placement: 'bottom',
+              target: '.lm-TabBar-tab p-TabBar-tab lm-mod-current p-mod-current',
+              title: 'Test'
+            },
+            {
+              content:
+                'This is where many MAAP extensions are present. TODO: individually click each one',
+              placement: 'bottom',
+              target: '#lm-TabBar-tab p-TabBar-tab lm-mod-current p-mod-current',
+              title: 'Test'
+            },
+            {
+              content:
+                'This is where many MAAP extensions are present. TODO: individually click each one',
+              placement: 'bottom',
+              target: '.help_menu',
+              title: 'Test'
+            }         
+          ],
+};
+
+/*
+{
               content: (
                 <details>
                     <summary>
@@ -74,7 +130,7 @@ export const managerTour = {
                       <li>
                         <strong>{('Help')}</strong>
                         {(
-                          ': General help menu with additional MAAP-specific information and the option to rerun this tutorial'
+                          ': general help menu with additional MAAP-specific information and the option to rerun this tutorial'
                         )}
                       </li>
                     </ul>
@@ -120,41 +176,4 @@ export const managerTour = {
               target: '.jp-SideBar',
               title: 'Left Side Bar'
             },
-            {
-              content:
-                'The file browser is divided into your private and public buckets',
-              placement: 'right',
-              target: '#filebrowser',
-              title: 'File Browser'
-            },
-            ,
-            {
-              content:
-                'The status bar at the bottom states your workspace\'s memory capacity which can be increased or decreased by manually configuring the workspace',
-              placement: 'top',
-              target: '#jp-main-statusbar',
-              title: 'Status Bar'
-            },
-            {
-              content:
-                'This is where many MAAP extensions are present. TODO: individually click each one',
-              placement: 'bottom',
-              target: '.lm-TabBar-tab p-TabBar-tab lm-mod-current p-mod-current',
-              title: 'Test'
-            },
-            {
-              content:
-                'This is where many MAAP extensions are present. TODO: individually click each one',
-              placement: 'bottom',
-              target: '#lm-TabBar-tab p-TabBar-tab lm-mod-current p-mod-current',
-              title: 'Test'
-            },
-            {
-              content:
-                'This is where many MAAP extensions are present. TODO: individually click each one',
-              placement: 'bottom',
-              target: '.help_menu',
-              title: 'Test'
-            }         
-          ],
-};
+            */
