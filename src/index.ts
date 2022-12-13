@@ -4,11 +4,6 @@ import { ICommandPalette } from '@jupyterlab/apputils';
 //import { PageConfig } from '@jupyterlab/coreutils'
 import { IMainMenu } from '@jupyterlab/mainmenu';
 
-//import { ITourHandler } from "jupyterlab-tour";
-
-/** phosphor imports **/
-import { Menu } from '@lumino/widgets';
-
 /** internal imports **/
 import '../style/index.css';
 import { managerTour } from './maap-tour';
@@ -96,37 +91,7 @@ const extension: JupyterFrontEndPlugin<void> = {
     ].forEach(command => {
         mainMenu.helpMenu.addItem({ command });
     });
-    const { commands } = app;
-    let searchMenu = new Menu({ commands });
-    searchMenu.title.label = 'EDSC';
-    [
-      about_command,
-      faq_command,
-      tech_doc_command,
-      tutorials_command,
-      maap_py_command
-    ].forEach(command => {
-      searchMenu.addItem({ command });
-    });
-    mainMenu.addMenu(searchMenu, { rank: 100 });
-
-    let searchMenu2 = new Menu({ commands });
-    searchMenu2.title.label = 'DPS UI Menu';
-    [
-      about_command
-    ].forEach(command => {
-      searchMenu2.addItem({ command });
-    });
-    mainMenu.addMenu(searchMenu2, { rank: 100 });
-
-    let searchMenu3 = new Menu({ commands });
-    searchMenu3.title.label = 'DPS/MAS Operations';
-    [
-      about_command
-    ].forEach(command => {
-      searchMenu3.addItem({ command });
-    });
-    mainMenu.addMenu(searchMenu3, { rank: 100 });
+    
 
     app.restored.then(() => {
       // Wait 3s before launching the first tour - to be sure element are loaded
@@ -136,17 +101,11 @@ const extension: JupyterFrontEndPlugin<void> = {
         divElements = divElements.filter(divElement => divElement.textContent && topMenuOptions.includes(divElement.textContent));
         divElements.forEach(divElement => divElement.setAttribute('id', divElement.textContent ? divElement.textContent.replace(/-|\s|\/|\&/g, ''):""));
 
-        //const sideMenuOptions = ["Git", "Data Search", "DPS/MAS Operations", "DPS UI Menu", "MAAP Login", "Help"];
         var sideBarElements = Array.from(document.getElementsByClassName('lm-TabBar-tab p-TabBar-tab')); 
-        console.log(sideBarElements);
         sideBarElements = sideBarElements.filter(sideBarElement => determineIncludeSideBarElement(sideBarElement));
-        console.log("side bar elements after filtering");
-        console.log(sideBarElements);
         sideBarElements.forEach(sideBarElement => sideBarElement.setAttribute('id', getSideBarId(sideBarElement)));
-        console.log("printing side bar ids");
         sideBarElements.forEach(sideBarElement => console.log(sideBarElement.id));
-        //divElements.forEach(divElement => divElement.setAttribute('id', divElement.textContent ? divElement.textContent.replace(/-|\s|\/|\&/g, ''):""));
-
+        
       }
     });
 
@@ -161,7 +120,6 @@ function getSideBarId(sideBarElement:any) {
 
 function determineIncludeSideBarElement(sideBarElement: any) {
   const title = sideBarElement.getAttribute('title');
-  console.log(title);
   return title && sideBarTitles.includes(title);
 }
 

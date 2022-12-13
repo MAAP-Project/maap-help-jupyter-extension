@@ -1,7 +1,3 @@
-//import React from "react";
-
-
-
 export const managerTour = {
   id: 'jupyterlab-tour:maap-tour',
   label: 'MAAP tour',
