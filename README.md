@@ -25,7 +25,7 @@ pip uninstall maap_help_jupyter_extension
 
 ## Development install
 
-Note: You will need NodeJS to build the extension package.
+Note: You will need NodeJS v14 to build the extension package.
 
 
 ```bash
