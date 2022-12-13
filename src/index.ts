@@ -1,7 +1,7 @@
 /** jupyterlab imports **/
 import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application'; 
 import { ICommandPalette } from '@jupyterlab/apputils';
-import { PageConfig } from '@jupyterlab/coreutils'
+//import { PageConfig } from '@jupyterlab/coreutils'
 import { IMainMenu } from '@jupyterlab/mainmenu';
 
 //import { ITourHandler } from "jupyterlab-tour";
@@ -16,7 +16,10 @@ import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup, maapApiPopup } from
 //import { IFrameWidget } from './widgets';
 
 
-console.log(PageConfig.getBaseUrl());
+const sideBarTitles = ["Jobs sent to DPS", "Open tabs"];
+const topMenuOptions = ["Git", "Data Search", "DPS/MAS Operations", "DPS UI Menu", "MAAP Login", "Help"];
+        
+        
 
 ///////////////////////////////////////////////////////////////
 //
@@ -129,17 +132,15 @@ const extension: JupyterFrontEndPlugin<void> = {
       // Wait 3s before launching the first tour - to be sure element are loaded
       if (tour) {
         setTimeout(() => app.commands.execute('jupyterlab-tour:launch', {id: 'jupyterlab-tour:maap-tour', force: false }), 3000);
-        const topMenuOptions = ["Git", "Data Search", "DPS/MAS Operations", "DPS UI Menu", "MAAP Login", "Help"];
         var divElements = Array.from(document.getElementsByTagName('div')); 
         divElements = divElements.filter(divElement => divElement.textContent && topMenuOptions.includes(divElement.textContent));
         divElements.forEach(divElement => divElement.setAttribute('id', divElement.textContent ? divElement.textContent.replace(/-|\s|\/|\&/g, ''):""));
 
         //const sideMenuOptions = ["Git", "Data Search", "DPS/MAS Operations", "DPS UI Menu", "MAAP Login", "Help"];
-        /*var sideBarElements = Array.from(document.getElementsByClassName('lm-TabBar-tabIcon p-TabBar-tabIcon f1dvozo')); 
-        sideBarElements.filter(sideBarElement => console.log(sideBarElement.children));
-        
-        sideBarElements.filter(sideBarElement => console.log(typeof sideBarElement.children[0].attributes[3]));
-        console.log(sideBarElements);*/
+        var sideBarElements = Array.from(document.getElementsByClassName('lm-TabBar-tab p-TabBar-tab')); 
+        console.log(sideBarElements);
+        sideBarElements = sideBarElements.filter(sideBarElement => determineIncludeSideBarElement(sideBarElement));
+        sideBarElements.forEach(sideBarElement => sideBarElement.setAttribute('id', getSideBarId(sideBarElement)));
         //divElements.forEach(divElement => divElement.setAttribute('id', divElement.textContent ? divElement.textContent.replace(/-|\s|\/|\&/g, ''):""));
 
       }
@@ -149,6 +150,16 @@ const extension: JupyterFrontEndPlugin<void> = {
   console.log('JupyterLab extension maap_help is activated!');
   },
 };
+
+function getSideBarId(sideBarElement:any) {
+  return sideBarElement.getAttribute('title').replace(/-|\s|\/|\&/g, '');
+}
+
+function determineIncludeSideBarElement(sideBarElement: any) {
+  const title = sideBarElement.getAttribute('title');
+  console.log(title);
+  return title && sideBarTitles.includes(title);
+}
 
 
 export default extension;

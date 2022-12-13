@@ -72,28 +72,7 @@ export const managerTour = {
               placement: 'top',
               target: '#jp-main-statusbar',
               title: 'Status Bar'
-            },
-            {
-              content:
-                'This is where many MAAP extensions are present. TODO: individually click each one',
-              placement: 'bottom',
-              target: '.lm-TabBar-tab p-TabBar-tab lm-mod-current p-mod-current',
-              title: 'Test'
-            },
-            {
-              content:
-                'This is where many MAAP extensions are present. TODO: individually click each one',
-              placement: 'bottom',
-              target: '#lm-TabBar-tab p-TabBar-tab lm-mod-current p-mod-current',
-              title: 'Test'
-            },
-            {
-              content:
-                'This is where many MAAP extensions are present. TODO: individually click each one',
-              placement: 'bottom',
-              target: '.help_menu',
-              title: 'Test'
-            }         
+            }
           ],
 };
 
@@ -152,16 +131,8 @@ export const managerTour = {
                         {(': interface with Git including cloning a repository')}
                       </li>
                       <li>
-                        <strong>{('Commands')}</strong>
-                        {(': palette of commands to run')}
-                      </li>
-                      <li>
                         <strong>{('Jobs')}</strong>
                         {(': your jobs in DPS')}
-                      </li>
-                      <li>
-                        <strong>{('Property inspector')}</strong>
-                        {(': property inspector to see the cell\'s metadata')}
                       </li>
                       <li>
                         <strong>{('Open tabs')}</strong>
