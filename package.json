@@ -65,7 +65,6 @@
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@jupyterlab/builder": "^3.1.0",
-    "@jupyterlab/launcher": "^3.5.1",
     "@jupyterlab/testutils": "^4.0.0-alpha.1",
     "@types/jest": "^26.0.0",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
