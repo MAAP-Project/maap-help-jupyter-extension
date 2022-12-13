@@ -59,8 +59,22 @@ export const managerTour = {
               title: 'Help'
             },
             {
+              content: 
+              'See your jobs in DPS',
+              placement: 'right',
+              target: '#JobssenttoDPS',
+              title: 'Jobs'
+            },
+            {
+              content: 
+              'See open tabs',
+              placement: 'bottom',
+              target: '#OpenTabs',
+              title: 'Open Tabs'
+            },
+            {
               content:
-                'The file browser is divided into your private and public buckets',
+                'The file browser is divided into your private and public buckets. Anthing in an s3-backed folder will be persistent. For example, <username> is s3-backed.',
               placement: 'right',
               target: '#filebrowser',
               title: 'File Browser'

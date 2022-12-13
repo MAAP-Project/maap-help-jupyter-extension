@@ -16,7 +16,7 @@ import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup, maapApiPopup } from
 //import { IFrameWidget } from './widgets';
 
 
-const sideBarTitles = ["Jobs sent to DPS", "Open tabs"];
+const sideBarTitles = ["Jobs sent to DPS", "Open Tabs"];
 const topMenuOptions = ["Git", "Data Search", "DPS/MAS Operations", "DPS UI Menu", "MAAP Login", "Help"];
         
         
@@ -87,7 +87,7 @@ const extension: JupyterFrontEndPlugin<void> = {
         }
     });
     palette.addItem({ command: maap_py_command, category: 'Help' });
-    /*[
+    [
         about_command,
         faq_command,
         tech_doc_command,
@@ -95,7 +95,7 @@ const extension: JupyterFrontEndPlugin<void> = {
         maap_py_command
     ].forEach(command => {
         mainMenu.helpMenu.addItem({ command });
-    });*/
+    });
     const { commands } = app;
     let searchMenu = new Menu({ commands });
     searchMenu.title.label = 'EDSC';
@@ -140,7 +140,11 @@ const extension: JupyterFrontEndPlugin<void> = {
         var sideBarElements = Array.from(document.getElementsByClassName('lm-TabBar-tab p-TabBar-tab')); 
         console.log(sideBarElements);
         sideBarElements = sideBarElements.filter(sideBarElement => determineIncludeSideBarElement(sideBarElement));
+        console.log("side bar elements after filtering");
+        console.log(sideBarElements);
         sideBarElements.forEach(sideBarElement => sideBarElement.setAttribute('id', getSideBarId(sideBarElement)));
+        console.log("printing side bar ids");
+        sideBarElements.forEach(sideBarElement => console.log(sideBarElement.id));
         //divElements.forEach(divElement => divElement.setAttribute('id', divElement.textContent ? divElement.textContent.replace(/-|\s|\/|\&/g, ''):""));
 
       }
