@@ -107,10 +107,8 @@ const extension: JupyterFrontEndPlugin<void> = {
         
         // add an id to all of the eclipse che side bar items 
         var eclipseCheSideBarElements = Array.from(document.getElementsByTagName('a')); 
-        console.log(eclipseCheSideBarElements);
         eclipseCheSideBarElements = eclipseCheSideBarElements.filter(eclipseCheSideBarElement => determineIncludeEclipseCheSideBarElement(eclipseCheSideBarElement));
         eclipseCheSideBarElements.forEach(eclipseCheSideBarElement => eclipseCheSideBarElement.setAttribute('id', getEclipseCheSideBarId(eclipseCheSideBarElement)));
-        eclipseCheSideBarElements.forEach(eclipseCheSideBarElement => console.log(eclipseCheSideBarElement.id));
       }
     });
 
@@ -130,7 +128,6 @@ function getSideBarId(sideBarElement:any) {
 
 function determineIncludeEclipseCheSideBarElement(eclipseCheSideBarElement: any) {
   const href = eclipseCheSideBarElement.getAttribute('href');
-  console.log("href "+href);
   return href && eclipseCheSideBarNames.includes(href.replace("#/",""));
 }
 
