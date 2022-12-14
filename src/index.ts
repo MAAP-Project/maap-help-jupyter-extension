@@ -12,8 +12,7 @@ import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup, maapApiPopup } from
 
 const sideBarTitles = ["Jobs sent to DPS", "Open Tabs"];
 const topMenuOptions = ["Git", "Data Search", "DPS/MAS Operations", "DPS UI Menu", "MAAP Login", "Help"];
-        
-        
+const eclipseCheSideBarNames = ["getstarted", "stacks"];
 
 ///////////////////////////////////////////////////////////////
 //
@@ -96,14 +95,22 @@ const extension: JupyterFrontEndPlugin<void> = {
       // Wait 3s before launching the first tour - to be sure element are loaded
       if (tour) {
         setTimeout(() => app.commands.execute('jupyterlab-tour:launch', {id: 'jupyterlab-tour:maap-tour', force: false }), 3000);
+        // add an id to all the top menu bar items
         var divElements = Array.from(document.getElementsByTagName('div')); 
         divElements = divElements.filter(divElement => divElement.textContent && topMenuOptions.includes(divElement.textContent));
         divElements.forEach(divElement => divElement.setAttribute('id', divElement.textContent ? divElement.textContent.replace(/-|\s|\/|\&/g, ''):""));
 
+        // add an id to all the side menu bar items 
         var sideBarElements = Array.from(document.getElementsByClassName('lm-TabBar-tab p-TabBar-tab')); 
         sideBarElements = sideBarElements.filter(sideBarElement => determineIncludeSideBarElement(sideBarElement));
         sideBarElements.forEach(sideBarElement => sideBarElement.setAttribute('id', getSideBarId(sideBarElement)));
-        sideBarElements.forEach(sideBarElement => console.log(sideBarElement.id));
+        
+        // add an id to all of the eclipse che side bar items 
+        var eclipseCheSideBarElements = Array.from(document.getElementsByTagName('a')); 
+        console.log(eclipseCheSideBarElements);
+        eclipseCheSideBarElements = eclipseCheSideBarElements.filter(eclipseCheSideBarElement => determineIncludeEclipseCheSideBarElement(eclipseCheSideBarElement));
+        eclipseCheSideBarElements.forEach(eclipseCheSideBarElement => eclipseCheSideBarElement.setAttribute('id', getEclipseCheSideBarId(eclipseCheSideBarElement)));
+        eclipseCheSideBarElements.forEach(eclipseCheSideBarElement => console.log(eclipseCheSideBarElement.id));
       }
     });
 
@@ -112,13 +119,23 @@ const extension: JupyterFrontEndPlugin<void> = {
   },
 };
 
+function determineIncludeSideBarElement(sideBarElement: any) {
+  const title = sideBarElement.getAttribute('title');
+  return title && sideBarTitles.includes(title);
+}
+
 function getSideBarId(sideBarElement:any) {
   return sideBarElement.getAttribute('title').replace(/-|\s|\/|\&/g, '');
 }
 
-function determineIncludeSideBarElement(sideBarElement: any) {
-  const title = sideBarElement.getAttribute('title');
-  return title && sideBarTitles.includes(title);
+function determineIncludeEclipseCheSideBarElement(eclipseCheSideBarElement: any) {
+  const href = eclipseCheSideBarElement.getAttribute('href');
+  console.log("href "+href);
+  return href && eclipseCheSideBarNames.includes(href.replace("#/",""));
+}
+
+function getEclipseCheSideBarId(eclipseCheSideBarElement: any) {
+  return eclipseCheSideBarElement.getAttribute('href').replace("#/", "");
 }
 
 

@@ -46,15 +46,6 @@ export class AboutWidget extends Widget {
 
         </body>`;
 
-        /*let image = document.createElement('img');
-        image.setAttribute(
-            'src',
-            'https://ops.maap-project.org/wp-content/uploads/2021/10/cropped-maapfavicon-180x180.png',
-          );
-          
-        image.setAttribute('alt', 'MAAP logo');
-        body.appendChild(image);*/
-
         body.innerHTML = innerText;
         super({ node: body });
     }
