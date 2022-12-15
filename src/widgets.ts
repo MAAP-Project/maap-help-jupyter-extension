@@ -1,4 +1,5 @@
 import { Widget } from '@lumino/widgets';
+import '../style/index.css';
 
 //
 // Widget with popup to set search results limit
@@ -20,6 +21,8 @@ export class AboutWidget extends Widget {
         let body = document.createElement('div');
         body.style.display = 'flex';
         body.style.flexDirection = 'column';
+        body.style.height = '450px';
+        body.style.width = '600px';
         const innerText = `
         <h1>
         <img width='150' height='150' src = 'https://ops.maap-project.org/wp-content/uploads/2021/10/cropped-maapfavicon-180x180.png'></img>
@@ -56,10 +59,12 @@ export class FAQWidget extends Widget {
         let body = document.createElement('div');
         body.style.display = 'flex';
         body.style.flexDirection = 'column';
+        body.style.height = '450px';
+        body.style.width = '600px';
         const innerText = `
         <body>
         <h1>Frequently Asked Questions</h1>
-        <embed type="text/html" src="https://docs.maap-project.org/en/develop/faqs.html" width="1000" height="600">
+        <embed type="text/html" src="https://docs.maap-project.org/en/develop/faqs.html" width='600' height='450'>
         </body>`;
 
         body.innerHTML = innerText;
@@ -72,10 +77,12 @@ export class TechDocWidget extends Widget {
         let body = document.createElement('div');
         body.style.display = 'flex';
         body.style.flexDirection = 'column';
+        body.style.height = '450px';
+        body.style.width = '600px';
         const innerText = `
         <body>
         <h1>Platform Technical Documentation</h1>
-        <embed type="text/html" src="https://docs.maap-project.org/en/develop/platform_tech_docs.html" width="1000" height="600">
+        <embed type="text/html" src="https://docs.maap-project.org/en/develop/platform_tech_docs.html" width='600' height='450'>
         </body>`;
 
         body.innerHTML = innerText;
@@ -88,10 +95,12 @@ export class TutorialsWidget extends Widget {
         let body = document.createElement('div');
         body.style.display = 'flex';
         body.style.flexDirection = 'column';
+        body.style.height = '450px';
+        body.style.width = '600px';
         const innerText = `
         <body>
         <h1>Tutorials</h1>
-        <embed type="text/html" src="https://docs.maap-project.org/en/develop/tutorials.html" width="1000" height="600">
+        <embed type="text/html" src="https://docs.maap-project.org/en/develop/tutorials.html" width='600' height='450'>
         </body>`;
 
         body.innerHTML = innerText;
@@ -104,10 +113,12 @@ export class MaapApiWidget extends Widget {
         let body = document.createElement('div');
         body.style.display = 'flex';
         body.style.flexDirection = 'column';
+        body.style.height = '450px';
+        body.style.width = '600px';
         const innerText = `
         <body>
         <h1>MAAP API</h1>
-        <embed type="text/html" src="https://api.ops.maap-project.org/api/" width="1000" height="600">
+        <embed type="text/html" src="https://api.ops.maap-project.org/api/" width='600' height='450'>
         </body>`;
 
 

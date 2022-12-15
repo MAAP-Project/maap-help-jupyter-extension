@@ -1,4 +1,5 @@
 import { Widget } from '@lumino/widgets';
+import '../style/index.css';
 export declare class LimitPopupWidget extends Widget {
     constructor();
 }
