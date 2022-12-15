@@ -1,6 +1,6 @@
 {
   "name": "maap-help-jupyter-extension-ui-tests",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "JupyterLab maap-help-jupyter-extension Integration Tests",
   "private": true,
   "scripts": {
