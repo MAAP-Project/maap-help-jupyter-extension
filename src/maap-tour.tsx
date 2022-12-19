@@ -1,3 +1,5 @@
+
+
 export const managerTour = {
   id: 'jupyterlab-tour:maap-tour',
   label: 'MAAP tour',
@@ -89,7 +91,6 @@ export const managerTour = {
               target: '#filebrowser',
               title: 'File Browser'
             },
-            ,
             {
               content:
                 'The status bar at the bottom states your workspace\'s memory capacity which can be increased or decreased by manually configuring the workspace.',
