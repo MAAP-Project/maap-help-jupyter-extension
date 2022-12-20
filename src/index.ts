@@ -5,7 +5,7 @@ import { IMainMenu } from '@jupyterlab/mainmenu';
 
 /** internal imports **/
 import '../style/index.css';
-//import { managerTour } from './maap-tour';
+import { managerTour } from './maap-tour';
 import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup, maapApiPopup } from './popups';
 //import { IFrameWidget } from './widgets';
 
@@ -28,7 +28,7 @@ const extension: JupyterFrontEndPlugin<void> = {
   activate: async (app: JupyterFrontEnd,
     palette: ICommandPalette,
     mainMenu: IMainMenu,) => {
-      const tour = (await app.commands.execute('jupyterlab-tour:add', {
+      /*const tour = (await app.commands.execute('jupyterlab-tour:add', {
         tour: { // Tour must be of type ITour - see src/tokens.ts
           id: 'jupyterlab-tour:maap-tour',
           label: 'MAAP Tour',
@@ -130,14 +130,14 @@ const extension: JupyterFrontEndPlugin<void> = {
           ],
           // can also define `options`
         }
-      }));
-      /*let tour: ITourHandler;
+      }));*/
+      let tour: any;
       app.commands.execute('jupyterlab-tour:add', {
         tour: managerTour as any
       })
       .then(result => {
         tour = result;
-      });*/
+      });
 
     const about_command = 'iframe:about';
     app.commands.addCommand(about_command, {
