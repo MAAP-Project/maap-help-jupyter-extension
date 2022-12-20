@@ -9,7 +9,7 @@ import '../style/index.css';
 import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup, maapApiPopup } from './popups';
 //import { IFrameWidget } from './widgets';
 
-import { ITourHandler } from 'jupyterlab-tour';
+//import { ITourHandler } from 'jupyterlab-tour';
 
 const sideBarTitles = ["Jobs sent to DPS", "Open Tabs"];
 const topMenuOptions = ["Git", "Data Search", "DPS/MAS Operations", "DPS UI Menu", "MAAP Login", "Help"];
@@ -130,7 +130,7 @@ const extension: JupyterFrontEndPlugin<void> = {
           ],
           // can also define `options`
         }
-      })) as ITourHandler;
+      }));
       /*let tour: ITourHandler;
       app.commands.execute('jupyterlab-tour:add', {
         tour: managerTour as any
