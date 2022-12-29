@@ -8,8 +8,8 @@ import { Locale, Props as JoyrideProps } from 'react-joyride';
 import { CommandIDs } from './constants';
 import { ITour, ITourHandler, ITourManager, NS } from './tokens';
 import { TourHandler } from './tour';
-import { version } from './version';
 
+const version = '3.0.0';
 const STATE_ID = `${NS}:state`;
 
 /**
