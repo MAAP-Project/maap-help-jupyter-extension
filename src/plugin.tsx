@@ -22,18 +22,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { TourContainer } from './jupyterlab-tour/components';
 import { CommandIDs } from './jupyterlab-tour/constants';
-//import { addTours } from './defaults';
 import {
-  //DEFAULTS_PLUGIN_ID,
   ITourHandler,
   ITourManager
-  /*IUserTourManager,
-  PLUGIN_ID,
-  USER_PLUGIN_ID*/
 } from './jupyterlab-tour/tokens';
 import { TourHandler } from './jupyterlab-tour/tour';
 import { TourManager } from './jupyterlab-tour/tourManager';
-//import { UserTourManager } from './userTourManager';
 
 
 const sideBarTitles = ["Jobs sent to DPS", "Open Tabs"];

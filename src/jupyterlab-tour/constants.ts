@@ -10,12 +10,6 @@ export namespace CommandIDs {
 }
 
 /**
- * Default tour IDs
- */
-export const WELCOME_ID = `${NS}:welcome`;
-export const NOTEBOOK_ID = `${NS}:notebook`;
-
-/**
  * Default tour options
  */
 export const TutorialDefaultOptions: Omit<JoyrideProps, 'steps'> = {
