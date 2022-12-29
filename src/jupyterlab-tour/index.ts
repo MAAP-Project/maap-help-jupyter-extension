@@ -1,5 +1,5 @@
-//import plugin from './plugin';
+import plugin from './plugin';
 
 export { IStep, ITour, ITourHandler, ITourManager } from './tokens';
 
-//export default plugin;
+export default plugin;
