@@ -51,117 +51,8 @@ const extension: JupyterFrontEndPlugin<void> = {
     menu?: MainMenu,
     translator?: ITranslator) => {
       stateDB = new StateDB();
-      console.log("graceal at the beginning of activate");
-      console.log(app);
-      console.log(palette);
-      console.log(mainMenu);
-      console.log(stateDB);
-      console.log(menu);
-      console.log(translator);
-      activate1(app, stateDB, palette, menu, translator);
-      /*const tour = (await app.commands.execute('jupyterlab-tour:add', {
-        tour: { // Tour must be of type ITour - see src/tokens.ts
-          id: 'jupyterlab-tour:maap-tour',
-          label: 'MAAP Tour',
-          hasHelpEntry: true,
-          steps: [  
-            {
-              content: 
-              'The following tutorial will point out some of the MAAP jupyter extension features within JupyterLab.',
-              placement: 'center',
-              target: '#jp-main-dock-panel',
-              title: 'Welcome to MAAP!'
-            },
-            {
-              content:
-                'Pause the tour by clicking anywhere outside of the tooltip and resume the tour by clicking on the blue dot. Tours can be restarted in the help menu.',
-              placement: 'center',
-              target: '#jp-main-dock-panel',
-              title: 'Some information on the tour, first'
-            },
-            {
-              content: 'Interface with Git including cloning a repository.',
-              placement: 'bottom',
-              target: '#Git',
-              title: 'Git'
-            },
-            {
-              content: 'Launch Earthdata Search Client (EDSC) and paste search queries.',
-              placement: 'bottom',
-              target: '#DataSearch',
-              title: 'Data Search'
-            },
-            {
-              content: 'Register algorithms into DPS to be able to run as jobs.',
-              placement: 'bottom',
-              target: '#DPSMASOperations',
-              title: 'Welcome to MAAP!'
-            },
-            {
-              content: 'Manage your jobs in DPS.',
-              placement: 'bottom',
-              target: '#DPSUIMenu',
-              title: 'DPS UI Menu'
-            },
-            {
-              content: 'Log into the MAAP platform with an ESA/ Earthdata account.',
-              placement: 'bottom',
-              target: '#MAAPLogin',
-              title: 'MAAP Login'
-            },
-            {
-              content: 
-              'General help menu with additional MAAP-specific information and the option to rerun this tutorial.',
-              placement: 'bottom',
-              target: '#Help',
-              title: 'Help'
-            },
-            {
-              content: 
-              'Create a new workspace here. You can create a workspace from a sample or create a custom workspace.',
-              placement: 'right',
-              target: '#getstarted',
-              title: 'Get Started'
-            },
-            {
-              content: 
-              'See available samples for the workspaces as well as their devfiles.',
-              placement: 'right',
-              target: '#stacks',
-              title: 'Stacks'
-            },
-            {
-              content: 
-              'See your jobs in DPS.',
-              placement: 'right',
-              target: '#JobssenttoDPS',
-              title: 'Jobs'
-            },
-            {
-              content: 
-              'See open tabs.',
-              placement: 'right',
-              target: '#OpenTabs',
-              title: 'Open Tabs'
-            },
-            {
-              content:
-                'The file browser is divided into your private and public buckets. Anthing in an s3-backed folder will be persistent. For example, <username> is s3-backed.',
-              placement: 'right',
-              target: '#filebrowser',
-              title: 'File Browser'
-            },
-            {
-              content:
-                'The status bar at the bottom states your workspace\'s memory capacity which can be increased or decreased by manually configuring the workspace.',
-              placement: 'top',
-              target: '#jp-main-statusbar',
-              title: 'Status Bar'
-            }
-          ],
-          // can also define `options`
-        }
-      })) as ITourHandler;*/
+      createTourCommands(app, stateDB, palette, menu, translator);
+      
       let tour: any;
       app.commands.execute('jupyterlab-tour:add', {
         tour: managerTour as any
@@ -274,7 +165,7 @@ function getEclipseCheSideBarId(eclipseCheSideBarElement: any) {
   return eclipseCheSideBarElement.getAttribute('href').replace("#/", "");
 }
 
-function activate1(
+function createTourCommands(
   app: JupyterFrontEnd,
   stateDB: IStateDB,
   palette?: ICommandPalette,
@@ -286,10 +177,6 @@ function activate1(
   translator = translator ?? nullTranslator;
 
   // Create tour manager
-  console.log("graceal and printing state db");
-  console.log(stateDB);
-  console.log(translator);
-  console.log(menu);
   const manager = new TourManager(stateDB, translator, menu);
 
   commands.addCommand(CommandIDs.launch, {
