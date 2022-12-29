@@ -5,11 +5,12 @@ import { IMainMenu } from '@jupyterlab/mainmenu';
 
 /** internal imports **/
 import '../style/index.css';
-import { managerTour } from './maap-tour';
+//import { managerTour } from './maap-tour';
 import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup, maapApiPopup } from './popups';
 //import { IFrameWidget } from './widgets';
 
-//import { ITourHandler } from 'jupyterlab-tour';
+import { ITourHandler } from 'jupyterlab-tour';
+
 
 const sideBarTitles = ["Jobs sent to DPS", "Open Tabs"];
 const topMenuOptions = ["Git", "Data Search", "DPS/MAS Operations", "DPS UI Menu", "MAAP Login", "Help"];
@@ -28,7 +29,7 @@ const extension: JupyterFrontEndPlugin<void> = {
   activate: async (app: JupyterFrontEnd,
     palette: ICommandPalette,
     mainMenu: IMainMenu,) => {
-      /*const tour = (await app.commands.execute('jupyterlab-tour:add', {
+      const tour = (await app.commands.execute('jupyterlab-tour:add', {
         tour: { // Tour must be of type ITour - see src/tokens.ts
           id: 'jupyterlab-tour:maap-tour',
           label: 'MAAP Tour',
@@ -130,14 +131,14 @@ const extension: JupyterFrontEndPlugin<void> = {
           ],
           // can also define `options`
         }
-      }));*/
-      let tour: any;
+      })) as ITourHandler;
+      /*let tour: any;
       app.commands.execute('jupyterlab-tour:add', {
         tour: managerTour as any
       })
       .then(result => {
         tour = result;
-      });
+      });*/
 
     const about_command = 'iframe:about';
     app.commands.addCommand(about_command, {
@@ -197,6 +198,7 @@ const extension: JupyterFrontEndPlugin<void> = {
 
     app.restored.then(() => {
       // Wait 3s before launching the first tour - to be sure element are loaded
+      console.log("graceal in the app restored if statement");
       if (tour) {
         setTimeout(() => app.commands.execute('jupyterlab-tour:launch', {id: 'jupyterlab-tour:maap-tour', force: false }), 3000);
         // add an id to all the top menu bar items
@@ -217,7 +219,8 @@ const extension: JupyterFrontEndPlugin<void> = {
     });
 
 
-  console.log('JupyterLab extension maap_help is activated!');
+  console.log('JupyterLab extension maap_help is activated!1');
+  console.log("version: 0.0.19");
   },
 };
 
