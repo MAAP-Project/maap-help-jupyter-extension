@@ -30,7 +30,7 @@ import { TourHandler } from './jupyterlab-tour/tour';
 import { TourManager } from './jupyterlab-tour/tourManager';
 
 
-const sideBarTitles = ["Jobs sent to DPS", "Open Tabs"];
+const sideBarTitles = ["job-cache-display", "filebrowser"];
 const topMenuOptions = ["Git", "Data Search", "DPS/MAS Operations", "DPS UI Menu", "MAAP Login", "Help"];
 const eclipseCheSideBarNames = ["getstarted", "stacks"];
 
@@ -129,11 +129,17 @@ const extension: JupyterFrontEndPlugin<void> = {
 
         // add an id to all the side menu bar items 
         var sideBarElements = Array.from(document.getElementsByClassName('lm-TabBar-tab p-TabBar-tab')); 
+        console.log("graceal printing the side bar elements selected by class name");
+        console.log(sideBarElements);
         sideBarElements = sideBarElements.filter(sideBarElement => determineIncludeSideBarElement(sideBarElement));
         sideBarElements.forEach(sideBarElement => sideBarElement.setAttribute('id', getSideBarId(sideBarElement)));
         
         // add an id to all of the eclipse che side bar items 
         var eclipseCheSideBarElements = Array.from(document.getElementsByTagName('a')); 
+        console.log("graceal printing the a tags: ");
+        console.log(eclipseCheSideBarElements);
+        console.log("printing the md-list-item");
+        console.log(Array.from(document.getElementsByTagName('md-list-item'))); 
         eclipseCheSideBarElements = eclipseCheSideBarElements.filter(eclipseCheSideBarElement => determineIncludeEclipseCheSideBarElement(eclipseCheSideBarElement));
         eclipseCheSideBarElements.forEach(eclipseCheSideBarElement => eclipseCheSideBarElement.setAttribute('id', getEclipseCheSideBarId(eclipseCheSideBarElement)));
       }
@@ -143,17 +149,17 @@ const extension: JupyterFrontEndPlugin<void> = {
 
 
   console.log('JupyterLab extension maap_help is activated!');
-  console.log("version: 0.0.21");
+  console.log("version: 0.0.23");
   },
 };
 
 function determineIncludeSideBarElement(sideBarElement: any) {
-  const title = sideBarElement.getAttribute('title');
+  const title = sideBarElement.getAttribute('data-id');
   return title && sideBarTitles.includes(title);
 }
 
 function getSideBarId(sideBarElement:any) {
-  return sideBarElement.getAttribute('title').replace(/-|\s|\/|\&/g, '');
+  return sideBarElement.getAttribute('data-id').replace(/-|\s|\/|\&/g, '');
 }
 
 function determineIncludeEclipseCheSideBarElement(eclipseCheSideBarElement: any) {

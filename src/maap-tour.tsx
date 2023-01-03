@@ -31,7 +31,7 @@ export const managerTour = {
               target: '#DataSearch',
               title: 'Data Search'
             },
-            {
+            /*{
               content: 'Register algorithms into DPS to be able to run as jobs.',
               placement: 'bottom',
               target: '#DPSMASOperations',
@@ -42,7 +42,7 @@ export const managerTour = {
               placement: 'bottom',
               target: '#DPSUIMenu',
               title: 'DPS UI Menu'
-            },
+            },*/
             {
               content: 'Log into the MAAP platform with an ESA/ Earthdata account.',
               placement: 'bottom',
@@ -56,7 +56,7 @@ export const managerTour = {
               target: '#Help',
               title: 'Help'
             },
-            {
+            /*{
               content: 
               'Create a new workspace here. You can create a workspace from a sample or create a custom workspace.',
               placement: 'right',
@@ -69,21 +69,14 @@ export const managerTour = {
               placement: 'right',
               target: '#stacks',
               title: 'Stacks'
-            },
-            {
+            },*/
+            /*{
               content: 
               'See your jobs in DPS.',
               placement: 'right',
-              target: '#JobssenttoDPS',
+              target: '#jobcachedisplay',
               title: 'Jobs'
-            },
-            {
-              content: 
-              'See open tabs.',
-              placement: 'right',
-              target: '#OpenTabs',
-              title: 'Open Tabs'
-            },
+            },*/
             {
               content:
                 'The file browser is divided into your private and public buckets. Anthing in an s3-backed folder will be persistent. For example, <username> is s3-backed.',
@@ -97,6 +90,13 @@ export const managerTour = {
               placement: 'top',
               target: '#jp-main-statusbar',
               title: 'Status Bar'
+            },
+            {
+              content: 
+              'That concludes the tour. Enjoy the platform!',
+              placement: 'center',
+              target: '#jp-main-dock-panel',
+              title: 'Tour finished!'
             }
           ],
 };
