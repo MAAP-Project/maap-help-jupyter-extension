@@ -93,7 +93,7 @@ export const managerTour = {
             },
             {
               content: 
-              'That concludes the tour. Enjoy the platform!',
+              'This concludes the tour. Enjoy the platform!',
               placement: 'center',
               target: '#jp-main-dock-panel',
               title: 'Tour finished!'
