@@ -1,6 +1,6 @@
 {
   "name": "@maap-jupyterlab/maap-help-jupyter-extension",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "description": "Jupyter extension with an interactive MAAP tutorial and MAAP specific help tab options.",
   "keywords": [
     "jupyter",
@@ -67,14 +67,11 @@
     "@jupyterlab/builder": "^3.1.0",
     "@jupyterlab/testutils": "^4.0.0-alpha.1",
     "@types/jest": "^26.0.0",
-    "@types/node": "18.11.16",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
     "@typescript-eslint/parser": "^4.8.1",
     "awesome-typescript-loader": "5.2.1",
-    "browserify": "17.0.0",
-    "browserify-fs": "1.0.0",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
@@ -92,7 +89,7 @@
     "stylelint-prettier": "^2.0.0",
     "ts-jest": "^26.0.0",
     "typescript": "~3.9.10",
-    "webpack": "4.46.0"
+    "webpack": "5.75.0"
   },
   "sideEffects": [
     "style/*.css",

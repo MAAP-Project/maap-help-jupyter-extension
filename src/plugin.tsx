@@ -28,10 +28,6 @@ import { TourManager } from './jupyterlab-tour/tourManager';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import * as fs from "fs";
-//import { writeFileSync } from 'fs';
-var fs = require('browserify-fs');
-//import * as fs from "browserify-fs";
 
 
 
@@ -163,19 +159,11 @@ const extension: JupyterFrontEndPlugin<void> = {
       }
     });
 
-    
-    fs.writeFile('message.txt', 'Hello Node.js', callbackFunction);
-    /*writeFileSync("testing.txt", "hello", {
-      flag: 'w',
-    });*/
+  
   console.log('JupyterLab extension maap_help is activated!');
-  console.log("version: 0.0.24-1");
+  console.log("version: 0.0.25");
   },
 };
-
-function callbackFunction() {
-
-}
 
 function determineIncludeSideBarElement(sideBarElement: any) {
   const title = sideBarElement.getAttribute('data-id');
