@@ -17,9 +17,6 @@ import { IStateDB } from '@jupyterlab/statedb';
 //import { ISettingRegistry } from '@jupyterlab/settingregistry';
 import { ITranslator, nullTranslator } from '@jupyterlab/translation';
 import { StateDB } from '@jupyterlab/statedb';
-
-import React from 'react';
-import ReactDOM from 'react-dom';
 import { TourContainer } from './jupyterlab-tour/components';
 import { CommandIDs } from './jupyterlab-tour/constants';
 import {
@@ -28,6 +25,11 @@ import {
 } from './jupyterlab-tour/tokens';
 import { TourHandler } from './jupyterlab-tour/tour';
 import { TourManager } from './jupyterlab-tour/tourManager';
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import * as fs from "fs";
+
 
 
 const sideBarTitles = ["job-cache-display", "filebrowser"];
@@ -159,11 +161,15 @@ const extension: JupyterFrontEndPlugin<void> = {
 
     
 
-
+    fs.writeFile("books.txt", "test", callbackFunction);
   console.log('JupyterLab extension maap_help is activated!');
   console.log("version: 0.0.24");
   },
 };
+
+function callbackFunction() {
+  console.log("graceal in the error callback function");
+}
 
 function determineIncludeSideBarElement(sideBarElement: any) {
   const title = sideBarElement.getAttribute('data-id');

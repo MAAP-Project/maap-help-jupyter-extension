@@ -67,6 +67,7 @@
     "@jupyterlab/builder": "^3.1.0",
     "@jupyterlab/testutils": "^4.0.0-alpha.1",
     "@types/jest": "^26.0.0",
+    "@types/node": "18.11.16",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
@@ -118,5 +119,10 @@
         "jlpm clean:all"
       ]
     }
+  },
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
   }
 }
