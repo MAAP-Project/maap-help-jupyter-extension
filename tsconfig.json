@@ -20,5 +20,5 @@
     "target": "es2017",
     "types": ["jest"]
   },
-  "include": ["src/*", "src/jupyterlab-tour/*"]
+  "include": ["src/*", "src/jupyterlab-tour/*", "src/docmanager/src/*", "src/docmanager/src/testutils/*", "src/docmanager/src/testutils/session/*", "src/docmanager/src/testutils/kernelspec/*", "src/docmanager/src/testutils/kernel/*", "src/docmanager/src/testutils/contents/*"]
 }

@@ -9,6 +9,9 @@ import { CommandIDs } from './constants';
 import { ITour, ITourHandler, ITourManager, NS } from './tokens';
 import { TourHandler } from './tour';
 
+import { DocumentManager } from '@jupyterlab/docmanager';
+//import { DocumentManager } from ".././docmanager/src/manager";
+
 const version = '3.0.0';
 const STATE_ID = `${NS}:state`;
 
@@ -30,9 +33,10 @@ interface IManagerState {
  * The TourManager is needed to manage creation, removal and launching of Tutorials
  */
 export class TourManager implements ITourManager {
-  constructor(stateDB: IStateDB, translator: ITranslator, mainMenu?: MainMenu) {
+  constructor(stateDB: IStateDB, translator: ITranslator, mainMenu?: MainMenu, docManager?: DocumentManager) {
     this._stateDB = stateDB;
     this._menu = mainMenu;
+    this._docManager = docManager;
     this._tours = new Map<string, TourHandler>();
     this._trans = translator.load('jupyterlab-tour');
     this._translator = translator;
@@ -311,6 +315,11 @@ export class TourManager implements ITourManager {
   };
 
   private _rememberDoneTour = (id: string): void => {
+    if (this._docManager) {
+      console.log("graceal in the remember done tour statement");
+      console.log(this._docManager.createNew("testing.txt"));
+      console.log("graceal below the create new call");
+    }
     this._state.toursDone.add(id);
     this._stateDB.save(STATE_ID, {
       toursDone: [...this._state.toursDone],
@@ -322,6 +331,7 @@ export class TourManager implements ITourManager {
   private _isDisposed = false;
   private _locale: Locale;
   private _menu: MainMenu | undefined;
+  private _docManager: DocumentManager | undefined;
   private _menuItems: Map<string, Menu.IItem> = new Map();
   private _state: IManagerState = {
     toursDone: new Set<string>(),

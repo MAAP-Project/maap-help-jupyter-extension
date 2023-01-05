@@ -3,6 +3,24 @@ import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application'
 //import { ICommandPalette } from '@jupyterlab/apputils';
 //import { IMainMenu } from '@jupyterlab/mainmenu';
 
+//import { DocumentManager } from "./docmanager/src/manager";
+import { DocumentManager } from '@jupyterlab/docmanager';
+//import { ServiceManager } from '@jupyterlab/services';
+import { DocumentRegistry } from '@jupyterlab/docregistry';
+import { Widget } from '@lumino/widgets';
+//import { Widget } from '@phosphor/widgets';
+import { editorServices } from '@jupyterlab/codemirror'; 
+import { NotebookPanel, NotebookWidgetFactory } from '@jupyterlab/notebook';//NotebookModelFactory 
+import { RenderMimeRegistry, standardRendererFactories as initialFactories} from '@jupyterlab/rendermime';
+import { MathJaxTypesetter } from '@jupyterlab/mathjax2';
+import { PageConfig } from '@jupyterlab/coreutils';
+//import { ServiceManagerMock } from '@jupyterlab/services/lib/testutils';
+//import { DocumentWidgetOpenerMock } from '@jupyterlab/docregistry/lib/testutils';
+//import { IDocumentWidgetOpener } from './docmanager/src/tokens';
+import { ServiceManagerMock } from "./docmanager/src/testutils/mocks";
+//import { DocumentWidgetOpenerMock } from "./docmanager/src/testutils/mocks";
+
+
 /** internal imports **/
 import '../style/index.css';
 import { managerTour } from './maap-tour';
@@ -51,9 +69,74 @@ const extension: JupyterFrontEndPlugin<void> = {
     mainMenu: IMainMenu,
     stateDB: IStateDB,
     menu?: MainMenu,
-    translator?: ITranslator) => {
+    translator?: ITranslator, 
+    docManager?: DocumentManager) => {
       stateDB = new StateDB();
-      createTourCommands(app, stateDB, palette, menu, translator);
+      //let manager = new ServiceManager();
+      let documentRegistry = new DocumentRegistry();
+      
+
+    //const notebookModelFactory = new NotebookModelFactory({});
+    const editorFactory = editorServices.factoryService.newInlineEditor;
+    const contentFactory = new NotebookPanel.ContentFactory({ editorFactory });
+    
+    
+    const renderMimeRegistry = new RenderMimeRegistry({
+        initialFactories,
+        latexTypesetter: new MathJaxTypesetter({
+            url: PageConfig.getOption('mathjaxUrl'),
+            config: PageConfig.getOption('mathjaxConfig')
+        })
+    });
+    
+    const notebookWidgetFactory = new NotebookWidgetFactory({
+        name: 'Notebook',
+        modelName: 'notebook',
+        fileTypes: ['notebook'],
+        defaultFor: ['notebook'],
+        preferKernel: true,
+        canStartKernel: true,
+        rendermime: renderMimeRegistry,
+        contentFactory,
+        mimeTypeService: editorServices.mimeTypeService
+    });
+
+    //documentRegistry.addModelFactory(notebookModelFactory);
+    documentRegistry.addWidgetFactory(notebookWidgetFactory);
+
+    
+
+    const registry2 = new DocumentRegistry({});
+    const services2 = new ServiceManagerMock();
+    //const opener2 = new DocumentWidgetOpenerMock();
+    docManager = new DocumentManager({
+      registry: registry2,
+      manager: services2,
+      opener: { //opener2
+          open: (widget: Widget) => {
+            console.log('Opening widget');
+          }
+        }
+    });
+
+
+    /*docManager = new DocumentManager({
+      registry: documentRegistry,
+      manager,
+      opener: {
+          open: (widget: IDocumentWidgetOpener) => {
+            console.log('Opening widget');
+          }
+      }
+  });*/
+  console.log("graceal printing factory name");
+  console.log(notebookWidgetFactory.name);
+  console.log(docManager.createNew("./testing.txt", notebookWidgetFactory.name));
+
+
+
+
+      createTourCommands(app, stateDB, palette, menu, translator, docManager);
       
       let tour: any;
       app.commands.execute('jupyterlab-tour:add', {
@@ -188,14 +271,15 @@ function createTourCommands(
   stateDB: IStateDB,
   palette?: ICommandPalette,
   menu?: MainMenu,
-  translator?: ITranslator
+  translator?: ITranslator,
+  docManager?: DocumentManager,
 ): ITourManager {
   const { commands } = app;
 
   translator = translator ?? nullTranslator;
 
   // Create tour manager
-  const manager = new TourManager(stateDB, translator, menu);
+  const manager = new TourManager(stateDB, translator, menu, docManager);
 
   commands.addCommand(CommandIDs.launch, {
     label: args => {
