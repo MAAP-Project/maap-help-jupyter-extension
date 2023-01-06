@@ -95,7 +95,11 @@ export class DocumentWidgetManager implements IDisposable {
     factory: DocumentRegistry.WidgetFactory,
     context: DocumentRegistry.Context
   ): IDocumentWidget {
+    console.log("graceal about to create the widget in create widget");
+    console.log(context);
+    console.log(factory);
     const widget = factory.createNew(context);
+    console.log("graceal created the widget vartiable but need to initialize");
     this._initializeWidget(widget, factory, context);
     return widget;
   }
@@ -115,12 +119,23 @@ export class DocumentWidgetManager implements IDisposable {
     // Handle widget extensions.
     const disposables = new DisposableSet();
     // note graceal changed this format
-    for (const extender in this._registry.widgetExtensions(factory.name)) {
+    console.log("graceal trying to iterate the widget extensions");
+    console.log(this._registry.widgetExtensions(factory.name));
+    const list = this._registry.widgetExtensions(factory.name);
+    let extender = list.next();
+    while (extender) {
       const disposable = extender.createNew(widget, context);
       if (disposable) {
         disposables.add(disposable);
       }
+      extender = list.next();
     }
+    /*for (let extender of this._registry.widgetExtensions(factory.name)) {
+      const disposable = extender.createNew(widget, context);
+      if (disposable) {
+        disposables.add(disposable);
+      }
+    }*/
     Private.disposablesProperty.set(widget, disposables);
     widget.disposed.connect(this._onWidgetDisposed, this);
 

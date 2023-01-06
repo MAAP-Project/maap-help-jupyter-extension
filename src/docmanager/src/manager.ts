@@ -316,6 +316,7 @@ export class DocumentManager implements IDocumentManager {
     widgetName = 'default',
     kernel?: Partial<Kernel.IModel>
   ): Widget | undefined {
+    console.log("graceal in the create new function of local document manager");
     return this._createOrOpenDocument('create', path, widgetName, kernel);
   }
 
@@ -555,13 +556,22 @@ export class DocumentManager implements IDocumentManager {
     // widgets that have different models.
 
     // Allow options to be passed when adding a sibling.
-    const adopter = (
+    //graceal I am changing here because 1 of 3 errors
+    /*const adopter = (
       widget: IDocumentWidget,
       options?: DocumentRegistry.IOpenOptions
     ) => {
       this._widgetManager.adoptWidget(context, widget);
       // TODO should we pass the type for layout customization
       this._opener.open(widget, options);
+    };*/
+    const adopter = (
+      widget: Widget,
+    ) => {
+      //this._widgetManager.adoptWidget(context, widget);
+      // TODO should we pass the type for layout customization
+      //this._opener.open(widget);
+      console.log("graceal in the function of adopter");
     };
     const context = new Context({
       opener: adopter,
@@ -631,13 +641,23 @@ export class DocumentManager implements IDocumentManager {
     kernel?: Partial<Kernel.IModel>,
     options?: DocumentRegistry.IOpenOptions
   ): IDocumentWidget | undefined {
+    console.log("graceal in the create or open document function doc manager");
+    //widgetName = 'default';
+    console.log("widgetname is "+widgetName);
     const widgetFactory = this._widgetFactoryFor(path, widgetName);
     if (!widgetFactory) {
+      console.log("graceal returning undefined because invalid widget factory");
       return undefined;
     }
-    const modelName = widgetFactory.modelName || 'text';
+    let modelName = widgetFactory.modelName || 'text';
+    console.log("graceal model name is ");
+    modelName = 'text';
+    console.log(modelName);
     const factory = this.registry.getModelFactory(modelName);
+    console.log("graceal the factory with that model naem is ");
+    console.log(factory);
     if (!factory) {
+      console.log("graceal returning undefined because invalid model factory");
       return undefined;
     }
 
@@ -647,6 +667,7 @@ export class DocumentManager implements IDocumentManager {
       widgetFactory.name,
       kernel
     );
+    console.log("graceal created the preference const");
 
     let context: Private.IContext | null;
     let ready: Promise<void> = Promise.resolve(undefined);
@@ -668,9 +689,14 @@ export class DocumentManager implements IDocumentManager {
     } else {
       throw new Error(`Invalid argument 'which': ${which}`);
     }
+    console.log("graceal finished the if else ladder");
+    console.log(widgetFactory);
+    console.log(context);
 
     const widget = this._widgetManager.createWidget(widgetFactory, context);
-    this._opener.open(widget, { type: widgetFactory.name, ...options });
+    console.log("graceal created the widget");
+    //graceal commented this line out
+    this._opener.open(widget);// { type: widgetFactory.name, ...options });
 
     // If the initial opening of the context fails, dispose of the widget.
     ready.catch(err => {
@@ -680,7 +706,8 @@ export class DocumentManager implements IDocumentManager {
       );
       widget.close();
     });
-
+    console.log("graceal at the end of create or open document with this widget");
+    console.log(widget);
     return widget;
   }
 
