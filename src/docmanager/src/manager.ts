@@ -651,7 +651,6 @@ export class DocumentManager implements IDocumentManager {
     }
     let modelName = widgetFactory.modelName || 'text';
     console.log("graceal model name is ");
-    modelName = 'text';
     console.log(modelName);
     const factory = this.registry.getModelFactory(modelName);
     console.log("graceal the factory with that model naem is ");

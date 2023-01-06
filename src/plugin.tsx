@@ -3,11 +3,11 @@ import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application'
 //import { ICommandPalette } from '@jupyterlab/apputils';
 //import { IMainMenu } from '@jupyterlab/mainmenu';
 
-import { DocumentManager } from "./docmanager/src/manager";
-//import { DocumentManager } from '@jupyterlab/docmanager';
+//import { DocumentManager } from "./docmanager/src/manager";
+import { DocumentManager } from '@jupyterlab/docmanager';
 import { ServiceManager } from '@jupyterlab/services';
-import { DocumentRegistry, IDocumentWidget } from '@jupyterlab/docregistry';//ABCWidgetFactory
-import { Widget } from '@lumino/widgets';
+import { DocumentRegistry } from '@jupyterlab/docregistry';//ABCWidgetFactory
+import { DockPanel, Widget } from '@lumino/widgets';
 //import { Widget } from '@phosphor/widgets';
 /*import { editorServices } from '@jupyterlab/codemirror'; 
 import { NotebookPanel  } from '@jupyterlab/notebook';//NotebookModelFactory //NotebookWidgetFactory
@@ -17,15 +17,20 @@ import { PageConfig } from '@jupyterlab/coreutils';*/
 //import { IModel } from './docmanager/src/testutils/kernel/restapi';
 //import { ServiceManagerMock } from '@jupyterlab/services/lib/testutils';
 //import { DocumentWidgetOpenerMock } from '@jupyterlab/docregistry/lib/testutils';
-import { IDocumentWidgetOpener } from './docmanager/src/tokens';
-import { ISignal, Signal, Slot } from '@lumino/signaling';
+//import { IDocumentWidgetOpener } from './docmanager/src/tokens';
+//import { ISignal, Signal, Slot } from '@lumino/signaling';
 //import { ServiceManagerMock } from "./docmanager/src/testutils/mocks";
 //import { DocumentWidgetOpenerMock } from "./docmanager/src/testutils/mocks";
-import {
+/*import {
   CSVViewer,
   TSVViewerFactory
 } from '@jupyterlab/csvviewer';
-import { IObservableList } from '@jupyterlab/observables';
+import { IObservableList } from '@jupyterlab/observables';*/
+import { FileEditorFactory } from '@jupyterlab/fileeditor';
+import {
+  CodeMirrorEditorFactory,
+  CodeMirrorMimeTypeService
+} from '@jupyterlab/codemirror';
 
 
 /** internal imports **/
@@ -122,11 +127,11 @@ const extension: JupyterFrontEndPlugin<void> = {
       factory: item.rendererFactory
     });*/
     //const factory = new ABCWidgetFactory();
-    let toolbarFactory:
+    /*let toolbarFactory:
     | ((
         widget: IDocumentWidget<CSVViewer>
       ) => IObservableList<DocumentRegistry.IToolbarItem>)
-    | undefined;
+    | undefined;*/
 
   /*if (toolbarRegistry) {
     toolbarRegistry.addFactory<IDocumentWidget<CSVViewer>>(
@@ -151,7 +156,7 @@ const extension: JupyterFrontEndPlugin<void> = {
   }*/
 
 
-  const factory = new TSVViewerFactory({
+  /*const factory = new TSVViewerFactory({
     name: "TSVTable",
     //label: trans ? trans.__('TSV Viewer'): null,
     fileTypes: ['tsv'],
@@ -159,27 +164,78 @@ const extension: JupyterFrontEndPlugin<void> = {
     readOnly: true,
     toolbarFactory,
     translator
+  });*/
+  const editorServices = {
+    factoryService: new CodeMirrorEditorFactory(),
+    mimeTypeService: new CodeMirrorMimeTypeService()
+  };
+  translator = translator || nullTranslator;
+  const trans = translator.load('jupyterlab');
+  const factory = new FileEditorFactory({
+    editorServices,
+    factoryOptions: {
+      name: trans.__('Editor'),
+      modelName: 'text',
+      fileTypes: ['*'],
+      defaultFor: ['*'],
+      preferKernel: false,
+      canStartKernel: true
+    }
   });
 
     //documentRegistry.addModelFactory(notebookModelFactory);
     documentRegistry.addWidgetFactory(factory);
+
+    const widgets: Widget[] = [];
+    //let activeWidget: Widget;
+    const dock = new DockPanel();
+
+    const opener = {
+      open: (widget: Widget) => {
+        console.log("graceal in the open function");
+        if (widgets.indexOf(widget) === -1) {
+          dock.addWidget(widget, { mode: 'tab-after' });
+          widgets.push(widget);
+        }
+        dock.activateWidget(widget);
+        //activeWidget = widget;
+        widget.disposed.connect((w: Widget) => {
+          const index = widgets.indexOf(w);
+          widgets.splice(index, 1);
+        });
+      },
+      get opened() {
+        return {
+          connect: () => {
+            return false;
+          },
+          disconnect: () => {
+            return false;
+          },
+          block: () => {
+            return false;
+          }
+        };
+      }
+    };
 
     
 
     //const registry2 = new DocumentRegistry({});
     //const services2 = new ServiceManagerMock();
     //const opener2 = new DocumentWidgetOpenerMock();
-    const signal = new SomeClass("test");
+    //const signal = new SomeClass("test");
     docManager = new DocumentManager({
       registry: documentRegistry,
       manager: manager,
-      opener: { 
+      opener: opener/*{ 
           open: (widget: IDocumentWidget) => {
             console.log('Opening widget');
-            console.log("widget content is "+widget.content);
+            console.log("widget content is ");
+            console.log(widget.content);
           },
           opened: signal
-        }
+        }*/
     });
     /*open: (widget: Widget): string => {
             console.log('Opening widget');
@@ -198,7 +254,7 @@ const extension: JupyterFrontEndPlugin<void> = {
   });*/
   console.log("graceal printing factory name");
   console.log(factory.name);
-  console.log(docManager.createNew("./testing.txt", factory.name));
+  console.log(docManager.createNew("testing.txt", factory.name));
 
 
 
@@ -408,7 +464,7 @@ function createTourCommands(
   return manager;
 }
 
-class SomeClass implements ISignal<IDocumentWidgetOpener, IDocumentWidget<Widget, DocumentRegistry.IModel>> {
+/*class SomeClass implements ISignal<IDocumentWidgetOpener, IDocumentWidget<Widget, DocumentRegistry.IModel>> {
 
   constructor(name: string) {
     this.name = name;
@@ -443,7 +499,7 @@ class SomeClass implements ISignal<IDocumentWidgetOpener, IDocumentWidget<Widget
 
   public _value = 0;
   public _valueChanged = new Signal<this, number>(this);
-}
+}*/
 
 
 export default extension;
