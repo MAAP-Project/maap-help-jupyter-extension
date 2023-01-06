@@ -10,6 +10,7 @@ import { Kernel, KernelMessage } from '../kernel';
 import { ServerConnection } from '..';
 
 import { IChangedArgs } from '@jupyterlab/coreutils';
+import { IIterator } from '@lumino/algorithm';
 
 /**
  * Interface of a session object.
@@ -269,7 +270,7 @@ export interface IManager extends IDisposable {
    *
    * @returns A new iterator over the running sessions.
    */
-  running(): IterableIterator<IModel>;
+  running(): IIterator<IModel>;
 
   /**
    * Start a new session.

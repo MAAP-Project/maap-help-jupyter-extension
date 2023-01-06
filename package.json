@@ -58,7 +58,6 @@
     "@jupyterlab/application": "^3.1.0",
     "@jupyterlab/codemirror": "3.5.2",
     "@jupyterlab/coreutils": "5.5.2",
-    "@jupyterlab/docmanager": "3.5.2",
     "@jupyterlab/docregistry": "3.5.2",
     "@jupyterlab/mainmenu": "^3.1.1",
     "@jupyterlab/mathjax2": "3.5.2",
@@ -81,7 +80,6 @@
     "@types/node": "18.11.17",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "@types/ws": "^8.5.4",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
     "@typescript-eslint/parser": "^4.8.1",
     "awesome-typescript-loader": "5.2.1",
@@ -103,7 +101,8 @@
     "stylelint-prettier": "^2.0.0",
     "ts-jest": "^26.0.0",
     "typescript": "~3.9.10",
-    "webpack": "5.75.0"
+    "webpack": "5.75.0",
+    "ws":"8.10.0"
   },
   "sideEffects": [
     "style/*.css",

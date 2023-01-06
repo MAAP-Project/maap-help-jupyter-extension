@@ -13,6 +13,8 @@ import { ServerConnection } from '..';
 
 import * as validate from './validate';
 
+import { ModelDB } from '@jupyterlab/observables';
+
 /**
  * The url for the default drive service.
  */
@@ -124,7 +126,8 @@ export namespace Contents {
    * has special treatment for `notebook` and `directory` types.
    * Anything else is considered as `file` type.
    */
-  export type ContentType = string;
+  //graceal here I changed the type of content type from string to this
+  export type ContentType = "notebook" | "file" | "directory";
 
   /**
    * A contents file format.
@@ -226,6 +229,8 @@ export namespace Contents {
      * A signal emitted when a file operation takes place.
      */
     readonly fileChanged: ISignal<IManager, IChangedArgs>;
+
+    getModelDBFactory(path: string): ModelDB.IFactory | null;
 
     /**
      * The server settings associated with the manager.
@@ -570,6 +575,10 @@ export class ContentsManager implements Contents.IManager {
    */
   readonly serverSettings: ServerConnection.ISettings;
 
+  getModelDBFactory(path: string): ModelDB.IFactory | null {
+    console.log("graceal in get model db factory");
+    return null;
+  }
   /**
    * A signal emitted when a file operation takes place.
    */

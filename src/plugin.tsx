@@ -3,11 +3,11 @@ import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application'
 //import { ICommandPalette } from '@jupyterlab/apputils';
 //import { IMainMenu } from '@jupyterlab/mainmenu';
 
-//import { DocumentManager } from "./docmanager/src/manager";
-import { DocumentManager } from '@jupyterlab/docmanager';
+import { DocumentManager } from "./docmanager/src/manager";
+//import { DocumentManager } from '@jupyterlab/docmanager';
 //import { ServiceManager } from '@jupyterlab/services';
 import { DocumentRegistry } from '@jupyterlab/docregistry';
-import { Widget } from '@lumino/widgets';
+//import { Widget } from '@lumino/widgets';
 //import { Widget } from '@phosphor/widgets';
 import { editorServices } from '@jupyterlab/codemirror'; 
 import { NotebookPanel, NotebookWidgetFactory } from '@jupyterlab/notebook';//NotebookModelFactory 
@@ -111,12 +111,12 @@ const extension: JupyterFrontEndPlugin<void> = {
     //const opener2 = new DocumentWidgetOpenerMock();
     docManager = new DocumentManager({
       registry: registry2,
-      manager: services2,
-      opener: { //opener2
+      manager: services2
+      /*opener: { //opener2
           open: (widget: Widget) => {
             console.log('Opening widget');
           }
-        }
+        }*/
     });
 
 

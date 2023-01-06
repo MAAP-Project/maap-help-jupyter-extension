@@ -2,7 +2,7 @@
 // Distributed under the terms of the Modified BSD License.
 declare var require: any
 import { PageConfig, URLExt } from '@jupyterlab/coreutils';
-import { WebSocket } from 'ws';
+//import { WebSocket } from 'ws';
 //import fetchMod from 'node-fetch';
 
 /**
@@ -23,8 +23,7 @@ if (typeof window === 'undefined') {
   FETCH = global.fetch ?? fetchMod;
   REQUEST = global.Request ?? fetchMod.Request;
   HEADERS = global.Headers ?? fetchMod.Headers;
-  //WEBSOCKET = require('ws');
-  WebSocket
+  WEBSOCKET = require('ws');
 } else {
   FETCH = fetch;
   REQUEST = Request;
