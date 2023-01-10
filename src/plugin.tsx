@@ -182,6 +182,15 @@ const extension: JupyterFrontEndPlugin<void> = {
       canStartKernel: true
     }
   });
+  console.log("graceal printing the factory file types");
+  console.log(factory.fileTypes);
+  console.log(factory.readOnly);
+  console.log(factory.name);
+  console.log(factory.defaultFor);
+  //console.log(factory.createNew());
+  
+  
+  
 
     //documentRegistry.addModelFactory(notebookModelFactory);
     documentRegistry.addWidgetFactory(factory);
@@ -254,7 +263,7 @@ const extension: JupyterFrontEndPlugin<void> = {
   });*/
   console.log("graceal printing factory name");
   console.log(factory.name);
-  console.log(docManager.createNew("testing.txt", factory.name));
+  console.log(docManager.createNew(".testing", factory.name));
 
 
 
