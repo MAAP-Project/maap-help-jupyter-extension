@@ -573,6 +573,7 @@ export class DocumentManager implements IDocumentManager {
       //this._opener.open(widget);
       console.log("graceal in the function of adopter");
     };
+    console.log("graceal in create context");
     const context = new Context({
       opener: adopter,
       manager: this.services,
@@ -651,7 +652,7 @@ export class DocumentManager implements IDocumentManager {
     }
     let modelName = widgetFactory.modelName || 'text';
     console.log("graceal model name is ");
-    console.log(modelName);
+    console.log(widgetFactory.modelName);
     const factory = this.registry.getModelFactory(modelName);
     console.log("graceal the factory with that model naem is ");
     console.log(factory);

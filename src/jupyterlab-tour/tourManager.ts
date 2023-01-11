@@ -9,8 +9,8 @@ import { CommandIDs } from './constants';
 import { ITour, ITourHandler, ITourManager, NS } from './tokens';
 import { TourHandler } from './tour';
 
-import { DocumentManager } from '@jupyterlab/docmanager';
-//import { DocumentManager } from ".././docmanager/src/manager";
+//import { DocumentManager } from '@jupyterlab/docmanager';
+import { DocumentManager } from ".././docmanager/src/manager";
 
 const version = '3.0.0';
 const STATE_ID = `${NS}:state`;

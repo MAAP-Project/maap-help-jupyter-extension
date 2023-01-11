@@ -3,8 +3,8 @@ import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application'
 //import { ICommandPalette } from '@jupyterlab/apputils';
 //import { IMainMenu } from '@jupyterlab/mainmenu';
 
-//import { DocumentManager } from "./docmanager/src/manager";
-import { DocumentManager } from '@jupyterlab/docmanager';
+import { DocumentManager } from "./docmanager/src/manager";
+//import { DocumentManager } from '@jupyterlab/docmanager';
 import { ServiceManager } from '@jupyterlab/services';
 import { DocumentRegistry } from '@jupyterlab/docregistry';//ABCWidgetFactory
 import { DockPanel, Widget } from '@lumino/widgets';
@@ -31,7 +31,7 @@ import {
   CodeMirrorEditorFactory,
   CodeMirrorMimeTypeService
 } from '@jupyterlab/codemirror';
-
+//import newUntitled from "@jupyterlab/docmanager-extension";
 
 /** internal imports **/
 import '../style/index.css';
@@ -252,9 +252,11 @@ const extension: JupyterFrontEndPlugin<void> = {
           }
       }
   });*/
-  console.log("graceal printing factory name");
+  console.log("graceal printing factory name1");
   console.log(factory.name);
-  console.log(docManager.createNew("testing.txt", factory.name));
+  console.log(docManager.createNew(".testing", factory.name));
+  console.log("graceal after the call to createnew of doc manager in plugin");
+  console.log(docManager.open("testing"), factory.name);
 
 
 
