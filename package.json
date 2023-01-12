@@ -1,6 +1,6 @@
 {
   "name": "@maap-jupyterlab/maap-help-jupyter-extension",
-  "version": "0.0.34",
+  "version": "0.0.35",
   "description": "Jupyter extension with an interactive MAAP tutorial and MAAP specific help tab options.",
   "keywords": [
     "jupyter",
@@ -106,24 +106,15 @@
     "outputDir": "maap_help_jupyter_extension/labextension",
     "schemaDir": "schema"
   },
-  "jupyterlab-tour": {
-    "bundled": false,
-    "singleton": true
-  },
   "jupyter-releaser": {
     "hooks": {
       "before-build-npm": [
-        "python -m pip install jupyterlab~=3.1",
+        "python -m pip install jupyterlab~=3.4.4",
         "jlpm"
       ],
       "before-build-python": [
         "jlpm clean:all"
       ]
     }
-  },
-  "browser": {
-    "fs": false,
-    "os": false,
-    "path": false
   }
 }
