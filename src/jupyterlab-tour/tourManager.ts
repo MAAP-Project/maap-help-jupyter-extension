@@ -9,8 +9,6 @@ import { CommandIDs } from './constants';
 import { ITour, ITourHandler, ITourManager, NS } from './tokens';
 import { TourHandler } from './tour';
 
-//import { DocumentManager } from '@jupyterlab/docmanager';
-import { DocumentManager } from ".././docmanager/src/manager";
 
 const version = '3.0.0';
 const STATE_ID = `${NS}:state`;
@@ -33,10 +31,9 @@ interface IManagerState {
  * The TourManager is needed to manage creation, removal and launching of Tutorials
  */
 export class TourManager implements ITourManager {
-  constructor(stateDB: IStateDB, translator: ITranslator, mainMenu?: MainMenu, docManager?: DocumentManager) {
+  constructor(stateDB: IStateDB, translator: ITranslator, mainMenu?: MainMenu) {
     this._stateDB = stateDB;
     this._menu = mainMenu;
-    this._docManager = docManager;
     this._tours = new Map<string, TourHandler>();
     this._trans = translator.load('jupyterlab-tour');
     this._translator = translator;
@@ -238,7 +235,22 @@ export class TourManager implements ITourManager {
     ) as TourHandler[];
 
     if (!force) {
-      tourList = tourList.filter(tour => !this._state.toursDone.has(tour.id));
+      //tourList = tourList.filter(tour => !this._state.toursDone.has(tour.id));
+      // the state wasn't saving correctly so I had to do it this way
+      // note that there are 3 cases for getting the local storage item
+      // 1) "true" -> in which case the statement evaluates to false so the tour isn't shown
+      // 2) "false" -> the statement evaluates to true so the tour is shown (this will only 
+      // happen if the tour is somehow deleted)
+      // 3) undefined -> the statement evaluates to false then true so the tour isn't shown
+
+      tourList = tourList.filter(tour =>{ 
+        console.log("graceal in the tour filter loop with tour id: ");
+        console.log(tour.id);
+        console.log(localStorage.getItem(tour.id));
+        console.log(!(localStorage.getItem(tour.id)==='true'));
+        return !(localStorage.getItem(tour.id)==='true');
+      });
+      console.log("tour list length: "+tourList.length);
     }
 
     const startTours = (): void => {
@@ -307,6 +319,12 @@ export class TourManager implements ITourManager {
   }
 
   private _forgetDoneTour = (id: string): void => {
+    console.log("graceal in forgot done tour");
+    if (!localStorage.getItem(id)) {
+      console.log("graceal setting the item tour to false in forgot done tour for tour id:");
+      console.log(id);
+      localStorage.setItem(id, "false");
+    } 
     this._state.toursDone.delete(id);
     this._stateDB.save(STATE_ID, {
       toursDone: [...this._state.toursDone],
@@ -315,11 +333,12 @@ export class TourManager implements ITourManager {
   };
 
   private _rememberDoneTour = (id: string): void => {
-    if (this._docManager) {
-      console.log("graceal in the remember done tour statement");
-      console.log(this._docManager.createNew("testing.txt"));
-      console.log("graceal below the create new call");
-    }
+    console.log("graceal in remember done tour");
+    if (!localStorage.getItem(id)) {
+      console.log("graceal setting the item tour to true in remember done tour for tour id:");
+      console.log(id);
+      localStorage.setItem(id, "true");
+    } 
     this._state.toursDone.add(id);
     this._stateDB.save(STATE_ID, {
       toursDone: [...this._state.toursDone],
@@ -331,7 +350,6 @@ export class TourManager implements ITourManager {
   private _isDisposed = false;
   private _locale: Locale;
   private _menu: MainMenu | undefined;
-  private _docManager: DocumentManager | undefined;
   private _menuItems: Map<string, Menu.IItem> = new Map();
   private _state: IManagerState = {
     toursDone: new Set<string>(),

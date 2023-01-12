@@ -3,35 +3,6 @@ import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application'
 //import { ICommandPalette } from '@jupyterlab/apputils';
 //import { IMainMenu } from '@jupyterlab/mainmenu';
 
-import { DocumentManager } from "./docmanager/src/manager";
-//import { DocumentManager } from '@jupyterlab/docmanager';
-import { ServiceManager } from '@jupyterlab/services';
-import { DocumentRegistry } from '@jupyterlab/docregistry';//ABCWidgetFactory
-import { DockPanel, Widget } from '@lumino/widgets';
-//import { Widget } from '@phosphor/widgets';
-/*import { editorServices } from '@jupyterlab/codemirror'; 
-import { NotebookPanel  } from '@jupyterlab/notebook';//NotebookModelFactory //NotebookWidgetFactory
-import { RenderMimeRegistry, standardRendererFactories as initialFactories} from '@jupyterlab/rendermime';
-import { MathJaxTypesetter } from '@jupyterlab/mathjax2';
-import { PageConfig } from '@jupyterlab/coreutils';*/
-//import { IModel } from './docmanager/src/testutils/kernel/restapi';
-//import { ServiceManagerMock } from '@jupyterlab/services/lib/testutils';
-//import { DocumentWidgetOpenerMock } from '@jupyterlab/docregistry/lib/testutils';
-//import { IDocumentWidgetOpener } from './docmanager/src/tokens';
-//import { ISignal, Signal, Slot } from '@lumino/signaling';
-//import { ServiceManagerMock } from "./docmanager/src/testutils/mocks";
-//import { DocumentWidgetOpenerMock } from "./docmanager/src/testutils/mocks";
-/*import {
-  CSVViewer,
-  TSVViewerFactory
-} from '@jupyterlab/csvviewer';
-import { IObservableList } from '@jupyterlab/observables';*/
-import { FileEditorFactory } from '@jupyterlab/fileeditor';
-import {
-  CodeMirrorEditorFactory,
-  CodeMirrorMimeTypeService
-} from '@jupyterlab/codemirror';
-//import newUntitled from "@jupyterlab/docmanager-extension";
 
 /** internal imports **/
 import '../style/index.css';
@@ -81,187 +52,10 @@ const extension: JupyterFrontEndPlugin<void> = {
     mainMenu: IMainMenu,
     stateDB: IStateDB,
     menu?: MainMenu,
-    translator?: ITranslator, 
-    docManager?: DocumentManager) => {
+    translator?: ITranslator) => {
       stateDB = new StateDB();
-      let manager = new ServiceManager();
-      let documentRegistry = new DocumentRegistry();
-      
 
-    //const notebookModelFactory = new NotebookModelFactory({});
-    //const editorFactory = editorServices.factoryService.newInlineEditor;
-    //const contentFactory = new NotebookPanel.ContentFactory({ editorFactory });
-    
-    
-    /*const renderMimeRegistry = new RenderMimeRegistry({
-        initialFactories,
-        latexTypesetter: new MathJaxTypesetter({
-            url: PageConfig.getOption('mathjaxUrl'),
-            config: PageConfig.getOption('mathjaxConfig')
-        })
-    });*/
-    
-    /*const factory = new NotebookWidgetFactory({
-        name: 'Notebook',
-        modelName: 'notebook',
-        fileTypes: ['notebook'],
-        defaultFor: ['notebook'],
-        preferKernel: true,
-        canStartKernel: true,
-        rendermime: renderMimeRegistry,
-        contentFactory,
-        mimeTypeService: editorServices.mimeTypeService
-    });*/
-    /*const factory = new MimeDocumentFactory({
-      renderTimeout: item.renderTimeout,
-      dataType: item.dataType,
-      rendermime,
-      modelName: option.modelName,
-      name: option.name,
-      primaryFileType: registry.getFileType(option.primaryFileType),
-      fileTypes: option.fileTypes,
-      defaultFor: option.defaultFor,
-      defaultRendered: option.defaultRendered,
-      toolbarFactory,
-      translator,
-      factory: item.rendererFactory
-    });*/
-    //const factory = new ABCWidgetFactory();
-    /*let toolbarFactory:
-    | ((
-        widget: IDocumentWidget<CSVViewer>
-      ) => IObservableList<DocumentRegistry.IToolbarItem>)
-    | undefined;*/
-
-  /*if (toolbarRegistry) {
-    toolbarRegistry.addFactory<IDocumentWidget<CSVViewer>>(
-      FACTORY_TSV,
-      'delimiter',
-      widget =>
-        new CSVDelimiter({
-          widget: widget.content,
-          translator
-        })
-    );
-
-    if (settingRegistry) {
-      toolbarFactory = createToolbarFactory(
-        toolbarRegistry,
-        settingRegistry,
-        FACTORY_TSV,
-        tsv.id,
-        translator
-      );
-    }
-  }*/
-
-
-  /*const factory = new TSVViewerFactory({
-    name: "TSVTable",
-    //label: trans ? trans.__('TSV Viewer'): null,
-    fileTypes: ['tsv'],
-    defaultFor: ['tsv'],
-    readOnly: true,
-    toolbarFactory,
-    translator
-  });*/
-  const editorServices = {
-    factoryService: new CodeMirrorEditorFactory(),
-    mimeTypeService: new CodeMirrorMimeTypeService()
-  };
-  translator = translator || nullTranslator;
-  const trans = translator.load('jupyterlab');
-  const factory = new FileEditorFactory({
-    editorServices,
-    factoryOptions: {
-      name: trans.__('Editor'),
-      modelName: 'text',
-      fileTypes: ['*'],
-      defaultFor: ['*'],
-      preferKernel: false,
-      canStartKernel: true
-    }
-  });
-
-    //documentRegistry.addModelFactory(notebookModelFactory);
-    documentRegistry.addWidgetFactory(factory);
-
-    const widgets: Widget[] = [];
-    //let activeWidget: Widget;
-    const dock = new DockPanel();
-
-    const opener = {
-      open: (widget: Widget) => {
-        console.log("graceal in the open function");
-        if (widgets.indexOf(widget) === -1) {
-          dock.addWidget(widget, { mode: 'tab-after' });
-          widgets.push(widget);
-        }
-        dock.activateWidget(widget);
-        //activeWidget = widget;
-        widget.disposed.connect((w: Widget) => {
-          const index = widgets.indexOf(w);
-          widgets.splice(index, 1);
-        });
-      },
-      get opened() {
-        return {
-          connect: () => {
-            return false;
-          },
-          disconnect: () => {
-            return false;
-          },
-          block: () => {
-            return false;
-          }
-        };
-      }
-    };
-
-    
-
-    //const registry2 = new DocumentRegistry({});
-    //const services2 = new ServiceManagerMock();
-    //const opener2 = new DocumentWidgetOpenerMock();
-    //const signal = new SomeClass("test");
-    docManager = new DocumentManager({
-      registry: documentRegistry,
-      manager: manager,
-      opener: opener/*{ 
-          open: (widget: IDocumentWidget) => {
-            console.log('Opening widget');
-            console.log("widget content is ");
-            console.log(widget.content);
-          },
-          opened: signal
-        }*/
-    });
-    /*open: (widget: Widget): string => {
-            console.log('Opening widget');
-            return "test";
-          }*/
-
-
-    /*docManager = new DocumentManager({
-      registry: documentRegistry,
-      manager,
-      opener: {
-          open: (widget: IDocumentWidgetOpener) => {
-            console.log('Opening widget');
-          }
-      }
-  });*/
-  console.log("graceal printing factory name1");
-  console.log(factory.name);
-  console.log(docManager.createNew(".testing", factory.name));
-  console.log("graceal after the call to createnew of doc manager in plugin");
-  console.log(docManager.open("testing"), factory.name);
-
-
-
-
-      createTourCommands(app, stateDB, palette, menu, translator, docManager);
+      createTourCommands(app, stateDB, palette, menu, translator);
       
       let tour: any;
       app.commands.execute('jupyterlab-tour:add', {
@@ -396,15 +190,14 @@ function createTourCommands(
   stateDB: IStateDB,
   palette?: ICommandPalette,
   menu?: MainMenu,
-  translator?: ITranslator,
-  docManager?: DocumentManager,
+  translator?: ITranslator
 ): ITourManager {
   const { commands } = app;
 
   translator = translator ?? nullTranslator;
 
   // Create tour manager
-  const manager = new TourManager(stateDB, translator, menu, docManager);
+  const manager = new TourManager(stateDB, translator, menu);
 
   commands.addCommand(CommandIDs.launch, {
     label: args => {
