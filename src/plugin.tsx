@@ -1,23 +1,19 @@
 /** jupyterlab imports **/
 import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application'; 
-//import { ICommandPalette } from '@jupyterlab/apputils';
-//import { IMainMenu } from '@jupyterlab/mainmenu';
-
-
-/** internal imports **/
-import '../style/index.css';
-import { managerTour } from './maap-tour';
-import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup, maapApiPopup } from './popups';
-//import { IFrameWidget } from './widgets';
-
-//import { ITourHandler } from 'jupyterlab-tour';
-
 import { ICommandPalette, InputDialog } from '@jupyterlab/apputils';
 import { IMainMenu, MainMenu } from '@jupyterlab/mainmenu';
 import { IStateDB } from '@jupyterlab/statedb';
 //import { ISettingRegistry } from '@jupyterlab/settingregistry';
 import { ITranslator, nullTranslator } from '@jupyterlab/translation';
 import { StateDB } from '@jupyterlab/statedb';
+
+
+
+
+/** internal imports **/
+import '../style/index.css';
+import { managerTour } from './maap-tour';
+import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup, maapApiPopup } from './popups';
 import { TourContainer } from './jupyterlab-tour/components';
 import { CommandIDs } from './jupyterlab-tour/constants';
 import {
@@ -27,10 +23,9 @@ import {
 import { TourHandler } from './jupyterlab-tour/tour';
 import { TourManager } from './jupyterlab-tour/tourManager';
 
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-
 
 
 const sideBarTitles = ["job-cache-display", "filebrowser"];
@@ -258,43 +253,5 @@ function createTourCommands(
 
   return manager;
 }
-
-/*class SomeClass implements ISignal<IDocumentWidgetOpener, IDocumentWidget<Widget, DocumentRegistry.IModel>> {
-
-  constructor(name: string) {
-    this.name = name;
-  }
-  block(fn: () => void): void {
-    throw new Error('Method not implemented.');
-  }
-  connect(slot: Slot<IDocumentWidgetOpener, IDocumentWidget<Widget, DocumentRegistry.IModel>>, thisArg?: any): boolean {
-    throw new Error('Method not implemented.');
-  }
-  disconnect(slot: Slot<IDocumentWidgetOpener, IDocumentWidget<Widget, DocumentRegistry.IModel>>, thisArg?: any): boolean {
-    throw new Error('Method not implemented.');
-  }
-
-  readonly name: string;
-
-  get valueChanged(): ISignal<this, number> {
-    return this._valueChanged;
-  }
-
-  get value(): number {
-    return this._value;
-  }
-
-  set value(value: number) {
-    if (value === this._value) {
-      return;
-    }
-    this._value = value;
-    this._valueChanged.emit(value);
-  }
-
-  public _value = 0;
-  public _valueChanged = new Signal<this, number>(this);
-}*/
-
 
 export default extension;
