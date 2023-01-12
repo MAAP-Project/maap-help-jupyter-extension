@@ -334,11 +334,9 @@ export class TourManager implements ITourManager {
 
   private _rememberDoneTour = (id: string): void => {
     console.log("graceal in remember done tour");
-    if (!localStorage.getItem(id)) {
-      console.log("graceal setting the item tour to true in remember done tour for tour id:");
-      console.log(id);
-      localStorage.setItem(id, "true");
-    } 
+    console.log("graceal setting the item tour to true in remember done tour for tour id:");
+    console.log(id);
+    localStorage.setItem(id, "true");
     this._state.toursDone.add(id);
     this._stateDB.save(STATE_ID, {
       toursDone: [...this._state.toursDone],
