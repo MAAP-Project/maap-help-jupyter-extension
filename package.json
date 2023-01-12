@@ -1,6 +1,6 @@
 {
   "name": "@maap-jupyterlab/maap-help-jupyter-extension",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "Jupyter extension with an interactive MAAP tutorial and MAAP specific help tab options.",
   "keywords": [
     "jupyter",
@@ -57,7 +57,6 @@
   "dependencies": {
     "@jupyterlab/application": "^3.1.0",
     "@jupyterlab/mainmenu": "^3.1.1",
-    "@jupyterlab/notebook": "3.5.2",
     "@lumino/widgets": "^1.34.0",
     "@phosphor/widgets": "1.9.1", 
     "jupyterlab_toastify": "^4.2.0",
