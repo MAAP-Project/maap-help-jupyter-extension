@@ -116,13 +116,24 @@ const extension: JupyterFrontEndPlugin<void> = {
         }
     });
     palette.addItem({ command: tour_command, category: 'Help' });
+    const forget_tour_command = 'help:forgetTour';
+    app.commands.addCommand(forget_tour_command, {
+        label: 'Forget done tour (demo purposes only)',
+        isEnabled: () => true,
+        execute: args => {
+          localStorage.setItem("jupyterlab-tour:maap-tour", "false");
+
+        }
+    });
+    palette.addItem({ command: forget_tour_command, category: 'Help' });
     [
         about_command,
         faq_command,
         tech_doc_command,
         tutorials_command,
         maap_py_command,
-        tour_command
+        tour_command,
+        forget_tour_command
     ].forEach(command => {
         mainMenu.helpMenu.addItem({ command });
     });
@@ -158,7 +169,7 @@ const extension: JupyterFrontEndPlugin<void> = {
 
   
   console.log('JupyterLab extension maap_help is activated!');
-  console.log("version: 0.0.37");
+  console.log("version: 0.0.38");
   },
 };
 

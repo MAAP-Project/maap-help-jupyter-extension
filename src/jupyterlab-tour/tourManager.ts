@@ -320,11 +320,9 @@ export class TourManager implements ITourManager {
 
   private _forgetDoneTour = (id: string): void => {
     console.log("graceal in forgot done tour");
-    if (!localStorage.getItem(id)) {
-      console.log("graceal setting the item tour to false in forgot done tour for tour id:");
-      console.log(id);
-      localStorage.setItem(id, "false");
-    } 
+    console.log("graceal setting the item tour to false in forgot done tour for tour id:");
+    console.log(id);
+    localStorage.setItem(id, "false");
     this._state.toursDone.delete(id);
     this._stateDB.save(STATE_ID, {
       toursDone: [...this._state.toursDone],
