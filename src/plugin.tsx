@@ -122,7 +122,6 @@ const extension: JupyterFrontEndPlugin<void> = {
         isEnabled: () => true,
         execute: args => {
           localStorage.setItem("jupyterlab-tour:maap-tour", "false");
-
         }
     });
     palette.addItem({ command: forget_tour_command, category: 'Help' });
