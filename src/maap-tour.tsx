@@ -79,7 +79,7 @@ export const managerTour = {
             },*/
             {
               content:
-                'The file browser is divided into your private and public buckets. Anthing in an s3-backed folder will be persistent. For example, <username> is s3-backed.',
+                'The file browser is divided into your private and public buckets. Anything in an s3-backed folder will be persistent. For example, <username> is s3-backed.',
               placement: 'right',
               target: '#filebrowser',
               title: 'File Browser'
