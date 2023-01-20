@@ -43,12 +43,12 @@ export const managerTour = {
               target: '#DPSUIMenu',
               title: 'DPS UI Menu'
             },*/
-            {
+            /*{
               content: 'Log into the MAAP platform with an ESA/ Earthdata account.',
               placement: 'bottom',
               target: '#MAAPLogin',
               title: 'MAAP Login'
-            },
+            },*/
             {
               content: 
               'General help menu with additional MAAP-specific information and the option to rerun this tutorial.',
