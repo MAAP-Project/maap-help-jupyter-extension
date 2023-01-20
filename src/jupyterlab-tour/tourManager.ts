@@ -272,7 +272,10 @@ export class TourManager implements ITourManager {
             {
               label: this._trans.__("Don't show me again"),
               callback: (): void => {
-                tourList.forEach(tour => this._rememberDoneTour(tour.id));
+                tourList.forEach(tour => {
+                  INotification.info("The MAAP tour can be accessed again from the help menu");
+                  this._rememberDoneTour(tour.id);
+                });
               }
             }
           ]
