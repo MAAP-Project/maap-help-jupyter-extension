@@ -86,7 +86,7 @@ export const managerTour = {
             },
             {
               content:
-                'The status bar at the bottom states your workspace\'s memory capacity which can be increased or decreased by manually configuring the workspace.',
+                'The status bar at the bottom states your workspace\'s memory capacity which can be increased or decreased by manually configuring the workspace devfile.',
               placement: 'top',
               target: '#jp-main-statusbar',
               title: 'Status Bar'
