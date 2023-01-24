@@ -140,7 +140,6 @@ const extension: JupyterFrontEndPlugin<void> = {
 
     app.restored.then(() => {
       // Wait 3s before launching the first tour - to be sure element are loaded
-      console.log("graceal in the app restored if statement");
       if (tour) {
         setTimeout(() => app.commands.execute('jupyterlab-tour:launch', {id: 'jupyterlab-tour:maap-tour', force: false }), 3000);
         // add an id to all the top menu bar items
@@ -150,17 +149,11 @@ const extension: JupyterFrontEndPlugin<void> = {
 
         // add an id to all the side menu bar items 
         var sideBarElements = Array.from(document.getElementsByClassName('lm-TabBar-tab p-TabBar-tab')); 
-        console.log("graceal printing the side bar elements selected by class name");
-        console.log(sideBarElements);
         sideBarElements = sideBarElements.filter(sideBarElement => determineIncludeSideBarElement(sideBarElement));
         sideBarElements.forEach(sideBarElement => sideBarElement.setAttribute('id', getSideBarId(sideBarElement)));
         
         // add an id to all of the eclipse che side bar items 
         var eclipseCheSideBarElements = Array.from(document.getElementsByTagName('a')); 
-        console.log("graceal printing the a tags: ");
-        console.log(eclipseCheSideBarElements);
-        console.log("printing the md-list-item");
-        console.log(Array.from(document.getElementsByTagName('md-list-item'))); 
         eclipseCheSideBarElements = eclipseCheSideBarElements.filter(eclipseCheSideBarElement => determineIncludeEclipseCheSideBarElement(eclipseCheSideBarElement));
         eclipseCheSideBarElements.forEach(eclipseCheSideBarElement => eclipseCheSideBarElement.setAttribute('id', getEclipseCheSideBarId(eclipseCheSideBarElement)));
       }

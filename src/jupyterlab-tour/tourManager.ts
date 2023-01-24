@@ -244,13 +244,8 @@ export class TourManager implements ITourManager {
       // 3) undefined -> the statement evaluates to false then true so the tour isn't shown
 
       tourList = tourList.filter(tour =>{ 
-        console.log("graceal in the tour filter loop with tour id: ");
-        console.log(tour.id);
-        console.log(localStorage.getItem(tour.id));
-        console.log(!(localStorage.getItem(tour.id)==='true'));
         return !(localStorage.getItem(tour.id)==='true');
       });
-      console.log("tour list length: "+tourList.length);
     }
 
     const startTours = (): void => {
@@ -322,9 +317,6 @@ export class TourManager implements ITourManager {
   }
 
   private _forgetDoneTour = (id: string): void => {
-    console.log("graceal in forgot done tour");
-    console.log("graceal setting the item tour to false in forgot done tour for tour id:");
-    console.log(id);
     localStorage.setItem(id, "false");
     this._state.toursDone.delete(id);
     this._stateDB.save(STATE_ID, {
@@ -334,9 +326,6 @@ export class TourManager implements ITourManager {
   };
 
   private _rememberDoneTour = (id: string): void => {
-    console.log("graceal in remember done tour");
-    console.log("graceal setting the item tour to true in remember done tour for tour id:");
-    console.log(id);
     localStorage.setItem(id, "true");
     this._state.toursDone.add(id);
     this._stateDB.save(STATE_ID, {
