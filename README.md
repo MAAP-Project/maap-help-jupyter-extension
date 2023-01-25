@@ -29,9 +29,6 @@ Note: You will need NodeJS v14 to build the extension package.
 
 
 ```bash
-# Install the tour package and enable the MAAP tour
-conda install -c conda-forge jupyterlab-tour
-jupyter labextension enable "jupyterlab-tour:user-tours"
 # Install package in development mode
 pip install -e .
 # Link your development version of the extension with JupyterLab
