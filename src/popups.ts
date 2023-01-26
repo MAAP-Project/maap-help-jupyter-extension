@@ -1,3 +1,9 @@
+/**
+ * Pop ups that appear when the user selects any MAAP specific items from the help menu
+ * 
+ * Author: Grace Llewellyn, grace.llewellyn@jpl.nasa.gov
+ */
+
 import { Dialog, showDialog } from "@jupyterlab/apputils";
 import { AboutWidget, FAQWidget, TechDocWidget, TutorialsWidget, MaapApiWidget } from "./widgets";
 

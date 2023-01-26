@@ -3,12 +3,8 @@ import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application'
 import { ICommandPalette, InputDialog } from '@jupyterlab/apputils';
 import { IMainMenu, MainMenu } from '@jupyterlab/mainmenu';
 import { IStateDB } from '@jupyterlab/statedb';
-//import { ISettingRegistry } from '@jupyterlab/settingregistry';
 import { ITranslator, nullTranslator } from '@jupyterlab/translation';
 import { StateDB } from '@jupyterlab/statedb';
-
-
-
 
 /** internal imports **/
 import '../style/index.css';
@@ -23,10 +19,8 @@ import {
 import { TourHandler } from './jupyterlab-tour/tour';
 import { TourManager } from './jupyterlab-tour/tourManager';
 
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 
 const sideBarTitles = ["job-cache-display", "filebrowser"];
 const topMenuOptions = ["Git", "Data Search", "DPS/MAS Operations", "DPS UI Menu", "MAAP Login", "Help"];
@@ -34,7 +28,7 @@ const eclipseCheSideBarNames = ["getstarted", "stacks"];
 
 ///////////////////////////////////////////////////////////////
 //
-// Earthdata Search Client extension
+// Maap Help extension
 //
 ///////////////////////////////////////////////////////////////
 
@@ -116,6 +110,7 @@ const extension: JupyterFrontEndPlugin<void> = {
         }
     });
     palette.addItem({ command: tour_command, category: 'Help' });
+    //graceal remove this 
     const forget_tour_command = 'help:forgetTour';
     app.commands.addCommand(forget_tour_command, {
         label: 'Forget done tour (demo purposes only)',
@@ -142,25 +137,24 @@ const extension: JupyterFrontEndPlugin<void> = {
       // Wait 3s before launching the first tour - to be sure element are loaded
       if (tour) {
         setTimeout(() => app.commands.execute('jupyterlab-tour:launch', {id: 'jupyterlab-tour:maap-tour', force: false }), 3000);
-        // add an id to all the top menu bar items
+        // add an id to all the top menu bar items so that the tour can find it 
         var divElements = Array.from(document.getElementsByTagName('div')); 
         divElements = divElements.filter(divElement => divElement.textContent && topMenuOptions.includes(divElement.textContent));
         divElements.forEach(divElement => divElement.setAttribute('id', divElement.textContent ? divElement.textContent.replace(/-|\s|\/|\&/g, ''):""));
 
-        // add an id to all the side menu bar items 
+        // add an id to all the side menu bar items so that the tour can find it 
         var sideBarElements = Array.from(document.getElementsByClassName('lm-TabBar-tab p-TabBar-tab')); 
         sideBarElements = sideBarElements.filter(sideBarElement => determineIncludeSideBarElement(sideBarElement));
         sideBarElements.forEach(sideBarElement => sideBarElement.setAttribute('id', getSideBarId(sideBarElement)));
         
-        // add an id to all of the eclipse che side bar items 
+        // add an id to all of the eclipse che side bar items so that the tour can find it 
         var eclipseCheSideBarElements = Array.from(document.getElementsByTagName('a')); 
         eclipseCheSideBarElements = eclipseCheSideBarElements.filter(eclipseCheSideBarElement => determineIncludeEclipseCheSideBarElement(eclipseCheSideBarElement));
         eclipseCheSideBarElements.forEach(eclipseCheSideBarElement => eclipseCheSideBarElement.setAttribute('id', getEclipseCheSideBarId(eclipseCheSideBarElement)));
       }
     });
 
-  
-  console.log('JupyterLab extension maap_help v0.0.41 is activated!');
+    console.log('JupyterLab extension maap_help v0.0.41 is activated!');
   },
 };
 
@@ -173,6 +167,10 @@ function getSideBarId(sideBarElement:any) {
   return sideBarElement.getAttribute('data-id').replace(/-|\s|\/|\&/g, '');
 }
 
+/**
+ * Note that the tour cannot work for the eclipse che sidebar right now, but I am keeping
+ * the code in here in case we want to make changes in the future 
+ */
 function determineIncludeEclipseCheSideBarElement(eclipseCheSideBarElement: any) {
   const href = eclipseCheSideBarElement.getAttribute('href');
   return href && eclipseCheSideBarNames.includes(href.replace("#/",""));
@@ -182,6 +180,11 @@ function getEclipseCheSideBarId(eclipseCheSideBarElement: any) {
   return eclipseCheSideBarElement.getAttribute('href').replace("#/", "");
 }
 
+/**
+ * Adds the commands to add and launch a tour. This is something that is taken out of the 
+ * jupyterlab-tour code because when I try to just install their package, it says command
+ * not found when I try to add the MAAP tour
+ */
 function createTourCommands(
   app: JupyterFrontEnd,
   stateDB: IStateDB,

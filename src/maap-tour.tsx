@@ -1,4 +1,8 @@
-
+/**
+ * MAAP tour extracted into a file so that changes can be made easily to the tour if the UI changes
+ * 
+ * Author: Grace Llewellyn, grace.llewellyn@jpl.nasa.gov
+ */
 
 export const managerTour = {
   id: 'jupyterlab-tour:maap-tour',

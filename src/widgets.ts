@@ -1,21 +1,14 @@
+/**
+ * Widgets that appear when the user selects anything MAAP specific from the help menu
+ * The titles are links to the embedded webpages, and clicking them opens a link in a new
+ * tab
+ * 
+ * Author: Grace Llewellyn, grace.llewellyn@jpl.nasa.gov
+ */
+
 import { Widget } from '@lumino/widgets';
 import '../style/index.css';
 
-//
-// Widget with popup to set search results limit
-//
-export class LimitPopupWidget extends Widget {
-    constructor() {
-        let body = document.createElement('div');
-        body.style.display = 'flex';
-        body.style.flexDirection = 'column';
-        super({ node: body });
-        let img = document.createElement('img');
-        img.src = 'images/photo1.png';
-        img.alt = 'MAAP logo'
-        this.node.appendChild(img);
-    }
-}
 export class AboutWidget extends Widget {
     constructor() {
         let body = document.createElement('div');

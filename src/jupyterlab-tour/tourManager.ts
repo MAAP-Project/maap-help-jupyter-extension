@@ -1,3 +1,7 @@
+/**
+ * Taken from the jupyterlab-tour repository so that I could modify it to work for our purposes
+ */
+
 import { MainMenu } from '@jupyterlab/mainmenu';
 import { IStateDB } from '@jupyterlab/statedb';
 import { ITranslator, TranslationBundle } from '@jupyterlab/translation';
