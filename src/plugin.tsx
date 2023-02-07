@@ -154,7 +154,7 @@ const extension: JupyterFrontEndPlugin<void> = {
       }
     });
 
-    console.log('JupyterLab extension maap_help v0.0.41 is activated!');
+    console.log('JupyterLab extension maap_help v0.0.42 is activated!');
   },
 };
 
