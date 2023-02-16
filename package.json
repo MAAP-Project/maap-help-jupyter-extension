@@ -1,6 +1,6 @@
 {
   "name": "@maap-jupyterlab/maap-help-jupyter-extension",
-  "version": "0.0.42",
+  "version": "0.0.43",
   "description": "Jupyter extension with an interactive MAAP tutorial and MAAP specific help tab options.",
   "keywords": [
     "jupyter",
@@ -68,7 +68,7 @@
     "@jupyterlab/testing": "^4.0.0-alpha.17",
     "@jupyterlab/testutils": "^4.0.0-alpha.1",
     "@types/jest": "^26.0.0",
-    "@types/node": "18.11.17",
+    "@types/node": "^18.11.17",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
@@ -77,12 +77,12 @@
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
     "jest": "^26.0.0",
-    "node-fetch": "3.3.0",
+    "node-fetch": "^3.3.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.1.1",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-joyride": "2.5.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-joyride": "^2.5.3",
     "rimraf": "^3.0.2",
     "stylelint": "^14.3.0",
     "stylelint-config-prettier": "^9.0.3",
@@ -91,7 +91,7 @@
     "stylelint-prettier": "^2.0.0",
     "ts-jest": "^26.0.0",
     "typescript": "~3.9.10",
-    "webpack": "5.75.0"
+    "webpack": "^5.75.0"
   },
   "sideEffects": [
     "style/*.css",
