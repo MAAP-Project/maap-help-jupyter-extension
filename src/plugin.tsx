@@ -54,109 +54,115 @@ const extension: JupyterFrontEndPlugin<void> = {
         tour = result;
       });
 
-    const about_command = 'iframe:about';
-    app.commands.addCommand(about_command, {
-        label: 'About MAAP',
-        isEnabled: () => true,
-        execute: args => {
-            aboutPopup();
-        }
-    });
-    palette.addItem({ command: about_command, category: 'Help' });
-    const faq_command = 'help:faq';
-    app.commands.addCommand(faq_command, {
-        label: 'MAAP FAQ',
-        isEnabled: () => true,
-        execute: args => {
-            faqPopup();
-        }
-    });
-    palette.addItem({ command: faq_command, category: 'Help' });
-    const tech_doc_command = 'help:techDoc';
-    app.commands.addCommand(tech_doc_command, {
-        label: 'MAAP Technical Documentation',
-        isEnabled: () => true,
-        execute: args => {
-            techDocPopup();
-        }
-    });
-    palette.addItem({ command: tech_doc_command, category: 'Help' });
-    const tutorials_command = 'help:tutorials';
-    app.commands.addCommand(tutorials_command, {
-        label: 'MAAP Tutorials',
-        isEnabled: () => true,
-        execute: args => {
-            tutorialsPopup();
-        }
-    });
-    palette.addItem({ command: tutorials_command, category: 'Help' });
-    const maap_py_command = 'help:maapApi';
-    app.commands.addCommand(maap_py_command, {
-        label: 'MAAP API',
-        isEnabled: () => true,
-        execute: args => {
-            maapApiPopup();
-        }
-    });
-    palette.addItem({ command: maap_py_command, category: 'Help' });
-    const tour_command = 'help:tour';
-    app.commands.addCommand(tour_command, {
-        label: 'MAAP Tour',
-        isEnabled: () => true,
-        execute: args => {
-          if (tour) {
-              app.commands.execute('jupyterlab-tour:launch', {id: 'jupyterlab-tour:maap-tour', force: true });
-            }
-        }
-    });
-    palette.addItem({ command: tour_command, category: 'Help' });
-    //graceal remove this 
-    const forget_tour_command = 'help:forgetTour';
-    app.commands.addCommand(forget_tour_command, {
-        label: 'Forget done tour (demo purposes only)',
-        isEnabled: () => true,
-        execute: args => {
-          localStorage.setItem("jupyterlab-tour:maap-tour", "false");
-        }
-    });
-    palette.addItem({ command: forget_tour_command, category: 'Help' });
-    [
-        about_command,
-        faq_command,
-        tech_doc_command,
-        tutorials_command,
-        maap_py_command,
-        tour_command,
-        forget_tour_command
-    ].forEach(command => {
-        mainMenu.helpMenu.addItem({ command });
-    });
+      const about_command = 'iframe:about';
+      app.commands.addCommand(about_command, {
+          label: 'About MAAP',
+          isEnabled: () => true,
+          execute: args => {
+              aboutPopup();
+          }
+      });
+      palette.addItem({ command: about_command, category: 'Help' });
+      const faq_command = 'help:faq';
+      app.commands.addCommand(faq_command, {
+          label: 'MAAP FAQ',
+          isEnabled: () => true,
+          execute: args => {
+              faqPopup();
+          }
+      });
+      palette.addItem({ command: faq_command, category: 'Help' });
+      const tech_doc_command = 'help:techDoc';
+      app.commands.addCommand(tech_doc_command, {
+          label: 'MAAP Technical Documentation',
+          isEnabled: () => true,
+          execute: args => {
+              techDocPopup();
+          }
+      });
+      palette.addItem({ command: tech_doc_command, category: 'Help' });
+      const tutorials_command = 'help:tutorials';
+      app.commands.addCommand(tutorials_command, {
+          label: 'MAAP Tutorials',
+          isEnabled: () => true,
+          execute: args => {
+              tutorialsPopup();
+          }
+      });
+      palette.addItem({ command: tutorials_command, category: 'Help' });
+      const maap_py_command = 'help:maapApi';
+      app.commands.addCommand(maap_py_command, {
+          label: 'MAAP API',
+          isEnabled: () => true,
+          execute: args => {
+              maapApiPopup();
+          }
+      });
+      palette.addItem({ command: maap_py_command, category: 'Help' });
+      const tour_command = 'help:tour';
+      app.commands.addCommand(tour_command, {
+          label: 'MAAP Tour',
+          isEnabled: () => true,
+          execute: args => {
+            console.log("graceal in the execure of maap tour");
+            if (tour) {
+              console.log("graceal in if tour statement");
+                app.commands.execute('jupyterlab-tour:launch', {id: 'jupyterlab-tour:maap-tour', force: true });
+              }
+          }
+      });
+      palette.addItem({ command: tour_command, category: 'Help' });
+      //graceal remove this 
+      const forget_tour_command = 'help:forgetTour';
+      app.commands.addCommand(forget_tour_command, {
+          label: 'Forget done tour (demo purposes only)',
+          isEnabled: () => true,
+          execute: args => {
+            localStorage.setItem("jupyterlab-tour:maap-tour", "false");
+          }
+      });
+      palette.addItem({ command: forget_tour_command, category: 'Help' });
+      [
+          about_command,
+          faq_command,
+          tech_doc_command,
+          tutorials_command,
+          maap_py_command,
+          tour_command,
+          forget_tour_command
+      ].forEach(command => {
+          mainMenu.helpMenu.addItem({ command });
+      });
     
 
-    app.restored.then(() => {
-      // Wait 3s before launching the first tour - to be sure element are loaded
-      if (tour) {
-        setTimeout(() => app.commands.execute('jupyterlab-tour:launch', {id: 'jupyterlab-tour:maap-tour', force: false }), 3000);
-        // add an id to all the top menu bar items so that the tour can find it 
-        var divElements = Array.from(document.getElementsByTagName('div')); 
-        divElements = divElements.filter(divElement => divElement.textContent && topMenuOptions.includes(divElement.textContent));
-        divElements.forEach(divElement => divElement.setAttribute('id', divElement.textContent ? divElement.textContent.replace(/-|\s|\/|\&/g, ''):""));
-
-        // add an id to all the side menu bar items so that the tour can find it 
-        var sideBarElements = Array.from(document.getElementsByClassName('lm-TabBar-tab p-TabBar-tab')); 
-        sideBarElements = sideBarElements.filter(sideBarElement => determineIncludeSideBarElement(sideBarElement));
-        sideBarElements.forEach(sideBarElement => sideBarElement.setAttribute('id', getSideBarId(sideBarElement)));
-        
-        // add an id to all of the eclipse che side bar items so that the tour can find it 
-        var eclipseCheSideBarElements = Array.from(document.getElementsByTagName('a')); 
-        eclipseCheSideBarElements = eclipseCheSideBarElements.filter(eclipseCheSideBarElement => determineIncludeEclipseCheSideBarElement(eclipseCheSideBarElement));
-        eclipseCheSideBarElements.forEach(eclipseCheSideBarElement => eclipseCheSideBarElement.setAttribute('id', getEclipseCheSideBarId(eclipseCheSideBarElement)));
-      }
-    });
+      app.restored.then(() => {
+          // Wait 3s before launching the first tour - to be sure elements are loaded
+          if (tour) {
+            addIDsTourElements(app);
+          }
+      });
 
     console.log('JupyterLab extension maap_help v0.0.44 is activated!');
   },
 };
+
+function addIDsTourElements(app: JupyterFrontEnd) {
+  setTimeout(() => app.commands.execute('jupyterlab-tour:launch', {id: 'jupyterlab-tour:maap-tour', force: false }), 3000);
+  // add an id to all the top menu bar items so that the tour can find it 
+  var divElements = Array.from(document.getElementsByTagName('div')); 
+  divElements = divElements.filter(divElement => divElement.textContent && topMenuOptions.includes(divElement.textContent));
+  divElements.forEach(divElement => divElement.setAttribute('id', divElement.textContent ? divElement.textContent.replace(/-|\s|\/|\&/g, ''):""));
+
+  // add an id to all the side menu bar items so that the tour can find it 
+  var sideBarElements = Array.from(document.getElementsByClassName('lm-TabBar-tab p-TabBar-tab')); 
+  sideBarElements = sideBarElements.filter(sideBarElement => determineIncludeSideBarElement(sideBarElement));
+  sideBarElements.forEach(sideBarElement => sideBarElement.setAttribute('id', getSideBarId(sideBarElement)));
+  
+  // add an id to all of the eclipse che side bar items so that the tour can find it 
+  var eclipseCheSideBarElements = Array.from(document.getElementsByTagName('a')); 
+  eclipseCheSideBarElements = eclipseCheSideBarElements.filter(eclipseCheSideBarElement => determineIncludeEclipseCheSideBarElement(eclipseCheSideBarElement));
+  eclipseCheSideBarElements.forEach(eclipseCheSideBarElement => eclipseCheSideBarElement.setAttribute('id', getEclipseCheSideBarId(eclipseCheSideBarElement)));
+}
 
 function determineIncludeSideBarElement(sideBarElement: any) {
   const title = sideBarElement.getAttribute('data-id');
