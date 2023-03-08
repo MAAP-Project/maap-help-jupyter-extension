@@ -135,6 +135,11 @@ const extension: JupyterFrontEndPlugin<void> = {
   },
 };
 
+/*
+* Need to add an id to all of the elements that the MAAP tour wants to highlight so that the tour can find these elements
+* Here we find the elements based on their names in the different types of HTML elements and this has to be somewhat hard coded 
+* because not all are in the div of the html elements. We keep these names as constants at the top of this file
+*/
 function addIDsTourElements(app: JupyterFrontEnd) {
   setTimeout(() => app.commands.execute('jupyterlab-tour:launch', {id: 'jupyterlab-tour:maap-tour', force: false }), 3000);
   // add an id to all the top menu bar items so that the tour can find it 
