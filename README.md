@@ -84,7 +84,7 @@ folder is located. Then you can remove the symlink named `maap-help-jupyter-exte
 - Extension code (those files are mandatory):
   - `package.json` contains information about the extension such as dependencies
   - `tsconfig.json` contains information for the typescript compilation
-  - `src/index.ts` _this contains the actual code of your extension_
+  - `src/plugin.ts` this contains the actual code of your extension
   - `style/` folder contains style elements that you can use
 - Validation:
   - `.prettierrc` and `.prettierignore` specify the code formatter [`prettier`](https://prettier.io) configuration
