@@ -6,6 +6,9 @@ import { IStateDB } from '@jupyterlab/statedb';
 import { ITranslator, nullTranslator } from '@jupyterlab/translation';
 import { StateDB } from '@jupyterlab/statedb';
 
+//import { RankedMenu } from '@jupyterlab/ui-components';
+import { HelpMenu } from '@jupyterlab/mainmenu';
+
 /** internal imports **/
 import '../style/index.css';
 import { managerTour } from './maap-tour';
@@ -112,6 +115,7 @@ const extension: JupyterFrontEndPlugin<void> = {
           }
       });
       palette.addItem({ command: tour_command, category: 'Help' });
+      /*const commands = 
       [
           about_command,
           faq_command,
@@ -119,9 +123,61 @@ const extension: JupyterFrontEndPlugin<void> = {
           tutorials_command,
           maap_py_command,
           tour_command
-      ].forEach(command => {
-          mainMenu.helpMenu.addItem({ command });
-      });
+      ];*//*.forEach(command => {
+          //mainMenu.helpMenu.addItem({ command, rank:0 });
+          mainMenu.helpMenu.addGroup([{ command: tour_command}], 0);
+      });*/
+      mainMenu.helpMenu.addGroup([{ command: about_command, type:"command"}], -.01);
+      
+      console.log("graceal trying to print helpful stuff for the help menu");
+      console.log(mainMenu.helpMenu);
+      console.log(mainMenu.helpMenu.items);
+      console.log(mainMenu.helpMenu.items.length);
+      //let commandsFromExistingMenu: never[] = [];
+      for (let i=0; i<mainMenu.helpMenu.items.length; i++){
+        console.log(mainMenu.helpMenu.items[i]);
+        console.log(mainMenu.helpMenu.items[i].command);
+        //commandsFromExistingMenu.add(mainMenu.helpMenu.items[i]);
+       }
+      console.log(mainMenu.helpMenu.rank);
+      console.log("graceal printing .menu");
+      console.log(mainMenu.helpMenu.menu);
+      console.log(typeof mainMenu.helpMenu);
+      
+      /*let temp = new RankedMenu({commands: app.commands});
+      temp.addGroup([{ command: "help:about", type:"command"}], 0);
+      console.log(temp.getRankAt(0));
+      mainMenu.addMenu(temp, {rank: -1});
+      console.log(temp);*/
+
+      let temp2 = new HelpMenu({commands: app.commands});
+      temp2.addGroup([{ command: "help:open", type:"command"}], 0);
+      mainMenu.addMenu(temp2, {rank: -1});
+      if (mainMenu.helpMenu instanceof HelpMenu) {
+        console.log("graceal in the if statement");
+        console.log(mainMenu.helpMenu.items);
+        mainMenu.helpMenu.removeItemAt(3);
+        console.log(mainMenu.helpMenu.items);
+        
+      }
+      // potential functions: getRankAt, insertItem, removeItem, removeItemAt, 
+      
+      
+      console.log(temp2);
+      //mainMenu.helpMenu.addGroup([{ command: about_command, rank: 0}], 0);
+      /*const myMenu = new MenuFactory({ commands }).createMenu({ commands }, [
+        { command: 'my-extension:command', rank: 100 },
+      ], 'My Menu');
+      
+      // Add the menu to the main menu
+      mainMenu.addMenu(myMenu, { rank: 100 });*/
+      //const helpMenu = menuFactory.menuItems.find((item: { id: string; }) => item.id === 'jp-help-menu');
+      //helpMenu.submenu.addItem({ about_command }, { rank: 0 });
+      //const items = mainMenu.helpMenu.items.map(item => item.type === 'submenu' ? item.submenu.items : item).flat();
+      //console.log(mainMenu.helpMenu.items.filter(item => item!=undefined).map(item => (item as any).options));
+      //const ranks = mainMenu.helpMenu.items.filter(item => item!=undefined).map(item => (item as any).options.rank);
+      //console.log(app.commands.listCommands().filter(command => command.category === 'Help').sort((a, b) => a.rank - b.rank));
+  //console.log(mainMenu.helpMenu.dispose());
     
 
       app.restored.then(() => {
@@ -131,7 +187,7 @@ const extension: JupyterFrontEndPlugin<void> = {
           }
       });
 
-    console.log('JupyterLab extension maap_help v0.0.44 is activated!');
+    console.log('JupyterLab extension maap_help v0.0.45 is activated!');
   },
 };
 
