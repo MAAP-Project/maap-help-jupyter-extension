@@ -27,6 +27,12 @@ const sideBarTitles = ["job-cache-display", "filebrowser"];
 const topMenuOptions = ["Git", "Data Search", "DPS/MAS Operations", "DPS UI Menu", "MAAP Login", "Help"];
 const eclipseCheSideBarNames = ["getstarted", "stacks"];
 
+// constants for command IDs of the default jupyterlab help menu
+const DEFAULT_HELP_MENU_COMMAND = "help:about";
+const DEFAULT_CONTEXTUAL_HELP_COMMAND = "inspector:open";
+const DEFAULT_LAUNCH_CLASSIC_COMMAND = "help:launch-classic-notebook";
+const DEFAULT_JUPYTER_FORUM_COMMAND = "help:jupyter-forum";
+
 ///////////////////////////////////////////////////////////////
 //
 // Maap Help extension
@@ -111,28 +117,39 @@ const extension: JupyterFrontEndPlugin<void> = {
  * Inputs are the help menu and the commands that need to be added to the help menu. If the help menu
  * is an instance of the HelpMenu class, then we are able to customize it by deleting the help options we
  * don't want and adding our own commands in certain indexes. If the help menu isn't an instance of the 
- * Help Menu class, then we do the best we can, but we cannot delete existing elements. 
+ * Help Menu class, then we do the best we can, but we cannot delete existing elements or add own help
+ * commands to an existing grouping 
+ * In the case that the command IDs for the default help menu change and we have not changed the
+ * constants yet, the about and tour commands are just added to the default spot
  */
 function addCommandsHelpMenu(menu: IHelpMenu, about_command: string, tour_command: string, maap_py_command: string, maap_documentation_command: string) {
+  let aboutMAAPAdded = false;
+  let MAAPTourAdded = false;
   if (menu instanceof HelpMenu) {
     for (let i=0; i<menu.items.length; i++) {
       let item = menu.items[i];
-      if (item.command === "help:about") {
+      if (item.command === DEFAULT_HELP_MENU_COMMAND) {
         menu.insertItem(i+1, {command: about_command, rank: 1});
-      } else if (item.command === "inspector:open") {
+        aboutMAAPAdded = true;
+      } else if (item.command === DEFAULT_CONTEXTUAL_HELP_COMMAND) {
         menu.insertItem(i+1, {command: tour_command, rank: 1});
-      } else if (item.command === "help:launch-classic-notebook") {
+        MAAPTourAdded = true;
+      } else if (item.command === DEFAULT_LAUNCH_CLASSIC_COMMAND) {
         menu.removeItem(item);
         i--;
-      } else if (item.command === "help:jupyter-forum") {
+      } else if (item.command === DEFAULT_JUPYTER_FORUM_COMMAND) {
         menu.removeItem(item);
         i--;
       }
     }
-  } else {
+  } 
+  if (!aboutMAAPAdded) {
     menu.addGroup([{ command: about_command }], -1);
+  } 
+  if (!MAAPTourAdded) {
     menu.addGroup([{ command: tour_command }], .1);
   }
+
   menu.addGroup([{ command: maap_py_command}, { command: maap_documentation_command }], 1000);
 }
 
