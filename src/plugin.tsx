@@ -1,15 +1,16 @@
 /** jupyterlab imports **/
 import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application'; 
 import { ICommandPalette, InputDialog } from '@jupyterlab/apputils';
-import { IMainMenu, MainMenu } from '@jupyterlab/mainmenu';
+import { IHelpMenu, IMainMenu, MainMenu } from '@jupyterlab/mainmenu';
 import { IStateDB } from '@jupyterlab/statedb';
 import { ITranslator, nullTranslator } from '@jupyterlab/translation';
 import { StateDB } from '@jupyterlab/statedb';
+import { HelpMenu } from '@jupyterlab/mainmenu';
 
 /** internal imports **/
 import '../style/index.css';
 import { managerTour } from './maap-tour';
-import { aboutPopup, faqPopup, techDocPopup, tutorialsPopup, maapApiPopup } from './popups';
+import { aboutPopup, maapDocumentationPopup, maapApiPopup } from './popups';
 import { TourContainer } from './jupyterlab-tour/components';
 import { CommandIDs } from './jupyterlab-tour/constants';
 import {
@@ -25,6 +26,12 @@ import ReactDOM from 'react-dom';
 const sideBarTitles = ["job-cache-display", "filebrowser"];
 const topMenuOptions = ["Git", "Data Search", "DPS/MAS Operations", "DPS UI Menu", "MAAP Login", "Help"];
 const eclipseCheSideBarNames = ["getstarted", "stacks"];
+
+// constants for command IDs of the default jupyterlab help menu
+const DEFAULT_HELP_MENU_COMMAND = "help:about";
+const DEFAULT_CONTEXTUAL_HELP_COMMAND = "inspector:open";
+const DEFAULT_LAUNCH_CLASSIC_COMMAND = "help:launch-classic-notebook";
+const DEFAULT_JUPYTER_FORUM_COMMAND = "help:jupyter-forum";
 
 ///////////////////////////////////////////////////////////////
 //
@@ -54,7 +61,7 @@ const extension: JupyterFrontEndPlugin<void> = {
         tour = result;
       });
 
-      const about_command = 'iframe:about';
+      const about_command = 'help:maap-about';
       app.commands.addCommand(about_command, {
           label: 'About MAAP',
           isEnabled: () => true,
@@ -63,34 +70,16 @@ const extension: JupyterFrontEndPlugin<void> = {
           }
       });
       palette.addItem({ command: about_command, category: 'Help' });
-      const faq_command = 'help:faq';
-      app.commands.addCommand(faq_command, {
-          label: 'MAAP FAQ',
+      const maap_documentation_command = 'help:maap-documentation';
+      app.commands.addCommand(maap_documentation_command, {
+          label: 'MAAP Documentation',
           isEnabled: () => true,
           execute: args => {
-              faqPopup();
+            maapDocumentationPopup();
           }
       });
-      palette.addItem({ command: faq_command, category: 'Help' });
-      const tech_doc_command = 'help:techDoc';
-      app.commands.addCommand(tech_doc_command, {
-          label: 'MAAP Technical Documentation',
-          isEnabled: () => true,
-          execute: args => {
-              techDocPopup();
-          }
-      });
-      palette.addItem({ command: tech_doc_command, category: 'Help' });
-      const tutorials_command = 'help:tutorials';
-      app.commands.addCommand(tutorials_command, {
-          label: 'MAAP Tutorials',
-          isEnabled: () => true,
-          execute: args => {
-              tutorialsPopup();
-          }
-      });
-      palette.addItem({ command: tutorials_command, category: 'Help' });
-      const maap_py_command = 'help:maapApi';
+      palette.addItem({ command: maap_documentation_command, category: 'Help' });
+      const maap_py_command = 'help:maap-api';
       app.commands.addCommand(maap_py_command, {
           label: 'MAAP API',
           isEnabled: () => true,
@@ -99,30 +88,19 @@ const extension: JupyterFrontEndPlugin<void> = {
           }
       });
       palette.addItem({ command: maap_py_command, category: 'Help' });
-      const tour_command = 'help:tour';
+      const tour_command = 'help:maap-tour';
       app.commands.addCommand(tour_command, {
           label: 'MAAP Tour',
           isEnabled: () => true,
           execute: args => {
-            console.log("graceal in the execure of maap tour");
             if (tour) {
-              console.log("graceal in if tour statement");
                 app.commands.execute('jupyterlab-tour:launch', {id: 'jupyterlab-tour:maap-tour', force: true });
               }
           }
       });
       palette.addItem({ command: tour_command, category: 'Help' });
-      [
-          about_command,
-          faq_command,
-          tech_doc_command,
-          tutorials_command,
-          maap_py_command,
-          tour_command
-      ].forEach(command => {
-          mainMenu.helpMenu.addItem({ command });
-      });
-    
+
+      addCommandsHelpMenu(mainMenu.helpMenu, about_command, tour_command, maap_py_command, maap_documentation_command);
 
       app.restored.then(() => {
           // Wait 3s before launching the first tour - to be sure elements are loaded
@@ -131,9 +109,49 @@ const extension: JupyterFrontEndPlugin<void> = {
           }
       });
 
-    console.log('JupyterLab extension maap_help v0.0.44 is activated!');
+    console.log('JupyterLab extension maap_help v0.0.45 is activated!');
   },
 };
+
+/**
+ * Inputs are the help menu and the commands that need to be added to the help menu. If the help menu
+ * is an instance of the HelpMenu class, then we are able to customize it by deleting the help options we
+ * don't want and adding our own commands in certain indexes. If the help menu isn't an instance of the 
+ * Help Menu class, then we do the best we can, but we cannot delete existing elements or add own help
+ * commands to an existing grouping 
+ * In the case that the command IDs for the default help menu change and we have not changed the
+ * constants yet, the about and tour commands are just added to the default spot
+ */
+function addCommandsHelpMenu(menu: IHelpMenu, about_command: string, tour_command: string, maap_py_command: string, maap_documentation_command: string) {
+  let aboutMAAPAdded = false;
+  let MAAPTourAdded = false;
+  if (menu instanceof HelpMenu) {
+    for (let i=0; i<menu.items.length; i++) {
+      let item = menu.items[i];
+      if (item.command === DEFAULT_HELP_MENU_COMMAND) {
+        menu.insertItem(i+1, {command: about_command, rank: 1});
+        aboutMAAPAdded = true;
+      } else if (item.command === DEFAULT_CONTEXTUAL_HELP_COMMAND) {
+        menu.insertItem(i+1, {command: tour_command, rank: 1});
+        MAAPTourAdded = true;
+      } else if (item.command === DEFAULT_LAUNCH_CLASSIC_COMMAND) {
+        menu.removeItem(item);
+        i--;
+      } else if (item.command === DEFAULT_JUPYTER_FORUM_COMMAND) {
+        menu.removeItem(item);
+        i--;
+      }
+    }
+  } 
+  if (!aboutMAAPAdded) {
+    menu.addGroup([{ command: about_command }], -1);
+  } 
+  if (!MAAPTourAdded) {
+    menu.addGroup([{ command: tour_command }], .1);
+  }
+
+  menu.addGroup([{ command: maap_py_command}, { command: maap_documentation_command }], 1000);
+}
 
 /*
 * Need to add an id to all of the elements that the MAAP tour wants to highlight so that the tour can find these elements

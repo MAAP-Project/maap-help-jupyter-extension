@@ -47,7 +47,7 @@ export class AboutWidget extends Widget {
     }
 }
 
-export class FAQWidget extends Widget {
+export class MAAPDocumentationWidget extends Widget {
     constructor() {
         let body = document.createElement('div');
         body.style.display = 'flex';
@@ -56,44 +56,8 @@ export class FAQWidget extends Widget {
         body.style.width = '600px';
         const innerText = `
         <body>
-        <a href="https://docs.maap-project.org/en/develop/faqs.html" target="_blank"><h1 style="color:blue;"><u>Frequently Asked Questions</u></h1></a>
-        <embed type="text/html" src="https://docs.maap-project.org/en/develop/faqs.html" width='600' height='450'>
-        </body>`;
-
-        body.innerHTML = innerText;
-        super({ node: body });
-    }
-}
-
-export class TechDocWidget extends Widget {
-    constructor() {
-        let body = document.createElement('div');
-        body.style.display = 'flex';
-        body.style.flexDirection = 'column';
-        body.style.height = '450px';
-        body.style.width = '600px';
-        const innerText = `
-        <body>
-        <a href="https://docs.maap-project.org/en/develop/platform_tech_docs.html" target="_blank"><h1 style="color:blue;"><u>Platform Technical Documentation</u></h1></a>
-        <embed type="text/html" src="https://docs.maap-project.org/en/develop/platform_tech_docs.html" width='600' height='450'>
-        </body>`;
-
-        body.innerHTML = innerText;
-        super({ node: body });
-    }
-}
-
-export class TutorialsWidget extends Widget {
-    constructor() {
-        let body = document.createElement('div');
-        body.style.display = 'flex';
-        body.style.flexDirection = 'column';
-        body.style.height = '450px';
-        body.style.width = '600px';
-        const innerText = `
-        <body>
-        <a href="https://docs.maap-project.org/en/develop/tutorials.html" target="_blank"><h1 style="color:blue;"><u>Tutorials</u></h1></a>
-        <embed type="text/html" src="https://docs.maap-project.org/en/develop/tutorials.html" width='600' height='450'>
+        <a href="https://docs.maap-project.org/en/develop/index.html" target="_blank"><h1 style="color:blue;"><u>MAAP Documentation</u></h1></a>
+        <embed type="text/html" src="https://docs.maap-project.org/en/develop/index.html" width='600' height='450'>
         </body>`;
 
         body.innerHTML = innerText;

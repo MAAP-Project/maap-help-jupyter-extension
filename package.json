@@ -1,6 +1,6 @@
 {
   "name": "@maap-jupyterlab/maap-help-jupyter-extension",
-  "version": "0.0.44",
+  "version": "0.0.45",
   "description": "Jupyter extension with an interactive MAAP tutorial and MAAP specific help tab options.",
   "keywords": [
     "jupyter",
@@ -109,7 +109,7 @@
   "jupyter-releaser": {
     "hooks": {
       "before-build-npm": [
-        "python -m pip install jupyterlab~=3.4.4",
+        "python -m pip install jupyterlab~=3.4.7",
         "jlpm"
       ],
       "before-build-python": [
