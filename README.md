@@ -4,7 +4,7 @@ Jupyter extension that shows an interactive tutorial and adds MAAP specific info
 
 ## Requirements
 
-* JupyterLab >= 3.0
+* JupyterLab >= 3.4.4
 
 ## Install
 
