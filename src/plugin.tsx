@@ -23,8 +23,8 @@ import { TourManager } from './jupyterlab-tour/tourManager';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const sideBarTitles = ["job-cache-display", "filebrowser"];
-const topMenuOptions = ["Git", "Data Search", "DPS/MAS Operations", "DPS UI Menu", "MAAP Login", "Help"];
+const sideBarTitles = ["filebrowser", "jp-git-sessions"];
+const topMenuOptions = ["Data Search", "DPS/MAS Operations", "DPS UI Menu", "MAAP Login", "Help"];
 const eclipseCheSideBarNames = ["getstarted", "stacks"];
 
 // constants for command IDs of the default jupyterlab help menu
@@ -109,7 +109,7 @@ const extension: JupyterFrontEndPlugin<void> = {
           }
       });
 
-    console.log('JupyterLab extension maap_help v0.0.45 is activated!');
+    console.log('JupyterLab extension maap_help v0.0.46 is activated!');
   },
 };
 
