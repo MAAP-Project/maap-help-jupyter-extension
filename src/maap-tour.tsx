@@ -24,12 +24,6 @@ export const managerTour = {
               title: 'Some information on the tour, first'
             },
             {
-              content: 'Interface with Git including cloning a repository.',
-              placement: 'bottom',
-              target: '#Git',
-              title: 'Git'
-            },
-            {
               content: 'Launch Earthdata Search Client (EDSC) and paste search queries.',
               placement: 'bottom',
               target: '#DataSearch',
@@ -83,10 +77,16 @@ export const managerTour = {
             },*/
             {
               content:
-                'The file browser is divided into your private and public buckets. Anything in an s3-backed folder will be persistent. For example, <username> is s3-backed.',
+                'The file browser is divided into your public and private buckets. Everything in the public and private buckets is persistent and s3-backed. Other MAAP users can access data in your public bucket through shared-buckets.',
               placement: 'right',
               target: '#filebrowser',
               title: 'File Browser'
+            },
+            {
+              content: 'Interface with Git including cloning a repository.',
+              placement: 'bottom',
+              target: '#jpgitsessions',
+              title: 'Git'
             },
             {
               content:
