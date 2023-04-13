@@ -32,7 +32,7 @@ export const managerTour = {
               title: 'Data Search'
             },*/
             {
-              content: 'Manage your jobs in DPS.',
+              content: 'Users may submit jobs through the submit tab and view their jobs through the view tab.',
               placement: 'bottom',
               target: '#Jobs',
               title: 'Jobs'
