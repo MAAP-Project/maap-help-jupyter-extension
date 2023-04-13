@@ -4,6 +4,8 @@
  * Author: Grace Llewellyn, grace.llewellyn@jpl.nasa.gov
  */
 
+import React from "react";
+
 export const managerTour = {
   id: 'jupyterlab-tour:maap-tour',
   label: 'MAAP tour',
@@ -23,6 +25,12 @@ export const managerTour = {
               target: '#jp-main-dock-panel',
               title: 'Some information on the tour, first'
             },
+            /*{
+              content: 'Launch Earthdata Search Client (EDSC) and paste search queries.',
+              placement: 'bottom',
+              target: '#DataSearch',
+              title: 'Data Search'
+            },*/
             {
               content: 'Manage your jobs in DPS.',
               placement: 'bottom',
@@ -38,24 +46,24 @@ export const managerTour = {
             },
             {
               content:
-                'The file browser is divided into your public and private buckets. Everything in the public and private buckets is persistent and s3-backed. Other MAAP users can access data in your public bucket through shared-buckets.',
+                <div>The file browser is divided into your public and private buckets. Everything in the public and private buckets is persistent and s3-backed. Other MAAP users can access data in your public bucket through shared-buckets. See more <a href="https://docs.maap-project.org/en/latest/system_reference_guide/share_data.html" target="_blank" style={{ color: 'blue' }}>here</a>.</div>,
               placement: 'right',
               target: '#filebrowser',
               title: 'File Browser'
             },
             {
-              content: 'Interface with Git including cloning a repository.',
+              content: <div>Interface with Git including cloning a repository. See more <a href="https://docs.maap-project.org/en/latest/getting_started/git_clone_repo.html" target="_blank" style={{ color: 'blue' }}>here</a>.</div>,
               placement: 'bottom',
               target: '#jpgitsessions',
               title: 'Git'
             },
-            {
+            /*{
               content:
-                'The status bar at the bottom states your workspace\'s memory capacity which can be increased or decreased by manually configuring the workspace devfile.',
+                <div>The status bar at the bottom states your workspace's memory capacity which can be increased or decreased by manually configuring the workspace devfile. See more <a href="https://docs.maap-project.org/en/latest/system_reference_guide/create_workspace.html" target="_blank" style={{ color: 'blue' }}>here</a>.</div>,
               placement: 'top',
               target: '#jp-main-statusbar',
               title: 'Status Bar'
-            },
+            },*/
             {
               content: 
               'This concludes the tour. Enjoy MAAP!',
