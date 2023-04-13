@@ -24,7 +24,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const sideBarTitles = ["filebrowser", "jp-git-sessions"];
-const topMenuOptions = ["Data Search", "DPS/MAS Operations", "DPS UI Menu", "MAAP Login", "Help"];
+const topMenuOptions = ["Data Search", "Jobs", "Help"];
 const eclipseCheSideBarNames = ["getstarted", "stacks"];
 
 // constants for command IDs of the default jupyterlab help menu

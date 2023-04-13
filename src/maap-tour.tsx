@@ -24,29 +24,11 @@ export const managerTour = {
               title: 'Some information on the tour, first'
             },
             {
-              content: 'Launch Earthdata Search Client (EDSC) and paste search queries.',
-              placement: 'bottom',
-              target: '#DataSearch',
-              title: 'Data Search'
-            },
-            /*{
-              content: 'Register algorithms into DPS to be able to run as jobs.',
-              placement: 'bottom',
-              target: '#DPSMASOperations',
-              title: 'Welcome to MAAP!'
-            },
-            {
               content: 'Manage your jobs in DPS.',
               placement: 'bottom',
-              target: '#DPSUIMenu',
-              title: 'DPS UI Menu'
-            },*/
-            /*{
-              content: 'Log into the MAAP platform with an ESA/ Earthdata account.',
-              placement: 'bottom',
-              target: '#MAAPLogin',
-              title: 'MAAP Login'
-            },*/
+              target: '#Jobs',
+              title: 'Jobs'
+            },
             {
               content: 
               'General help menu with additional MAAP-specific information and the option to rerun this tutorial.',
@@ -54,27 +36,6 @@ export const managerTour = {
               target: '#Help',
               title: 'Help'
             },
-            /*{
-              content: 
-              'Create a new workspace here. You can create a workspace from a sample or create a custom workspace.',
-              placement: 'right',
-              target: '#getstarted',
-              title: 'Get Started'
-            },
-            {
-              content: 
-              'See available samples for the workspaces as well as their devfiles.',
-              placement: 'right',
-              target: '#stacks',
-              title: 'Stacks'
-            },*/
-            /*{
-              content: 
-              'See your jobs in DPS.',
-              placement: 'right',
-              target: '#jobcachedisplay',
-              title: 'Jobs'
-            },*/
             {
               content:
                 'The file browser is divided into your public and private buckets. Everything in the public and private buckets is persistent and s3-backed. Other MAAP users can access data in your public bucket through shared-buckets.',
@@ -97,7 +58,7 @@ export const managerTour = {
             },
             {
               content: 
-              'This concludes the tour. Enjoy the platform!',
+              'This concludes the tour. Enjoy MAAP!',
               placement: 'center',
               target: '#jp-main-dock-panel',
               title: 'Tour finished!'
