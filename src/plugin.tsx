@@ -25,7 +25,8 @@ import ReactDOM from 'react-dom';
 
 const sideBarTitles = ["filebrowser", "jp-git-sessions"];
 const topMenuOptions = ["Data Search", "Jobs", "Help"];
-const eclipseCheSideBarNames = ["getstarted", "stacks"];
+//const eclipseCheSideBarNames = ["getstarted", "stacks"];
+const collaboratorsIdentifier = "ui-components:users";
 
 // constants for command IDs of the default jupyterlab help menu
 const DEFAULT_HELP_MENU_COMMAND = "help:about";
@@ -169,11 +170,20 @@ function addIDsTourElements(app: JupyterFrontEnd) {
   var sideBarElements = Array.from(document.getElementsByClassName('lm-TabBar-tab p-TabBar-tab')); 
   sideBarElements = sideBarElements.filter(sideBarElement => determineIncludeSideBarElement(sideBarElement));
   sideBarElements.forEach(sideBarElement => sideBarElement.setAttribute('id', getSideBarId(sideBarElement)));
+
+  // add an id to the collaborators side bar so that the tour can find it
+  var collaboratorsPotentialElements = Array.from(document.querySelectorAll('.lm-TabBar-tabIcon.p-TabBar-tabIcon.f1dvozo svg'));
+  var collaboratorElement = collaboratorsPotentialElements.filter(element => { return element.getAttribute("data-icon") === collaboratorsIdentifier});
+  // should just be one element
+  if (collaboratorElement.length != 1) {
+    console.warn("More than one element identifed for the collaborator element (maap help tour)");
+  }
+  collaboratorElement[0].setAttribute('id', getCollaboratorElementId(collaboratorElement[0]));
   
   // add an id to all of the eclipse che side bar items so that the tour can find it 
-  var eclipseCheSideBarElements = Array.from(document.getElementsByTagName('a')); 
+  /*var eclipseCheSideBarElements = Array.from(document.getElementsByTagName('a')); 
   eclipseCheSideBarElements = eclipseCheSideBarElements.filter(eclipseCheSideBarElement => determineIncludeEclipseCheSideBarElement(eclipseCheSideBarElement));
-  eclipseCheSideBarElements.forEach(eclipseCheSideBarElement => eclipseCheSideBarElement.setAttribute('id', getEclipseCheSideBarId(eclipseCheSideBarElement)));
+  eclipseCheSideBarElements.forEach(eclipseCheSideBarElement => eclipseCheSideBarElement.setAttribute('id', getEclipseCheSideBarId(eclipseCheSideBarElement)));*/
 }
 
 function determineIncludeSideBarElement(sideBarElement: any) {
@@ -182,21 +192,25 @@ function determineIncludeSideBarElement(sideBarElement: any) {
 }
 
 function getSideBarId(sideBarElement:any) {
-  return sideBarElement.getAttribute('data-id').replace(/-|\s|\/|\&/g, '');
+  return sideBarElement.getAttribute('data-id').replace(/-|\s|\/|\&|:/g, '');
+}
+
+function getCollaboratorElementId(collaboratorElement: any) {
+  return collaboratorElement.getAttribute('data-icon').replace(/-|\s|\/|\&|:/g, '');
 }
 
 /**
  * Note that the tour cannot work for the eclipse che sidebar right now, but I am keeping
  * the code in here in case we want to make changes in the future 
  */
-function determineIncludeEclipseCheSideBarElement(eclipseCheSideBarElement: any) {
+/*function determineIncludeEclipseCheSideBarElement(eclipseCheSideBarElement: any) {
   const href = eclipseCheSideBarElement.getAttribute('href');
   return href && eclipseCheSideBarNames.includes(href.replace("#/",""));
-}
+}*/
 
-function getEclipseCheSideBarId(eclipseCheSideBarElement: any) {
+/*function getEclipseCheSideBarId(eclipseCheSideBarElement: any) {
   return eclipseCheSideBarElement.getAttribute('href').replace("#/", "");
-}
+}*/
 
 /**
  * Adds the commands to add and launch a tour. This is something that is taken out of the 
