@@ -177,9 +177,10 @@ function addIDsTourElements(app: JupyterFrontEnd) {
   // should just be one element
   if (collaboratorElement.length != 1) {
     console.warn("More than one element identifed for the collaborator element (maap help tour)");
+  } else {
+    collaboratorElement[0].setAttribute('id', getCollaboratorElementId(collaboratorElement[0]));
   }
-  collaboratorElement[0].setAttribute('id', getCollaboratorElementId(collaboratorElement[0]));
-  
+
   // add an id to all of the eclipse che side bar items so that the tour can find it 
   /*var eclipseCheSideBarElements = Array.from(document.getElementsByTagName('a')); 
   eclipseCheSideBarElements = eclipseCheSideBarElements.filter(eclipseCheSideBarElement => determineIncludeEclipseCheSideBarElement(eclipseCheSideBarElement));
