@@ -1,6 +1,10 @@
 # maap-help-jupyter-extension
 
-Jupyter extension that shows an interactive tutorial and adds MAAP specific information to the help tab
+Jupyter extension that provides an interactive tour and adds MAAP specific information to the help tab
+<br>
+<img title="Help Menu" alt="Help Menu" src="./docs/img/helpMenu.png" width="150">
+<img title="Tour" alt="Tour" src="./docs/img/tour.png" width="200">
+
 
 ## Requirements
 
