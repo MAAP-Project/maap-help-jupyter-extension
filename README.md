@@ -2,8 +2,9 @@
 
 Jupyter extension that provides an interactive tour and adds MAAP specific information to the help tab
 <br>
-<img title="Help Menu" alt="Help Menu" src="./docs/img/helpMenu.png" width="250">
-<img title="Tour" alt="Tour" src="./docs/img/tour.png" width="250">
+<br>
+<img title="Help Menu" alt="Help Menu" src="./docs/img/helpMenu.png" width="300">
+<img title="Tour" alt="Tour" src="./docs/img/tour.png" width="300">
 
 
 ## Requirements
