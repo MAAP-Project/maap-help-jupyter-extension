@@ -7,7 +7,7 @@ import { IStateDB } from '@jupyterlab/statedb';
 import { ITranslator, TranslationBundle } from '@jupyterlab/translation';
 import { ISignal, Signal } from '@lumino/signaling';
 import { Menu } from '@lumino/widgets';
-import { INotification } from 'jupyterlab_toastify';
+import { Notification } from "@jupyterlab/apputils";
 import { Locale, Props as JoyrideProps } from 'react-joyride';
 import { CommandIDs } from './constants';
 import { ITour, ITourHandler, ITourManager, NS } from './tokens';
@@ -261,9 +261,9 @@ export class TourManager implements ITourManager {
       if (force) {
         startTours();
       } else {
-        INotification.info(this._trans.__('Try the %1.', tourList[0].label), {
+        Notification.info(this._trans.__('Try the %1.', tourList[0].label), {
           autoClose: 10000,
-          buttons: [
+          actions: [
             {
               label: this._trans.__('Start now'),
               callback: startTours
@@ -272,7 +272,7 @@ export class TourManager implements ITourManager {
               label: this._trans.__("Don't show me again"),
               callback: (): void => {
                 tourList.forEach(tour => {
-                  INotification.info("The MAAP tour can be accessed again from the help menu");
+                  Notification.info("The MAAP tour can be accessed again from the help menu");
                   this._rememberDoneTour(tour.id);
                 });
               }
