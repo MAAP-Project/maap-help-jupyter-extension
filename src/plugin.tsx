@@ -23,10 +23,11 @@ import { TourManager } from './jupyterlab-tour/tourManager';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const sideBarTitles = ["filebrowser", "jp-git-sessions"];
-const topMenuOptions = ["Data Search", "Jobs", "Help"];
-//const eclipseCheSideBarNames = ["getstarted", "stacks"];
-const collaboratorsIdentifier = "ui-components:users";
+const SIDE_BAR_TITLES = ["filebrowser", "jp-git-sessions"];
+const TOP_MENU_OPTIONS = ["Data Search", "Jobs", "Help"];
+//const ECLIPSE_CHE_SIDEBAR_NAMES = ["getstarted", "stacks"];
+//const COLLABORATORS_IDENTIFIER = "ui-components:users";
+const MEMORY_BAR_TITLE = "Current memory usage";
 
 // constants for command IDs of the default jupyterlab help menu
 const DEFAULT_HELP_MENU_COMMAND = "help:about";
@@ -163,7 +164,7 @@ function addIDsTourElements(app: JupyterFrontEnd) {
   setTimeout(() => app.commands.execute('jupyterlab-tour:launch', {id: 'jupyterlab-tour:maap-tour', force: false }), 3000);
   // add an id to all the top menu bar items so that the tour can find it 
   var divElements = Array.from(document.getElementsByTagName('div')); 
-  divElements = divElements.filter(divElement => divElement.textContent && topMenuOptions.includes(divElement.textContent));
+  divElements = divElements.filter(divElement => divElement.textContent && TOP_MENU_OPTIONS.includes(divElement.textContent));
   divElements.forEach(divElement => divElement.setAttribute('id', divElement.textContent ? divElement.textContent.replace(/-|\s|\/|\&/g, ''):""));
 
   // add an id to all the side menu bar items so that the tour can find it 
@@ -171,15 +172,18 @@ function addIDsTourElements(app: JupyterFrontEnd) {
   sideBarElements = sideBarElements.filter(sideBarElement => determineIncludeSideBarElement(sideBarElement));
   sideBarElements.forEach(sideBarElement => sideBarElement.setAttribute('id', getSideBarId(sideBarElement)));
 
+  setMemoryStatusBarId();
+
+  //NOTE: collaborators disabled for now because Jupyterlab bug
   // add an id to the collaborators side bar so that the tour can find it
-  var collaboratorsPotentialElements = Array.from(document.querySelectorAll('.lm-TabBar-tabIcon.p-TabBar-tabIcon.f1dvozo svg'));
-  var collaboratorElement = collaboratorsPotentialElements.filter(element => { return element.getAttribute("data-icon") === collaboratorsIdentifier});
+  /*var collaboratorsPotentialElements = Array.from(document.querySelectorAll('.lm-TabBar-tabIcon.p-TabBar-tabIcon.f1dvozo svg'));
+  var collaboratorElement = collaboratorsPotentialElements.filter(element => { return element.getAttribute("data-icon") === COLLABORATORS_IDENTIFIER});
   // should just be one element
   if (collaboratorElement.length != 1) {
     console.warn("More than one element identifed for the collaborator element (maap help tour)");
   } else {
     collaboratorElement[0].setAttribute('id', getCollaboratorElementId(collaboratorElement[0]));
-  }
+  }*/
 
   // add an id to all of the eclipse che side bar items so that the tour can find it 
   /*var eclipseCheSideBarElements = Array.from(document.getElementsByTagName('a')); 
@@ -189,16 +193,37 @@ function addIDsTourElements(app: JupyterFrontEnd) {
 
 function determineIncludeSideBarElement(sideBarElement: any) {
   const title = sideBarElement.getAttribute('data-id');
-  return title && sideBarTitles.includes(title);
+  return title && SIDE_BAR_TITLES.includes(title);
 }
 
 function getSideBarId(sideBarElement:any) {
   return sideBarElement.getAttribute('data-id').replace(/-|\s|\/|\&|:/g, '');
 }
 
-function getCollaboratorElementId(collaboratorElement: any) {
-  return collaboratorElement.getAttribute('data-icon').replace(/-|\s|\/|\&|:/g, '');
+// sets the ID for the memory extension in the bottom status bar
+function setMemoryStatusBarId(){
+  var statusBar = document.getElementById("jp-main-statusbar");
+  if (statusBar) {
+    var statusBarElements = Array.from(statusBar.children);
+    console.log("graceal1 printing innner children");
+    statusBarElements.forEach(statusBarElement => {
+      Array.from(statusBarElement.children).forEach(statusBarChild => {
+        console.log(statusBarChild);
+        console.log(statusBarChild.getAttribute("title"));
+        if (statusBarChild.getAttribute("title") === MEMORY_BAR_TITLE) {
+          console.log("graceal1 setting the ID");
+          statusBarChild.setAttribute('id', MEMORY_BAR_TITLE.replace(/-|\s|\/|\&/g, ''));
+          return;
+        }
+      })
+    });
+  }
+  console.warn("Unable to find the memory extension status bar for the MAAP Help tour.");
 }
+
+/*function getCollaboratorElementId(collaboratorElement: any) {
+  return collaboratorElement.getAttribute('data-icon').replace(/-|\s|\/|\&|:/g, '');
+}*/
 
 /**
  * Note that the tour cannot work for the eclipse che sidebar right now, but I am keeping
@@ -206,7 +231,7 @@ function getCollaboratorElementId(collaboratorElement: any) {
  */
 /*function determineIncludeEclipseCheSideBarElement(eclipseCheSideBarElement: any) {
   const href = eclipseCheSideBarElement.getAttribute('href');
-  return href && eclipseCheSideBarNames.includes(href.replace("#/",""));
+  return href && ECLIPSE_CHE_SIDEBAR_NAMES.includes(href.replace("#/",""));
 }*/
 
 /*function getEclipseCheSideBarId(eclipseCheSideBarElement: any) {

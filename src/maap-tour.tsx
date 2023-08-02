@@ -57,19 +57,19 @@ export const managerTour = {
               target: '#jpgitsessions',
               title: 'Git'
             },
-            {
+            /*{
               content: 'Shows logged-in users with whom the workspace is shared.',
               placement: 'bottom',
               target: '#uicomponentsusers',
               title: 'Collaborators'
-            },
-            /*{
+            },*/
+            {
               content:
                 <div>The status bar at the bottom states your workspace's memory capacity which can be increased or decreased by manually configuring the workspace devfile. See more <a href="https://docs.maap-project.org/en/latest/system_reference_guide/create_workspace.html" target="_blank" style={{ color: 'blue' }}>here</a>.</div>,
               placement: 'top',
-              target: '#jp-main-statusbar',
+              target: '#NotebookisinCommandmode',
               title: 'Status Bar'
-            },*/
+            },
             {
               content: 
               'This concludes the tour. Enjoy MAAP!',
