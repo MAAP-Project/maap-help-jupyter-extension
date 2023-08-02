@@ -1,6 +1,6 @@
 {
   "name": "@maap-jupyterlab/maap-help-jupyter-extension",
-  "version": "0.0.46",
+  "version": "0.0.47",
   "description": "Jupyter extension with an interactive MAAP tutorial and MAAP specific help tab options.",
   "keywords": [
     "jupyter",
@@ -90,7 +90,7 @@
     "stylelint-config-standard": "~24.0.0",
     "stylelint-prettier": "^2.0.0",
     "ts-jest": "^26.0.0",
-    "typescript": "~3.9.10",
+    "typescript": "~4.3.0-beta",
     "webpack": "^5.75.0"
   },
   "sideEffects": [
