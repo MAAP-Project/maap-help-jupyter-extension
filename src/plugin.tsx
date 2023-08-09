@@ -27,8 +27,6 @@ const SIDE_BAR_TITLES = ["filebrowser", "jp-git-sessions"];
 const TOP_MENU_OPTIONS = ["Data Search", "Jobs", "Help"];
 //const ECLIPSE_CHE_SIDEBAR_NAMES = ["getstarted", "stacks"];
 //const COLLABORATORS_IDENTIFIER = "ui-components:users";
-//const MEMORY_BAR_TITLE = "Current memory usage";
-const MEMORY_BAR_TITLE = "Change kernel for Launcher";
 
 // constants for command IDs of the default jupyterlab help menu
 const DEFAULT_HELP_MENU_COMMAND = "help:about";
@@ -173,8 +171,6 @@ function addIDsTourElements(app: JupyterFrontEnd) {
   sideBarElements = sideBarElements.filter(sideBarElement => determineIncludeSideBarElement(sideBarElement));
   sideBarElements.forEach(sideBarElement => sideBarElement.setAttribute('id', getSideBarId(sideBarElement)));
 
-  setMemoryStatusBarId();
-
   //NOTE: collaborators disabled for now because Jupyterlab bug
   // add an id to the collaborators side bar so that the tour can find it
   /*var collaboratorsPotentialElements = Array.from(document.querySelectorAll('.lm-TabBar-tabIcon.p-TabBar-tabIcon.f1dvozo svg'));
@@ -200,80 +196,6 @@ function determineIncludeSideBarElement(sideBarElement: any) {
 function getSideBarId(sideBarElement:any) {
   return sideBarElement.getAttribute('data-id').replace(/-|\s|\/|\&|:/g, '');
 }
-
-// sets the ID for the memory extension in the bottom status bar
-function setMemoryStatusBarId(){
-  var statusBar = document.getElementById("jp-bottom-panel");
-  if (statusBar) {
-    console.log("graceal1 output of find memory extension element");
-    console.log(statusBar);
-    console.log(MEMORY_BAR_TITLE);
-    console.log(document.getElementsByTagName('span'));
-    console.log(statusBar.getElementsByTagName('span'));
-    let temp = Array.from(statusBar.getElementsByTagName('span'));
-    temp.forEach(ele => {
-      console.log(ele.getAttribute("title"));
-    });
-    let temp2 = Array.from(document.getElementsByTagName('span'));
-    temp2.forEach(ele => {
-      if (ele.getAttribute("title")==MEMORY_BAR_TITLE) {
-        console.log("FOUND ITIII");
-      }
-    });
-    console.log("graceal1 printing all ones with class name");
-    Array.from(statusBar.getElementsByClassName("f1235lqo")).forEach(ele => {
-      console.log(ele.getAttribute("title"));
-    })
-
-
-    
-    //var statusBarElements = Array.from(statusBar.children);
-    /*let spanElements = statusBar.querySelectorAll('span');
-    console.log(spanElements);
-    
-    console.log("graceal1 printing innner children");
-    
-    spanElements.forEach(element => {
-      console.log(element.getAttribute("title"));
-    });
-    console.log("graceal1 printing all span elements");
-    console.log(document.querySelectorAll('span'));
-    document.querySelectorAll('span').forEach(ele => {
-      console.log(ele.getAttribute("title"));
-      if (ele.getAttribute("title")==MEMORY_BAR_TITLE) {
-        console.log("FOUND CORRECT SPAN");
-      }
-    });*/
-    /*statusBarElements.forEach(statusBarElement => {
-      Array.from(statusBarElement.children).forEach(statusBarChild => {
-        console.log(statusBarChild);
-        console.log(statusBarChild.getAttribute("title"));
-        if (statusBarChild.getAttribute("title") === MEMORY_BAR_TITLE) {
-          console.log("graceal1 setting the ID BECAUSE FOUND");
-          statusBarChild.setAttribute('id', MEMORY_BAR_TITLE.replace(/-|\s|\/|\&/g, ''));
-          return;
-        }
-      })
-    });*/
-  }
-  console.warn("Unable to find the memory extension status bar for the MAAP Help tour.");
-}
-
-/*function findMemoryExtensionElement(parent:any) {
-  const elements = parent.children;
-
-  console.log("graceal1 printing list of elements");
-  console.log(elements);
-  for (const element of elements) {
-    console.log('graceal1 looping through list of elements with title '+element.getAttribute("title"));
-    if (element.tagName == 'span' && element.getAttribute('title')==MEMORY_BAR_TITLE) {
-      return element;
-    } else {
-      findMemoryExtensionElement(element);
-    }
-    return null;
-}
-}*/
 
 /*function getCollaboratorElementId(collaboratorElement: any) {
   return collaboratorElement.getAttribute('data-icon').replace(/-|\s|\/|\&|:/g, '');
