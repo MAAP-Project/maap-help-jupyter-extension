@@ -208,6 +208,24 @@ function setMemoryStatusBarId(){
     console.log("graceal1 output of find memory extension element");
     console.log(statusBar);
     console.log(MEMORY_BAR_TITLE);
+    console.log(document.getElementsByTagName('span'));
+    console.log(statusBar.getElementsByTagName('span'));
+    let temp = Array.from(statusBar.getElementsByTagName('span'));
+    temp.forEach(ele => {
+      console.log(ele.getAttribute("title"));
+    });
+    let temp2 = Array.from(document.getElementsByTagName('span'));
+    temp2.forEach(ele => {
+      if (ele.getAttribute("title")==MEMORY_BAR_TITLE) {
+        console.log("FOUND ITIII");
+      }
+    });
+    console.log("graceal1 printing all ones with class name");
+    Array.from(statusBar.getElementsByClassName("f1235lqo")).forEach(ele => {
+      console.log(ele.getAttribute("title"));
+    })
+
+
     
     //var statusBarElements = Array.from(statusBar.children);
     /*let spanElements = statusBar.querySelectorAll('span');
