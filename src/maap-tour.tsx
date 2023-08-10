@@ -32,17 +32,17 @@ export const managerTour = {
               title: 'Data Search'
             },*/
             {
-              content: 'Users may submit jobs through the submit tab and view their jobs through the view tab.',
-              placement: 'bottom',
-              target: '#Jobs',
-              title: 'Jobs'
-            },
-            {
               content: 
               'General help menu with additional MAAP-specific information and the option to rerun this tutorial.',
               placement: 'bottom',
               target: '#Help',
               title: 'Help'
+            },
+            {
+              content: 'Users may submit jobs through the submit tab and view their jobs through the view tab.',
+              placement: 'bottom',
+              target: '#Jobs',
+              title: 'Jobs'
             },
             {
               content:
