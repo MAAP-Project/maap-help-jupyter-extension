@@ -1,6 +1,6 @@
 {
   "name": "@maap-jupyterlab/maap-help-jupyter-extension",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Jupyter extension with an interactive MAAP tutorial and MAAP specific help tab options.",
   "keywords": [
     "jupyter",
@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/MAAP-Project/maap-help-jupyter-extension/issues"
   },
-  "license": "BSD-3-Clause",
+  "license": "Apache 2.0",
   "author": {
     "name": "Grace Llewellyn",
     "email": "grace.llewellyn@jpl.nasa.gov"

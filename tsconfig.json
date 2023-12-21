@@ -5,7 +5,6 @@
     "declaration": true,
     "esModuleInterop": true,
     "incremental": true,
-    "lib": ["esnext", "dom"],
     "jsx": "react",
     "module": "esnext",
     "moduleResolution": "node",
@@ -18,8 +17,9 @@
     "rootDir": "src",
     "strict": true,
     "strictNullChecks": true,
-    "target": "es2017",
-    "types": ["jest"]
+    "target": "es2020",
+    "types": [],
+    "typeRoots" : ["./node_modules/@types"]
   },
-  "include": ["src/*", "src/jupyterlab-tour/*"]// "src/docmanager/src/testutils/*", "src/docmanager/src/testutils/session/*", "src/docmanager/src/testutils/kernelspec/*", "src/docmanager/src/testutils/kernel/*", "src/docmanager/src/testutils/contents/*"]
+  "include": ["src/*", "src/jupyterlab-tour/*"]
 }
