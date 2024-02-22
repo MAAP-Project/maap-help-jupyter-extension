@@ -1,9 +1,9 @@
 /** jupyterlab imports **/
 import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application'; 
-import { ICommandPalette, InputDialog } from '@jupyterlab/apputils';
+import { ICommandPalette } from '@jupyterlab/apputils';
 import { IHelpMenu, IMainMenu, MainMenu } from '@jupyterlab/mainmenu';
 import { IStateDB } from '@jupyterlab/statedb';
-import { ITranslator, nullTranslator } from '@jupyterlab/translation';
+import { ITranslator } from '@jupyterlab/translation';
 import { StateDB } from '@jupyterlab/statedb';
 import { HelpMenu } from '@jupyterlab/mainmenu';
 
@@ -11,17 +11,17 @@ import { HelpMenu } from '@jupyterlab/mainmenu';
 import '../style/index.css';
 import { managerTour } from './maap-tour';
 import { aboutPopup, maapDocumentationPopup, maapApiPopup } from './popups';
-import { TourContainer } from './jupyterlab-tour/components';
-import { CommandIDs } from './jupyterlab-tour/constants';
+//import  { TourContainer } from 'jupyterlab-tour';
+//import { CommandIDs } from 'jupyterlab-tour';
 import {
-  ITourHandler,
-  ITourManager
-} from './jupyterlab-tour/tokens';
-import { TourHandler } from './jupyterlab-tour/tour';
-import { TourManager } from './jupyterlab-tour/tourManager';
+  ITourHandler
+  //ITourManager
+} from 'jupyterlab-tour';
+//import { TourHandler } from 'jupyterlab-tour';
+//import { TourManager } from 'jupyterlab-tour';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+//import React from 'react';
+//import ReactDOM from 'react-dom';
 
 const SIDE_BAR_TITLES = ["filebrowser", "jp-git-sessions"];
 const TOP_MENU_OPTIONS = ["Data Search", "Jobs", "Help"];
@@ -52,7 +52,7 @@ const extension: JupyterFrontEndPlugin<void> = {
     translator?: ITranslator) => {
       stateDB = new StateDB();
 
-      createTourCommands(app, stateDB, palette, menu, translator);
+      createTour(app/*, stateDB, palette, menu, translator*/);
       
       let tour: any;
       app.commands.execute('jupyterlab-tour:add', {
@@ -61,6 +61,8 @@ const extension: JupyterFrontEndPlugin<void> = {
       .then(result => {
         tour = result;
       });
+      console.log("graceal1 tour in activate is ");
+      console.log(tour);
 
       const about_command = 'help:maap-about';
       app.commands.addCommand(about_command, {
@@ -219,16 +221,51 @@ function getSideBarId(sideBarElement:any) {
  * jupyterlab-tour code because when I try to just install their package, it says command
  * not found when I try to add the MAAP tour
  */
-function createTourCommands(
-  app: JupyterFrontEnd,
-  stateDB: IStateDB,
+async function createTour(
+  app: JupyterFrontEnd
+  /*stateDB: IStateDB,
   palette?: ICommandPalette,
   menu?: MainMenu,
-  translator?: ITranslator
-): ITourManager {
-  const { commands } = app;
+  translator?: ITranslator*/
+) {
+  //const { commands } = app;
+  // Add a Tour - returns the Tour or null if something went wrong
+  const tour = (await app.commands.execute('jupyterlab-tour:add', {
+    tour: {
+      // Tour must be of type ITour - see src/tokens.ts
+      id: 'test-jupyterlab-tour:welcome',
+      label: 'Welcome Tour',
+      hasHelpEntry: true,
+      steps: [
+        // Step must be of type IStep - see src/tokens.ts
+        {
+          content:
+            'The following tutorial will point out some of the main UI components within JupyterLab.',
+          placement: 'center',
+          target: '#jp-main-dock-panel',
+          title: 'Welcome to Jupyter Lab!'
+        },
+        {
+          content:
+            'This is the main content area where notebooks and other content can be viewed and edited.',
+          placement: 'left-end',
+          target: '#jp-main-dock-panel',
+          title: 'Main Content'
+        }
+      ]
+      // can also define `options`
+    }
+  })) as ITourHandler;
+  console.log("graceal1 created tour and is ");
+  console.log(tour);
+  if (tour) {
+    app.commands.execute('jupyterlab-tour:launch', {
+      id: 'test-jupyterlab-tour:welcome',
+      force: false // Optional, if false the Tour will start only if the user have not seen or skipped it
+    });
+  }
 
-  translator = translator ?? nullTranslator;
+  /*translator = translator ?? nullTranslator;
 
   // Create tour manager
   const manager = new TourManager(stateDB, translator, menu);
@@ -290,7 +327,7 @@ function createTourCommands(
   document.body.appendChild(node);
   ReactDOM.render(<TourContainer tourLaunched={manager.tourLaunched} />, node);
 
-  return manager;
+  return manager;*/
 }
 
 export default extension;
