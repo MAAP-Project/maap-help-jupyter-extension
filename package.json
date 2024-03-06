@@ -1,6 +1,6 @@
 {
   "name": "@maap-jupyterlab/maap-help-jupyter-extension",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Jupyter extension with an interactive MAAP tutorial and MAAP specific help tab options.",
   "keywords": [
     "jupyter",
@@ -62,35 +62,23 @@
     "jupyterlab-tour": "^3.1.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
     "@jupyterlab/builder": "^3.1.0",
-    "@jupyterlab/testing": "^4.0.0-alpha.17",
-    "@jupyterlab/testutils": "^4.0.0-alpha.1",
-    "@types/jest": "^26.0.0",
-    "@types/node": "^18.11.17",
-    "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
     "@typescript-eslint/parser": "^4.8.1",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "jest": "^26.0.0",
     "node-fetch": "^3.3.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.1.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-joyride": "^2.5.3",
+    "react-joyride": "2.3.0",
     "rimraf": "^3.0.2",
     "stylelint": "^14.3.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended": "^6.0.0",
     "stylelint-config-standard": "~24.0.0",
     "stylelint-prettier": "^2.0.0",
-    "ts-jest": "^26.0.0",
-    "typescript": "~4.3.0-beta",
     "webpack": "^5.75.0"
   },
   "sideEffects": [
@@ -109,7 +97,7 @@
   "jupyter-releaser": {
     "hooks": {
       "before-build-npm": [
-        "python -m pip install jupyterlab~=3.4.7",
+        "python -m pip install jupyterlab~=3.6",
         "jlpm"
       ],
       "before-build-python": [
