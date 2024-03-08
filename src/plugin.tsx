@@ -10,7 +10,7 @@ import { HelpMenu } from '@jupyterlab/mainmenu';
 /** internal imports **/
 import '../style/index.css';
 import { managerTour } from './maap-tour';
-import { aboutPopup, maapDocumentationPopup, maapApiPopup } from './popups';
+import { aboutPopup, maapDocumentationPopup, maapApiPopup, maapBugSubmissionPopup } from './popups';
 import { TourContainer } from './jupyterlab-tour/components';
 import { CommandIDs } from './jupyterlab-tour/constants';
 import {
@@ -71,6 +71,7 @@ const extension: JupyterFrontEndPlugin<void> = {
           }
       });
       palette.addItem({ command: about_command, category: 'Help' });
+
       const maap_documentation_command = 'help:maap-documentation';
       app.commands.addCommand(maap_documentation_command, {
           label: 'MAAP Documentation',
@@ -80,15 +81,27 @@ const extension: JupyterFrontEndPlugin<void> = {
           }
       });
       palette.addItem({ command: maap_documentation_command, category: 'Help' });
-      const maap_py_command = 'help:maap-api';
-      app.commands.addCommand(maap_py_command, {
+
+      const maap_api_command = 'help:maap-api';
+      app.commands.addCommand(maap_api_command, {
           label: 'MAAP API',
           isEnabled: () => true,
           execute: args => {
               maapApiPopup();
           }
       });
-      palette.addItem({ command: maap_py_command, category: 'Help' });
+      palette.addItem({ command: maap_api_command, category: 'Help' });
+
+      const maap_bug_submission_command = 'help:maap-bug-submission';
+      app.commands.addCommand(maap_bug_submission_command, {
+          label: 'MAAP Bug Submission',
+          isEnabled: () => true,
+          execute: args => {
+            maapBugSubmissionPopup();
+          }
+      });
+      palette.addItem({ command: maap_bug_submission_command, category: 'Help' });
+
       const tour_command = 'help:maap-tour';
       app.commands.addCommand(tour_command, {
           label: 'MAAP Tour',
@@ -101,7 +114,7 @@ const extension: JupyterFrontEndPlugin<void> = {
       });
       palette.addItem({ command: tour_command, category: 'Help' });
 
-      addCommandsHelpMenu(mainMenu.helpMenu, about_command, tour_command, maap_py_command, maap_documentation_command);
+      addCommandsHelpMenu(mainMenu.helpMenu, about_command, tour_command, maap_api_command, maap_documentation_command, maap_bug_submission_command);
 
       app.restored.then(() => {
           // Wait 3s before launching the first tour - to be sure elements are loaded
@@ -123,7 +136,7 @@ const extension: JupyterFrontEndPlugin<void> = {
  * In the case that the command IDs for the default help menu change and we have not changed the
  * constants yet, the about and tour commands are just added to the default spot
  */
-function addCommandsHelpMenu(menu: IHelpMenu, about_command: string, tour_command: string, maap_py_command: string, maap_documentation_command: string) {
+function addCommandsHelpMenu(menu: IHelpMenu, about_command: string, tour_command: string, maap_api_command: string, maap_documentation_command: string, maap_bug_submission_command: string) {
   let aboutMAAPAdded = false;
   let MAAPTourAdded = false;
   if (menu instanceof HelpMenu) {
@@ -151,7 +164,7 @@ function addCommandsHelpMenu(menu: IHelpMenu, about_command: string, tour_comman
     menu.addGroup([{ command: tour_command }], .1);
   }
 
-  menu.addGroup([{ command: maap_py_command}, { command: maap_documentation_command }], 1000);
+  menu.addGroup([{ command: maap_api_command}, { command: maap_documentation_command }, { command: maap_bug_submission_command }], 1000);
 }
 
 /*
