@@ -89,11 +89,12 @@ export class MaapBugSubmissionWidget extends Widget {
         let body = document.createElement('div');
         body.style.display = 'flex';
         body.style.flexDirection = 'column';
-        body.style.height = '150px';
-        body.style.width = '150px';
+        body.style.height = '100px';
+        body.style.width = '250px';
         const innerText = `
         <body>
-        <a href="https://github.com/MAAP-Project/Community/issues" target="_blank"><h1 style="color:blue;"><u>MAAP Bug Submission</u></h1></a>
+        <h1>Submit bugs to MAAP <a href="https://github.com/MAAP-Project/Community/issues" target="_blank"><u style="color:blue;">here</u></a>
+        </h1>
         </body>`;
 
         body.innerHTML = innerText;
