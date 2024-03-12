@@ -18,7 +18,7 @@ export class AboutWidget extends Widget {
         body.style.width = '600px';
         const innerText = `
         <h1>
-        <img width='150' height='150' src = 'https://ops.maap-project.org/wp-content/uploads/2021/10/cropped-maapfavicon-180x180.png'></img>
+        <img width='575' height='150' src = 'https://maap-project.org/wp-content/uploads/2021/10/nasamaaplogo3.png'></img>
         <br>
         About 
         </h1>
@@ -74,8 +74,8 @@ export class MaapApiWidget extends Widget {
         body.style.width = '600px';
         const innerText = `
         <body>
-        <a href="https://api.ops.maap-project.org/api/" target="_blank"><h1 style="color:blue;"><u>MAAP API</u></h1></a>
-        <embed type="text/html" src="https://api.ops.maap-project.org/api/" width='600' height='450'>
+        <a href="https://api.maap-project.org/api/" target="_blank"><h1 style="color:blue;"><u>MAAP API</u></h1></a>
+        <embed type="text/html" src="https://api.maap-project.org/api/" width='600' height='450'>
         </body>`;
 
 
@@ -84,3 +84,20 @@ export class MaapApiWidget extends Widget {
     }
 }
 
+export class MaapBugSubmissionWidget extends Widget {
+    constructor() {
+        let body = document.createElement('div');
+        body.style.display = 'flex';
+        body.style.flexDirection = 'column';
+        body.style.height = '100px';
+        body.style.width = '250px';
+        const innerText = `
+        <body>
+        <h1>Submit bugs to MAAP <a href="https://github.com/MAAP-Project/Community/issues" target="_blank"><u style="color:blue;">here</u></a>
+        </h1>
+        </body>`;
+
+        body.innerHTML = innerText;
+        super({ node: body });
+    }
+}
