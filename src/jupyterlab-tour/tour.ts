@@ -3,10 +3,8 @@ import { ISignal, Signal } from '@lumino/signaling';
 import {
   CallBackProps,
   Props as JoyrideProps,
-  status,
   STATUS,
-  Step,
-  valueof
+  Step
 } from 'react-joyride';
 import { TutorialDefaultOptions } from './constants';
 import { ITourHandler, StepPlacement } from './tokens';
@@ -259,7 +257,7 @@ export class TourHandler implements ITourHandler {
   private _isDisposed = false;
   private _label: string;
   private _options: Partial<JoyrideProps>;
-  private _previousStatus: valueof<status> = STATUS.READY;
+  private _previousStatus: string = STATUS.READY;
   private _previousStepIndex = -1;
   private _steps: Step[] = new Array<Step>();
 }

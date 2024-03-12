@@ -16,10 +16,11 @@
     "resolveJsonModule": true,
     "outDir": "lib",
     "rootDir": "src",
+    "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": true,
-    "target": "es2017",
-    "types": ["jest"]
+    "target": "ES2020",
+    "types": [],
   },
-  "include": ["src/*", "src/jupyterlab-tour/*"]// "src/docmanager/src/testutils/*", "src/docmanager/src/testutils/session/*", "src/docmanager/src/testutils/kernelspec/*", "src/docmanager/src/testutils/kernel/*", "src/docmanager/src/testutils/contents/*"]
+  "include": ["src/*", "src/jupyterlab-tour/*"],
 }
