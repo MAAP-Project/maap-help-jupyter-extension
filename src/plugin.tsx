@@ -123,7 +123,7 @@ const extension: JupyterFrontEndPlugin<void> = {
           }
       });
 
-    console.log('JupyterLab extension maap_help v1.2.0 is activated!');
+    console.log('JupyterLab extension maap_help is activated!');
   },
 };
 
