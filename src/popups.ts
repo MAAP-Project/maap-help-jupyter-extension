@@ -5,7 +5,7 @@
  */
 
 import { Dialog, showDialog } from "@jupyterlab/apputils";
-import { AboutWidget, MAAPDocumentationWidget, MaapApiWidget } from "./widgets";
+import { AboutWidget, MAAPDocumentationWidget, MaapApiWidget, MaapBugSubmissionWidget } from "./widgets";
 
 export function aboutPopup() {
     showDialog({
@@ -26,6 +26,14 @@ export function maapDocumentationPopup() {
 export function maapApiPopup() {
     showDialog({
         body: new MaapApiWidget(),
+        focusNodeSelector: 'input',
+        buttons: [Dialog.okButton({ label: 'Ok' })]
+    });
+}
+
+export function maapBugSubmissionPopup() {
+    showDialog({
+        body: new MaapBugSubmissionWidget(),
         focusNodeSelector: 'input',
         buttons: [Dialog.okButton({ label: 'Ok' })]
     });
