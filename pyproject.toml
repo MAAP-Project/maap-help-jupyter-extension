@@ -56,8 +56,8 @@ artifacts = ["maap_help_jupyter_extension/labextension"]
 exclude = [".github", "binder"]
 
 [tool.hatch.build.targets.wheel.shared-data]
-"maap_help_jupyter_extension/labextension" = "share/jupyter/labextensions/@maap-jupyterlab/maap-help-jupyter-extension"
-"install.json" = "share/jupyter/labextensions/@maap-jupyterlab/maap-help-jupyter-extension/install.json"
+"maap_help_jupyter_extension/labextension" = "share/jupyter/labextensions/maap-help-jupyter-extension"
+"install.json" = "share/jupyter/labextensions/maap-help-jupyter-extension/install.json"
 "jupyter-config/server-config" = "etc/jupyter/jupyter_server_config.d"
 
 [tool.hatch.build.hooks.version]
