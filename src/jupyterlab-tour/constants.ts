@@ -14,6 +14,7 @@ export namespace CommandIDs {
  */
 export const TutorialDefaultOptions: Omit<JoyrideProps, 'steps'> = {
   continuous: true,
+  run: true,
   showProgress: true,
   showSkipButton: true,
   styles: {

@@ -1,4 +1,4 @@
-# maap-help-jupyter-extension
+# MAAP Help Jupyter Extension
 
 Jupyter extension that provides an interactive tour and adds MAAP specific information to the help tab
 <br>
@@ -9,7 +9,12 @@ Jupyter extension that provides an interactive tour and adds MAAP specific infor
 
 ## Requirements
 
-* JupyterLab >= 3.4.4
+| Package | Version |
+|---------|---------|
+| JupyterLab | v4.1.6 |
+| NodeJS | v18 |
+
+These are the recommended versions. Others may be suitable, but are not actively supported.
 
 ## Install
 
@@ -30,10 +35,9 @@ pip uninstall maap_help_jupyter_extension
 
 ## Development install
 
-Note: You will need NodeJS v14 to build the extension package.
-
-
 ```bash
+# Install package dependencies
+yarn install
 # Install package in development mode
 pip install -e .
 # Link your development version of the extension with JupyterLab
