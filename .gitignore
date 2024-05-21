@@ -35,3 +35,9 @@ node_modules/
 *.tsbuildinfo
 package-lock.json
 .yarn/
+
+# Testing
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
