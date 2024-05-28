@@ -75,7 +75,7 @@ export class TourHandler implements ITourHandler {
    * Each tour can have it's behavior, attributes and css styling customized
    * by accessing and setting its options.
    */
-  get options(): Omit<JoyrideProps, 'steps'> {
+  get options(): any {
     return this._options;
   }
 
