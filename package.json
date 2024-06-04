@@ -38,6 +38,7 @@
     "clean:lib": "rimraf lib tsconfig.tsbuildinfo",
     "clean:labextension": "rimraf maap_help_jupyter_extension/labextension",
     "clean:all": "jlpm clean:lib && jlpm clean:labextension",
+    "install:extension": "jlpm build",
     "start": "jupyter lab --config tests/jupyter_server_test_config.py",
     "test": "jlpm playwright test",
     "test:ui": "jlpm playwright test --ui",
