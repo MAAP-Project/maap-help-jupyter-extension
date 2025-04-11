@@ -1,5 +1,5 @@
 {
-  "name": "maap-help-jupyter-extension",
+  "name": "maap_help_jupyter_extension",
   "version": "2.0.0",
   "description": "Jupyter extension with an interactive MAAP tutorial and MAAP specific help tab options.",
   "keywords": [
@@ -33,38 +33,40 @@
     "build:prod": "jlpm clean && jlpm build:lib && jlpm build:labextension",
     "build:labextension": "jupyter labextension build .",
     "build:labextension:dev": "jupyter labextension build --development True .",
-    "build:lib": "tsc",
+    "build:lib": "tsc --sourceMap",
     "clean": "jlpm clean:lib",
     "clean:lib": "rimraf lib tsconfig.tsbuildinfo",
     "clean:labextension": "rimraf maap_help_jupyter_extension/labextension",
     "clean:all": "jlpm clean:lib && jlpm clean:labextension",
     "install:extension": "jlpm build",
-    "start": "jupyter lab --config tests/jupyter_server_test_config.py",
-    "test": "jlpm playwright test",
+    "start": "jupyter lab --config ui-tests/jupyter_server_test_config.py",
+    "test": "jest --coverage",
     "test:ui": "jlpm playwright test --ui",
     "watch": "run-p watch:src watch:labextension",
     "watch:src": "tsc -w",
     "watch:labextension": "jupyter labextension watch ."
   },
   "dependencies": {
-    "@jupyterlab/application": "^4.1.8",
-    "@jupyterlab/apputils": "^4.1.8",
-    "@jupyterlab/mainmenu": "^4.1.8",
-    "@jupyterlab/statedb": "^4.1.8",
+    "@jupyterlab/application": "^4.2.5",
+    "@jupyterlab/apputils": "^4.2.5",
+    "@jupyterlab/mainmenu": "^4.2.5",
+    "@jupyterlab/statedb": "^4.2.5",
     "@lumino/widgets": "^2.3.2",
     "jupyterlab-tour": "^4.0.1"
   },
   "devDependencies": {
-    "@jupyterlab/builder": "^4.1.8",
+    "@jupyterlab/builder": "^4.2.5",
     "@jupyterlab/galata": "^5.2.0",
+    "@jupyterlab/testutils": "^4.2.5",
     "@playwright/test": "^1.44.0",
+    "@types/jest": "^29.5.13",
     "@types/react-dom": "^18.3.0",
+    "jest": "^29.7.0",
     "node-fetch": "^3.3.0",
     "npm-run-all": "^4.1.5",
     "react-joyride": "2.8.1",
     "rimraf": "^3.0.2",
-    "typescript": "~5.4.5",
-    "webpack": "^5.75.0"
+    "typescript": "~5.4.5"
   },
   "sideEffects": [
     "style/*.css",
