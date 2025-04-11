@@ -3897,7 +3897,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lumino/widgets@npm:^1.37.2 || ^2.7.0, @lumino/widgets@npm:^2.7.0":
+"@lumino/widgets@npm:^1.37.2 || ^2.7.0, @lumino/widgets@npm:^2.0.0, @lumino/widgets@npm:^2.7.0":
   version: 2.7.0
   resolution: "@lumino/widgets@npm:2.7.0"
   dependencies:
@@ -8536,7 +8536,7 @@ __metadata:
     "@jupyterlab/mainmenu": ^4.2.5
     "@jupyterlab/statedb": ^4.2.5
     "@jupyterlab/testutils": ^4.2.5
-    "@lumino/widgets": ^2.3.2
+    "@lumino/widgets": ^2.0.0
     "@playwright/test": ^1.44.0
     "@types/jest": ^29.5.13
     "@types/react-dom": ^18.3.0
