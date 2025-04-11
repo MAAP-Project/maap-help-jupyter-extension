@@ -47,4 +47,5 @@ labextension.list
 junit.xml
 ui-tests/test-results
 ui-tests/playwright-report
+ui-tests/yarn.lock
 coverage/
