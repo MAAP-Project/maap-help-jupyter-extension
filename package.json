@@ -26,7 +26,7 @@
   "style": "style/index.css",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MAAP-Project/maap-help-jupyter-extension/.git"
+    "url": "https://github.com/MAAP-Project/maap-help-jupyter-extension"
   },
   "scripts": {
     "build": "jlpm build:lib && jlpm build:labextension:dev",
