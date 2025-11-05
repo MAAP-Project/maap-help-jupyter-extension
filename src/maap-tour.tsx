@@ -51,12 +51,12 @@ export const managerTour = {
               target: '#filebrowser',
               title: 'File Browser'
             },
-            {
-              content: <div>Interface with Git including cloning a repository. See more <a href="https://docs.maap-project.org/en/latest/system_reference_guide/work_with_git.html" target="_blank" style={{ color: 'blue' }}>here</a>.</div>,
-              placement: 'bottom',
-              target: '#jp-git-sessions',
-              title: 'Git'
-            },
+            // {
+            //   content: <div>Interface with Git including cloning a repository. See more <a href="https://docs.maap-project.org/en/latest/system_reference_guide/work_with_git.html" target="_blank" style={{ color: 'blue' }}>here</a>.</div>,
+            //   placement: 'bottom',
+            //   target: '#jpgitsessions',
+            //   title: 'Git'
+            // },
             /*{
               content: 'Shows logged-in users with whom the workspace is shared.',
               placement: 'bottom',
