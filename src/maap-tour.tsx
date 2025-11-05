@@ -54,7 +54,7 @@ export const managerTour = {
             {
               content: <div>Interface with Git including cloning a repository. See more <a href="https://docs.maap-project.org/en/latest/system_reference_guide/work_with_git.html" target="_blank" style={{ color: 'blue' }}>here</a>.</div>,
               placement: 'bottom',
-              target: '#jpgitsessions',
+              target: '#jp-git-sessions',
               title: 'Git'
             },
             /*{
