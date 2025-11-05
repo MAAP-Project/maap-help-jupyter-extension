@@ -44,13 +44,13 @@ export const managerTour = {
               target: '#Jobs',
               title: 'Jobs'
             },
-            {
-              content:
-                <div>The file browser is divided into your public and private buckets. Everything in the public and private buckets is persistent and s3-backed. Other MAAP users can access data in your public bucket through shared-buckets. See more <a href="https://docs.maap-project.org/en/latest/system_reference_guide/share_data.html" target="_blank" style={{ color: 'blue' }}>here</a>.</div>,
-              placement: 'right',
-              target: '#filebrowser',
-              title: 'File Browser'
-            },
+            // {
+            //   content:
+            //     <div>The file browser is divided into your public and private buckets. Everything in the public and private buckets is persistent and s3-backed. Other MAAP users can access data in your public bucket through shared-buckets. See more <a href="https://docs.maap-project.org/en/latest/system_reference_guide/share_data.html" target="_blank" style={{ color: 'blue' }}>here</a>.</div>,
+            //   placement: 'right',
+            //   target: '#filebrowser',
+            //   title: 'File Browser'
+            // },
             // {
             //   content: <div>Interface with Git including cloning a repository. See more <a href="https://docs.maap-project.org/en/latest/system_reference_guide/work_with_git.html" target="_blank" style={{ color: 'blue' }}>here</a>.</div>,
             //   placement: 'bottom',
