@@ -164,7 +164,9 @@ export class TourManager implements ITourManager {
     id: string,
     label: string,
     addToHelpMenu = true,
-    options: Omit<JoyrideProps, 'steps'> = {}
+    options: Omit<JoyrideProps, 'steps'> = {
+      run: true
+    }
   ): ITourHandler => {
     if (this._tours.has(id)) {
       throw new Error(
@@ -183,7 +185,7 @@ export class TourManager implements ITourManager {
     // Create tour and add it to help menu if needed
     const newTutorial: TourHandler = new TourHandler(id, label, options);
     if (this._menu && addToHelpMenu) {
-      const menuItem = this._menu.helpMenu.menu.addItem({
+      const menuItem = this._menu.helpMenu.addItem({
         args: {
           id: newTutorial.id
         },
@@ -310,7 +312,7 @@ export class TourManager implements ITourManager {
     if (this._menu && this._menuItems.has(id)) {
       const item = this._menuItems.get(id);
       if (item) {
-        this._menu.helpMenu.menu.removeItem(item);
+        this._menu.helpMenu.removeItem(item);
       }
       this._menuItems.delete(id);
     }
